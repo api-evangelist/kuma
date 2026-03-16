@@ -1,0 +1,49 @@
+aid: kuma
+name: Kuma
+description: >-
+  Kuma is a platform-agnostic open-source service mesh built on top of Envoy
+  proxy. It provides universal connectivity, security, and observability for
+  services and microservices running on any infrastructure including Kubernetes
+  and VMs.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Service Mesh
+  - Kubernetes
+  - Microservices
+  - Envoy
+  - Security
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/kuma/refs/heads/main/apis.yml
+created: '2026-03-16'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+apis:
+  - aid: kuma:kuma-api
+    name: Kuma API
+    description: >-
+      Kuma's control plane REST API for managing service mesh policies,
+      dataplanes, and configurations.
+    humanURL: https://kuma.io/docs/latest/reference/http-api/
+    tags:
+      - Service Mesh
+      - API
+    properties:
+      - type: Documentation
+        url: https://kuma.io/docs/latest/reference/http-api/
+      - type: Getting Started
+        url: https://kuma.io/docs/latest/installation/
+common:
+  - type: Website
+    url: https://kuma.io/
+  - type: Documentation
+    url: https://kuma.io/docs/
+  - type: Getting Started
+    url: https://kuma.io/docs/latest/installation/
+  - type: GitHub Organization
+    url: https://github.com/kumahq/kuma
+  - type: Community
+    url: https://kuma.io/community/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
