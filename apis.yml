@@ -16,23 +16,72 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/kuma/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-16'
+modified: '2026-03-18'
 specificationVersion: '0.19'
 apis:
   - aid: kuma:kuma-api
     name: Kuma API
     description: >-
       Kuma's control plane REST API for managing service mesh policies,
-      dataplanes, and configurations.
+      dataplanes, zones, and configurations. It provides endpoints for
+      inspecting and managing all mesh resources including traffic policies,
+      service discovery, and health checks across Universal and Kubernetes
+      deployments.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://kuma.io/docs/latest/reference/http-api/
+    baseURL: https://localhost:5681
     tags:
       - Service Mesh
-      - API
+      - Control Plane
+      - REST API
+      - Management
     properties:
       - type: Documentation
         url: https://kuma.io/docs/latest/reference/http-api/
       - type: Getting Started
         url: https://kuma.io/docs/latest/installation/
+      - type: Reference
+        url: https://kuma.io/docs/latest/reference/http-api/
+  - aid: kuma:kuma-kubernetes-policy-api
+    name: Kuma Kubernetes Policy API
+    description: >-
+      Kuma extends the Kubernetes API server with Custom Resource Definitions
+      (CRDs) for defining and managing service mesh policies. These resources
+      include MeshTrafficPermission, MeshRetry, MeshTimeout, MeshCircuitBreaker,
+      MeshHealthCheck, MeshFaultInjection, and MeshRateLimit, enabling
+      fine-grained traffic management, security, and resilience policies for
+      meshed workloads.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://kuma.io/docs/latest/policies/
+    tags:
+      - Kubernetes
+      - CRD
+      - Policy
+      - Traffic Management
+    properties:
+      - type: Documentation
+        url: https://kuma.io/docs/latest/policies/
+      - type: Reference
+        url: https://kuma.io/docs/latest/reference/kubernetes-annotations/
+  - aid: kuma:kuma-multizone-api
+    name: Kuma Multizone API
+    description: >-
+      Kuma's Multizone deployment API enables managing service meshes across
+      multiple Kubernetes clusters and Universal zones from a single global
+      control plane. It provides resources for zone management, cross-zone
+      traffic routing, and zone egress and ingress configuration.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://kuma.io/docs/latest/production/deployment/multi-zone/
+    tags:
+      - Multizone
+      - Multi-Cluster
+      - Federation
+      - Control Plane
+    properties:
+      - type: Documentation
+        url: https://kuma.io/docs/latest/production/deployment/multi-zone/
+      - type: Reference
+        url: https://kuma.io/docs/latest/reference/http-api/
 common:
   - type: Website
     url: https://kuma.io/
@@ -41,9 +90,25 @@ common:
   - type: Getting Started
     url: https://kuma.io/docs/latest/installation/
   - type: GitHub Organization
+    url: https://github.com/kumahq
+  - type: GitHubRepository
     url: https://github.com/kumahq/kuma
   - type: Community
     url: https://kuma.io/community/
+  - type: Blog
+    url: https://kuma.io/blog/
+  - type: Slack
+    url: https://kuma-mesh.slack.com/
+  - type: Change Log
+    url: https://github.com/kumahq/kuma/releases
+  - type: Support
+    url: https://kuma.io/community/
+  - type: Stack Overflow
+    url: https://stackoverflow.com/questions/tagged/kuma
+  - type: Security
+    url: https://github.com/kumahq/kuma/blob/master/SECURITY.md
+  - type: YouTube
+    url: https://www.youtube.com/@KumaMesh
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
