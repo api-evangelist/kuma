@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Service Mesh
+  - Envoy
   - Kubernetes
   - Microservices
-  - Envoy
   - Security
+  - Service Mesh
 url: >-
   https://raw.githubusercontent.com/api-evangelist/kuma/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -31,10 +31,10 @@ apis:
     humanURL: https://kuma.io/docs/latest/reference/http-api/
     baseURL: https://localhost:5681
     tags:
-      - Service Mesh
       - Control Plane
-      - REST API
       - Management
+      - REST API
+      - Service Mesh
     properties:
       - type: Documentation
         url: https://kuma.io/docs/latest/reference/http-api/
@@ -54,8 +54,8 @@ apis:
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://kuma.io/docs/latest/policies/
     tags:
-      - Kubernetes
       - CRD
+      - Kubernetes
       - Policy
       - Traffic Management
     properties:
@@ -73,10 +73,10 @@ apis:
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://kuma.io/docs/latest/production/deployment/multi-zone/
     tags:
-      - Multizone
-      - Multi-Cluster
-      - Federation
       - Control Plane
+      - Federation
+      - Multi-Cluster
+      - Multizone
     properties:
       - type: Documentation
         url: https://kuma.io/docs/latest/production/deployment/multi-zone/
