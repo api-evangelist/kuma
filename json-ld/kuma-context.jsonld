@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "kuma": "https://kuma.io/docs/latest/reference/",
+    "name": "schema:name",
+    "description": "schema:description",
+    "type": "schema:additionalType",
+    "mesh": "kuma:mesh",
+    "dataplane": "kuma:dataplane",
+    "zone": "kuma:zone",
+    "policy": "kuma:policy",
+    "targetRef": "kuma:targetRef",
+    "from": "kuma:from",
+    "to": "kuma:to",
+    "labels": "kuma:labels",
+    "Mesh": "kuma:Mesh",
+    "Dataplane": "kuma:Dataplane",
+    "MeshTrafficPermission": "kuma:MeshTrafficPermission",
+    "MeshRetry": "kuma:MeshRetry",
+    "MeshTimeout": "kuma:MeshTimeout",
+    "MeshCircuitBreaker": "kuma:MeshCircuitBreaker",
+    "MeshHealthCheck": "kuma:MeshHealthCheck",
+    "MeshFaultInjection": "kuma:MeshFaultInjection",
+    "MeshRateLimit": "kuma:MeshRateLimit"
+  }
+}

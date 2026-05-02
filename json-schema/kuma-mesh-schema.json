@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/kuma/main/json-schema/kuma-mesh-schema.json",
+  "title": "Kuma Mesh Resource Schema",
+  "description": "JSON Schema for Kuma service mesh resources including Mesh, Dataplane, and policy types.",
+  "type": "object",
+  "required": ["type", "name"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The Kuma resource type.",
+      "enum": [
+        "Mesh",
+        "Dataplane",
+        "DataplaneInsight",
+        "ZoneIngress",
+        "ZoneEgress",
+        "ServiceInsight",
+        "MeshTrafficPermission",
+        "MeshRetry",
+        "MeshTimeout",
+        "MeshCircuitBreaker",
+        "MeshHealthCheck",
+        "MeshFaultInjection",
+        "MeshRateLimit",
+        "MeshAccessLog",
+        "MeshTrace",
+        "MeshProxyPatch",
+        "MeshLoadBalancingStrategy",
+        "MeshHTTPRoute",
+        "MeshTCPRoute",
+        "MeshGateway",
+        "MeshGatewayRoute",
+        "MeshGatewayInstance"
+      ]
+    },
+    "mesh": {
+      "type": "string",
+      "description": "Name of the mesh this resource belongs to."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the resource."
+    },
+    "creationTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time when the resource was created."
+    },
+    "modificationTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time when the resource was last modified."
+    },
+    "labels": {
+      "type": "object",
+      "description": "Resource labels for grouping and selection.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "spec": {
+      "type": "object",
+      "description": "Resource specification, varies by type."
+    },
+    "targetRef": {
+      "type": "object",
+      "description": "Target reference for policies, identifies the resources to which the policy applies.",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["Mesh", "MeshSubset", "MeshService", "MeshServiceSubset", "MeshGateway"]
+        },
+        "name": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "from": {
+      "type": "array",
+      "description": "Inbound policy rules.",
+      "items": {
+        "type": "object"
+      }
+    },
+    "to": {
+      "type": "array",
+      "description": "Outbound policy rules.",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

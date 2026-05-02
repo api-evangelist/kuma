@@ -16,7 +16,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/kuma/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-18'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
   - aid: kuma:kuma-api
@@ -42,6 +42,10 @@ apis:
         url: https://kuma.io/docs/latest/installation/
       - type: Reference
         url: https://kuma.io/docs/latest/reference/http-api/
+      - type: OpenAPI
+        url: openapi/kuma-api-openapi.yml
+      - type: JSONSchema
+        url: json-schema/kuma-mesh-schema.json
   - aid: kuma:kuma-kubernetes-policy-api
     name: Kuma Kubernetes Policy API
     description: >-
@@ -109,6 +113,10 @@ common:
     url: https://github.com/kumahq/kuma/blob/master/SECURITY.md
   - type: YouTube
     url: https://www.youtube.com/@KumaMesh
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+  - type: JSON-LD
+    url: json-ld/kuma-context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

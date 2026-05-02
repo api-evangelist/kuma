@@ -5,9 +5,9 @@ Kuma is a platform-agnostic open-source service mesh built on top of Envoy proxy
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consuming
+- **Access:** 3rd-Party
 
 ## Tags:
 
@@ -15,16 +15,15 @@ Kuma is a platform-agnostic open-source service mesh built on top of Envoy proxy
 
 ## Timestamps
 
-- **Created:** 2026-03-16 
-- **Modified:** 2026-03-18 
+- **Created:** 2026-03-16
+- **Modified:** 2026-04-28
 
 ## APIs
 
 ### Kuma API
-Kuma's control plane REST API for managing service mesh policies, dataplanes, zones, and configurations. It provides endpoints for inspecting and managing all mesh resources including traffic policies, service discovery, and health checks across Universal and Kubernetes deployments.
+Kuma's control plane REST API for managing service mesh policies, dataplanes, zones, and configurations across Universal and Kubernetes deployments.
 
 **Human URL:** [https://kuma.io/docs/latest/reference/http-api/](https://kuma.io/docs/latest/reference/http-api/)
-
 
 #### Tags:
 
@@ -35,12 +34,13 @@ Kuma's control plane REST API for managing service mesh policies, dataplanes, zo
 - [Documentation](https://kuma.io/docs/latest/reference/http-api/)
 - [Getting Started](https://kuma.io/docs/latest/installation/)
 - [Reference](https://kuma.io/docs/latest/reference/http-api/)
+- [OpenAPI](openapi/kuma-api-openapi.yml)
+- [JSONSchema](json-schema/kuma-mesh-schema.json)
 
 ### Kuma Kubernetes Policy API
-Kuma extends the Kubernetes API server with Custom Resource Definitions (CRDs) for defining and managing service mesh policies. These resources include MeshTrafficPermission, MeshRetry, MeshTimeout, MeshCircuitBreaker, MeshHealthCheck, MeshFaultInjection, and MeshRateLimit, enabling fine-grained traffic management, security, and resilience policies for meshed workloads.
+Kuma extends the Kubernetes API server with Custom Resource Definitions (CRDs) for defining and managing service mesh policies including MeshTrafficPermission, MeshRetry, MeshTimeout, MeshCircuitBreaker, MeshHealthCheck, MeshFaultInjection, and MeshRateLimit.
 
 **Human URL:** [https://kuma.io/docs/latest/policies/](https://kuma.io/docs/latest/policies/)
-
 
 #### Tags:
 
@@ -52,10 +52,9 @@ Kuma extends the Kubernetes API server with Custom Resource Definitions (CRDs) f
 - [Reference](https://kuma.io/docs/latest/reference/kubernetes-annotations/)
 
 ### Kuma Multizone API
-Kuma's Multizone deployment API enables managing service meshes across multiple Kubernetes clusters and Universal zones from a single global control plane. It provides resources for zone management, cross-zone traffic routing, and zone egress and ingress configuration.
+Kuma's Multizone deployment API enables managing service meshes across multiple Kubernetes clusters and Universal zones from a single global control plane.
 
 **Human URL:** [https://kuma.io/docs/latest/production/deployment/multi-zone/](https://kuma.io/docs/latest/production/deployment/multi-zone/)
-
 
 #### Tags:
 
@@ -81,6 +80,8 @@ Kuma's Multizone deployment API enables managing service meshes across multiple 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/kuma)
 - [Security](https://github.com/kumahq/kuma/blob/master/SECURITY.md)
 - [YouTube](https://www.youtube.com/@KumaMesh)
+- [JSONSchema](json-schema/kuma-mesh-schema.json)
+- [JSON-LD](json-ld/kuma-context.jsonld)
 
 ## Maintainers
 
