@@ -1,0 +1,3598 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API
+  description: Kuma API
+  tags:
+  - Kuma
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: kuma
+    baseUri: https://api.example.com
+    description: Kuma API HTTP API.
+    authentication:
+      type: basic
+      username: '{{KUMA_USERNAME}}'
+      password: '{{KUMA_PASSWORD}}'
+    resources:
+    - name: resource
+      path: /
+      operations:
+      - name: index
+        method: GET
+        description: The index endpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: resources
+      path: /_resources
+      operations:
+      - name: get-resource-type-description
+        method: GET
+        description: A list of all resources that exist
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-insight
+      path: /global-insight
+      operations:
+      - name: get-global-insight
+        method: GET
+        description: Get Global Insight
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-resourcetype-resourcename-rules
+      path: /meshes/{mesh}/{resourceType}/{resourceName}/_rules
+      operations:
+      - name: inspect-dataplanes-rules
+        method: GET
+        description: Returns rules matching this dataplane
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh the policy is part of
+        - name: resourceType
+          in: path
+          type: string
+          required: true
+          description: The type of resource (only some resources support rules api)
+        - name: resourceName
+          in: path
+          type: string
+          required: true
+          description: The name of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-dataplanes-name-config
+      path: /meshes/{mesh}/dataplanes/{name}/_config
+      operations:
+      - name: get-dataplanes-xds-config
+        method: GET
+        description: Get a proxy XDS config on a CP, this endpoint is only available on zone CPs.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh of the DPP to get the diff for.
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the DPP within the mesh to get the diff for.
+        - name: shadow
+          in: query
+          type: boolean
+          description: 'When computing XDS config the CP take into account policies with ''kuma.io/effect: shadow'' label'
+        - name: include
+          in: query
+          type: array
+          description: An array of extra fields to include in the response. When `include=diff` the server computes a diff
+            in JSONPatch format between the current proxy XDS config and
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-dataplanes-name-layout
+      path: /meshes/{mesh}/dataplanes/{name}/_layout
+      operations:
+      - name: get-dataplanes-layout
+        method: GET
+        description: Get networking layout for this dataplane
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh of the DPP to get the layout for.
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the DPP within the mesh to get the layout for.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-dataplanes-name-policies
+      path: /meshes/{mesh}/dataplanes/{name}/_policies
+      operations:
+      - name: get-proxy-policy-conf
+        method: GET
+        description: Get proxy policies for this dataplane
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh of the DPP to get the diff for.
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the DPP within the mesh to get the diff for.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-dataplanes-name-inbounds-inbound-kri
+      path: /meshes/{mesh}/dataplanes/{name}/_inbounds/{inbound-kri}/_policies
+      operations:
+      - name: get-inbound-policy-conf
+        method: GET
+        description: Get policies for this inbound
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh of the DPP to get the policies for.
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the DPP within the mesh to get the policies for.
+        - name: inbound-kri
+          in: path
+          type: string
+          required: true
+          description: The name of the Inbound from DPP to get the policies for.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-dataplanes-name-outbounds-kri-polici
+      path: /meshes/{mesh}/dataplanes/{name}/_outbounds/{kri}/_policies
+      operations:
+      - name: get-outbound-policy-conf
+        method: GET
+        description: Get policies for this outbound
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh of the DPP to get the policies for.
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the DPP within the mesh to get the policies for.
+        - name: kri
+          in: path
+          type: string
+          required: true
+          description: The KRI of the Outbound to get the policies for.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-dataplanes-name-outbounds-kri-routes
+      path: /meshes/{mesh}/dataplanes/{name}/_outbounds/{kri}/_routes
+      operations:
+      - name: get-outbound-routes
+        method: GET
+        description: Get routes configuration for this outbound
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh of the DPP to get the policies for.
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the DPP within the mesh to get the policies for.
+        - name: kri
+          in: path
+          type: string
+          required: true
+          description: The KRI of the Outbound to get the routes for.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-dataplanes-name-outbounds-outbound-k
+      path: /meshes/{mesh}/dataplanes/{name}/_outbounds/{outbound-kri}/_routes/{route-kri}/_policies
+      operations:
+      - name: get-route-policy-conf
+        method: GET
+        description: Get policies for this route
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh of the DPP to get the policies for.
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the DPP within the mesh to get the policies for.
+        - name: outbound-kri
+          in: path
+          type: string
+          required: true
+          description: The KRI of the Outbound to get the routes for.
+        - name: route-kri
+          in: path
+          type: string
+          required: true
+          description: The KRI of the Route to get the configuration for.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-policytype-policyname-resources-data
+      path: /meshes/{mesh}/{policyType}/{policyName}/_resources/dataplanes
+      operations:
+      - name: inspect-resources
+        method: GET
+        description: Returns resources matched by this policy
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh the policy is part of
+        - name: policyType
+          in: path
+          type: string
+          required: true
+          description: The type of the policy
+        - name: policyName
+          in: path
+          type: string
+          required: true
+          description: The type of the policy
+        - name: size
+          in: query
+          type: integer
+          description: The max number of items to return
+        - name: offset
+          in: query
+          type: integer
+          description: The offset of result
+        - name: name
+          in: query
+          type: string
+          description: A sub string to filter resources by name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshservices-name-dataplanes
+      path: /meshes/{mesh}/meshservices/{name}/_dataplanes
+      operations:
+      - name: inspect-meshservices-dataplanes
+        method: GET
+        description: Returns dataplanes matched by a MeshService
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh the service is part of
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: The name of the service
+        - name: size
+          in: query
+          type: integer
+          description: The max number of items to return
+        - name: offset
+          in: query
+          type: integer
+          description: The offset of result
+        - name: name
+          in: query
+          type: string
+          description: A sub string to filter resources by name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-servicetype-servicename-hostnames
+      path: /meshes/{mesh}/{serviceType}/{serviceName}/_hostnames
+      operations:
+      - name: inspect-hostnames
+        method: GET
+        description: Returns hostnames for service
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: The mesh the service is part of
+        - name: serviceType
+          in: path
+          type: string
+          required: true
+          description: The type of the service
+        - name: serviceName
+          in: path
+          type: string
+          required: true
+          description: The name of the service
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kri-kri
+      path: /_kri/{kri}
+      operations:
+      - name: getbykri
+        method: GET
+        description: Returns a resource by KRI
+        inputParameters:
+        - name: kri
+          in: path
+          type: string
+          required: true
+          description: KRI of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshaccesslogs-name
+      path: /meshes/{mesh}/meshaccesslogs/{name}
+      operations:
+      - name: getmeshaccesslog
+        method: GET
+        description: Returns MeshAccessLog entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshAccessLog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshaccesslog
+        method: PUT
+        description: Creates or Updates MeshAccessLog entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshAccessLog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshaccesslog
+        method: DELETE
+        description: Deletes MeshAccessLog entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshAccessLog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshaccesslogs
+      path: /meshes/{mesh}/meshaccesslogs
+      operations:
+      - name: getmeshaccessloglist
+        method: GET
+        description: Returns a list of MeshAccessLog in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshcircuitbreakers-name
+      path: /meshes/{mesh}/meshcircuitbreakers/{name}
+      operations:
+      - name: getmeshcircuitbreaker
+        method: GET
+        description: Returns MeshCircuitBreaker entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshCircuitBreaker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshcircuitbreaker
+        method: PUT
+        description: Creates or Updates MeshCircuitBreaker entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshCircuitBreaker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshcircuitbreaker
+        method: DELETE
+        description: Deletes MeshCircuitBreaker entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshCircuitBreaker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshcircuitbreakers
+      path: /meshes/{mesh}/meshcircuitbreakers
+      operations:
+      - name: getmeshcircuitbreakerlist
+        method: GET
+        description: Returns a list of MeshCircuitBreaker in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshfaultinjections-name
+      path: /meshes/{mesh}/meshfaultinjections/{name}
+      operations:
+      - name: getmeshfaultinjection
+        method: GET
+        description: Returns MeshFaultInjection entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshFaultInjection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshfaultinjection
+        method: PUT
+        description: Creates or Updates MeshFaultInjection entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshFaultInjection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshfaultinjection
+        method: DELETE
+        description: Deletes MeshFaultInjection entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshFaultInjection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshfaultinjections
+      path: /meshes/{mesh}/meshfaultinjections
+      operations:
+      - name: getmeshfaultinjectionlist
+        method: GET
+        description: Returns a list of MeshFaultInjection in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshhealthchecks-name
+      path: /meshes/{mesh}/meshhealthchecks/{name}
+      operations:
+      - name: getmeshhealthcheck
+        method: GET
+        description: Returns MeshHealthCheck entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshHealthCheck
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshhealthcheck
+        method: PUT
+        description: Creates or Updates MeshHealthCheck entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshHealthCheck
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshhealthcheck
+        method: DELETE
+        description: Deletes MeshHealthCheck entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshHealthCheck
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshhealthchecks
+      path: /meshes/{mesh}/meshhealthchecks
+      operations:
+      - name: getmeshhealthchecklist
+        method: GET
+        description: Returns a list of MeshHealthCheck in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshhttproutes-name
+      path: /meshes/{mesh}/meshhttproutes/{name}
+      operations:
+      - name: getmeshhttproute
+        method: GET
+        description: Returns MeshHTTPRoute entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshHTTPRoute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshhttproute
+        method: PUT
+        description: Creates or Updates MeshHTTPRoute entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshHTTPRoute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshhttproute
+        method: DELETE
+        description: Deletes MeshHTTPRoute entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshHTTPRoute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshhttproutes
+      path: /meshes/{mesh}/meshhttproutes
+      operations:
+      - name: getmeshhttproutelist
+        method: GET
+        description: Returns a list of MeshHTTPRoute in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshloadbalancingstrategies-name
+      path: /meshes/{mesh}/meshloadbalancingstrategies/{name}
+      operations:
+      - name: getmeshloadbalancingstrategy
+        method: GET
+        description: Returns MeshLoadBalancingStrategy entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshLoadBalancingStrategy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshloadbalancingstrategy
+        method: PUT
+        description: Creates or Updates MeshLoadBalancingStrategy entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshLoadBalancingStrategy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshloadbalancingstrategy
+        method: DELETE
+        description: Deletes MeshLoadBalancingStrategy entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshLoadBalancingStrategy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshloadbalancingstrategies
+      path: /meshes/{mesh}/meshloadbalancingstrategies
+      operations:
+      - name: getmeshloadbalancingstrategylist
+        method: GET
+        description: Returns a list of MeshLoadBalancingStrategy in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshmetrics-name
+      path: /meshes/{mesh}/meshmetrics/{name}
+      operations:
+      - name: getmeshmetric
+        method: GET
+        description: Returns MeshMetric entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshMetric
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshmetric
+        method: PUT
+        description: Creates or Updates MeshMetric entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshMetric
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshmetric
+        method: DELETE
+        description: Deletes MeshMetric entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshMetric
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshmetrics
+      path: /meshes/{mesh}/meshmetrics
+      operations:
+      - name: getmeshmetriclist
+        method: GET
+        description: Returns a list of MeshMetric in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshpassthroughs-name
+      path: /meshes/{mesh}/meshpassthroughs/{name}
+      operations:
+      - name: getmeshpassthrough
+        method: GET
+        description: Returns MeshPassthrough entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshPassthrough
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshpassthrough
+        method: PUT
+        description: Creates or Updates MeshPassthrough entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshPassthrough
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshpassthrough
+        method: DELETE
+        description: Deletes MeshPassthrough entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshPassthrough
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshpassthroughs
+      path: /meshes/{mesh}/meshpassthroughs
+      operations:
+      - name: getmeshpassthroughlist
+        method: GET
+        description: Returns a list of MeshPassthrough in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshproxypatches-name
+      path: /meshes/{mesh}/meshproxypatches/{name}
+      operations:
+      - name: getmeshproxypatch
+        method: GET
+        description: Returns MeshProxyPatch entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshProxyPatch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshproxypatch
+        method: PUT
+        description: Creates or Updates MeshProxyPatch entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshProxyPatch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshproxypatch
+        method: DELETE
+        description: Deletes MeshProxyPatch entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshProxyPatch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshproxypatches
+      path: /meshes/{mesh}/meshproxypatches
+      operations:
+      - name: getmeshproxypatchlist
+        method: GET
+        description: Returns a list of MeshProxyPatch in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshratelimits-name
+      path: /meshes/{mesh}/meshratelimits/{name}
+      operations:
+      - name: getmeshratelimit
+        method: GET
+        description: Returns MeshRateLimit entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshRateLimit
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshratelimit
+        method: PUT
+        description: Creates or Updates MeshRateLimit entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshRateLimit
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshratelimit
+        method: DELETE
+        description: Deletes MeshRateLimit entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshRateLimit
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshratelimits
+      path: /meshes/{mesh}/meshratelimits
+      operations:
+      - name: getmeshratelimitlist
+        method: GET
+        description: Returns a list of MeshRateLimit in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshretries-name
+      path: /meshes/{mesh}/meshretries/{name}
+      operations:
+      - name: getmeshretry
+        method: GET
+        description: Returns MeshRetry entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshRetry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putmeshretry
+        method: PUT
+        description: Creates or Updates MeshRetry entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshRetry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletemeshretry
+        method: DELETE
+        description: Deletes MeshRetry entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshRetry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshretries
+      path: /meshes/{mesh}/meshretries
+      operations:
+      - name: getmeshretrylist
+        method: GET
+        description: Returns a list of MeshRetry in the mesh.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meshes-mesh-meshtcproutes-name
+      path: /meshes/{mesh}/meshtcproutes/{name}
+      operations:
+      - name: getmeshtcproute
+        method: GET
+        description: Returns MeshTCPRoute entity
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          required: true
+          description: name of the mesh
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: name of the MeshTCPRoute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: kuma-rest
+    description: REST adapter for Kuma API.
+    resources:
+    - path: /
+      name: index
+      operations:
+      - method: GET
+        name: index
+        description: The index endpoint
+        call: kuma.index
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_resources
+      name: get-resource-type-description
+      operations:
+      - method: GET
+        name: get-resource-type-description
+        description: A list of all resources that exist
+        call: kuma.get-resource-type-description
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /global-insight
+      name: get-global-insight
+      operations:
+      - method: GET
+        name: get-global-insight
+        description: Get Global Insight
+        call: kuma.get-global-insight
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/{resourceType}/{resourceName}/_rules
+      name: inspect-dataplanes-rules
+      operations:
+      - method: GET
+        name: inspect-dataplanes-rules
+        description: Returns rules matching this dataplane
+        call: kuma.inspect-dataplanes-rules
+        with:
+          mesh: rest.mesh
+          resourceType: rest.resourceType
+          resourceName: rest.resourceName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/dataplanes/{name}/_config
+      name: get-dataplanes-xds-config
+      operations:
+      - method: GET
+        name: get-dataplanes-xds-config
+        description: Get a proxy XDS config on a CP, this endpoint is only available on zone CPs.
+        call: kuma.get-dataplanes-xds-config
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/dataplanes/{name}/_layout
+      name: get-dataplanes-layout
+      operations:
+      - method: GET
+        name: get-dataplanes-layout
+        description: Get networking layout for this dataplane
+        call: kuma.get-dataplanes-layout
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/dataplanes/{name}/_policies
+      name: get-proxy-policy-conf
+      operations:
+      - method: GET
+        name: get-proxy-policy-conf
+        description: Get proxy policies for this dataplane
+        call: kuma.get-proxy-policy-conf
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/dataplanes/{name}/_inbounds/{inbound-kri}/_policies
+      name: get-inbound-policy-conf
+      operations:
+      - method: GET
+        name: get-inbound-policy-conf
+        description: Get policies for this inbound
+        call: kuma.get-inbound-policy-conf
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          inbound-kri: rest.inbound-kri
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/dataplanes/{name}/_outbounds/{kri}/_policies
+      name: get-outbound-policy-conf
+      operations:
+      - method: GET
+        name: get-outbound-policy-conf
+        description: Get policies for this outbound
+        call: kuma.get-outbound-policy-conf
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          kri: rest.kri
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/dataplanes/{name}/_outbounds/{kri}/_routes
+      name: get-outbound-routes
+      operations:
+      - method: GET
+        name: get-outbound-routes
+        description: Get routes configuration for this outbound
+        call: kuma.get-outbound-routes
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          kri: rest.kri
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/dataplanes/{name}/_outbounds/{outbound-kri}/_routes/{route-kri}/_policies
+      name: get-route-policy-conf
+      operations:
+      - method: GET
+        name: get-route-policy-conf
+        description: Get policies for this route
+        call: kuma.get-route-policy-conf
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          outbound-kri: rest.outbound-kri
+          route-kri: rest.route-kri
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/{policyType}/{policyName}/_resources/dataplanes
+      name: inspect-resources
+      operations:
+      - method: GET
+        name: inspect-resources
+        description: Returns resources matched by this policy
+        call: kuma.inspect-resources
+        with:
+          mesh: rest.mesh
+          policyType: rest.policyType
+          policyName: rest.policyName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshservices/{name}/_dataplanes
+      name: inspect-meshservices-dataplanes
+      operations:
+      - method: GET
+        name: inspect-meshservices-dataplanes
+        description: Returns dataplanes matched by a MeshService
+        call: kuma.inspect-meshservices-dataplanes
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/{serviceType}/{serviceName}/_hostnames
+      name: inspect-hostnames
+      operations:
+      - method: GET
+        name: inspect-hostnames
+        description: Returns hostnames for service
+        call: kuma.inspect-hostnames
+        with:
+          mesh: rest.mesh
+          serviceType: rest.serviceType
+          serviceName: rest.serviceName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /_kri/{kri}
+      name: getbykri
+      operations:
+      - method: GET
+        name: getbykri
+        description: Returns a resource by KRI
+        call: kuma.getbykri
+        with:
+          kri: rest.kri
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshaccesslogs/{name}
+      name: getmeshaccesslog
+      operations:
+      - method: GET
+        name: getmeshaccesslog
+        description: Returns MeshAccessLog entity
+        call: kuma.getmeshaccesslog
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshaccesslogs/{name}
+      name: putmeshaccesslog
+      operations:
+      - method: PUT
+        name: putmeshaccesslog
+        description: Creates or Updates MeshAccessLog entity
+        call: kuma.putmeshaccesslog
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshaccesslogs/{name}
+      name: deletemeshaccesslog
+      operations:
+      - method: DELETE
+        name: deletemeshaccesslog
+        description: Deletes MeshAccessLog entity
+        call: kuma.deletemeshaccesslog
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshaccesslogs
+      name: getmeshaccessloglist
+      operations:
+      - method: GET
+        name: getmeshaccessloglist
+        description: Returns a list of MeshAccessLog in the mesh.
+        call: kuma.getmeshaccessloglist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshcircuitbreakers/{name}
+      name: getmeshcircuitbreaker
+      operations:
+      - method: GET
+        name: getmeshcircuitbreaker
+        description: Returns MeshCircuitBreaker entity
+        call: kuma.getmeshcircuitbreaker
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshcircuitbreakers/{name}
+      name: putmeshcircuitbreaker
+      operations:
+      - method: PUT
+        name: putmeshcircuitbreaker
+        description: Creates or Updates MeshCircuitBreaker entity
+        call: kuma.putmeshcircuitbreaker
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshcircuitbreakers/{name}
+      name: deletemeshcircuitbreaker
+      operations:
+      - method: DELETE
+        name: deletemeshcircuitbreaker
+        description: Deletes MeshCircuitBreaker entity
+        call: kuma.deletemeshcircuitbreaker
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshcircuitbreakers
+      name: getmeshcircuitbreakerlist
+      operations:
+      - method: GET
+        name: getmeshcircuitbreakerlist
+        description: Returns a list of MeshCircuitBreaker in the mesh.
+        call: kuma.getmeshcircuitbreakerlist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshfaultinjections/{name}
+      name: getmeshfaultinjection
+      operations:
+      - method: GET
+        name: getmeshfaultinjection
+        description: Returns MeshFaultInjection entity
+        call: kuma.getmeshfaultinjection
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshfaultinjections/{name}
+      name: putmeshfaultinjection
+      operations:
+      - method: PUT
+        name: putmeshfaultinjection
+        description: Creates or Updates MeshFaultInjection entity
+        call: kuma.putmeshfaultinjection
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshfaultinjections/{name}
+      name: deletemeshfaultinjection
+      operations:
+      - method: DELETE
+        name: deletemeshfaultinjection
+        description: Deletes MeshFaultInjection entity
+        call: kuma.deletemeshfaultinjection
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshfaultinjections
+      name: getmeshfaultinjectionlist
+      operations:
+      - method: GET
+        name: getmeshfaultinjectionlist
+        description: Returns a list of MeshFaultInjection in the mesh.
+        call: kuma.getmeshfaultinjectionlist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshhealthchecks/{name}
+      name: getmeshhealthcheck
+      operations:
+      - method: GET
+        name: getmeshhealthcheck
+        description: Returns MeshHealthCheck entity
+        call: kuma.getmeshhealthcheck
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshhealthchecks/{name}
+      name: putmeshhealthcheck
+      operations:
+      - method: PUT
+        name: putmeshhealthcheck
+        description: Creates or Updates MeshHealthCheck entity
+        call: kuma.putmeshhealthcheck
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshhealthchecks/{name}
+      name: deletemeshhealthcheck
+      operations:
+      - method: DELETE
+        name: deletemeshhealthcheck
+        description: Deletes MeshHealthCheck entity
+        call: kuma.deletemeshhealthcheck
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshhealthchecks
+      name: getmeshhealthchecklist
+      operations:
+      - method: GET
+        name: getmeshhealthchecklist
+        description: Returns a list of MeshHealthCheck in the mesh.
+        call: kuma.getmeshhealthchecklist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshhttproutes/{name}
+      name: getmeshhttproute
+      operations:
+      - method: GET
+        name: getmeshhttproute
+        description: Returns MeshHTTPRoute entity
+        call: kuma.getmeshhttproute
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshhttproutes/{name}
+      name: putmeshhttproute
+      operations:
+      - method: PUT
+        name: putmeshhttproute
+        description: Creates or Updates MeshHTTPRoute entity
+        call: kuma.putmeshhttproute
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshhttproutes/{name}
+      name: deletemeshhttproute
+      operations:
+      - method: DELETE
+        name: deletemeshhttproute
+        description: Deletes MeshHTTPRoute entity
+        call: kuma.deletemeshhttproute
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshhttproutes
+      name: getmeshhttproutelist
+      operations:
+      - method: GET
+        name: getmeshhttproutelist
+        description: Returns a list of MeshHTTPRoute in the mesh.
+        call: kuma.getmeshhttproutelist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshloadbalancingstrategies/{name}
+      name: getmeshloadbalancingstrategy
+      operations:
+      - method: GET
+        name: getmeshloadbalancingstrategy
+        description: Returns MeshLoadBalancingStrategy entity
+        call: kuma.getmeshloadbalancingstrategy
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshloadbalancingstrategies/{name}
+      name: putmeshloadbalancingstrategy
+      operations:
+      - method: PUT
+        name: putmeshloadbalancingstrategy
+        description: Creates or Updates MeshLoadBalancingStrategy entity
+        call: kuma.putmeshloadbalancingstrategy
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshloadbalancingstrategies/{name}
+      name: deletemeshloadbalancingstrategy
+      operations:
+      - method: DELETE
+        name: deletemeshloadbalancingstrategy
+        description: Deletes MeshLoadBalancingStrategy entity
+        call: kuma.deletemeshloadbalancingstrategy
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshloadbalancingstrategies
+      name: getmeshloadbalancingstrategylist
+      operations:
+      - method: GET
+        name: getmeshloadbalancingstrategylist
+        description: Returns a list of MeshLoadBalancingStrategy in the mesh.
+        call: kuma.getmeshloadbalancingstrategylist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshmetrics/{name}
+      name: getmeshmetric
+      operations:
+      - method: GET
+        name: getmeshmetric
+        description: Returns MeshMetric entity
+        call: kuma.getmeshmetric
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshmetrics/{name}
+      name: putmeshmetric
+      operations:
+      - method: PUT
+        name: putmeshmetric
+        description: Creates or Updates MeshMetric entity
+        call: kuma.putmeshmetric
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshmetrics/{name}
+      name: deletemeshmetric
+      operations:
+      - method: DELETE
+        name: deletemeshmetric
+        description: Deletes MeshMetric entity
+        call: kuma.deletemeshmetric
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshmetrics
+      name: getmeshmetriclist
+      operations:
+      - method: GET
+        name: getmeshmetriclist
+        description: Returns a list of MeshMetric in the mesh.
+        call: kuma.getmeshmetriclist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshpassthroughs/{name}
+      name: getmeshpassthrough
+      operations:
+      - method: GET
+        name: getmeshpassthrough
+        description: Returns MeshPassthrough entity
+        call: kuma.getmeshpassthrough
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshpassthroughs/{name}
+      name: putmeshpassthrough
+      operations:
+      - method: PUT
+        name: putmeshpassthrough
+        description: Creates or Updates MeshPassthrough entity
+        call: kuma.putmeshpassthrough
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshpassthroughs/{name}
+      name: deletemeshpassthrough
+      operations:
+      - method: DELETE
+        name: deletemeshpassthrough
+        description: Deletes MeshPassthrough entity
+        call: kuma.deletemeshpassthrough
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshpassthroughs
+      name: getmeshpassthroughlist
+      operations:
+      - method: GET
+        name: getmeshpassthroughlist
+        description: Returns a list of MeshPassthrough in the mesh.
+        call: kuma.getmeshpassthroughlist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshproxypatches/{name}
+      name: getmeshproxypatch
+      operations:
+      - method: GET
+        name: getmeshproxypatch
+        description: Returns MeshProxyPatch entity
+        call: kuma.getmeshproxypatch
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshproxypatches/{name}
+      name: putmeshproxypatch
+      operations:
+      - method: PUT
+        name: putmeshproxypatch
+        description: Creates or Updates MeshProxyPatch entity
+        call: kuma.putmeshproxypatch
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshproxypatches/{name}
+      name: deletemeshproxypatch
+      operations:
+      - method: DELETE
+        name: deletemeshproxypatch
+        description: Deletes MeshProxyPatch entity
+        call: kuma.deletemeshproxypatch
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshproxypatches
+      name: getmeshproxypatchlist
+      operations:
+      - method: GET
+        name: getmeshproxypatchlist
+        description: Returns a list of MeshProxyPatch in the mesh.
+        call: kuma.getmeshproxypatchlist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshratelimits/{name}
+      name: getmeshratelimit
+      operations:
+      - method: GET
+        name: getmeshratelimit
+        description: Returns MeshRateLimit entity
+        call: kuma.getmeshratelimit
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshratelimits/{name}
+      name: putmeshratelimit
+      operations:
+      - method: PUT
+        name: putmeshratelimit
+        description: Creates or Updates MeshRateLimit entity
+        call: kuma.putmeshratelimit
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshratelimits/{name}
+      name: deletemeshratelimit
+      operations:
+      - method: DELETE
+        name: deletemeshratelimit
+        description: Deletes MeshRateLimit entity
+        call: kuma.deletemeshratelimit
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshratelimits
+      name: getmeshratelimitlist
+      operations:
+      - method: GET
+        name: getmeshratelimitlist
+        description: Returns a list of MeshRateLimit in the mesh.
+        call: kuma.getmeshratelimitlist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshretries/{name}
+      name: getmeshretry
+      operations:
+      - method: GET
+        name: getmeshretry
+        description: Returns MeshRetry entity
+        call: kuma.getmeshretry
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshretries/{name}
+      name: putmeshretry
+      operations:
+      - method: PUT
+        name: putmeshretry
+        description: Creates or Updates MeshRetry entity
+        call: kuma.putmeshretry
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshretries/{name}
+      name: deletemeshretry
+      operations:
+      - method: DELETE
+        name: deletemeshretry
+        description: Deletes MeshRetry entity
+        call: kuma.deletemeshretry
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshretries
+      name: getmeshretrylist
+      operations:
+      - method: GET
+        name: getmeshretrylist
+        description: Returns a list of MeshRetry in the mesh.
+        call: kuma.getmeshretrylist
+        with:
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /meshes/{mesh}/meshtcproutes/{name}
+      name: getmeshtcproute
+      operations:
+      - method: GET
+        name: getmeshtcproute
+        description: Returns MeshTCPRoute entity
+        call: kuma.getmeshtcproute
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: kuma-mcp
+    transport: http
+    description: MCP adapter for Kuma API for AI agent use.
+    tools:
+    - name: index
+      description: The index endpoint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.index
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-resource-type-description
+      description: A list of all resources that exist
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.get-resource-type-description
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-global-insight
+      description: Get Global Insight
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.get-global-insight
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: inspect-dataplanes-rules
+      description: Returns rules matching this dataplane
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.inspect-dataplanes-rules
+      with:
+        mesh: tools.mesh
+        resourceType: tools.resourceType
+        resourceName: tools.resourceName
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh the policy is part of
+        required: true
+      - name: resourceType
+        type: string
+        description: The type of resource (only some resources support rules api)
+        required: true
+      - name: resourceName
+        type: string
+        description: The name of the resource
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-dataplanes-xds-config
+      description: Get a proxy XDS config on a CP, this endpoint is only available on zone CPs.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.get-dataplanes-xds-config
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        shadow: tools.shadow
+        include: tools.include
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh of the DPP to get the diff for.
+        required: true
+      - name: name
+        type: string
+        description: The name of the DPP within the mesh to get the diff for.
+        required: true
+      - name: shadow
+        type: boolean
+        description: 'When computing XDS config the CP take into account policies with ''kuma.io/effect: shadow'' label'
+      - name: include
+        type: array
+        description: An array of extra fields to include in the response. When `include=diff` the server computes a diff in
+          JSONPatch format between the current proxy XDS config and
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-dataplanes-layout
+      description: Get networking layout for this dataplane
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.get-dataplanes-layout
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh of the DPP to get the layout for.
+        required: true
+      - name: name
+        type: string
+        description: The name of the DPP within the mesh to get the layout for.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-proxy-policy-conf
+      description: Get proxy policies for this dataplane
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.get-proxy-policy-conf
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh of the DPP to get the diff for.
+        required: true
+      - name: name
+        type: string
+        description: The name of the DPP within the mesh to get the diff for.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-inbound-policy-conf
+      description: Get policies for this inbound
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.get-inbound-policy-conf
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        inbound-kri: tools.inbound-kri
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh of the DPP to get the policies for.
+        required: true
+      - name: name
+        type: string
+        description: The name of the DPP within the mesh to get the policies for.
+        required: true
+      - name: inbound-kri
+        type: string
+        description: The name of the Inbound from DPP to get the policies for.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-outbound-policy-conf
+      description: Get policies for this outbound
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.get-outbound-policy-conf
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        kri: tools.kri
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh of the DPP to get the policies for.
+        required: true
+      - name: name
+        type: string
+        description: The name of the DPP within the mesh to get the policies for.
+        required: true
+      - name: kri
+        type: string
+        description: The KRI of the Outbound to get the policies for.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-outbound-routes
+      description: Get routes configuration for this outbound
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.get-outbound-routes
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        kri: tools.kri
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh of the DPP to get the policies for.
+        required: true
+      - name: name
+        type: string
+        description: The name of the DPP within the mesh to get the policies for.
+        required: true
+      - name: kri
+        type: string
+        description: The KRI of the Outbound to get the routes for.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-route-policy-conf
+      description: Get policies for this route
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.get-route-policy-conf
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        outbound-kri: tools.outbound-kri
+        route-kri: tools.route-kri
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh of the DPP to get the policies for.
+        required: true
+      - name: name
+        type: string
+        description: The name of the DPP within the mesh to get the policies for.
+        required: true
+      - name: outbound-kri
+        type: string
+        description: The KRI of the Outbound to get the routes for.
+        required: true
+      - name: route-kri
+        type: string
+        description: The KRI of the Route to get the configuration for.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: inspect-resources
+      description: Returns resources matched by this policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.inspect-resources
+      with:
+        mesh: tools.mesh
+        policyType: tools.policyType
+        policyName: tools.policyName
+        size: tools.size
+        offset: tools.offset
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh the policy is part of
+        required: true
+      - name: policyType
+        type: string
+        description: The type of the policy
+        required: true
+      - name: policyName
+        type: string
+        description: The type of the policy
+        required: true
+      - name: size
+        type: integer
+        description: The max number of items to return
+      - name: offset
+        type: integer
+        description: The offset of result
+      - name: name
+        type: string
+        description: A sub string to filter resources by name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: inspect-meshservices-dataplanes
+      description: Returns dataplanes matched by a MeshService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.inspect-meshservices-dataplanes
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        size: tools.size
+        offset: tools.offset
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh the service is part of
+        required: true
+      - name: name
+        type: string
+        description: The name of the service
+        required: true
+      - name: size
+        type: integer
+        description: The max number of items to return
+      - name: offset
+        type: integer
+        description: The offset of result
+      - name: name
+        type: string
+        description: A sub string to filter resources by name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: inspect-hostnames
+      description: Returns hostnames for service
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.inspect-hostnames
+      with:
+        mesh: tools.mesh
+        serviceType: tools.serviceType
+        serviceName: tools.serviceName
+      inputParameters:
+      - name: mesh
+        type: string
+        description: The mesh the service is part of
+        required: true
+      - name: serviceType
+        type: string
+        description: The type of the service
+        required: true
+      - name: serviceName
+        type: string
+        description: The name of the service
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getbykri
+      description: Returns a resource by KRI
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getbykri
+      with:
+        kri: tools.kri
+      inputParameters:
+      - name: kri
+        type: string
+        description: KRI of the resource
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshaccesslog
+      description: Returns MeshAccessLog entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshaccesslog
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshAccessLog
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshaccesslog
+      description: Creates or Updates MeshAccessLog entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshaccesslog
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshAccessLog
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshaccesslog
+      description: Deletes MeshAccessLog entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshaccesslog
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshAccessLog
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshaccessloglist
+      description: Returns a list of MeshAccessLog in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshaccessloglist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshcircuitbreaker
+      description: Returns MeshCircuitBreaker entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshcircuitbreaker
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshCircuitBreaker
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshcircuitbreaker
+      description: Creates or Updates MeshCircuitBreaker entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshcircuitbreaker
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshCircuitBreaker
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshcircuitbreaker
+      description: Deletes MeshCircuitBreaker entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshcircuitbreaker
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshCircuitBreaker
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshcircuitbreakerlist
+      description: Returns a list of MeshCircuitBreaker in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshcircuitbreakerlist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshfaultinjection
+      description: Returns MeshFaultInjection entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshfaultinjection
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshFaultInjection
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshfaultinjection
+      description: Creates or Updates MeshFaultInjection entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshfaultinjection
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshFaultInjection
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshfaultinjection
+      description: Deletes MeshFaultInjection entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshfaultinjection
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshFaultInjection
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshfaultinjectionlist
+      description: Returns a list of MeshFaultInjection in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshfaultinjectionlist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshhealthcheck
+      description: Returns MeshHealthCheck entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshhealthcheck
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshHealthCheck
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshhealthcheck
+      description: Creates or Updates MeshHealthCheck entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshhealthcheck
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshHealthCheck
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshhealthcheck
+      description: Deletes MeshHealthCheck entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshhealthcheck
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshHealthCheck
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshhealthchecklist
+      description: Returns a list of MeshHealthCheck in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshhealthchecklist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshhttproute
+      description: Returns MeshHTTPRoute entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshhttproute
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshHTTPRoute
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshhttproute
+      description: Creates or Updates MeshHTTPRoute entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshhttproute
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshHTTPRoute
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshhttproute
+      description: Deletes MeshHTTPRoute entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshhttproute
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshHTTPRoute
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshhttproutelist
+      description: Returns a list of MeshHTTPRoute in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshhttproutelist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshloadbalancingstrategy
+      description: Returns MeshLoadBalancingStrategy entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshloadbalancingstrategy
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshLoadBalancingStrategy
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshloadbalancingstrategy
+      description: Creates or Updates MeshLoadBalancingStrategy entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshloadbalancingstrategy
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshLoadBalancingStrategy
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshloadbalancingstrategy
+      description: Deletes MeshLoadBalancingStrategy entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshloadbalancingstrategy
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshLoadBalancingStrategy
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshloadbalancingstrategylist
+      description: Returns a list of MeshLoadBalancingStrategy in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshloadbalancingstrategylist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshmetric
+      description: Returns MeshMetric entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshmetric
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshMetric
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshmetric
+      description: Creates or Updates MeshMetric entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshmetric
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshMetric
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshmetric
+      description: Deletes MeshMetric entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshmetric
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshMetric
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshmetriclist
+      description: Returns a list of MeshMetric in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshmetriclist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshpassthrough
+      description: Returns MeshPassthrough entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshpassthrough
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshPassthrough
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshpassthrough
+      description: Creates or Updates MeshPassthrough entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshpassthrough
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshPassthrough
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshpassthrough
+      description: Deletes MeshPassthrough entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshpassthrough
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshPassthrough
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshpassthroughlist
+      description: Returns a list of MeshPassthrough in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshpassthroughlist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshproxypatch
+      description: Returns MeshProxyPatch entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshproxypatch
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshProxyPatch
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshproxypatch
+      description: Creates or Updates MeshProxyPatch entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshproxypatch
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshProxyPatch
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshproxypatch
+      description: Deletes MeshProxyPatch entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshproxypatch
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshProxyPatch
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshproxypatchlist
+      description: Returns a list of MeshProxyPatch in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshproxypatchlist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshratelimit
+      description: Returns MeshRateLimit entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshratelimit
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshRateLimit
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshratelimit
+      description: Creates or Updates MeshRateLimit entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshratelimit
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshRateLimit
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshratelimit
+      description: Deletes MeshRateLimit entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshratelimit
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshRateLimit
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshratelimitlist
+      description: Returns a list of MeshRateLimit in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshratelimitlist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshretry
+      description: Returns MeshRetry entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshretry
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshRetry
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putmeshretry
+      description: Creates or Updates MeshRetry entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma.putmeshretry
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshRetry
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletemeshretry
+      description: Deletes MeshRetry entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma.deletemeshretry
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshRetry
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshretrylist
+      description: Returns a list of MeshRetry in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshretrylist
+      with:
+        mesh: tools.mesh
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: offset
+        type: integer
+        description: offset in the list of entities
+      - name: size
+        type: integer
+        description: the number of items per page
+      - name: filter
+        type: object
+        description: filter by labels when multiple filters are present, they are ANDed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmeshtcproute
+      description: Returns MeshTCPRoute entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma.getmeshtcproute
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      inputParameters:
+      - name: mesh
+        type: string
+        description: name of the mesh
+        required: true
+      - name: name
+        type: string
+        description: name of the MeshTCPRoute
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    KUMA_USERNAME: KUMA_USERNAME
+    KUMA_PASSWORD: KUMA_PASSWORD
