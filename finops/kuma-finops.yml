@@ -1,151 +1,89 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Kuma
+providerId: kuma
+created: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Service Mesh
+  - Open Source
+description: 'FOCUS-aligned FinOps for Kuma: open-source service mesh with no license fee for the OSS
+  build; Kong Mesh (the commercial distribution by Kong, Inc.) is a contact-sales subscription. FinOps
+  signal at the OSS level comes entirely from the underlying compute and network spend (control-plane
+  pods, sidecar proxies, mesh-internal traffic).'
+sources:
+  - https://kuma.io/
+  - https://konghq.com/products/kong-mesh
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: Kuma
-providerId: kuma
-publisherName: Kuma
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - Envoy
-  - Kubernetes
-  - Microservices
-  - Security
-  - Service Mesh
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the Kuma API surface. Provides a FOCUS-aligned mapping for
-  cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+publisherName: Kong, Inc.
+serviceCategory: Service Mesh / Networking
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Open Source + Enterprise Subscription
+  billingFrequency: Annual
   billingCurrency: USD
   chargeCategories:
     - Usage
     - Purchase
-    - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
   ServiceName: Kuma
-  ServiceCategory: Developer Tools / API
-  ProviderName: Kuma
-  PublisherName: Kuma
-  InvoiceIssuerName: Kuma
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceCategory: Service Mesh
+  ProviderName: Kuma (CNCF) / Kong Mesh (Kong, Inc.)
+  PublisherName: Kong, Inc.
+  InvoiceIssuerName: Kong, Inc.
   BillingCurrency: USD
-  ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: control_plane_compute
+    unit: vCPU-hour
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
+      - zone
+      - cluster
+  - name: dataplane_proxies
+    unit: proxy
+    aggregation: max
+    dimensions:
+      - mesh
+      - zone
+      - service
+  - name: mesh_traffic
     unit: GB
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Kuma API
-    baseURL: https://localhost:5681
-    tags:
-      - Control Plane
-      - Management
-      - REST API
-      - Service Mesh
-    serviceName: Kuma API
-    serviceCategory: API
-  - name: Kuma Kubernetes Policy API
-    baseURL: ''
-    tags:
-      - CRD
-      - Kubernetes
-      - Policy
-      - Traffic Management
-    serviceName: Kuma Kubernetes Policy API
-    serviceCategory: API
-  - name: Kuma Multizone API
-    baseURL: ''
-    tags:
-      - Control Plane
-      - Federation
-      - Multi-Cluster
-      - Multizone
-    serviceName: Kuma Multizone API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - source_service
+      - destination_service
+      - zone
+  - name: kong_mesh_subscription_seats
+    unit: seat
+    aggregation: max
+  - name: managed_meshes
+    unit: mesh
+    aggregation: max
+principles:
+  - name: Visibility
+    description: Use Kuma's built-in Prometheus metrics and traffic permissions API plus the data-plane
+      Envoy stats to attribute traffic and proxy compute to source/destination services.
+  - name: Allocation
+    description: Map each Kuma 'service' tag and 'mesh' to a team/product label; carry those labels onto
+      the underlying pod and node bill via Kubernetes labels.
+  - name: Optimization
+    description: Right-size sidecar resource requests; co-locate heavy mesh-internal traffic in the same
+      zone to avoid cross-AZ egress; consolidate meshes only where isolation is required (each mesh has
+      its own control-plane footprint); turn off optional features (tracing exporters, access logs to
+      object storage) when not in active use.
+  - name: Accountability
+    description: Platform team owns the Kuma control plane and Kong Mesh subscription (if any); product
+      teams own the sidecar overhead of the services they ship. Review proxy count and mesh traffic monthly;
+      escalate Kong Mesh seat / cluster overages before renewal.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
