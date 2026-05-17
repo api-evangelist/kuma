@@ -38,7 +38,7 @@ apis:
     properties:
       - type: Documentation
         url: https://kuma.io/docs/latest/reference/http-api/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://kuma.io/docs/latest/installation/
       - type: Reference
         url: https://kuma.io/docs/latest/reference/http-api/
@@ -91,9 +91,9 @@ common:
     url: https://kuma.io/
   - type: Documentation
     url: https://kuma.io/docs/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://kuma.io/docs/latest/installation/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/kumahq
   - type: GitHubRepository
     url: https://github.com/kumahq/kuma
@@ -103,11 +103,11 @@ common:
     url: https://kuma.io/blog/
   - type: Slack
     url: https://kuma-mesh.slack.com/
-  - type: Change Log
+  - type: ChangeLog
     url: https://github.com/kumahq/kuma/releases
   - type: Support
     url: https://kuma.io/community/
-  - type: Stack Overflow
+  - type: StackOverflow
     url: https://stackoverflow.com/questions/tagged/kuma
   - type: Security
     url: https://github.com/kumahq/kuma/blob/master/SECURITY.md
@@ -115,7 +115,7 @@ common:
     url: https://www.youtube.com/@KumaMesh
   - type: JSONSchema
     url: json-schema/kuma-mesh-schema.json
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/kuma-context.jsonld
 maintainers:
   - FN: Kin Lane
