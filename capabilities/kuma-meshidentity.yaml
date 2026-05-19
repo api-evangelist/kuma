@@ -1,0 +1,238 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — MeshIdentity
+  description: 'Kuma API — MeshIdentity. 4 operations. Lead operation: Returns a list of MeshIdentity in the mesh.. Self-contained
+    Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - MeshIdentity
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-meshidentity
+    baseUri: ''
+    description: Kuma API — MeshIdentity business capability. Self-contained, no shared references.
+    resources:
+    - name: meshes-mesh-meshidentities
+      path: /meshes/{mesh}/meshidentities
+      operations:
+      - name: getmeshidentitylist
+        method: GET
+        description: Returns a list of MeshIdentity in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+    - name: meshes-mesh-meshidentities-name
+      path: /meshes/{mesh}/meshidentities/{name}
+      operations:
+      - name: getmeshidentity
+        method: GET
+        description: Returns MeshIdentity entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshIdentity
+          required: true
+      - name: putmeshidentity
+        method: PUT
+        description: Creates or Updates MeshIdentity entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshIdentity
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemeshidentity
+        method: DELETE
+        description: Deletes MeshIdentity entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshIdentity
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-meshidentity-rest
+    port: 8080
+    description: REST adapter for Kuma API — MeshIdentity. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/meshes/{mesh}/meshidentities
+      name: meshes-mesh-meshidentities
+      description: REST surface for meshes-mesh-meshidentities.
+      operations:
+      - method: GET
+        name: getmeshidentitylist
+        description: Returns a list of MeshIdentity in the mesh.
+        call: kuma-meshidentity.getmeshidentitylist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/meshidentities/{name}
+      name: meshes-mesh-meshidentities-name
+      description: REST surface for meshes-mesh-meshidentities-name.
+      operations:
+      - method: GET
+        name: getmeshidentity
+        description: Returns MeshIdentity entity
+        call: kuma-meshidentity.getmeshidentity
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putmeshidentity
+        description: Creates or Updates MeshIdentity entity
+        call: kuma-meshidentity.putmeshidentity
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemeshidentity
+        description: Deletes MeshIdentity entity
+        call: kuma-meshidentity.deletemeshidentity
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-meshidentity-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — MeshIdentity. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: returns-list-meshidentity-mesh
+      description: Returns a list of MeshIdentity in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshidentity.getmeshidentitylist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+        mesh: tools.mesh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-meshidentity-entity
+      description: Returns MeshIdentity entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshidentity.getmeshidentity
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-meshidentity-entity
+      description: Creates or Updates MeshIdentity entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-meshidentity.putmeshidentity
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-meshidentity-entity
+      description: Deletes MeshIdentity entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-meshidentity.deletemeshidentity
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

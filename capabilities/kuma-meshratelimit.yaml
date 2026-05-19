@@ -1,0 +1,238 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — MeshRateLimit
+  description: 'Kuma API — MeshRateLimit. 4 operations. Lead operation: Returns a list of MeshRateLimit in the mesh.. Self-contained
+    Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - MeshRateLimit
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-meshratelimit
+    baseUri: ''
+    description: Kuma API — MeshRateLimit business capability. Self-contained, no shared references.
+    resources:
+    - name: meshes-mesh-meshratelimits
+      path: /meshes/{mesh}/meshratelimits
+      operations:
+      - name: getmeshratelimitlist
+        method: GET
+        description: Returns a list of MeshRateLimit in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+    - name: meshes-mesh-meshratelimits-name
+      path: /meshes/{mesh}/meshratelimits/{name}
+      operations:
+      - name: getmeshratelimit
+        method: GET
+        description: Returns MeshRateLimit entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshRateLimit
+          required: true
+      - name: putmeshratelimit
+        method: PUT
+        description: Creates or Updates MeshRateLimit entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshRateLimit
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemeshratelimit
+        method: DELETE
+        description: Deletes MeshRateLimit entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshRateLimit
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-meshratelimit-rest
+    port: 8080
+    description: REST adapter for Kuma API — MeshRateLimit. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/meshes/{mesh}/meshratelimits
+      name: meshes-mesh-meshratelimits
+      description: REST surface for meshes-mesh-meshratelimits.
+      operations:
+      - method: GET
+        name: getmeshratelimitlist
+        description: Returns a list of MeshRateLimit in the mesh.
+        call: kuma-meshratelimit.getmeshratelimitlist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/meshratelimits/{name}
+      name: meshes-mesh-meshratelimits-name
+      description: REST surface for meshes-mesh-meshratelimits-name.
+      operations:
+      - method: GET
+        name: getmeshratelimit
+        description: Returns MeshRateLimit entity
+        call: kuma-meshratelimit.getmeshratelimit
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putmeshratelimit
+        description: Creates or Updates MeshRateLimit entity
+        call: kuma-meshratelimit.putmeshratelimit
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemeshratelimit
+        description: Deletes MeshRateLimit entity
+        call: kuma-meshratelimit.deletemeshratelimit
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-meshratelimit-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — MeshRateLimit. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: returns-list-meshratelimit-mesh
+      description: Returns a list of MeshRateLimit in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshratelimit.getmeshratelimitlist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+        mesh: tools.mesh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-meshratelimit-entity
+      description: Returns MeshRateLimit entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshratelimit.getmeshratelimit
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-meshratelimit-entity
+      description: Creates or Updates MeshRateLimit entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-meshratelimit.putmeshratelimit
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-meshratelimit-entity
+      description: Deletes MeshRateLimit entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-meshratelimit.deletemeshratelimit
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

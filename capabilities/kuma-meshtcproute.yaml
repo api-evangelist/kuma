@@ -1,0 +1,238 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — MeshTCPRoute
+  description: 'Kuma API — MeshTCPRoute. 4 operations. Lead operation: Returns a list of MeshTCPRoute in the mesh.. Self-contained
+    Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - MeshTCPRoute
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-meshtcproute
+    baseUri: ''
+    description: Kuma API — MeshTCPRoute business capability. Self-contained, no shared references.
+    resources:
+    - name: meshes-mesh-meshtcproutes
+      path: /meshes/{mesh}/meshtcproutes
+      operations:
+      - name: getmeshtcproutelist
+        method: GET
+        description: Returns a list of MeshTCPRoute in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+    - name: meshes-mesh-meshtcproutes-name
+      path: /meshes/{mesh}/meshtcproutes/{name}
+      operations:
+      - name: getmeshtcproute
+        method: GET
+        description: Returns MeshTCPRoute entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshTCPRoute
+          required: true
+      - name: putmeshtcproute
+        method: PUT
+        description: Creates or Updates MeshTCPRoute entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshTCPRoute
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemeshtcproute
+        method: DELETE
+        description: Deletes MeshTCPRoute entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshTCPRoute
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-meshtcproute-rest
+    port: 8080
+    description: REST adapter for Kuma API — MeshTCPRoute. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/meshes/{mesh}/meshtcproutes
+      name: meshes-mesh-meshtcproutes
+      description: REST surface for meshes-mesh-meshtcproutes.
+      operations:
+      - method: GET
+        name: getmeshtcproutelist
+        description: Returns a list of MeshTCPRoute in the mesh.
+        call: kuma-meshtcproute.getmeshtcproutelist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/meshtcproutes/{name}
+      name: meshes-mesh-meshtcproutes-name
+      description: REST surface for meshes-mesh-meshtcproutes-name.
+      operations:
+      - method: GET
+        name: getmeshtcproute
+        description: Returns MeshTCPRoute entity
+        call: kuma-meshtcproute.getmeshtcproute
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putmeshtcproute
+        description: Creates or Updates MeshTCPRoute entity
+        call: kuma-meshtcproute.putmeshtcproute
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemeshtcproute
+        description: Deletes MeshTCPRoute entity
+        call: kuma-meshtcproute.deletemeshtcproute
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-meshtcproute-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — MeshTCPRoute. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: returns-list-meshtcproute-mesh
+      description: Returns a list of MeshTCPRoute in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshtcproute.getmeshtcproutelist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+        mesh: tools.mesh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-meshtcproute-entity
+      description: Returns MeshTCPRoute entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshtcproute.getmeshtcproute
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-meshtcproute-entity
+      description: Creates or Updates MeshTCPRoute entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-meshtcproute.putmeshtcproute
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-meshtcproute-entity
+      description: Deletes MeshTCPRoute entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-meshtcproute.deletemeshtcproute
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,238 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — MeshRetry
+  description: 'Kuma API — MeshRetry. 4 operations. Lead operation: Returns a list of MeshRetry in the mesh.. Self-contained
+    Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - MeshRetry
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-meshretry
+    baseUri: ''
+    description: Kuma API — MeshRetry business capability. Self-contained, no shared references.
+    resources:
+    - name: meshes-mesh-meshretries
+      path: /meshes/{mesh}/meshretries
+      operations:
+      - name: getmeshretrylist
+        method: GET
+        description: Returns a list of MeshRetry in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+    - name: meshes-mesh-meshretries-name
+      path: /meshes/{mesh}/meshretries/{name}
+      operations:
+      - name: getmeshretry
+        method: GET
+        description: Returns MeshRetry entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshRetry
+          required: true
+      - name: putmeshretry
+        method: PUT
+        description: Creates or Updates MeshRetry entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshRetry
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemeshretry
+        method: DELETE
+        description: Deletes MeshRetry entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshRetry
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-meshretry-rest
+    port: 8080
+    description: REST adapter for Kuma API — MeshRetry. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/meshes/{mesh}/meshretries
+      name: meshes-mesh-meshretries
+      description: REST surface for meshes-mesh-meshretries.
+      operations:
+      - method: GET
+        name: getmeshretrylist
+        description: Returns a list of MeshRetry in the mesh.
+        call: kuma-meshretry.getmeshretrylist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/meshretries/{name}
+      name: meshes-mesh-meshretries-name
+      description: REST surface for meshes-mesh-meshretries-name.
+      operations:
+      - method: GET
+        name: getmeshretry
+        description: Returns MeshRetry entity
+        call: kuma-meshretry.getmeshretry
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putmeshretry
+        description: Creates or Updates MeshRetry entity
+        call: kuma-meshretry.putmeshretry
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemeshretry
+        description: Deletes MeshRetry entity
+        call: kuma-meshretry.deletemeshretry
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-meshretry-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — MeshRetry. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: returns-list-meshretry-mesh
+      description: Returns a list of MeshRetry in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshretry.getmeshretrylist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+        mesh: tools.mesh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-meshretry-entity
+      description: Returns MeshRetry entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshretry.getmeshretry
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-meshretry-entity
+      description: Creates or Updates MeshRetry entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-meshretry.putmeshretry
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-meshretry-entity
+      description: Deletes MeshRetry entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-meshretry.deletemeshretry
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

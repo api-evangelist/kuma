@@ -1,0 +1,210 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — HostnameGenerator
+  description: 'Kuma API — HostnameGenerator. 4 operations. Lead operation: Returns a list of HostnameGenerator in the mesh..
+    Self-contained Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - HostnameGenerator
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-hostnamegenerator
+    baseUri: ''
+    description: Kuma API — HostnameGenerator business capability. Self-contained, no shared references.
+    resources:
+    - name: hostnamegenerators
+      path: /hostnamegenerators
+      operations:
+      - name: gethostnamegeneratorlist
+        method: GET
+        description: Returns a list of HostnameGenerator in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+    - name: hostnamegenerators-name
+      path: /hostnamegenerators/{name}
+      operations:
+      - name: gethostnamegenerator
+        method: GET
+        description: Returns HostnameGenerator entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: name of the HostnameGenerator
+          required: true
+      - name: puthostnamegenerator
+        method: PUT
+        description: Creates or Updates HostnameGenerator entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: name of the HostnameGenerator
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletehostnamegenerator
+        method: DELETE
+        description: Deletes HostnameGenerator entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: name of the HostnameGenerator
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-hostnamegenerator-rest
+    port: 8080
+    description: REST adapter for Kuma API — HostnameGenerator. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/hostnamegenerators
+      name: hostnamegenerators
+      description: REST surface for hostnamegenerators.
+      operations:
+      - method: GET
+        name: gethostnamegeneratorlist
+        description: Returns a list of HostnameGenerator in the mesh.
+        call: kuma-hostnamegenerator.gethostnamegeneratorlist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hostnamegenerators/{name}
+      name: hostnamegenerators-name
+      description: REST surface for hostnamegenerators-name.
+      operations:
+      - method: GET
+        name: gethostnamegenerator
+        description: Returns HostnameGenerator entity
+        call: kuma-hostnamegenerator.gethostnamegenerator
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: puthostnamegenerator
+        description: Creates or Updates HostnameGenerator entity
+        call: kuma-hostnamegenerator.puthostnamegenerator
+        with:
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletehostnamegenerator
+        description: Deletes HostnameGenerator entity
+        call: kuma-hostnamegenerator.deletehostnamegenerator
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-hostnamegenerator-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — HostnameGenerator. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: returns-list-hostnamegenerator-mesh
+      description: Returns a list of HostnameGenerator in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-hostnamegenerator.gethostnamegeneratorlist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-hostnamegenerator-entity
+      description: Returns HostnameGenerator entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-hostnamegenerator.gethostnamegenerator
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-hostnamegenerator-entity
+      description: Creates or Updates HostnameGenerator entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-hostnamegenerator.puthostnamegenerator
+      with:
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-hostnamegenerator-entity
+      description: Deletes HostnameGenerator entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-hostnamegenerator.deletehostnamegenerator
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

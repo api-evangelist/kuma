@@ -1,0 +1,238 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — MeshPassthrough
+  description: 'Kuma API — MeshPassthrough. 4 operations. Lead operation: Returns a list of MeshPassthrough in the mesh..
+    Self-contained Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - MeshPassthrough
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-meshpassthrough
+    baseUri: ''
+    description: Kuma API — MeshPassthrough business capability. Self-contained, no shared references.
+    resources:
+    - name: meshes-mesh-meshpassthroughs
+      path: /meshes/{mesh}/meshpassthroughs
+      operations:
+      - name: getmeshpassthroughlist
+        method: GET
+        description: Returns a list of MeshPassthrough in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+    - name: meshes-mesh-meshpassthroughs-name
+      path: /meshes/{mesh}/meshpassthroughs/{name}
+      operations:
+      - name: getmeshpassthrough
+        method: GET
+        description: Returns MeshPassthrough entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshPassthrough
+          required: true
+      - name: putmeshpassthrough
+        method: PUT
+        description: Creates or Updates MeshPassthrough entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshPassthrough
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemeshpassthrough
+        method: DELETE
+        description: Deletes MeshPassthrough entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshPassthrough
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-meshpassthrough-rest
+    port: 8080
+    description: REST adapter for Kuma API — MeshPassthrough. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/meshes/{mesh}/meshpassthroughs
+      name: meshes-mesh-meshpassthroughs
+      description: REST surface for meshes-mesh-meshpassthroughs.
+      operations:
+      - method: GET
+        name: getmeshpassthroughlist
+        description: Returns a list of MeshPassthrough in the mesh.
+        call: kuma-meshpassthrough.getmeshpassthroughlist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/meshpassthroughs/{name}
+      name: meshes-mesh-meshpassthroughs-name
+      description: REST surface for meshes-mesh-meshpassthroughs-name.
+      operations:
+      - method: GET
+        name: getmeshpassthrough
+        description: Returns MeshPassthrough entity
+        call: kuma-meshpassthrough.getmeshpassthrough
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putmeshpassthrough
+        description: Creates or Updates MeshPassthrough entity
+        call: kuma-meshpassthrough.putmeshpassthrough
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemeshpassthrough
+        description: Deletes MeshPassthrough entity
+        call: kuma-meshpassthrough.deletemeshpassthrough
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-meshpassthrough-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — MeshPassthrough. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: returns-list-meshpassthrough-mesh
+      description: Returns a list of MeshPassthrough in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshpassthrough.getmeshpassthroughlist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+        mesh: tools.mesh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-meshpassthrough-entity
+      description: Returns MeshPassthrough entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshpassthrough.getmeshpassthrough
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-meshpassthrough-entity
+      description: Creates or Updates MeshPassthrough entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-meshpassthrough.putmeshpassthrough
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-meshpassthrough-entity
+      description: Deletes MeshPassthrough entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-meshpassthrough.deletemeshpassthrough
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

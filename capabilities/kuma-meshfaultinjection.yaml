@@ -1,0 +1,238 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — MeshFaultInjection
+  description: 'Kuma API — MeshFaultInjection. 4 operations. Lead operation: Returns a list of MeshFaultInjection in the mesh..
+    Self-contained Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - MeshFaultInjection
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-meshfaultinjection
+    baseUri: ''
+    description: Kuma API — MeshFaultInjection business capability. Self-contained, no shared references.
+    resources:
+    - name: meshes-mesh-meshfaultinjections
+      path: /meshes/{mesh}/meshfaultinjections
+      operations:
+      - name: getmeshfaultinjectionlist
+        method: GET
+        description: Returns a list of MeshFaultInjection in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+    - name: meshes-mesh-meshfaultinjections-name
+      path: /meshes/{mesh}/meshfaultinjections/{name}
+      operations:
+      - name: getmeshfaultinjection
+        method: GET
+        description: Returns MeshFaultInjection entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshFaultInjection
+          required: true
+      - name: putmeshfaultinjection
+        method: PUT
+        description: Creates or Updates MeshFaultInjection entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshFaultInjection
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemeshfaultinjection
+        method: DELETE
+        description: Deletes MeshFaultInjection entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshFaultInjection
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-meshfaultinjection-rest
+    port: 8080
+    description: REST adapter for Kuma API — MeshFaultInjection. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/meshes/{mesh}/meshfaultinjections
+      name: meshes-mesh-meshfaultinjections
+      description: REST surface for meshes-mesh-meshfaultinjections.
+      operations:
+      - method: GET
+        name: getmeshfaultinjectionlist
+        description: Returns a list of MeshFaultInjection in the mesh.
+        call: kuma-meshfaultinjection.getmeshfaultinjectionlist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/meshfaultinjections/{name}
+      name: meshes-mesh-meshfaultinjections-name
+      description: REST surface for meshes-mesh-meshfaultinjections-name.
+      operations:
+      - method: GET
+        name: getmeshfaultinjection
+        description: Returns MeshFaultInjection entity
+        call: kuma-meshfaultinjection.getmeshfaultinjection
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putmeshfaultinjection
+        description: Creates or Updates MeshFaultInjection entity
+        call: kuma-meshfaultinjection.putmeshfaultinjection
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemeshfaultinjection
+        description: Deletes MeshFaultInjection entity
+        call: kuma-meshfaultinjection.deletemeshfaultinjection
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-meshfaultinjection-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — MeshFaultInjection. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: returns-list-meshfaultinjection-mesh
+      description: Returns a list of MeshFaultInjection in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshfaultinjection.getmeshfaultinjectionlist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+        mesh: tools.mesh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-meshfaultinjection-entity
+      description: Returns MeshFaultInjection entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshfaultinjection.getmeshfaultinjection
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-meshfaultinjection-entity
+      description: Creates or Updates MeshFaultInjection entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-meshfaultinjection.putmeshfaultinjection
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-meshfaultinjection-entity
+      description: Deletes MeshFaultInjection entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-meshfaultinjection.deletemeshfaultinjection
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,289 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — Inspect
+  description: 'Kuma API — Inspect. 4 operations. Lead operation: Returns dataplanes matched by a MeshService. Self-contained
+    Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - Inspect
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-inspect
+    baseUri: ''
+    description: Kuma API — Inspect business capability. Self-contained, no shared references.
+    resources:
+    - name: meshes-mesh-meshservices-name-_dataplanes
+      path: /meshes/{mesh}/meshservices/{name}/_dataplanes
+      operations:
+      - name: inspectmeshservicesdataplanes
+        method: GET
+        description: Returns dataplanes matched by a MeshService
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: The mesh the service is part of
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the service
+          required: true
+        - name: size
+          in: query
+          type: integer
+          description: The max number of items to return
+        - name: offset
+          in: query
+          type: integer
+          description: The offset of result
+        - name: name
+          in: query
+          type: string
+          description: A sub string to filter resources by name
+    - name: meshes-mesh-policyType-policyName-_resources-dataplanes
+      path: /meshes/{mesh}/{policyType}/{policyName}/_resources/dataplanes
+      operations:
+      - name: inspectresources
+        method: GET
+        description: Returns resources matched by this policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: The mesh the policy is part of
+          required: true
+        - name: policyType
+          in: path
+          type: string
+          description: The type of the policy
+          required: true
+        - name: policyName
+          in: path
+          type: string
+          description: The type of the policy
+          required: true
+        - name: size
+          in: query
+          type: integer
+          description: The max number of items to return
+        - name: offset
+          in: query
+          type: integer
+          description: The offset of result
+        - name: name
+          in: query
+          type: string
+          description: A sub string to filter resources by name
+    - name: meshes-mesh-resourceType-resourceName-_rules
+      path: /meshes/{mesh}/{resourceType}/{resourceName}/_rules
+      operations:
+      - name: inspectdataplanesrules
+        method: GET
+        description: Returns rules matching this dataplane
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: The mesh the policy is part of
+          required: true
+        - name: resourceType
+          in: path
+          type: string
+          description: The type of resource (only some resources support rules api)
+          required: true
+        - name: resourceName
+          in: path
+          type: string
+          description: The name of the resource
+          required: true
+    - name: meshes-mesh-serviceType-serviceName-_hostnames
+      path: /meshes/{mesh}/{serviceType}/{serviceName}/_hostnames
+      operations:
+      - name: inspecthostnames
+        method: GET
+        description: Returns hostnames for service
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: The mesh the service is part of
+          required: true
+        - name: serviceType
+          in: path
+          type: string
+          description: The type of the service
+          required: true
+        - name: serviceName
+          in: path
+          type: string
+          description: The name of the service
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-inspect-rest
+    port: 8080
+    description: REST adapter for Kuma API — Inspect. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/meshes/{mesh}/meshservices/{name}/dataplanes
+      name: meshes-mesh-meshservices-name-dataplanes
+      description: REST surface for meshes-mesh-meshservices-name-_dataplanes.
+      operations:
+      - method: GET
+        name: inspectmeshservicesdataplanes
+        description: Returns dataplanes matched by a MeshService
+        call: kuma-inspect.inspectmeshservicesdataplanes
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          size: rest.size
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/{policytype}/{policyname}/resources/dataplanes
+      name: meshes-mesh-policytype-policyname-resources-dataplanes
+      description: REST surface for meshes-mesh-policyType-policyName-_resources-dataplanes.
+      operations:
+      - method: GET
+        name: inspectresources
+        description: Returns resources matched by this policy
+        call: kuma-inspect.inspectresources
+        with:
+          mesh: rest.mesh
+          policyType: rest.policyType
+          policyName: rest.policyName
+          size: rest.size
+          offset: rest.offset
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/{resourcetype}/{resourcename}/rules
+      name: meshes-mesh-resourcetype-resourcename-rules
+      description: REST surface for meshes-mesh-resourceType-resourceName-_rules.
+      operations:
+      - method: GET
+        name: inspectdataplanesrules
+        description: Returns rules matching this dataplane
+        call: kuma-inspect.inspectdataplanesrules
+        with:
+          mesh: rest.mesh
+          resourceType: rest.resourceType
+          resourceName: rest.resourceName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/{servicetype}/{servicename}/hostnames
+      name: meshes-mesh-servicetype-servicename-hostnames
+      description: REST surface for meshes-mesh-serviceType-serviceName-_hostnames.
+      operations:
+      - method: GET
+        name: inspecthostnames
+        description: Returns hostnames for service
+        call: kuma-inspect.inspecthostnames
+        with:
+          mesh: rest.mesh
+          serviceType: rest.serviceType
+          serviceName: rest.serviceName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-inspect-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — Inspect. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: returns-dataplanes-matched-meshservice
+      description: Returns dataplanes matched by a MeshService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-inspect.inspectmeshservicesdataplanes
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        size: tools.size
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-resources-matched-this-policy
+      description: Returns resources matched by this policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-inspect.inspectresources
+      with:
+        mesh: tools.mesh
+        policyType: tools.policyType
+        policyName: tools.policyName
+        size: tools.size
+        offset: tools.offset
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-rules-matching-this-dataplane
+      description: Returns rules matching this dataplane
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-inspect.inspectdataplanesrules
+      with:
+        mesh: tools.mesh
+        resourceType: tools.resourceType
+        resourceName: tools.resourceName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-hostnames-service
+      description: Returns hostnames for service
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-inspect.inspecthostnames
+      with:
+        mesh: tools.mesh
+        serviceType: tools.serviceType
+        serviceName: tools.serviceName
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — KRI
+  description: 'Kuma API — KRI. 1 operations. Lead operation: Returns a resource by KRI. Self-contained Naftiko capability
+    covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - KRI
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-kri
+    baseUri: ''
+    description: Kuma API — KRI business capability. Self-contained, no shared references.
+    resources:
+    - name: _kri-kri
+      path: /_kri/{kri}
+      operations:
+      - name: getbykri
+        method: GET
+        description: Returns a resource by KRI
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: kri
+          in: path
+          type: string
+          description: KRI of the resource
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-kri-rest
+    port: 8080
+    description: REST adapter for Kuma API — KRI. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/kri/{kri}
+      name: kri-kri
+      description: REST surface for _kri-kri.
+      operations:
+      - method: GET
+        name: getbykri
+        description: Returns a resource by KRI
+        call: kuma-kri.getbykri
+        with:
+          kri: rest.kri
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-kri-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — KRI. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: returns-resource-kri
+      description: Returns a resource by KRI
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-kri.getbykri
+      with:
+        kri: tools.kri
+      outputParameters:
+      - type: object
+        mapping: $.

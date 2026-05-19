@@ -1,0 +1,238 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — Workload
+  description: 'Kuma API — Workload. 4 operations. Lead operation: Returns a list of Workload in the mesh.. Self-contained
+    Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - Workload
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-workload
+    baseUri: ''
+    description: Kuma API — Workload business capability. Self-contained, no shared references.
+    resources:
+    - name: meshes-mesh-workloads
+      path: /meshes/{mesh}/workloads
+      operations:
+      - name: getworkloadlist
+        method: GET
+        description: Returns a list of Workload in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+    - name: meshes-mesh-workloads-name
+      path: /meshes/{mesh}/workloads/{name}
+      operations:
+      - name: getworkload
+        method: GET
+        description: Returns Workload entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the Workload
+          required: true
+      - name: putworkload
+        method: PUT
+        description: Creates or Updates Workload entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the Workload
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteworkload
+        method: DELETE
+        description: Deletes Workload entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the Workload
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-workload-rest
+    port: 8080
+    description: REST adapter for Kuma API — Workload. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/meshes/{mesh}/workloads
+      name: meshes-mesh-workloads
+      description: REST surface for meshes-mesh-workloads.
+      operations:
+      - method: GET
+        name: getworkloadlist
+        description: Returns a list of Workload in the mesh.
+        call: kuma-workload.getworkloadlist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/workloads/{name}
+      name: meshes-mesh-workloads-name
+      description: REST surface for meshes-mesh-workloads-name.
+      operations:
+      - method: GET
+        name: getworkload
+        description: Returns Workload entity
+        call: kuma-workload.getworkload
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putworkload
+        description: Creates or Updates Workload entity
+        call: kuma-workload.putworkload
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteworkload
+        description: Deletes Workload entity
+        call: kuma-workload.deleteworkload
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-workload-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — Workload. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: returns-list-workload-mesh
+      description: Returns a list of Workload in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-workload.getworkloadlist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+        mesh: tools.mesh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-workload-entity
+      description: Returns Workload entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-workload.getworkload
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-workload-entity
+      description: Creates or Updates Workload entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-workload.putworkload
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-workload-entity
+      description: Deletes Workload entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-workload.deleteworkload
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

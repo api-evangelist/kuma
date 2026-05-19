@@ -1,0 +1,238 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — MeshMultiZoneService
+  description: 'Kuma API — MeshMultiZoneService. 4 operations. Lead operation: Returns a list of MeshMultiZoneService in the
+    mesh.. Self-contained Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - MeshMultiZoneService
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-meshmultizoneservice
+    baseUri: ''
+    description: Kuma API — MeshMultiZoneService business capability. Self-contained, no shared references.
+    resources:
+    - name: meshes-mesh-meshmultizoneservices
+      path: /meshes/{mesh}/meshmultizoneservices
+      operations:
+      - name: getmeshmultizoneservicelist
+        method: GET
+        description: Returns a list of MeshMultiZoneService in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+    - name: meshes-mesh-meshmultizoneservices-name
+      path: /meshes/{mesh}/meshmultizoneservices/{name}
+      operations:
+      - name: getmeshmultizoneservice
+        method: GET
+        description: Returns MeshMultiZoneService entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshMultiZoneService
+          required: true
+      - name: putmeshmultizoneservice
+        method: PUT
+        description: Creates or Updates MeshMultiZoneService entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshMultiZoneService
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemeshmultizoneservice
+        method: DELETE
+        description: Deletes MeshMultiZoneService entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mesh
+          in: path
+          type: string
+          description: name of the mesh
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: name of the MeshMultiZoneService
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-meshmultizoneservice-rest
+    port: 8080
+    description: REST adapter for Kuma API — MeshMultiZoneService. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/meshes/{mesh}/meshmultizoneservices
+      name: meshes-mesh-meshmultizoneservices
+      description: REST surface for meshes-mesh-meshmultizoneservices.
+      operations:
+      - method: GET
+        name: getmeshmultizoneservicelist
+        description: Returns a list of MeshMultiZoneService in the mesh.
+        call: kuma-meshmultizoneservice.getmeshmultizoneservicelist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+          mesh: rest.mesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meshes/{mesh}/meshmultizoneservices/{name}
+      name: meshes-mesh-meshmultizoneservices-name
+      description: REST surface for meshes-mesh-meshmultizoneservices-name.
+      operations:
+      - method: GET
+        name: getmeshmultizoneservice
+        description: Returns MeshMultiZoneService entity
+        call: kuma-meshmultizoneservice.getmeshmultizoneservice
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putmeshmultizoneservice
+        description: Creates or Updates MeshMultiZoneService entity
+        call: kuma-meshmultizoneservice.putmeshmultizoneservice
+        with:
+          mesh: rest.mesh
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemeshmultizoneservice
+        description: Deletes MeshMultiZoneService entity
+        call: kuma-meshmultizoneservice.deletemeshmultizoneservice
+        with:
+          mesh: rest.mesh
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-meshmultizoneservice-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — MeshMultiZoneService. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: returns-list-meshmultizoneservice-mesh
+      description: Returns a list of MeshMultiZoneService in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshmultizoneservice.getmeshmultizoneservicelist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+        mesh: tools.mesh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-meshmultizoneservice-entity
+      description: Returns MeshMultiZoneService entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-meshmultizoneservice.getmeshmultizoneservice
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-meshmultizoneservice-entity
+      description: Creates or Updates MeshMultiZoneService entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-meshmultizoneservice.putmeshmultizoneservice
+      with:
+        mesh: tools.mesh
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-meshmultizoneservice-entity
+      description: Deletes MeshMultiZoneService entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-meshmultizoneservice.deletemeshmultizoneservice
+      with:
+        mesh: tools.mesh
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,210 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kuma API — ZoneEgress
+  description: 'Kuma API — ZoneEgress. 4 operations. Lead operation: Returns a list of ZoneEgress in the mesh.. Self-contained
+    Naftiko capability covering one Kuma business surface.'
+  tags:
+  - Kuma
+  - ZoneEgress
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KUMA_API_KEY: KUMA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kuma-zoneegress
+    baseUri: ''
+    description: Kuma API — ZoneEgress business capability. Self-contained, no shared references.
+    resources:
+    - name: zoneegresses
+      path: /zoneegresses
+      operations:
+      - name: getzoneegresslist
+        method: GET
+        description: Returns a list of ZoneEgress in the mesh.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: offset in the list of entities
+        - name: size
+          in: query
+          type: integer
+          description: the number of items per page
+        - name: filter
+          in: query
+          type: object
+          description: filter by labels when multiple filters are present, they are ANDed
+    - name: zoneegresses-name
+      path: /zoneegresses/{name}
+      operations:
+      - name: deletezoneegress
+        method: DELETE
+        description: Deletes ZoneEgress entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: name of the ZoneEgress
+          required: true
+      - name: getzoneegress
+        method: GET
+        description: Returns ZoneEgress entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: name of the ZoneEgress
+          required: true
+      - name: putzoneegress
+        method: PUT
+        description: Creates or Updates ZoneEgress entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: name of the ZoneEgress
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KUMA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: kuma-zoneegress-rest
+    port: 8080
+    description: REST adapter for Kuma API — ZoneEgress. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/zoneegresses
+      name: zoneegresses
+      description: REST surface for zoneegresses.
+      operations:
+      - method: GET
+        name: getzoneegresslist
+        description: Returns a list of ZoneEgress in the mesh.
+        call: kuma-zoneegress.getzoneegresslist
+        with:
+          offset: rest.offset
+          size: rest.size
+          filter: rest.filter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/zoneegresses/{name}
+      name: zoneegresses-name
+      description: REST surface for zoneegresses-name.
+      operations:
+      - method: DELETE
+        name: deletezoneegress
+        description: Deletes ZoneEgress entity
+        call: kuma-zoneegress.deletezoneegress
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getzoneegress
+        description: Returns ZoneEgress entity
+        call: kuma-zoneegress.getzoneegress
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putzoneegress
+        description: Creates or Updates ZoneEgress entity
+        call: kuma-zoneegress.putzoneegress
+        with:
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kuma-zoneegress-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kuma API — ZoneEgress. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: returns-list-zoneegress-mesh
+      description: Returns a list of ZoneEgress in the mesh.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-zoneegress.getzoneegresslist
+      with:
+        offset: tools.offset
+        size: tools.size
+        filter: tools.filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-zoneegress-entity
+      description: Deletes ZoneEgress entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kuma-zoneegress.deletezoneegress
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-zoneegress-entity
+      description: Returns ZoneEgress entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kuma-zoneegress.getzoneegress
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-updates-zoneegress-entity
+      description: Creates or Updates ZoneEgress entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kuma-zoneegress.putzoneegress
+      with:
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
