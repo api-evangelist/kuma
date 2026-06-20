@@ -4,7 +4,7 @@ description: >-
   Kuma is a platform-agnostic open-source service mesh built on top of Envoy proxy. It provides universal connectivity,
   security, and observability for services and microservices running on any infrastructure including Kubernetes and VMs.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Envoy
   - Kubernetes
@@ -22,7 +22,7 @@ apis:
       Kuma's control plane REST API for managing service mesh policies, dataplanes, zones, and configurations. It
       provides endpoints for inspecting and managing all mesh resources including traffic policies, service discovery,
       and health checks across Universal and Kubernetes deployments.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://kuma.io/docs/latest/reference/http-api/
     baseURL: https://localhost:5681
     tags:
@@ -48,7 +48,7 @@ apis:
       mesh policies. These resources include MeshTrafficPermission, MeshRetry, MeshTimeout, MeshCircuitBreaker,
       MeshHealthCheck, MeshFaultInjection, and MeshRateLimit, enabling fine-grained traffic management, security, and
       resilience policies for meshed workloads.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://kuma.io/docs/latest/policies/
     tags:
       - CRD
@@ -66,7 +66,7 @@ apis:
       Kuma's Multizone deployment API enables managing service meshes across multiple Kubernetes clusters and Universal
       zones from a single global control plane. It provides resources for zone management, cross-zone traffic routing,
       and zone egress and ingress configuration.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://kuma.io/docs/latest/production/deployment/multi-zone/
     tags:
       - Control Plane
