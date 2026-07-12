@@ -79,6 +79,10 @@ apis:
       - type: Reference
         url: https://kuma.io/docs/latest/reference/http-api/
 common:
+  - type: DomainSecurity
+    url: security/kuma-domain-security.yml
+  - type: Authentication
+    url: authentication/kuma-authentication.yml
   - type: Website
     url: https://kuma.io/
   - type: Documentation

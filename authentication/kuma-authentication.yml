@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/kuma-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BasicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/kuma-api-openapi.yml
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/kuma-api-openapi.yml
