@@ -79,6 +79,8 @@ apis:
       - type: Reference
         url: https://kuma.io/docs/latest/reference/http-api/
 common:
+  - type: AgenticAccess
+    url: agentic-access/kuma-agentic-access.yml
   - type: DomainSecurity
     url: security/kuma-domain-security.yml
   - type: Authentication
