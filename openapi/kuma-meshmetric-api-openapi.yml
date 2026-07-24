@@ -1,0 +1,671 @@
+openapi: 3.1.0
+info:
+  title: Kuma Dataplane MeshMetric API
+  description: Kuma API
+  version: v1alpha1
+  x-ref-schema-name: DataplaneOverview
+security:
+- BasicAuth: []
+- BearerAuth: []
+- {}
+tags:
+- name: MeshMetric
+paths:
+  /meshes/{mesh}/meshmetrics/{name}:
+    get:
+      operationId: getMeshMetric
+      summary: Returns MeshMetric entity
+      tags:
+      - MeshMetric
+      parameters:
+      - in: path
+        name: mesh
+        schema:
+          type: string
+        required: true
+        description: name of the mesh
+      - in: path
+        name: name
+        schema:
+          type: string
+        required: true
+        description: name of the MeshMetric
+      responses:
+        '200':
+          $ref: '#/components/responses/MeshMetricItem'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: putMeshMetric
+      summary: Creates or Updates MeshMetric entity
+      tags:
+      - MeshMetric
+      parameters:
+      - in: path
+        name: mesh
+        schema:
+          type: string
+        required: true
+        description: name of the mesh
+      - in: path
+        name: name
+        schema:
+          type: string
+        required: true
+        description: name of the MeshMetric
+      requestBody:
+        description: Put request
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeshMetricItem'
+      responses:
+        '200':
+          $ref: '#/components/responses/MeshMetricCreateOrUpdateSuccessResponse'
+        '201':
+          $ref: '#/components/responses/MeshMetricCreateOrUpdateSuccessResponse'
+    delete:
+      operationId: deleteMeshMetric
+      summary: Deletes MeshMetric entity
+      tags:
+      - MeshMetric
+      parameters:
+      - in: path
+        name: mesh
+        schema:
+          type: string
+        required: true
+        description: name of the mesh
+      - in: path
+        name: name
+        schema:
+          type: string
+        required: true
+        description: name of the MeshMetric
+      responses:
+        '200':
+          $ref: '#/components/responses/MeshMetricDeleteSuccessResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /meshes/{mesh}/meshmetrics:
+    get:
+      operationId: getMeshMetricList
+      summary: Returns a list of MeshMetric in the mesh.
+      tags:
+      - MeshMetric
+      parameters:
+      - in: query
+        name: offset
+        description: offset in the list of entities
+        required: false
+        schema:
+          type: integer
+        example: 0
+      - in: query
+        name: size
+        description: the number of items per page
+        required: false
+        schema:
+          type: integer
+          default: 100
+          maximum: 1000
+          minimum: 1
+      - in: query
+        name: filter
+        description: filter by labels when multiple filters are present, they are ANDed
+        required: false
+        schema:
+          type: object
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+        example:
+          label.k8s.kuma.io/namespace: my-ns
+      - in: path
+        name: mesh
+        schema:
+          type: string
+        required: true
+        description: name of the mesh
+      responses:
+        '200':
+          $ref: '#/components/responses/MeshMetricList'
+components:
+  responses:
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+    MeshMetricDeleteSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+    MeshMetricCreateOrUpdateSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              warnings:
+                type: array
+                readOnly: true
+                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
+
+                  Warning messages describe a problem the client making the API request should correct or be aware of.
+
+                  '
+                items:
+                  type: string
+    MeshMetricList:
+      description: List
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeshMetricItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
+    MeshMetricItem:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MeshMetricItem'
+  schemas:
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
+    MeshMetricItem:
+      type: object
+      description: MeshMetric enables collection and export of service mesh metrics. It configures sidecar and application metrics scraping, allows customization of which metrics are published, and supports exporting to Prometheus or OpenTelemetry backends for monitoring and observability.
+      required:
+      - type
+      - name
+      - spec
+      properties:
+        type:
+          description: the type of the resource
+          type: string
+          enum:
+          - MeshMetric
+        mesh:
+          description: Mesh is the name of the Kuma mesh this resource belongs to. It may be omitted for cluster-scoped resources.
+          type: string
+          default: default
+        kri:
+          description: A unique identifier for this resource instance used by internal tooling and integrations. Typically derived from resource attributes and may be used for cross-references or indexing
+          type: string
+          readOnly: true
+          example: kri_mm_default_zone-east_kuma-demo_mypolicy1_
+        name:
+          description: Name of the Kuma resource
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          description: The labels to help identity resources
+          type: object
+        spec:
+          description: Spec is the specification of the Kuma MeshMetric resource.
+          properties:
+            default:
+              description: MeshMetric configuration.
+              properties:
+                applications:
+                  description: Applications is a list of application that Dataplane Proxy will scrape
+                  items:
+                    properties:
+                      address:
+                        description: Address on which an application listens.
+                        type: string
+                      name:
+                        description: Name of the application to scrape
+                        type: string
+                      path:
+                        default: /metrics
+                        description: Path on which an application expose HTTP endpoint with metrics.
+                        type: string
+                      port:
+                        description: Port on which an application expose HTTP endpoint with metrics.
+                        format: int32
+                        type: integer
+                    required:
+                    - port
+                    type: object
+                  type: array
+                backends:
+                  description: Backends list that will be used to collect metrics.
+                  items:
+                    properties:
+                      openTelemetry:
+                        description: OpenTelemetry backend configuration
+                        properties:
+                          backendRef:
+                            description: 'BackendRef is a reference to a MeshOpenTelemetryBackend resource that
+
+                              defines the collector endpoint. Mutually exclusive with Endpoint.'
+                            properties:
+                              kind:
+                                description: Kind of the backend resource.
+                                enum:
+                                - MeshOpenTelemetryBackend
+                                type: string
+                              labels:
+                                additionalProperties:
+                                  type: string
+                                description: 'Labels to match the referenced resource. Use for cross-zone references
+
+                                  where KDS adds a hash suffix to metadata.name. Mutually exclusive with
+
+                                  Name. When multiple resources match, the oldest by creation time wins.'
+                                type: object
+                              name:
+                                description: 'Name of the referenced resource (metadata.name). Use for same-cluster
+
+                                  references. Mutually exclusive with Labels.'
+                                type: string
+                            required:
+                            - kind
+                            type: object
+                          endpoint:
+                            default: ''
+                            description: 'Endpoint for OpenTelemetry collector.
+
+
+                              Deprecated: use BackendRef instead.'
+                            type: string
+                          refreshInterval:
+                            description: RefreshInterval defines how frequent metrics should be pushed to collector
+                            type: string
+                        type: object
+                      prometheus:
+                        description: Prometheus backend configuration.
+                        properties:
+                          clientId:
+                            description: ClientId of the Prometheus backend. Needed when using MADS for DP discovery.
+                            type: string
+                          path:
+                            default: /metrics
+                            description: Path on which a dataplane should expose HTTP endpoint with Prometheus metrics.
+                            type: string
+                          port:
+                            default: 5670
+                            description: Port on which a dataplane should expose HTTP endpoint with Prometheus metrics.
+                            format: int32
+                            type: integer
+                          tls:
+                            description: Configuration of TLS for prometheus listener.
+                            properties:
+                              mode:
+                                default: Disabled
+                                description: Configuration of TLS for Prometheus listener.
+                                enum:
+                                - Disabled
+                                - ProvidedTLS
+                                - ActiveMTLSBackend
+                                type: string
+                            type: object
+                        type: object
+                      type:
+                        description: Type of the backend that will be used to collect metrics. At the moment only Prometheus backend is available.
+                        enum:
+                        - Prometheus
+                        - OpenTelemetry
+                        type: string
+                    required:
+                    - type
+                    type: object
+                  type: array
+                sidecar:
+                  description: Sidecar metrics collection configuration
+                  properties:
+                    includeUnused:
+                      description: 'IncludeUnused if false will scrape only metrics that has been by sidecar (counters incremented
+
+                        at least once, gauges changed at least once, and histograms added to at
+
+                        least once). If true will scrape all metrics (even the ones with zeros).
+
+                        If not specified then the default value is false.'
+                      type: boolean
+                    profiles:
+                      description: Profiles allows to customize which metrics are published.
+                      properties:
+                        appendProfiles:
+                          description: AppendProfiles allows to combine the metrics from multiple predefined profiles.
+                          items:
+                            properties:
+                              name:
+                                description: 'Name of the predefined profile, one of: all, basic, none'
+                                enum:
+                                - All
+                                - Basic
+                                - None
+                                type: string
+                            required:
+                            - name
+                            type: object
+                          type: array
+                        exclude:
+                          description: 'Exclude makes it possible to exclude groups of metrics from a resulting profile.
+
+                            Exclude is subordinate to Include.'
+                          items:
+                            properties:
+                              match:
+                                description: Match is the value used to match using particular Type
+                                type: string
+                              type:
+                                description: 'Type defined the type of selector, one of: prefix, regex, exact'
+                                enum:
+                                - Prefix
+                                - Regex
+                                - Exact
+                                - Contains
+                                type: string
+                            required:
+                            - match
+                            - type
+                            type: object
+                          type: array
+                        include:
+                          description: 'Include makes it possible to include additional metrics in a selected profiles.
+
+                            Include takes precedence over Exclude.'
+                          items:
+                            properties:
+                              match:
+                                description: Match is the value used to match using particular Type
+                                type: string
+                              type:
+                                description: 'Type defined the type of selector, one of: prefix, regex, exact'
+                                enum:
+                                - Prefix
+                                - Regex
+                                - Exact
+                                - Contains
+                                type: string
+                            required:
+                            - match
+                            - type
+                            type: object
+                          type: array
+                      type: object
+                  type: object
+              type: object
+            targetRef:
+              description: 'TargetRef is a reference to the resource the policy takes an effect on.
+
+                The resource could be either a real store object or virtual resource
+
+                defined in-place.'
+              properties:
+                kind:
+                  description: Kind of the referenced resource
+                  enum:
+                  - Mesh
+                  - MeshSubset
+                  - MeshGateway
+                  - MeshService
+                  - MeshExternalService
+                  - MeshMultiZoneService
+                  - MeshServiceSubset
+                  - MeshHTTPRoute
+                  - Dataplane
+                  type: string
+                labels:
+                  additionalProperties:
+                    type: string
+                  description: 'Labels are used to select group of MeshServices that match labels. Either Labels or
+
+                    Name and Namespace can be used.'
+                  type: object
+                mesh:
+                  description: Mesh is reserved for future use to identify cross mesh resources.
+                  type: string
+                name:
+                  description: 'Name of the referenced resource. Can only be used with kinds: `MeshService`,
+
+                    `MeshServiceSubset` and `MeshGatewayRoute`'
+                  type: string
+                namespace:
+                  description: 'Namespace specifies the namespace of target resource. If empty only resources in policy namespace
+
+                    will be targeted.'
+                  type: string
+                proxyTypes:
+                  description: 'ProxyTypes specifies the data plane types that are subject to the policy. When not specified,
+
+                    all data plane types are targeted by the policy.'
+                  items:
+                    enum:
+                    - Sidecar
+                    - Gateway
+                    type: string
+                  type: array
+                sectionName:
+                  description: 'SectionName is used to target specific section of resource.
+
+                    For example, you can target port from MeshService.ports[] by its name. Only traffic to this port will be affected.'
+                  type: string
+                tags:
+                  additionalProperties:
+                    type: string
+                  description: 'Tags used to select a subset of proxies by tags. Can only be used with kinds
+
+                    `MeshSubset` and `MeshServiceSubset`'
+                  type: object
+              required:
+              - kind
+              type: object
+          type: object
+        creationTime:
+          readOnly: true
+          type: string
+          description: Time at which the resource was created
+          format: date-time
+          example: '0001-01-01T00:00:00Z'
+        modificationTime:
+          readOnly: true
+          type: string
+          description: Time at which the resource was updated
+          format: date-time
+          example: '0001-01-01T00:00:00Z'
+        status:
+          description: Status is the current status of the Kuma MeshMetric resource.
+          properties:
+            conditions:
+              items:
+                properties:
+                  message:
+                    description: 'message is a human readable message indicating details about the transition.
+
+                      This may be an empty string.'
+                    maxLength: 32768
+                    type: string
+                  reason:
+                    description: 'reason contains a programmatic identifier indicating the reason for the condition''s last transition.
+
+                      Producers of specific condition types may define expected values and meanings for this field,
+
+                      and whether the values are considered a guaranteed API.
+
+                      The value should be a CamelCase string.
+
+                      This field may not be empty.'
+                    maxLength: 1024
+                    minLength: 1
+                    pattern: ^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$
+                    type: string
+                  status:
+                    description: status of the condition, one of True, False, Unknown.
+                    enum:
+                    - 'True'
+                    - 'False'
+                    - Unknown
+                    type: string
+                  type:
+                    description: type of condition in CamelCase or in foo.example.com/CamelCase.
+                    maxLength: 316
+                    pattern: ^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$
+                    type: string
+                required:
+                - message
+                - reason
+                - status
+                - type
+                type: object
+              type: array
+          type: object
+          readOnly: true
+    InvalidParameters:
+      type: object
+      title: Invalid Parameters
+      required:
+      - field
+      - reason
+      - source
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI.
+
+            '
+        rule:
+          type: string
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
+
+            '
+        choices:
+          type: array
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+
+            '
+          items:
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
+    Error:
+      type: object
+      title: Error
+      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
+
+        '
+      x-examples:
+        Example 1:
+          status: 404
+          title: Not Found
+          type: https://kongapi.info/konnect/not-found
+          instance: portal:trace:2287285207635123011
+          detail: The requested document was not found
+      required:
+      - status
+      - title
+      - instance
+      - type
+      - detail
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+          example: 404
+        title:
+          type: string
+          description: 'A short, human-readable summary of the problem.
+
+            It **should not** change between occurrences of a problem, except for localization.
+
+            Should be provided as "Sentence case" for potential direct use in a UI
+
+            '
+          example: Not Found
+        type:
+          type: string
+          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
+
+            '
+          example: Not Found
+        instance:
+          type: string
+          example: portal:trace:2287285207635123011
+          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
+
+            '
+        detail:
+          type: string
+          example: The requested team was not found
+          description: 'A human readable explanation specific to this occurrence of the problem.
+
+            This field may contain request/entity data to help the user understand what went wrong.
+
+            Enclose variable values in square brackets.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI
+
+            '
+        invalid_parameters:
+          type: array
+          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
+
+            Used to indicate which fields have invalid values when validated.
+
+            '
+          items:
+            $ref: '#/components/schemas/InvalidParameters'
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer

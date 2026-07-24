@@ -1,0 +1,777 @@
+openapi: 3.1.0
+info:
+  title: Kuma Dataplane Mesh API
+  description: Kuma API
+  version: v1alpha1
+  x-ref-schema-name: DataplaneOverview
+security:
+- BasicAuth: []
+- BearerAuth: []
+- {}
+tags:
+- name: Mesh
+paths:
+  /meshes:
+    get:
+      operationId: getMeshList
+      parameters:
+      - description: offset in the list of entities
+        example: 0
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+      - description: the number of items per page
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 100
+          maximum: 1000
+          minimum: 1
+          type: integer
+      - description: filter by labels when multiple filters are present, they are ANDed
+        example:
+          label.k8s.kuma.io/namespace: my-ns
+        in: query
+        name: filter
+        required: false
+        schema:
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+          type: object
+      responses:
+        '200':
+          $ref: '#/components/responses/MeshList'
+      summary: Returns a list of Mesh in the mesh.
+      tags:
+      - Mesh
+  /meshes/{name}:
+    delete:
+      operationId: deleteMesh
+      parameters:
+      - description: name of the Mesh
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/MeshDeleteSuccessResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      summary: Deletes Mesh entity
+      tags:
+      - Mesh
+    get:
+      operationId: getMesh
+      parameters:
+      - description: name of the Mesh
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/MeshItem'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      summary: Returns Mesh entity
+      tags:
+      - Mesh
+    put:
+      operationId: putMesh
+      parameters:
+      - description: name of the Mesh
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeshItem'
+        description: Put request
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/MeshCreateOrUpdateSuccessResponse'
+        '201':
+          $ref: '#/components/responses/MeshCreateOrUpdateSuccessResponse'
+      summary: Creates or Updates Mesh entity
+      tags:
+      - Mesh
+components:
+  schemas:
+    DataSource_File:
+      properties:
+        file:
+          description: 'Data source is a path to a file.
+
+            Deprecated, use other sources of a data.'
+          type: string
+      type: object
+    BuiltinCertificateAuthorityConfig:
+      properties:
+        caCert:
+          properties:
+            expiration:
+              type: string
+            rsaBits:
+              format: uint32
+              type: integer
+          type: object
+      type: object
+    DataSource_InlineString:
+      properties:
+        inlineString:
+          description: Data source is inline string
+          type: string
+      type: object
+    TcpLoggingBackendConfig:
+      description: TcpLoggingBackendConfig defines configuration for TCP based access logs
+      properties:
+        address:
+          description: Address to TCP service that will receive logs
+          type: string
+      type: object
+    FileLoggingBackendConfig:
+      description: FileLoggingBackendConfig defines configuration for file based access logs
+      properties:
+        path:
+          description: Path to a file that logs will be written to
+          type: string
+      type: object
+    MeshItem:
+      properties:
+        constraints:
+          description: Constraints that applies to the mesh and its entities
+          properties:
+            dataplaneProxy:
+              description: 'DataplaneProxyMembership defines a set of requirements for data plane
+
+                proxies to be a member of the mesh.'
+              properties:
+                requirements:
+                  description: 'Requirements defines a set of requirements that data plane proxies must
+
+                    fulfill in order to join the mesh. A data plane proxy must fulfill at
+
+                    least one requirement in order to join the mesh. Empty list of allowed
+
+                    requirements means that any proxy that is not explicitly denied can join.'
+                  items:
+                    description: Rules defines a set of rules for data plane proxies to be member of the mesh.
+                    properties:
+                      tags:
+                        additionalProperties:
+                          type: string
+                        description: 'Tags defines set of required tags. You can specify ''*'' in value to
+
+                          require non empty value of tag'
+                        type: object
+                    type: object
+                  type: array
+                restrictions:
+                  description: 'Restrictions defines a set of restrictions that data plane proxies cannot
+
+                    fulfill in order to join the mesh. A data plane proxy cannot fulfill any
+
+                    requirement in order to join the mesh.
+
+                    Restrictions takes precedence over requirements.'
+                  items:
+                    description: Rules defines a set of rules for data plane proxies to be member of the mesh.
+                    properties:
+                      tags:
+                        additionalProperties:
+                          type: string
+                        description: 'Tags defines set of required tags. You can specify ''*'' in value to
+
+                          require non empty value of tag'
+                        type: object
+                    type: object
+                  type: array
+              type: object
+          type: object
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+        logging:
+          description: 'Logging settings.
+
+            +optional'
+          properties:
+            backends:
+              description: List of available logging backends
+              items:
+                description: LoggingBackend defines logging backend available to mesh.
+                properties:
+                  conf:
+                    oneOf:
+                    - $ref: '#/components/schemas/FileLoggingBackendConfig'
+                    - $ref: '#/components/schemas/TcpLoggingBackendConfig'
+                    type: object
+                  format:
+                    description: 'Format of access logs. Placeholders available on
+
+                      https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log'
+                    type: string
+                  name:
+                    description: 'Name of the backend, can be then used in Mesh.logging.defaultBackend or in
+
+                      TrafficLogging'
+                    type: string
+                  type:
+                    description: Type of the backend (Kuma ships with 'tcp' and 'file')
+                    type: string
+                type: object
+              type: array
+            defaultBackend:
+              description: Name of the default backend
+              type: string
+          type: object
+        meshServices:
+          properties:
+            mode:
+              oneOf:
+              - type: string
+              - type: integer
+          type: object
+        metrics:
+          description: 'Configuration for metrics collected and exposed by dataplanes.
+
+
+            Settings defined here become defaults for every dataplane in a given Mesh.
+
+            Additionally, it is also possible to further customize this configuration
+
+            for each dataplane individually using Dataplane resource.
+
+            +optional'
+          properties:
+            backends:
+              description: List of available Metrics backends
+              items:
+                description: MetricsBackend defines metric backends
+                properties:
+                  conf:
+                    oneOf:
+                    - $ref: '#/components/schemas/PrometheusMetricsBackendConfig'
+                    type: object
+                  name:
+                    description: Name of the backend, can be then used in Mesh.metrics.enabledBackend
+                    type: string
+                  type:
+                    description: Type of the backend (Kuma ships with 'prometheus')
+                    type: string
+                type: object
+              type: array
+            enabledBackend:
+              description: Name of the enabled backend
+              type: string
+          type: object
+        mtls:
+          description: 'mTLS settings.
+
+            +optional'
+          properties:
+            backends:
+              description: List of available Certificate Authority backends
+              items:
+                description: CertificateAuthorityBackend defines Certificate Authority backend
+                properties:
+                  conf:
+                    oneOf:
+                    - $ref: '#/components/schemas/ProvidedCertificateAuthorityConfig'
+                    - $ref: '#/components/schemas/BuiltinCertificateAuthorityConfig'
+                    type: object
+                  dpCert:
+                    description: Dataplane certificate settings
+                    properties:
+                      requestTimeout:
+                        description: Timeout on request to CA for DP certificate generation and retrieval
+                        properties:
+                          nanos:
+                            type: integer
+                          seconds:
+                            type: integer
+                        type: object
+                      rotation:
+                        description: Rotation settings
+                        properties:
+                          expiration:
+                            description: Time after which generated certificate for Dataplane will expire
+                            type: string
+                        type: object
+                    type: object
+                  mode:
+                    description: 'Mode defines the behaviour of inbound listeners with regard to traffic
+
+                      encryption'
+                    oneOf:
+                    - type: string
+                    - type: integer
+                  name:
+                    description: Name of the backend
+                    type: string
+                  rootChain:
+                    properties:
+                      requestTimeout:
+                        description: 'Timeout on request for to CA for root certificate chain.
+
+                          If not specified, defaults to 10s.'
+                        properties:
+                          nanos:
+                            type: integer
+                          seconds:
+                            type: integer
+                        type: object
+                    type: object
+                  type:
+                    description: 'Type of the backend. Has to be one of the loaded plugins (Kuma ships with
+
+                      builtin and provided)'
+                    type: string
+                type: object
+              type: array
+            enabledBackend:
+              description: Name of the enabled backend
+              type: string
+            skipValidation:
+              description: If enabled, skips CA validation.
+              type: boolean
+          type: object
+        name:
+          type: string
+        networking:
+          description: Networking settings of the mesh
+          properties:
+            outbound:
+              description: Outbound settings
+              properties:
+                passthrough:
+                  description: Control the passthrough cluster
+                  type: boolean
+              type: object
+          type: object
+        routing:
+          description: Routing settings of the mesh
+          properties:
+            defaultForbidMeshExternalServiceAccess:
+              description: 'If true, blocks traffic to MeshExternalServices.
+
+                Default: false'
+              type: boolean
+            localityAwareLoadBalancing:
+              description: Enable the Locality Aware Load Balancing
+              type: boolean
+            zoneEgress:
+              description: 'Enable routing traffic to services in other zone or external services
+
+                through ZoneEgress. Default: false'
+              type: boolean
+          type: object
+        skipCreatingInitialPolicies:
+          description: 'List of policies to skip creating by default when the mesh is created.
+
+            e.g. TrafficPermission, MeshRetry, etc. An ''*'' can be used to skip all
+
+            policies.'
+          items:
+            type: string
+          type: array
+        tracing:
+          description: 'Tracing settings.
+
+            +optional'
+          properties:
+            backends:
+              description: List of available tracing backends
+              items:
+                description: TracingBackend defines tracing backend available to mesh.
+                properties:
+                  conf:
+                    oneOf:
+                    - $ref: '#/components/schemas/DatadogTracingBackendConfig'
+                    - $ref: '#/components/schemas/ZipkinTracingBackendConfig'
+                    type: object
+                  name:
+                    description: 'Name of the backend, can be then used in Mesh.tracing.defaultBackend or in
+
+                      TrafficTrace'
+                    type: string
+                  sampling:
+                    description: 'Percentage of traces that will be sent to the backend (range 0.0 - 100.0).
+
+                      Empty value defaults to 100.0%'
+                    type: number
+                  type:
+                    description: Type of the backend (Kuma ships with 'zipkin')
+                    type: string
+                type: object
+              type: array
+            defaultBackend:
+              description: Name of the default backend
+              type: string
+          type: object
+        type:
+          type: string
+      required:
+      - type
+      - name
+      type: object
+    ZipkinTracingBackendConfig:
+      properties:
+        apiVersion:
+          description: 'Version of the API. values: httpJson, httpJsonV1, httpProto. Default:
+
+            httpJson see
+
+            https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/trace/v3/trace.proto#envoy-v3-api-enum-config-trace-v3-zipkinconfig-collectorendpointversion'
+          type: string
+        sharedSpanContext:
+          description: 'Determines whether client and server spans will share the same span
+
+            context. Default: true.
+
+            https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/trace/v3/zipkin.proto#config-trace-v3-zipkinconfig'
+          type: boolean
+        traceId128bit:
+          description: 'Generate 128bit traces. Default: false'
+          type: boolean
+        url:
+          description: Address of Zipkin collector.
+          type: string
+      type: object
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
+    InvalidParameters:
+      type: object
+      title: Invalid Parameters
+      required:
+      - field
+      - reason
+      - source
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI.
+
+            '
+        rule:
+          type: string
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
+
+            '
+        choices:
+          type: array
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+
+            '
+          items:
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
+    DataSource_Secret:
+      properties:
+        secret:
+          description: Data source is a secret with given Secret key.
+          type: string
+      type: object
+    DataSource_Inline:
+      properties:
+        inline:
+          description: Data source is inline bytes.
+          format: byte
+          type: string
+      type: object
+    DatadogTracingBackendConfig:
+      properties:
+        address:
+          description: Address of datadog collector.
+          type: string
+        port:
+          description: Port of datadog collector
+          type: integer
+        splitService:
+          description: 'Determines if datadog service name should be split based on traffic
+
+            direction and destination. For example, with `splitService: true` and a
+
+            `backend` service that communicates with a couple of databases, you would
+
+            get service names like `backend_INBOUND`, `backend_OUTBOUND_db1`, and
+
+            `backend_OUTBOUND_db2` in Datadog. Default: false'
+          type: boolean
+      type: object
+    PrometheusMetricsBackendConfig:
+      description: PrometheusMetricsBackendConfig defines configuration of Prometheus backend
+      properties:
+        aggregate:
+          description: 'Map with the configuration of applications which metrics are going to be
+
+            scrapped by kuma-dp.'
+          items:
+            description: PrometheusAggregateMetricsConfig defines endpoints that should be scrapped by kuma-dp for prometheus metrics.
+            properties:
+              address:
+                description: Address on which a service expose HTTP endpoint with Prometheus metrics.
+                type: string
+              enabled:
+                description: 'If false then the application won''t be scrapped. If nil, then it is treated
+
+                  as true and kuma-dp scrapes metrics from the service.'
+                type: boolean
+              name:
+                description: Name which identify given configuration.
+                type: string
+              path:
+                description: Path on which a service expose HTTP endpoint with Prometheus metrics.
+                type: string
+              port:
+                description: Port on which a service expose HTTP endpoint with Prometheus metrics.
+                type: integer
+            type: object
+          type: array
+        envoy:
+          description: Configuration of Envoy's metrics.
+          properties:
+            filterRegex:
+              description: 'FilterRegex value that is going to be passed to Envoy for filtering
+
+                Envoy metrics.'
+              type: string
+            usedOnly:
+              description: 'If true then return metrics that Envoy has updated (counters incremented
+
+                at least once, gauges changed at least once, and histograms added to at
+
+                least once). If nil, then it is treated as false.'
+              type: boolean
+          type: object
+        path:
+          description: 'Path on which a dataplane should expose HTTP endpoint with Prometheus
+
+            metrics.'
+          type: string
+        port:
+          description: 'Port on which a dataplane should expose HTTP endpoint with Prometheus
+
+            metrics.'
+          type: integer
+        skipMTLS:
+          description: 'If true then endpoints for scraping metrics won''t require mTLS even if mTLS
+
+            is enabled in Mesh. If nil, then it is treated as false.'
+          type: boolean
+        tags:
+          additionalProperties:
+            type: string
+          description: 'Tags associated with an application this dataplane is deployed next to,
+
+            e.g. service=web, version=1.0.
+
+            `service` tag is mandatory.'
+          type: object
+        tls:
+          description: Configuration of TLS for prometheus listener.
+          properties:
+            mode:
+              description: 'mode defines how configured is the TLS for Prometheus.
+
+                Supported values, delegated, disabled, activeMTLSBackend. Default to
+
+                `activeMTLSBackend`.'
+              oneOf:
+              - type: string
+              - type: integer
+          type: object
+      type: object
+    ProvidedCertificateAuthorityConfig:
+      properties:
+        cert:
+          oneOf:
+          - $ref: '#/components/schemas/DataSource_File'
+          - $ref: '#/components/schemas/DataSource_Inline'
+          - $ref: '#/components/schemas/DataSource_InlineString'
+          - $ref: '#/components/schemas/DataSource_Secret'
+        key:
+          oneOf:
+          - $ref: '#/components/schemas/DataSource_File'
+          - $ref: '#/components/schemas/DataSource_Inline'
+          - $ref: '#/components/schemas/DataSource_InlineString'
+          - $ref: '#/components/schemas/DataSource_Secret'
+      type: object
+    Error:
+      type: object
+      title: Error
+      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
+
+        '
+      x-examples:
+        Example 1:
+          status: 404
+          title: Not Found
+          type: https://kongapi.info/konnect/not-found
+          instance: portal:trace:2287285207635123011
+          detail: The requested document was not found
+      required:
+      - status
+      - title
+      - instance
+      - type
+      - detail
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+          example: 404
+        title:
+          type: string
+          description: 'A short, human-readable summary of the problem.
+
+            It **should not** change between occurrences of a problem, except for localization.
+
+            Should be provided as "Sentence case" for potential direct use in a UI
+
+            '
+          example: Not Found
+        type:
+          type: string
+          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
+
+            '
+          example: Not Found
+        instance:
+          type: string
+          example: portal:trace:2287285207635123011
+          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
+
+            '
+        detail:
+          type: string
+          example: The requested team was not found
+          description: 'A human readable explanation specific to this occurrence of the problem.
+
+            This field may contain request/entity data to help the user understand what went wrong.
+
+            Enclose variable values in square brackets.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI
+
+            '
+        invalid_parameters:
+          type: array
+          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
+
+            Used to indicate which fields have invalid values when validated.
+
+            '
+          items:
+            $ref: '#/components/schemas/InvalidParameters'
+  responses:
+    MeshCreateOrUpdateSuccessResponse:
+      content:
+        application/json:
+          schema:
+            properties:
+              warnings:
+                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
+
+                  Warning messages describe a problem the client making the API request should correct or be aware of.
+
+                  '
+                items:
+                  type: string
+                readOnly: true
+                type: array
+            type: object
+      description: Successful response
+    MeshItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MeshItem'
+      description: Successful response
+    MeshDeleteSuccessResponse:
+      content:
+        application/json:
+          schema:
+            type: object
+      description: Successful response
+    MeshList:
+      content:
+        application/json:
+          schema:
+            properties:
+              items:
+                items:
+                  $ref: '#/components/schemas/MeshItem'
+                type: array
+              next:
+                description: URL to the next page
+                type: string
+              total:
+                description: The total number of entities
+                type: number
+            type: object
+      description: List
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,398 @@
+openapi: 3.1.0
+info:
+  title: Kuma Dataplane Workload API
+  description: Kuma API
+  version: v1alpha1
+  x-ref-schema-name: DataplaneOverview
+security:
+- BasicAuth: []
+- BearerAuth: []
+- {}
+tags:
+- name: Workload
+paths:
+  /meshes/{mesh}/workloads/{name}:
+    get:
+      operationId: getWorkload
+      summary: Returns Workload entity
+      tags:
+      - Workload
+      parameters:
+      - in: path
+        name: mesh
+        schema:
+          type: string
+        required: true
+        description: name of the mesh
+      - in: path
+        name: name
+        schema:
+          type: string
+        required: true
+        description: name of the Workload
+      responses:
+        '200':
+          $ref: '#/components/responses/WorkloadItem'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: putWorkload
+      summary: Creates or Updates Workload entity
+      tags:
+      - Workload
+      parameters:
+      - in: path
+        name: mesh
+        schema:
+          type: string
+        required: true
+        description: name of the mesh
+      - in: path
+        name: name
+        schema:
+          type: string
+        required: true
+        description: name of the Workload
+      requestBody:
+        description: Put request
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkloadItem'
+      responses:
+        '200':
+          $ref: '#/components/responses/WorkloadCreateOrUpdateSuccessResponse'
+        '201':
+          $ref: '#/components/responses/WorkloadCreateOrUpdateSuccessResponse'
+    delete:
+      operationId: deleteWorkload
+      summary: Deletes Workload entity
+      tags:
+      - Workload
+      parameters:
+      - in: path
+        name: mesh
+        schema:
+          type: string
+        required: true
+        description: name of the mesh
+      - in: path
+        name: name
+        schema:
+          type: string
+        required: true
+        description: name of the Workload
+      responses:
+        '200':
+          $ref: '#/components/responses/WorkloadDeleteSuccessResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /meshes/{mesh}/workloads:
+    get:
+      operationId: getWorkloadList
+      summary: Returns a list of Workload in the mesh.
+      tags:
+      - Workload
+      parameters:
+      - in: query
+        name: offset
+        description: offset in the list of entities
+        required: false
+        schema:
+          type: integer
+        example: 0
+      - in: query
+        name: size
+        description: the number of items per page
+        required: false
+        schema:
+          type: integer
+          default: 100
+          maximum: 1000
+          minimum: 1
+      - in: query
+        name: filter
+        description: filter by labels when multiple filters are present, they are ANDed
+        required: false
+        schema:
+          type: object
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+        example:
+          label.k8s.kuma.io/namespace: my-ns
+      - in: path
+        name: mesh
+        schema:
+          type: string
+        required: true
+        description: name of the mesh
+      responses:
+        '200':
+          $ref: '#/components/responses/WorkloadList'
+components:
+  responses:
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+    WorkloadDeleteSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+    WorkloadItem:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WorkloadItem'
+    WorkloadList:
+      description: List
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkloadItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
+    WorkloadCreateOrUpdateSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              warnings:
+                type: array
+                readOnly: true
+                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
+
+                  Warning messages describe a problem the client making the API request should correct or be aware of.
+
+                  '
+                items:
+                  type: string
+  schemas:
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
+    WorkloadItem:
+      type: object
+      description: Workload represents a logical grouping of data plane proxies in the mesh, providing visibility into their operational status. It tracks statistics about the data plane proxies that belong to a workload, including the number of connected, healthy, and total proxies, enabling monitoring and health assessment of your workload deployments. Workloads is also the primary way data-planes are grouped together in metrics and traces.
+      required:
+      - type
+      - name
+      - spec
+      properties:
+        type:
+          description: the type of the resource
+          type: string
+          enum:
+          - Workload
+        mesh:
+          description: Mesh is the name of the Kuma mesh this resource belongs to. It may be omitted for cluster-scoped resources.
+          type: string
+          default: default
+        kri:
+          description: A unique identifier for this resource instance used by internal tooling and integrations. Typically derived from resource attributes and may be used for cross-references or indexing
+          type: string
+          readOnly: true
+          example: kri_wl_default_zone-east_kuma-demo_myresource1_
+        name:
+          description: Name of the Kuma resource
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          description: The labels to help identity resources
+          type: object
+        spec:
+          description: Spec is the specification of the Kuma Workload resource.
+          type: object
+        creationTime:
+          readOnly: true
+          type: string
+          description: Time at which the resource was created
+          format: date-time
+          example: '0001-01-01T00:00:00Z'
+        modificationTime:
+          readOnly: true
+          type: string
+          description: Time at which the resource was updated
+          format: date-time
+          example: '0001-01-01T00:00:00Z'
+        status:
+          description: Status is the current status of the Kuma Workload resource.
+          properties:
+            dataplaneProxies:
+              description: DataplaneProxies defines statistics of data plane proxies that are part of this workload
+              properties:
+                connected:
+                  description: Connected defines number of connected data plane proxies
+                  format: int32
+                  type: integer
+                healthy:
+                  description: Healthy defines number of healthy data plane proxies for this workload
+                  format: int32
+                  type: integer
+                total:
+                  description: Total defines total number of data plane proxies for this workload
+                  format: int32
+                  type: integer
+              required:
+              - connected
+              - healthy
+              - total
+              type: object
+          type: object
+          readOnly: true
+    InvalidParameters:
+      type: object
+      title: Invalid Parameters
+      required:
+      - field
+      - reason
+      - source
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI.
+
+            '
+        rule:
+          type: string
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
+
+            '
+        choices:
+          type: array
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+
+            '
+          items:
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
+    Error:
+      type: object
+      title: Error
+      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
+
+        '
+      x-examples:
+        Example 1:
+          status: 404
+          title: Not Found
+          type: https://kongapi.info/konnect/not-found
+          instance: portal:trace:2287285207635123011
+          detail: The requested document was not found
+      required:
+      - status
+      - title
+      - instance
+      - type
+      - detail
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+          example: 404
+        title:
+          type: string
+          description: 'A short, human-readable summary of the problem.
+
+            It **should not** change between occurrences of a problem, except for localization.
+
+            Should be provided as "Sentence case" for potential direct use in a UI
+
+            '
+          example: Not Found
+        type:
+          type: string
+          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
+
+            '
+          example: Not Found
+        instance:
+          type: string
+          example: portal:trace:2287285207635123011
+          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
+
+            '
+        detail:
+          type: string
+          example: The requested team was not found
+          description: 'A human readable explanation specific to this occurrence of the problem.
+
+            This field may contain request/entity data to help the user understand what went wrong.
+
+            Enclose variable values in square brackets.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI
+
+            '
+        invalid_parameters:
+          type: array
+          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
+
+            Used to indicate which fields have invalid values when validated.
+
+            '
+          items:
+            $ref: '#/components/schemas/InvalidParameters'
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
