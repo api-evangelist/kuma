@@ -4,7 +4,20 @@ description: >-
   Kuma is a platform-agnostic open-source service mesh built on top of Envoy proxy. It provides universal connectivity,
   security, and observability for services and microservices running on any infrastructure including Kubernetes and VMs.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/kuma.png
 tags:
   - Envoy
   - Kubernetes
@@ -16,68 +29,693 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: kuma:kuma-api
-    name: Kuma API
-    description: >-
-      Kuma's control plane REST API for managing service mesh policies, dataplanes, zones, and configurations. It
-      provides endpoints for inspecting and managing all mesh resources including traffic policies, service discovery,
-      and health checks across Universal and Kubernetes deployments.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://kuma.io/docs/latest/reference/http-api/
-    baseURL: https://localhost:5681
-    tags:
-      - Control Plane
-      - Management
-      - REST API
-      - Service Mesh
-    properties:
-      - type: Documentation
-        url: https://kuma.io/docs/latest/reference/http-api/
-      - type: GettingStarted
-        url: https://kuma.io/docs/latest/installation/
-      - type: Reference
-        url: https://kuma.io/docs/latest/reference/http-api/
-      - type: OpenAPI
-        url: openapi/kuma-api-openapi.yml
-      - type: JSONSchema
-        url: json-schema/kuma-mesh-schema.json
-  - aid: kuma:kuma-kubernetes-policy-api
-    name: Kuma Kubernetes Policy API
-    description: >-
-      Kuma extends the Kubernetes API server with Custom Resource Definitions (CRDs) for defining and managing service
-      mesh policies. These resources include MeshTrafficPermission, MeshRetry, MeshTimeout, MeshCircuitBreaker,
-      MeshHealthCheck, MeshFaultInjection, and MeshRateLimit, enabling fine-grained traffic management, security, and
-      resilience policies for meshed workloads.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://kuma.io/docs/latest/policies/
-    tags:
-      - CRD
-      - Kubernetes
-      - Policy
-      - Traffic Management
-    properties:
-      - type: Documentation
-        url: https://kuma.io/docs/latest/policies/
-      - type: Reference
-        url: https://kuma.io/docs/latest/reference/kubernetes-annotations/
-  - aid: kuma:kuma-multizone-api
-    name: Kuma Multizone API
-    description: >-
-      Kuma's Multizone deployment API enables managing service meshes across multiple Kubernetes clusters and Universal
-      zones from a single global control plane. It provides resources for zone management, cross-zone traffic routing,
-      and zone egress and ingress configuration.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://kuma.io/docs/latest/production/deployment/multi-zone/
-    tags:
-      - Control Plane
-      - Federation
-      - Multi-Cluster
-      - Multizone
-    properties:
-      - type: Documentation
-        url: https://kuma.io/docs/latest/production/deployment/multi-zone/
-      - type: Reference
-        url: https://kuma.io/docs/latest/reference/http-api/
+- aid: kuma:kuma-kubernetes-policy-api
+  name: Kuma Kubernetes Policy API
+  description: >-
+    Kuma extends the Kubernetes API server with Custom Resource Definitions (CRDs) for defining and managing
+    service mesh policies. These resources include MeshTrafficPermission, MeshRetry, MeshTimeout, MeshCircuitBreaker,
+    MeshHealthCheck, MeshFaultInjection, and MeshRateLimit, enabling fine-grained traffic management,
+    security, and resilience policies for meshed workloads.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://kuma.io/docs/latest/policies/
+  tags:
+  - CRD
+  - Kubernetes
+  - Policy
+  - Traffic Management
+  properties:
+  - type: Documentation
+    url: https://kuma.io/docs/latest/policies/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/kubernetes-annotations/
+- aid: kuma:kuma-multizone-api
+  name: Kuma Multizone API
+  description: >-
+    Kuma's Multizone deployment API enables managing service meshes across multiple Kubernetes clusters
+    and Universal zones from a single global control plane. It provides resources for zone management,
+    cross-zone traffic routing, and zone egress and ingress configuration.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://kuma.io/docs/latest/production/deployment/multi-zone/
+  tags:
+  - Control Plane
+  - Federation
+  - Multi-Cluster
+  - Multizone
+  properties:
+  - type: Documentation
+    url: https://kuma.io/docs/latest/production/deployment/multi-zone/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+- aid: kuma:kuma-dataplane-api
+  name: Kuma Dataplane API
+  description: The Dataplane API from Kuma — 2 operation(s) for dataplane.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - Dataplane
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-dataplane-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-globalinsight-api
+  name: Kuma GlobalInsight API
+  description: The GlobalInsight API from Kuma — 1 operation(s) for globalinsight.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - GlobalInsight
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-globalinsight-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-hostnamegenerator-api
+  name: Kuma HostnameGenerator API
+  description: The HostnameGenerator API from Kuma — 2 operation(s) for hostnamegenerator.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - HostnameGenerator
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-hostnamegenerator-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-inspect-api
+  name: Kuma Inspect API
+  description: The Inspect API from Kuma — 4 operation(s) for inspect.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - Inspect
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-inspect-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-kri-api
+  name: Kuma KRI API
+  description: The KRI API from Kuma — 1 operation(s) for kri.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - KRI
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-kri-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-mesh-api
+  name: Kuma Mesh API
+  description: The Mesh API from Kuma — 2 operation(s) for mesh.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - Mesh
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-mesh-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshaccesslog-api
+  name: Kuma MeshAccessLog API
+  description: The MeshAccessLog API from Kuma — 2 operation(s) for meshaccesslog.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshAccessLog
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshaccesslog-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshcircuitbreaker-api
+  name: Kuma MeshCircuitBreaker API
+  description: The MeshCircuitBreaker API from Kuma — 2 operation(s) for meshcircuitbreaker.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshCircuitBreaker
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshcircuitbreaker-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshes-api
+  name: Kuma Meshes API
+  description: The Meshes API from Kuma — 9 operation(s) for meshes.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - Meshes
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshes-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshexternalservice-api
+  name: Kuma MeshExternalService API
+  description: The MeshExternalService API from Kuma — 2 operation(s) for meshexternalservice.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshExternalService
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshexternalservice-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshfaultinjection-api
+  name: Kuma MeshFaultInjection API
+  description: The MeshFaultInjection API from Kuma — 2 operation(s) for meshfaultinjection.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshFaultInjection
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshfaultinjection-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshgateway-api
+  name: Kuma MeshGateway API
+  description: The MeshGateway API from Kuma — 2 operation(s) for meshgateway.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshGateway
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshgateway-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshhealthcheck-api
+  name: Kuma MeshHealthCheck API
+  description: The MeshHealthCheck API from Kuma — 2 operation(s) for meshhealthcheck.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshHealthCheck
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshhealthcheck-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshhttproute-api
+  name: Kuma MeshHTTPRoute API
+  description: The MeshHTTPRoute API from Kuma — 2 operation(s) for meshhttproute.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshHTTPRoute
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshhttproute-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshidentity-api
+  name: Kuma MeshIdentity API
+  description: The MeshIdentity API from Kuma — 2 operation(s) for meshidentity.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshIdentity
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshidentity-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshloadbalancingstrategy-api
+  name: Kuma MeshLoadBalancingStrategy API
+  description: >-
+    The MeshLoadBalancingStrategy API from Kuma — 2 operation(s) for meshloadbalancingstrategy.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshLoadBalancingStrategy
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshloadbalancingstrategy-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshmetric-api
+  name: Kuma MeshMetric API
+  description: The MeshMetric API from Kuma — 2 operation(s) for meshmetric.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshMetric
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshmetric-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshmultizoneservice-api
+  name: Kuma MeshMultiZoneService API
+  description: The MeshMultiZoneService API from Kuma — 2 operation(s) for meshmultizoneservice.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshMultiZoneService
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshmultizoneservice-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshopentelemetrybackend-api
+  name: Kuma MeshOpenTelemetryBackend API
+  description: >-
+    The MeshOpenTelemetryBackend API from Kuma — 2 operation(s) for meshopentelemetrybackend.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshOpenTelemetryBackend
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshopentelemetrybackend-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshpassthrough-api
+  name: Kuma MeshPassthrough API
+  description: The MeshPassthrough API from Kuma — 2 operation(s) for meshpassthrough.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshPassthrough
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshpassthrough-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshproxypatch-api
+  name: Kuma MeshProxyPatch API
+  description: The MeshProxyPatch API from Kuma — 2 operation(s) for meshproxypatch.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshProxyPatch
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshproxypatch-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshratelimit-api
+  name: Kuma MeshRateLimit API
+  description: The MeshRateLimit API from Kuma — 2 operation(s) for meshratelimit.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshRateLimit
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshratelimit-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshretry-api
+  name: Kuma MeshRetry API
+  description: The MeshRetry API from Kuma — 2 operation(s) for meshretry.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshRetry
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshretry-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshservice-api
+  name: Kuma MeshService API
+  description: The MeshService API from Kuma — 2 operation(s) for meshservice.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshService
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshservice-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshtcproute-api
+  name: Kuma MeshTCPRoute API
+  description: The MeshTCPRoute API from Kuma — 2 operation(s) for meshtcproute.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshTCPRoute
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshtcproute-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshtimeout-api
+  name: Kuma MeshTimeout API
+  description: The MeshTimeout API from Kuma — 2 operation(s) for meshtimeout.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshTimeout
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshtimeout-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshtls-api
+  name: Kuma MeshTLS API
+  description: The MeshTLS API from Kuma — 2 operation(s) for meshtls.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshTLS
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshtls-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshtrace-api
+  name: Kuma MeshTrace API
+  description: The MeshTrace API from Kuma — 2 operation(s) for meshtrace.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshTrace
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshtrace-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshtrafficpermission-api
+  name: Kuma MeshTrafficPermission API
+  description: The MeshTrafficPermission API from Kuma — 2 operation(s) for meshtrafficpermission.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshTrafficPermission
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshtrafficpermission-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshtrust-api
+  name: Kuma MeshTrust API
+  description: The MeshTrust API from Kuma — 2 operation(s) for meshtrust.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshTrust
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshtrust-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-meshzoneaddress-api
+  name: Kuma MeshZoneAddress API
+  description: The MeshZoneAddress API from Kuma — 2 operation(s) for meshzoneaddress.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - MeshZoneAddress
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-meshzoneaddress-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-secret-api
+  name: Kuma Secret API
+  description: The Secret API from Kuma — 2 operation(s) for secret.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - Secret
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-secret-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-system-api
+  name: Kuma System API
+  description: The System API from Kuma — 2 operation(s) for system.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - System
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-system-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-workload-api
+  name: Kuma Workload API
+  description: The Workload API from Kuma — 2 operation(s) for workload.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - Workload
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-workload-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-zoneegress-api
+  name: Kuma ZoneEgress API
+  description: The ZoneEgress API from Kuma — 2 operation(s) for zoneegress.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - ZoneEgress
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-zoneegress-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
+- aid: kuma:kuma-zoneingress-api
+  name: Kuma ZoneIngress API
+  description: The ZoneIngress API from Kuma — 2 operation(s) for zoneingress.
+  humanURL: https://kuma.io/docs/latest/reference/http-api/
+  baseURL: https://localhost:5681
+  tags:
+  - ZoneIngress
+  properties:
+  - type: OpenAPI
+    url: openapi/kuma-zoneingress-api-openapi.yml
+  - type: Documentation
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: GettingStarted
+    url: https://kuma.io/docs/latest/installation/
+  - type: Reference
+    url: https://kuma.io/docs/latest/reference/http-api/
+  - type: JSONSchema
+    url: json-schema/kuma-mesh-schema.json
 common:
   - type: AgenticAccess
     url: agentic-access/kuma-agentic-access.yml
