@@ -717,6 +717,15 @@ apis:
   - type: JSONSchema
     url: json-schema/kuma-mesh-schema.json
 common:
+  - type: IssueTracker
+    url: https://github.com/kumahq/kuma/issues
+  - type: CodeOfConduct
+    url: https://github.com/kumahq/kuma/blob/master/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/kumahq/kuma/blob/master/CONTRIBUTING.md
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/kumahq/kuma/blob/master/LICENSE
   - type: AgenticAccess
     url: agentic-access/kuma-agentic-access.yml
   - type: DomainSecurity
