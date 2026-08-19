@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kuma Dataplane MeshService API",
+    "version": "v1alpha1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MeshService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns MeshService entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshservices/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshService"
+              }
+            ]
+          },
+          "docs": "Returns MeshService entity"
+        },
+        {
+          "info": {
+            "name": "Creates or Updates MeshService entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/meshes/:mesh/meshservices/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshService"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or Updates MeshService entity"
+        },
+        {
+          "info": {
+            "name": "Deletes MeshService entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/meshes/:mesh/meshservices/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshService"
+              }
+            ]
+          },
+          "docs": "Deletes MeshService entity"
+        },
+        {
+          "info": {
+            "name": "Returns a list of MeshService in the mesh.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshservices",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "offset in the list of entities"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "the number of items per page"
+              },
+              {
+                "name": "filter",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "filter by labels when multiple filters are present, they are ANDed"
+              },
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              }
+            ]
+          },
+          "docs": "Returns a list of MeshService in the mesh."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

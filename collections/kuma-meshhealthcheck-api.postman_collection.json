@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "99ed0be8-ddc4-48d2-9946-82aa4be09674",
+      "name": "MeshHealthCheck",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fbd7bb45-6b1e-4c45-baae-4c1bb67226ea",
+          "name": "Returns MeshHealthCheck entity",
+          "request": {
+            "name": "Returns MeshHealthCheck entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshhealthchecks",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshHealthCheck"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11c42ff3-3a8a-4701-97c3-27771b769513",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshhealthchecks",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshHealthCheck"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshHealthCheck\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"Dataplane\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Sidecar\",\n        \"Sidecar\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"Dataplane\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        },\n        \"default\": {\n          \"alwaysLogHealthCheckFailures\": true,\n          \"eventLogPath\": \"string\",\n          \"failTrafficOnPanic\": false,\n          \"grpc\": {\n            \"authority\": \"string\",\n            \"disabled\": false,\n            \"serviceName\": \"string\"\n          },\n          \"healthyPanicThreshold\": 9054,\n          \"healthyThreshold\": 4227,\n          \"http\": {\n            \"disabled\": true,\n            \"expectedStatuses\": [\n              6223,\n              9183\n            ],\n            \"path\": \"string\",\n            \"requestHeadersToAdd\": {\n              \"add\": [\n                {\n                  \"name\": \"wz_&\",\n                  \"value\": \"string\"\n                },\n                {\n                  \"name\": \"t*4tgs9f|zc\",\n                  \"value\": \"string\"\n                }\n              ],\n              \"set\": [\n                {\n                  \"name\": \"+dq`p90o^.\",\n                  \"value\": \"string\"\n                },\n                {\n                  \"name\": \"dm7pi\",\n                  \"value\": \"string\"\n                }\n              ]\n            }\n          },\n          \"initialJitter\": \"string\",\n          \"interval\": \"string\",\n          \"intervalJitter\": \"string\",\n          \"intervalJitterPercent\": 8209,\n          \"noTrafficInterval\": \"string\",\n          \"reuseConnection\": true,\n          \"tcp\": {\n            \"disabled\": false,\n            \"receive\": [\n              \"string\",\n              \"string\"\n            ],\n            \"send\": \"string\"\n          },\n          \"timeout\": \"string\",\n          \"unhealthyThreshold\": 3088\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshServiceSubset\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"default\": {\n          \"alwaysLogHealthCheckFailures\": false,\n          \"eventLogPath\": \"string\",\n          \"failTrafficOnPanic\": false,\n          \"grpc\": {\n            \"authority\": \"string\",\n            \"disabled\": true,\n            \"serviceName\": \"string\"\n          },\n          \"healthyPanicThreshold\": 6788,\n          \"healthyThreshold\": 6279,\n          \"http\": {\n            \"disabled\": false,\n            \"expectedStatuses\": [\n              5373,\n              1628\n            ],\n            \"path\": \"string\",\n            \"requestHeadersToAdd\": {\n              \"add\": [\n                {\n                  \"name\": \"3c1'xl!!5%\",\n                  \"value\": \"string\"\n                },\n                {\n                  \"name\": \"6mr\",\n                  \"value\": \"string\"\n                }\n              ],\n              \"set\": [\n                {\n                  \"name\": \"+rl0km\",\n                  \"value\": \"string\"\n                },\n                {\n                  \"name\": \"`t.\",\n                  \"value\": \"string\"\n                }\n              ]\n            }\n          },\n          \"initialJitter\": \"string\",\n          \"interval\": \"string\",\n          \"intervalJitter\": \"string\",\n          \"intervalJitterPercent\": 1242,\n          \"noTrafficInterval\": \"string\",\n          \"reuseConnection\": false,\n          \"tcp\": {\n            \"disabled\": false,\n            \"receive\": [\n              \"string\",\n              \"string\"\n            ],\n            \"send\": \"string\"\n          },\n          \"timeout\": \"string\",\n          \"unhealthyThreshold\": 5397\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mhc_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb901f3c-42f1-4059-8642-b4a836368e19",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshhealthchecks",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshHealthCheck"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77f58353-e1bb-4efc-9914-ca005e26a45d",
+          "name": "Creates or Updates MeshHealthCheck entity",
+          "request": {
+            "name": "Creates or Updates MeshHealthCheck entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshhealthchecks",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshHealthCheck"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"alwaysLogHealthCheckFailures\": \"<boolean>\",\n          \"eventLogPath\": \"<string>\",\n          \"failTrafficOnPanic\": \"<boolean>\",\n          \"grpc\": {\n            \"authority\": \"<string>\",\n            \"disabled\": \"<boolean>\",\n            \"serviceName\": \"<string>\"\n          },\n          \"healthyPanicThreshold\": \"<integer>\",\n          \"healthyThreshold\": \"<integer>\",\n          \"http\": {\n            \"disabled\": \"<boolean>\",\n            \"expectedStatuses\": [\n              \"<integer>\",\n              \"<integer>\"\n            ],\n            \"path\": \"<string>\",\n            \"requestHeadersToAdd\": {\n              \"add\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"set\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          \"initialJitter\": \"<string>\",\n          \"interval\": \"<string>\",\n          \"intervalJitter\": \"<string>\",\n          \"intervalJitterPercent\": \"<integer>\",\n          \"noTrafficInterval\": \"<string>\",\n          \"reuseConnection\": \"<boolean>\",\n          \"tcp\": {\n            \"disabled\": \"<boolean>\",\n            \"receive\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"send\": \"<string>\"\n          },\n          \"timeout\": \"<string>\",\n          \"unhealthyThreshold\": \"<integer>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"alwaysLogHealthCheckFailures\": \"<boolean>\",\n          \"eventLogPath\": \"<string>\",\n          \"failTrafficOnPanic\": \"<boolean>\",\n          \"grpc\": {\n            \"authority\": \"<string>\",\n            \"disabled\": \"<boolean>\",\n            \"serviceName\": \"<string>\"\n          },\n          \"healthyPanicThreshold\": \"<integer>\",\n          \"healthyThreshold\": \"<integer>\",\n          \"http\": {\n            \"disabled\": \"<boolean>\",\n            \"expectedStatuses\": [\n              \"<integer>\",\n              \"<integer>\"\n            ],\n            \"path\": \"<string>\",\n            \"requestHeadersToAdd\": {\n              \"add\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"set\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          \"initialJitter\": \"<string>\",\n          \"interval\": \"<string>\",\n          \"intervalJitter\": \"<string>\",\n          \"intervalJitterPercent\": \"<integer>\",\n          \"noTrafficInterval\": \"<string>\",\n          \"reuseConnection\": \"<boolean>\",\n          \"tcp\": {\n            \"disabled\": \"<boolean>\",\n            \"receive\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"send\": \"<string>\"\n          },\n          \"timeout\": \"<string>\",\n          \"unhealthyThreshold\": \"<integer>\"\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bae13172-834d-440a-8f65-3b0a59136bc0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshhealthchecks",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshHealthCheck"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"alwaysLogHealthCheckFailures\": \"<boolean>\",\n          \"eventLogPath\": \"<string>\",\n          \"failTrafficOnPanic\": \"<boolean>\",\n          \"grpc\": {\n            \"authority\": \"<string>\",\n            \"disabled\": \"<boolean>\",\n            \"serviceName\": \"<string>\"\n          },\n          \"healthyPanicThreshold\": \"<integer>\",\n          \"healthyThreshold\": \"<integer>\",\n          \"http\": {\n            \"disabled\": \"<boolean>\",\n            \"expectedStatuses\": [\n              \"<integer>\",\n              \"<integer>\"\n            ],\n            \"path\": \"<string>\",\n            \"requestHeadersToAdd\": {\n              \"add\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"set\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          \"initialJitter\": \"<string>\",\n          \"interval\": \"<string>\",\n          \"intervalJitter\": \"<string>\",\n          \"intervalJitterPercent\": \"<integer>\",\n          \"noTrafficInterval\": \"<string>\",\n          \"reuseConnection\": \"<boolean>\",\n          \"tcp\": {\n            \"disabled\": \"<boolean>\",\n            \"receive\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"send\": \"<string>\"\n          },\n          \"timeout\": \"<string>\",\n          \"unhealthyThreshold\": \"<integer>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"alwaysLogHealthCheckFailures\": \"<boolean>\",\n          \"eventLogPath\": \"<string>\",\n          \"failTrafficOnPanic\": \"<boolean>\",\n          \"grpc\": {\n            \"authority\": \"<string>\",\n            \"disabled\": \"<boolean>\",\n            \"serviceName\": \"<string>\"\n          },\n          \"healthyPanicThreshold\": \"<integer>\",\n          \"healthyThreshold\": \"<integer>\",\n          \"http\": {\n            \"disabled\": \"<boolean>\",\n            \"expectedStatuses\": [\n              \"<integer>\",\n              \"<integer>\"\n            ],\n            \"path\": \"<string>\",\n            \"requestHeadersToAdd\": {\n              \"add\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"set\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          \"initialJitter\": \"<string>\",\n          \"interval\": \"<string>\",\n          \"intervalJitter\": \"<string>\",\n          \"intervalJitterPercent\": \"<integer>\",\n          \"noTrafficInterval\": \"<string>\",\n          \"reuseConnection\": \"<boolean>\",\n          \"tcp\": {\n            \"disabled\": \"<boolean>\",\n            \"receive\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"send\": \"<string>\"\n          },\n          \"timeout\": \"<string>\",\n          \"unhealthyThreshold\": \"<integer>\"\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cf639f4-408f-4b64-90e3-33cef2f976da",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshhealthchecks",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshHealthCheck"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"alwaysLogHealthCheckFailures\": \"<boolean>\",\n          \"eventLogPath\": \"<string>\",\n          \"failTrafficOnPanic\": \"<boolean>\",\n          \"grpc\": {\n            \"authority\": \"<string>\",\n            \"disabled\": \"<boolean>\",\n            \"serviceName\": \"<string>\"\n          },\n          \"healthyPanicThreshold\": \"<integer>\",\n          \"healthyThreshold\": \"<integer>\",\n          \"http\": {\n            \"disabled\": \"<boolean>\",\n            \"expectedStatuses\": [\n              \"<integer>\",\n              \"<integer>\"\n            ],\n            \"path\": \"<string>\",\n            \"requestHeadersToAdd\": {\n              \"add\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"set\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          \"initialJitter\": \"<string>\",\n          \"interval\": \"<string>\",\n          \"intervalJitter\": \"<string>\",\n          \"intervalJitterPercent\": \"<integer>\",\n          \"noTrafficInterval\": \"<string>\",\n          \"reuseConnection\": \"<boolean>\",\n          \"tcp\": {\n            \"disabled\": \"<boolean>\",\n            \"receive\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"send\": \"<string>\"\n          },\n          \"timeout\": \"<string>\",\n          \"unhealthyThreshold\": \"<integer>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"alwaysLogHealthCheckFailures\": \"<boolean>\",\n          \"eventLogPath\": \"<string>\",\n          \"failTrafficOnPanic\": \"<boolean>\",\n          \"grpc\": {\n            \"authority\": \"<string>\",\n            \"disabled\": \"<boolean>\",\n            \"serviceName\": \"<string>\"\n          },\n          \"healthyPanicThreshold\": \"<integer>\",\n          \"healthyThreshold\": \"<integer>\",\n          \"http\": {\n            \"disabled\": \"<boolean>\",\n            \"expectedStatuses\": [\n              \"<integer>\",\n              \"<integer>\"\n            ],\n            \"path\": \"<string>\",\n            \"requestHeadersToAdd\": {\n              \"add\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ],\n              \"set\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": \"<string>\"\n                }\n              ]\n            }\n          },\n          \"initialJitter\": \"<string>\",\n          \"interval\": \"<string>\",\n          \"intervalJitter\": \"<string>\",\n          \"intervalJitterPercent\": \"<integer>\",\n          \"noTrafficInterval\": \"<string>\",\n          \"reuseConnection\": \"<boolean>\",\n          \"tcp\": {\n            \"disabled\": \"<boolean>\",\n            \"receive\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"send\": \"<string>\"\n          },\n          \"timeout\": \"<string>\",\n          \"unhealthyThreshold\": \"<integer>\"\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1c03389-4dbd-427a-8008-cb42d61a478b",
+          "name": "Deletes MeshHealthCheck entity",
+          "request": {
+            "name": "Deletes MeshHealthCheck entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshhealthchecks",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshHealthCheck"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "306e097c-0bc6-4e51-9a7b-ddd7a151f189",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshhealthchecks",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshHealthCheck"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1150818-c644-47de-aa85-12b13153632b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshhealthchecks",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshHealthCheck"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e08a316b-2f63-495b-a55c-31bdbeede72b",
+          "name": "Returns a list of MeshHealthCheck in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshHealthCheck in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshhealthchecks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "388d85d2-5f2f-4bd0-a3eb-893a089ac8cd",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshhealthchecks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshHealthCheck\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"targetRef\": {\n          \"kind\": \"MeshGateway\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshExternalService\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"alwaysLogHealthCheckFailures\": true,\n              \"eventLogPath\": \"string\",\n              \"failTrafficOnPanic\": false,\n              \"grpc\": {\n                \"authority\": \"string\",\n                \"disabled\": false,\n                \"serviceName\": \"string\"\n              },\n              \"healthyPanicThreshold\": 3602,\n              \"healthyThreshold\": 5288,\n              \"http\": {\n                \"disabled\": false,\n                \"expectedStatuses\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"path\": \"string\",\n                \"requestHeadersToAdd\": {\n                  \"add\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"set\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              \"initialJitter\": \"string\",\n              \"interval\": \"string\",\n              \"intervalJitter\": \"string\",\n              \"intervalJitterPercent\": 6581,\n              \"noTrafficInterval\": \"string\",\n              \"reuseConnection\": false,\n              \"tcp\": {\n                \"disabled\": true,\n                \"receive\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"send\": \"string\"\n              },\n              \"timeout\": \"string\",\n              \"unhealthyThreshold\": 2332\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshService\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"alwaysLogHealthCheckFailures\": false,\n              \"eventLogPath\": \"string\",\n              \"failTrafficOnPanic\": true,\n              \"grpc\": {\n                \"authority\": \"string\",\n                \"disabled\": false,\n                \"serviceName\": \"string\"\n              },\n              \"healthyPanicThreshold\": 4712,\n              \"healthyThreshold\": 3554,\n              \"http\": {\n                \"disabled\": false,\n                \"expectedStatuses\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"path\": \"string\",\n                \"requestHeadersToAdd\": {\n                  \"add\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"set\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              \"initialJitter\": \"string\",\n              \"interval\": \"string\",\n              \"intervalJitter\": \"string\",\n              \"intervalJitterPercent\": 5053,\n              \"noTrafficInterval\": \"string\",\n              \"reuseConnection\": false,\n              \"tcp\": {\n                \"disabled\": true,\n                \"receive\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"send\": \"string\"\n              },\n              \"timeout\": \"string\",\n              \"unhealthyThreshold\": 400\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mhc_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n      \"type\": \"MeshHealthCheck\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"targetRef\": {\n          \"kind\": \"MeshMultiZoneService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshServiceSubset\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"alwaysLogHealthCheckFailures\": false,\n              \"eventLogPath\": \"string\",\n              \"failTrafficOnPanic\": true,\n              \"grpc\": {\n                \"authority\": \"string\",\n                \"disabled\": false,\n                \"serviceName\": \"string\"\n              },\n              \"healthyPanicThreshold\": 8025,\n              \"healthyThreshold\": 1364,\n              \"http\": {\n                \"disabled\": false,\n                \"expectedStatuses\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"path\": \"string\",\n                \"requestHeadersToAdd\": {\n                  \"add\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"set\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              \"initialJitter\": \"string\",\n              \"interval\": \"string\",\n              \"intervalJitter\": \"string\",\n              \"intervalJitterPercent\": 1122,\n              \"noTrafficInterval\": \"string\",\n              \"reuseConnection\": true,\n              \"tcp\": {\n                \"disabled\": true,\n                \"receive\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"send\": \"string\"\n              },\n              \"timeout\": \"string\",\n              \"unhealthyThreshold\": 2529\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"Dataplane\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              }\n            },\n            \"default\": {\n              \"alwaysLogHealthCheckFailures\": true,\n              \"eventLogPath\": \"string\",\n              \"failTrafficOnPanic\": true,\n              \"grpc\": {\n                \"authority\": \"string\",\n                \"disabled\": true,\n                \"serviceName\": \"string\"\n              },\n              \"healthyPanicThreshold\": 859,\n              \"healthyThreshold\": 2689,\n              \"http\": {\n                \"disabled\": false,\n                \"expectedStatuses\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"path\": \"string\",\n                \"requestHeadersToAdd\": {\n                  \"add\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"set\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              \"initialJitter\": \"string\",\n              \"interval\": \"string\",\n              \"intervalJitter\": \"string\",\n              \"intervalJitterPercent\": 6962,\n              \"noTrafficInterval\": \"string\",\n              \"reuseConnection\": false,\n              \"tcp\": {\n                \"disabled\": true,\n                \"receive\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"send\": \"string\"\n              },\n              \"timeout\": \"string\",\n              \"unhealthyThreshold\": 5449\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mhc_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    }\n  ],\n  \"total\": 9569.52060906461,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a9c8ad3a-8565-4c26-9e7e-518dd826e8af",
+    "name": "Kuma Dataplane MeshHealthCheck API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

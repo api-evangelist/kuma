@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "95d2630c-2e94-485a-8507-c6e02a07b762",
+      "name": "MeshTrace",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ec183951-4966-4e51-9cba-c0f3ef2d062c",
+          "name": "Returns MeshTrace entity",
+          "request": {
+            "name": "Returns MeshTrace entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtraces",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshTrace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c89bb7b-4342-476f-9639-889f72d84c54",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtraces",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshTrace\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"default\": {\n      \"backends\": [\n        {\n          \"type\": \"OpenTelemetry\",\n          \"datadog\": {\n            \"url\": \"string\",\n            \"splitService\": false\n          },\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"MeshOpenTelemetryBackend\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"name\": \"string\"\n            },\n            \"endpoint\": \"otel-collector:4317\"\n          },\n          \"zipkin\": {\n            \"url\": \"string\",\n            \"apiVersion\": \"httpJson\",\n            \"sharedSpanContext\": true,\n            \"traceId128bit\": false\n          }\n        }\n      ],\n      \"sampling\": {\n        \"client\": 126,\n        \"overall\": 7550,\n        \"random\": 5134\n      },\n      \"tags\": [\n        {\n          \"name\": \"string\",\n          \"header\": {\n            \"name\": \"string\",\n            \"default\": \"string\"\n          },\n          \"literal\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"header\": {\n            \"name\": \"string\",\n            \"default\": \"string\"\n          },\n          \"literal\": \"string\"\n        }\n      ]\n    },\n    \"targetRef\": {\n      \"kind\": \"MeshMultiZoneService\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Gateway\",\n        \"Gateway\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mtr_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\",\n  \"status\": {\n    \"conditions\": [\n      {\n        \"message\": \"string\",\n        \"reason\": \"N\",\n        \"status\": \"True\",\n        \"type\": \"b.ynvmc982e.4qvblpk5f03l.ty4oalkcal.j.v.obo.o/t7Gg_2\"\n      },\n      {\n        \"message\": \"string\",\n        \"reason\": \"l\",\n        \"status\": \"True\",\n        \"type\": \"1.u.8ral46.cg087n66d/m\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5687c70-2061-4d28-a574-68db136d600c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtraces",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33075633-a9bc-4582-8adc-d560fdb10a63",
+          "name": "Creates or Updates MeshTrace entity",
+          "request": {
+            "name": "Creates or Updates MeshTrace entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtraces",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshTrace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"default\": {\n      \"backends\": [\n        {\n          \"type\": \"<string>\",\n          \"datadog\": {\n            \"url\": \"<string>\",\n            \"splitService\": false\n          },\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"<string>\",\n              \"labels\": {\n                \"key_0\": \"<string>\",\n                \"key_1\": \"<string>\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"endpoint\": \"\"\n          },\n          \"zipkin\": {\n            \"url\": \"<string>\",\n            \"apiVersion\": \"httpJson\",\n            \"sharedSpanContext\": true,\n            \"traceId128bit\": false\n          }\n        }\n      ],\n      \"sampling\": {\n        \"client\": \"<integer>\",\n        \"overall\": \"<integer>\",\n        \"random\": \"<integer>\"\n      },\n      \"tags\": [\n        {\n          \"name\": \"<string>\",\n          \"header\": {\n            \"name\": \"<string>\",\n            \"default\": \"<string>\"\n          },\n          \"literal\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"header\": {\n            \"name\": \"<string>\",\n            \"default\": \"<string>\"\n          },\n          \"literal\": \"<string>\"\n        }\n      ]\n    },\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e29e0f7-eb89-4cfc-b74b-acb0c7ba5601",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtraces",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"default\": {\n      \"backends\": [\n        {\n          \"type\": \"<string>\",\n          \"datadog\": {\n            \"url\": \"<string>\",\n            \"splitService\": false\n          },\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"<string>\",\n              \"labels\": {\n                \"key_0\": \"<string>\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"endpoint\": \"otel-collector:4317\"\n          },\n          \"zipkin\": {\n            \"url\": \"<string>\",\n            \"apiVersion\": \"httpJson\",\n            \"sharedSpanContext\": true,\n            \"traceId128bit\": false\n          }\n        }\n      ],\n      \"sampling\": {\n        \"client\": \"<integer>\",\n        \"overall\": \"<integer>\",\n        \"random\": \"<integer>\"\n      },\n      \"tags\": [\n        {\n          \"name\": \"<string>\",\n          \"header\": {\n            \"name\": \"<string>\",\n            \"default\": \"<string>\"\n          },\n          \"literal\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"header\": {\n            \"name\": \"<string>\",\n            \"default\": \"<string>\"\n          },\n          \"literal\": \"<string>\"\n        }\n      ]\n    },\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e11d303-edd8-4272-9efb-1ccc636f4a75",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtraces",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"default\": {\n      \"backends\": [\n        {\n          \"type\": \"<string>\",\n          \"datadog\": {\n            \"url\": \"<string>\",\n            \"splitService\": false\n          },\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"<string>\",\n              \"labels\": {\n                \"key_0\": \"<string>\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"endpoint\": \"otel-collector:4317\"\n          },\n          \"zipkin\": {\n            \"url\": \"<string>\",\n            \"apiVersion\": \"httpJson\",\n            \"sharedSpanContext\": true,\n            \"traceId128bit\": false\n          }\n        }\n      ],\n      \"sampling\": {\n        \"client\": \"<integer>\",\n        \"overall\": \"<integer>\",\n        \"random\": \"<integer>\"\n      },\n      \"tags\": [\n        {\n          \"name\": \"<string>\",\n          \"header\": {\n            \"name\": \"<string>\",\n            \"default\": \"<string>\"\n          },\n          \"literal\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"header\": {\n            \"name\": \"<string>\",\n            \"default\": \"<string>\"\n          },\n          \"literal\": \"<string>\"\n        }\n      ]\n    },\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d7dd42a-70de-45b9-ba3e-d8a265f3d6e1",
+          "name": "Deletes MeshTrace entity",
+          "request": {
+            "name": "Deletes MeshTrace entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtraces",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshTrace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69d0ac64-a167-44b7-9b5a-7488449dab3a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtraces",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "897f1637-666a-491a-b0bf-de179e87ac01",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtraces",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b851075-6717-49f3-9372-c79f25caa907",
+          "name": "Returns a list of MeshTrace in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshTrace in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtraces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "569e894a-5665-4a0e-a9c2-d76e9c6dd6e7",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtraces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshTrace\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"default\": {\n          \"backends\": [\n            {\n              \"type\": \"OpenTelemetry\",\n              \"datadog\": {\n                \"url\": \"string\",\n                \"splitService\": false\n              },\n              \"openTelemetry\": {\n                \"backendRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"endpoint\": \"otel-collector:4317\"\n              },\n              \"zipkin\": {\n                \"url\": \"string\",\n                \"apiVersion\": \"httpJson\",\n                \"sharedSpanContext\": true,\n                \"traceId128bit\": false\n              }\n            }\n          ],\n          \"sampling\": {\n            \"client\": 5317,\n            \"overall\": 4903,\n            \"random\": 4830\n          },\n          \"tags\": [\n            {\n              \"name\": \"string\",\n              \"header\": {\n                \"name\": \"string\",\n                \"default\": \"string\"\n              },\n              \"literal\": \"string\"\n            },\n            {\n              \"name\": \"string\",\n              \"header\": {\n                \"name\": \"string\",\n                \"default\": \"string\"\n              },\n              \"literal\": \"string\"\n            }\n          ]\n        },\n        \"targetRef\": {\n          \"kind\": \"Dataplane\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mtr_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"V\",\n            \"status\": \"Unknown\",\n            \"type\": \"LKtBTNqF3YB\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"dcP9XYqtF\",\n            \"status\": \"Unknown\",\n            \"type\": \"g6f.z4thoqt95.3v5x.z.i.d2gsvpt1bra.mj2lv/V\"\n          }\n        ]\n      }\n    },\n    {\n      \"type\": \"MeshTrace\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"default\": {\n          \"backends\": [\n            {\n              \"type\": \"Zipkin\",\n              \"datadog\": {\n                \"url\": \"string\",\n                \"splitService\": false\n              },\n              \"openTelemetry\": {\n                \"backendRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"endpoint\": \"otel-collector:4317\"\n              },\n              \"zipkin\": {\n                \"url\": \"string\",\n                \"apiVersion\": \"httpJson\",\n                \"sharedSpanContext\": true,\n                \"traceId128bit\": false\n              }\n            }\n          ],\n          \"sampling\": {\n            \"client\": 9209,\n            \"overall\": 8862,\n            \"random\": 679\n          },\n          \"tags\": [\n            {\n              \"name\": \"string\",\n              \"header\": {\n                \"name\": \"string\",\n                \"default\": \"string\"\n              },\n              \"literal\": \"string\"\n            },\n            {\n              \"name\": \"string\",\n              \"header\": {\n                \"name\": \"string\",\n                \"default\": \"string\"\n              },\n              \"literal\": \"string\"\n            }\n          ]\n        },\n        \"targetRef\": {\n          \"kind\": \"MeshMultiZoneService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mtr_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"X\",\n            \"status\": \"False\",\n            \"type\": \"c.w5o84z.qxwuq6.qdgclkh.h/u3TkRPq\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"Y6N0y\",\n            \"status\": \"Unknown\",\n            \"type\": \"PX4kiPpqkNQh\"\n          }\n        ]\n      }\n    }\n  ],\n  \"total\": 293.9022802294389,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4c450be0-921e-454c-bcfc-043307826da5",
+    "name": "Kuma Dataplane MeshTrace API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

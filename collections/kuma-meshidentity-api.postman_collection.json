@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "26db5b6f-49fb-4c31-9861-adf88193a8ef",
+      "name": "MeshIdentity",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a4765ae-5a24-486e-991e-02d64f1a901d",
+          "name": "Returns MeshIdentity entity",
+          "request": {
+            "name": "Returns MeshIdentity entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshidentities",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshIdentity"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d2988c8-1f56-4d13-964e-24014bf558a6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshidentities",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshIdentity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshIdentity\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"provider\": {\n      \"type\": \"Extension\",\n      \"bundled\": {\n        \"autogenerate\": {\n          \"enabled\": true\n        },\n        \"ca\": {\n          \"certificate\": {\n            \"type\": \"EnvVar\",\n            \"envVar\": {\n              \"name\": \"string\"\n            },\n            \"file\": {\n              \"path\": \"string\"\n            },\n            \"insecureInline\": {\n              \"value\": \"string\"\n            },\n            \"secretRef\": {\n              \"kind\": \"Secret\",\n              \"name\": \"string\"\n            }\n          },\n          \"privateKey\": {\n            \"type\": \"EnvVar\",\n            \"envVar\": {\n              \"name\": \"string\"\n            },\n            \"file\": {\n              \"path\": \"string\"\n            },\n            \"insecureInline\": {\n              \"value\": \"string\"\n            },\n            \"secretRef\": {\n              \"kind\": \"Secret\",\n              \"name\": \"string\"\n            }\n          }\n        },\n        \"certificateParameters\": {\n          \"expiry\": \"string\"\n        },\n        \"insecureAllowSelfSigned\": false,\n        \"meshTrustCreation\": \"Disabled\"\n      },\n      \"extension\": {\n        \"name\": \"string\",\n        \"config\": {}\n      },\n      \"spire\": {\n        \"agent\": {\n          \"timeout\": \"string\"\n        }\n      }\n    },\n    \"selector\": {\n      \"dataplane\": {\n        \"matchLabels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\",\n          \"key_3\": \"string\"\n        }\n      }\n    },\n    \"spiffeID\": {\n      \"path\": \"string\",\n      \"trustDomain\": \"string\"\n    }\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mid_default_zone-east_kuma-system_myresource1_\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\",\n  \"status\": {\n    \"conditions\": [\n      {\n        \"message\": \"string\",\n        \"reason\": \"uk97kix8i\",\n        \"status\": \"Unknown\",\n        \"type\": \"j.r/B\"\n      },\n      {\n        \"message\": \"string\",\n        \"reason\": \"p\",\n        \"status\": \"True\",\n        \"type\": \"i-8nsemj1l.x.1/HT\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bfff5db6-6537-47c0-8438-1ed1be4e9d55",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshidentities",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshIdentity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f2e9aa4-e917-4458-8d01-dac67ad1bf84",
+          "name": "Creates or Updates MeshIdentity entity",
+          "request": {
+            "name": "Creates or Updates MeshIdentity entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshidentities",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshIdentity"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"provider\": {\n      \"type\": \"<string>\",\n      \"bundled\": {\n        \"autogenerate\": {\n          \"enabled\": \"<boolean>\"\n        },\n        \"ca\": {\n          \"certificate\": {\n            \"type\": \"<string>\",\n            \"envVar\": {\n              \"name\": \"<string>\"\n            },\n            \"file\": {\n              \"path\": \"<string>\"\n            },\n            \"insecureInline\": {\n              \"value\": \"<string>\"\n            },\n            \"secretRef\": {\n              \"kind\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          },\n          \"privateKey\": {\n            \"type\": \"<string>\",\n            \"envVar\": {\n              \"name\": \"<string>\"\n            },\n            \"file\": {\n              \"path\": \"<string>\"\n            },\n            \"insecureInline\": {\n              \"value\": \"<string>\"\n            },\n            \"secretRef\": {\n              \"kind\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        },\n        \"certificateParameters\": {\n          \"expiry\": \"<string>\"\n        },\n        \"insecureAllowSelfSigned\": \"<boolean>\",\n        \"meshTrustCreation\": \"<string>\"\n      },\n      \"extension\": {\n        \"name\": \"<string>\",\n        \"config\": {}\n      },\n      \"spire\": {\n        \"agent\": {\n          \"timeout\": \"<string>\"\n        }\n      }\n    },\n    \"selector\": {\n      \"dataplane\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    },\n    \"spiffeID\": {\n      \"path\": \"<string>\",\n      \"trustDomain\": \"<string>\"\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3339936-0b95-4576-81d6-4f2ead3967b6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshidentities",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshIdentity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"provider\": {\n      \"type\": \"<string>\",\n      \"bundled\": {\n        \"autogenerate\": {\n          \"enabled\": \"<boolean>\"\n        },\n        \"ca\": {\n          \"certificate\": {\n            \"type\": \"<string>\",\n            \"envVar\": {\n              \"name\": \"<string>\"\n            },\n            \"file\": {\n              \"path\": \"<string>\"\n            },\n            \"insecureInline\": {\n              \"value\": \"<string>\"\n            },\n            \"secretRef\": {\n              \"kind\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          },\n          \"privateKey\": {\n            \"type\": \"<string>\",\n            \"envVar\": {\n              \"name\": \"<string>\"\n            },\n            \"file\": {\n              \"path\": \"<string>\"\n            },\n            \"insecureInline\": {\n              \"value\": \"<string>\"\n            },\n            \"secretRef\": {\n              \"kind\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        },\n        \"certificateParameters\": {\n          \"expiry\": \"<string>\"\n        },\n        \"insecureAllowSelfSigned\": \"<boolean>\",\n        \"meshTrustCreation\": \"<string>\"\n      },\n      \"extension\": {\n        \"name\": \"<string>\",\n        \"config\": {}\n      },\n      \"spire\": {\n        \"agent\": {\n          \"timeout\": \"<string>\"\n        }\n      }\n    },\n    \"selector\": {\n      \"dataplane\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    },\n    \"spiffeID\": {\n      \"path\": \"<string>\",\n      \"trustDomain\": \"<string>\"\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b846640-733e-4738-99b6-f9dbffc3c571",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshidentities",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshIdentity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"provider\": {\n      \"type\": \"<string>\",\n      \"bundled\": {\n        \"autogenerate\": {\n          \"enabled\": \"<boolean>\"\n        },\n        \"ca\": {\n          \"certificate\": {\n            \"type\": \"<string>\",\n            \"envVar\": {\n              \"name\": \"<string>\"\n            },\n            \"file\": {\n              \"path\": \"<string>\"\n            },\n            \"insecureInline\": {\n              \"value\": \"<string>\"\n            },\n            \"secretRef\": {\n              \"kind\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          },\n          \"privateKey\": {\n            \"type\": \"<string>\",\n            \"envVar\": {\n              \"name\": \"<string>\"\n            },\n            \"file\": {\n              \"path\": \"<string>\"\n            },\n            \"insecureInline\": {\n              \"value\": \"<string>\"\n            },\n            \"secretRef\": {\n              \"kind\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        },\n        \"certificateParameters\": {\n          \"expiry\": \"<string>\"\n        },\n        \"insecureAllowSelfSigned\": \"<boolean>\",\n        \"meshTrustCreation\": \"<string>\"\n      },\n      \"extension\": {\n        \"name\": \"<string>\",\n        \"config\": {}\n      },\n      \"spire\": {\n        \"agent\": {\n          \"timeout\": \"<string>\"\n        }\n      }\n    },\n    \"selector\": {\n      \"dataplane\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    },\n    \"spiffeID\": {\n      \"path\": \"<string>\",\n      \"trustDomain\": \"<string>\"\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66bd590b-dfb8-47e6-bedd-4f571c29de25",
+          "name": "Deletes MeshIdentity entity",
+          "request": {
+            "name": "Deletes MeshIdentity entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshidentities",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshIdentity"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff156986-e628-4e11-948a-69c6ddd425b3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshidentities",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshIdentity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c5982ca-81d1-4769-8352-54e30986a593",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshidentities",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshIdentity"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b74d72eb-fb49-483b-a46f-6c558a2f4599",
+          "name": "Returns a list of MeshIdentity in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshIdentity in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshidentities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3d40707-544b-4898-9a7f-7861bf46ba6f",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshidentities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshIdentity\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"provider\": {\n          \"type\": \"Spire\",\n          \"bundled\": {\n            \"autogenerate\": {\n              \"enabled\": false\n            },\n            \"ca\": {\n              \"certificate\": {\n                \"type\": \"InsecureInline\",\n                \"envVar\": {\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"file\": {\n                  \"path\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"insecureInline\": {\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"secretRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              \"privateKey\": {\n                \"type\": \"Secret\",\n                \"envVar\": {\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"file\": {\n                  \"path\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"insecureInline\": {\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"secretRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            },\n            \"certificateParameters\": {\n              \"expiry\": \"string\"\n            },\n            \"insecureAllowSelfSigned\": false,\n            \"meshTrustCreation\": \"Disabled\"\n          },\n          \"extension\": {\n            \"name\": \"string\",\n            \"config\": {}\n          },\n          \"spire\": {\n            \"agent\": {\n              \"timeout\": \"string\"\n            }\n          }\n        },\n        \"selector\": {\n          \"dataplane\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            }\n          }\n        },\n        \"spiffeID\": {\n          \"path\": \"string\",\n          \"trustDomain\": \"string\"\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mid_default_zone-east_kuma-system_myresource1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"uMun54c\",\n            \"status\": \"Unknown\",\n            \"type\": \"z.3n9j.c5cnjl/1SlShjg2S\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"f\",\n            \"status\": \"Unknown\",\n            \"type\": \"D\"\n          }\n        ]\n      }\n    },\n    {\n      \"type\": \"MeshIdentity\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"provider\": {\n          \"type\": \"Extension\",\n          \"bundled\": {\n            \"autogenerate\": {\n              \"enabled\": true\n            },\n            \"ca\": {\n              \"certificate\": {\n                \"type\": \"EnvVar\",\n                \"envVar\": {\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"file\": {\n                  \"path\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"insecureInline\": {\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"secretRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              \"privateKey\": {\n                \"type\": \"EnvVar\",\n                \"envVar\": {\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"file\": {\n                  \"path\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"insecureInline\": {\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"secretRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            },\n            \"certificateParameters\": {\n              \"expiry\": \"string\"\n            },\n            \"insecureAllowSelfSigned\": true,\n            \"meshTrustCreation\": \"Enabled\"\n          },\n          \"extension\": {\n            \"name\": \"string\",\n            \"config\": {}\n          },\n          \"spire\": {\n            \"agent\": {\n              \"timeout\": \"string\"\n            }\n          }\n        },\n        \"selector\": {\n          \"dataplane\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            }\n          }\n        },\n        \"spiffeID\": {\n          \"path\": \"string\",\n          \"trustDomain\": \"string\"\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mid_default_zone-east_kuma-system_myresource1_\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"h\",\n            \"status\": \"Unknown\",\n            \"type\": \"q\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"qR\",\n            \"status\": \"True\",\n            \"type\": \"n.wsy.nupbcb.a.5/KBK-GXN2mFi3\"\n          }\n        ]\n      }\n    }\n  ],\n  \"total\": 9791.0265857954,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e9acbeb3-7794-45dc-80f2-1e72fae05af4",
+    "name": "Kuma Dataplane MeshIdentity API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

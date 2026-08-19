@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "f37d3209-ff54-4b2c-9779-8fa2f94ce096",
+      "name": "MeshGateway",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "10f1d98e-694d-485a-ac87-fcb04ffdc112",
+          "name": "Returns a list of MeshGateway in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshGateway in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshgateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69df9b13-abdd-4b70-82cb-ce47ac2fdf91",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshgateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"mesh\": \"string\",\n      \"conf\": {\n        \"listeners\": [\n          {\n            \"crossMesh\": true,\n            \"hostname\": \"string\",\n            \"port\": 1556,\n            \"protocol\": \"string\",\n            \"resources\": {\n              \"connectionLimit\": 657\n            },\n            \"tags\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"tls\": {\n              \"certificates\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"mode\": \"string\",\n              \"options\": {}\n            }\n          },\n          {\n            \"crossMesh\": false,\n            \"hostname\": \"string\",\n            \"port\": 7851,\n            \"protocol\": \"string\",\n            \"resources\": {\n              \"connectionLimit\": 1872\n            },\n            \"tags\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"tls\": {\n              \"certificates\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"mode\": \"string\",\n              \"options\": {}\n            }\n          }\n        ]\n      },\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"selectors\": [\n        {\n          \"match\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        },\n        {\n          \"match\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        }\n      ],\n      \"tags\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"mesh\": \"string\",\n      \"conf\": {\n        \"listeners\": [\n          {\n            \"crossMesh\": true,\n            \"hostname\": \"string\",\n            \"port\": 5208,\n            \"protocol\": \"string\",\n            \"resources\": {\n              \"connectionLimit\": 7434\n            },\n            \"tags\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\"\n            },\n            \"tls\": {\n              \"certificates\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"mode\": \"string\",\n              \"options\": {}\n            }\n          },\n          {\n            \"crossMesh\": false,\n            \"hostname\": \"string\",\n            \"port\": 3417,\n            \"protocol\": \"string\",\n            \"resources\": {\n              \"connectionLimit\": 9078\n            },\n            \"tags\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"tls\": {\n              \"certificates\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"mode\": \"string\",\n              \"options\": {}\n            }\n          }\n        ]\n      },\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"selectors\": [\n        {\n          \"match\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"match\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      ],\n      \"tags\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ],\n  \"next\": \"string\",\n  \"total\": 6308.104850380978\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d08a3a5e-9e62-4b81-a0a4-a3cf29ec009a",
+          "name": "Deletes MeshGateway entity",
+          "request": {
+            "name": "Deletes MeshGateway entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshgateways",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshGateway"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6d71e40-5b64-473c-b8b0-98261a10462e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshgateways",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshGateway"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ef12883-db03-4f14-87c1-13ac3103049c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshgateways",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshGateway"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3170b1a6-c3f1-487e-b383-b285df089a40",
+          "name": "Returns MeshGateway entity",
+          "request": {
+            "name": "Returns MeshGateway entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshgateways",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshGateway"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b98699e5-da6b-4379-9104-8d5ea76af4a2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshgateways",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshGateway"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"name\": \"string\",\n  \"mesh\": \"string\",\n  \"conf\": {\n    \"listeners\": [\n      {\n        \"crossMesh\": true,\n        \"hostname\": \"string\",\n        \"port\": 4983,\n        \"protocol\": \"string\",\n        \"resources\": {\n          \"connectionLimit\": 7364\n        },\n        \"tags\": {\n          \"key_0\": \"string\"\n        },\n        \"tls\": {\n          \"certificates\": [\n            {\n              \"file\": \"string\"\n            },\n            {\n              \"file\": \"string\"\n            }\n          ],\n          \"mode\": \"string\",\n          \"options\": {}\n        }\n      },\n      {\n        \"crossMesh\": true,\n        \"hostname\": \"string\",\n        \"port\": 2051,\n        \"protocol\": \"string\",\n        \"resources\": {\n          \"connectionLimit\": 8379\n        },\n        \"tags\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\",\n          \"key_3\": \"string\"\n        },\n        \"tls\": {\n          \"certificates\": [\n            {\n              \"file\": \"string\"\n            },\n            {\n              \"file\": \"string\"\n            }\n          ],\n          \"mode\": \"string\",\n          \"options\": {}\n        }\n      }\n    ]\n  },\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"selectors\": [\n    {\n      \"match\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    {\n      \"match\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  ],\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68e16486-e075-4e79-89cd-d2567dc16943",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshgateways",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshGateway"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fa8a80b-2a22-4f23-89a0-91740c99b590",
+          "name": "Creates or Updates MeshGateway entity",
+          "request": {
+            "name": "Creates or Updates MeshGateway entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshgateways",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshGateway"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mesh\": \"<string>\",\n  \"conf\": {\n    \"listeners\": [\n      {\n        \"crossMesh\": \"<boolean>\",\n        \"hostname\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"resources\": {\n          \"connectionLimit\": \"<integer>\"\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\"\n        },\n        \"tls\": {\n          \"certificates\": [\n            {\n              \"file\": \"<string>\"\n            },\n            {\n              \"file\": \"<string>\"\n            }\n          ],\n          \"mode\": \"<string>\",\n          \"options\": {}\n        }\n      },\n      {\n        \"crossMesh\": \"<boolean>\",\n        \"hostname\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"resources\": {\n          \"connectionLimit\": \"<integer>\"\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"tls\": {\n          \"certificates\": [\n            {\n              \"file\": \"<string>\"\n            },\n            {\n              \"file\": \"<string>\"\n            }\n          ],\n          \"mode\": \"<string>\",\n          \"options\": {}\n        }\n      }\n    ]\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  },\n  \"selectors\": [\n    {\n      \"match\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    {\n      \"match\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  ],\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "018e76ce-442f-4cf1-bbd6-b9d0d27acc44",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshgateways",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshGateway"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mesh\": \"<string>\",\n  \"conf\": {\n    \"listeners\": [\n      {\n        \"crossMesh\": \"<boolean>\",\n        \"hostname\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"resources\": {\n          \"connectionLimit\": \"<integer>\"\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\"\n        },\n        \"tls\": {\n          \"certificates\": [\n            {\n              \"file\": \"string\"\n            },\n            {\n              \"file\": \"string\"\n            }\n          ],\n          \"mode\": \"<string>\",\n          \"options\": {}\n        }\n      },\n      {\n        \"crossMesh\": \"<boolean>\",\n        \"hostname\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"resources\": {\n          \"connectionLimit\": \"<integer>\"\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"tls\": {\n          \"certificates\": [\n            {\n              \"file\": \"string\"\n            },\n            {\n              \"file\": \"string\"\n            }\n          ],\n          \"mode\": \"<string>\",\n          \"options\": {}\n        }\n      }\n    ]\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"selectors\": [\n    {\n      \"match\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    {\n      \"match\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    }\n  ],\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2083fb25-0f84-4605-ba70-d8981cb5476b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshgateways",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshGateway"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mesh\": \"<string>\",\n  \"conf\": {\n    \"listeners\": [\n      {\n        \"crossMesh\": \"<boolean>\",\n        \"hostname\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"resources\": {\n          \"connectionLimit\": \"<integer>\"\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\"\n        },\n        \"tls\": {\n          \"certificates\": [\n            {\n              \"file\": \"string\"\n            },\n            {\n              \"file\": \"string\"\n            }\n          ],\n          \"mode\": \"<string>\",\n          \"options\": {}\n        }\n      },\n      {\n        \"crossMesh\": \"<boolean>\",\n        \"hostname\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"resources\": {\n          \"connectionLimit\": \"<integer>\"\n        },\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"tls\": {\n          \"certificates\": [\n            {\n              \"file\": \"string\"\n            },\n            {\n              \"file\": \"string\"\n            }\n          ],\n          \"mode\": \"<string>\",\n          \"options\": {}\n        }\n      }\n    ]\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"selectors\": [\n    {\n      \"match\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    {\n      \"match\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    }\n  ],\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0ab0316b-b5c4-4698-b598-1857014ef323",
+    "name": "Kuma Dataplane MeshGateway API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

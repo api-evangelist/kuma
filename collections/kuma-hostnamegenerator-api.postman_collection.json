@@ -1,0 +1,622 @@
+{
+  "item": [
+    {
+      "id": "b2c9f3de-d9ef-48c1-b0fe-dffa14b48e6e",
+      "name": "HostnameGenerator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "52dfb15d-23f8-47b3-966b-a932269f2413",
+          "name": "Returns HostnameGenerator entity",
+          "request": {
+            "name": "Returns HostnameGenerator entity",
+            "description": {},
+            "url": {
+              "path": [
+                "hostnamegenerators",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the HostnameGenerator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08d4ebee-b3ed-4018-93e9-7d738ea0f2a4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hostnamegenerators",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the HostnameGenerator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"HostnameGenerator\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"template\": \"string\",\n    \"extension\": {\n      \"type\": \"string\",\n      \"config\": {}\n    },\n    \"selector\": {\n      \"meshExternalService\": {\n        \"matchLabels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"meshMultiZoneService\": {\n        \"matchLabels\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"meshService\": {\n        \"matchLabels\": {\n          \"key_0\": \"string\"\n        }\n      }\n    }\n  },\n  \"kri\": \"kri_hg___kuma-system_myresource1_\",\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d271e7f-a864-4875-a1fa-5f3664d30458",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hostnamegenerators",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the HostnameGenerator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35efb5c5-ac44-4891-9765-6a44d4136c8f",
+          "name": "Creates or Updates HostnameGenerator entity",
+          "request": {
+            "name": "Creates or Updates HostnameGenerator entity",
+            "description": {},
+            "url": {
+              "path": [
+                "hostnamegenerators",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the HostnameGenerator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"template\": \"<string>\",\n    \"extension\": {\n      \"type\": \"<string>\",\n      \"config\": {}\n    },\n    \"selector\": {\n      \"meshExternalService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"meshMultiZoneService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        }\n      },\n      \"meshService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "faefa4ce-0028-45c4-848e-3881ded4686b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hostnamegenerators",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the HostnameGenerator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"template\": \"<string>\",\n    \"extension\": {\n      \"type\": \"<string>\",\n      \"config\": {}\n    },\n    \"selector\": {\n      \"meshExternalService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        }\n      },\n      \"meshMultiZoneService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"meshService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58ffeab0-a8ce-41d9-ab0b-d07086b0397e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hostnamegenerators",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the HostnameGenerator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"template\": \"<string>\",\n    \"extension\": {\n      \"type\": \"<string>\",\n      \"config\": {}\n    },\n    \"selector\": {\n      \"meshExternalService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        }\n      },\n      \"meshMultiZoneService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"meshService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2d41b7d-6ef8-4908-bb05-81514b4ecfb0",
+          "name": "Deletes HostnameGenerator entity",
+          "request": {
+            "name": "Deletes HostnameGenerator entity",
+            "description": {},
+            "url": {
+              "path": [
+                "hostnamegenerators",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the HostnameGenerator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "696e58df-5595-42d0-850b-413215bfcf37",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hostnamegenerators",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the HostnameGenerator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b0ca6be-238d-4961-93cd-868e9e188404",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hostnamegenerators",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the HostnameGenerator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1657a3d-3051-493c-b753-47040b1d5efd",
+          "name": "Returns a list of HostnameGenerator in the mesh.",
+          "request": {
+            "name": "Returns a list of HostnameGenerator in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "hostnamegenerators"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20009eee-c279-4978-8301-abbf2fb63ef8",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hostnamegenerators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"HostnameGenerator\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"template\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"config\": {}\n        },\n        \"selector\": {\n          \"meshExternalService\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            }\n          },\n          \"meshMultiZoneService\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            }\n          },\n          \"meshService\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            }\n          }\n        }\n      },\n      \"kri\": \"kri_hg___kuma-system_myresource1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n      \"type\": \"HostnameGenerator\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"template\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"config\": {}\n        },\n        \"selector\": {\n          \"meshExternalService\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\"\n            }\n          },\n          \"meshMultiZoneService\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\"\n            }\n          },\n          \"meshService\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\"\n            }\n          }\n        }\n      },\n      \"kri\": \"kri_hg___kuma-system_myresource1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    }\n  ],\n  \"total\": 1409.9890946811356,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "be89e599-d65d-42a1-a7c0-e54691b4ac7a",
+    "name": "Kuma Dataplane HostnameGenerator API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

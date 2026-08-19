@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kuma Dataplane GlobalInsight API",
+    "version": "v1alpha1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GlobalInsight",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Global Insight",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/global-insight"
+          },
+          "docs": "Returns a Global Insight object"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

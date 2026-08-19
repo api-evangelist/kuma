@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "cc43b6f4-91e1-4d21-8f8d-1db773ec9033",
+      "name": "MeshMultiZoneService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "412e3259-373a-4861-af83-0f03c4a67a7b",
+          "name": "Returns MeshMultiZoneService entity",
+          "request": {
+            "name": "Returns MeshMultiZoneService entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshmultizoneservices",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshMultiZoneService"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33b60458-2207-4356-87d0-6838822a889c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmultizoneservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMultiZoneService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshMultiZoneService\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"ports\": [\n      {\n        \"port\": 9370,\n        \"appProtocol\": \"tcp\",\n        \"name\": \"string\"\n      }\n    ],\n    \"selector\": {\n      \"meshService\": {\n        \"matchLabels\": {\n          \"key_0\": \"string\"\n        }\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mzsvc_default_zone-east_kuma-demo_myresource1_\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\",\n  \"status\": {\n    \"addresses\": [\n      {\n        \"hostname\": \"string\",\n        \"hostnameGeneratorRef\": {\n          \"coreName\": \"string\"\n        },\n        \"origin\": \"string\"\n      },\n      {\n        \"hostname\": \"string\",\n        \"hostnameGeneratorRef\": {\n          \"coreName\": \"string\"\n        },\n        \"origin\": \"string\"\n      }\n    ],\n    \"conditions\": [\n      {\n        \"message\": \"string\",\n        \"reason\": \"W2Pq0Ql:07\",\n        \"status\": \"Unknown\",\n        \"type\": \"Lfj2\"\n      },\n      {\n        \"message\": \"string\",\n        \"reason\": \"n\",\n        \"status\": \"Unknown\",\n        \"type\": \"20jHh4pgot\"\n      }\n    ],\n    \"hostnameGenerators\": [\n      {\n        \"hostnameGeneratorRef\": {\n          \"coreName\": \"string\"\n        },\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"VV9ZXuwnWm\",\n            \"status\": \"False\",\n            \"type\": \"v.t.qn6all.w1we0/L6IaFhEviT\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"n\",\n            \"status\": \"False\",\n            \"type\": \"Ze_D9ZqtLu\"\n          }\n        ]\n      },\n      {\n        \"hostnameGeneratorRef\": {\n          \"coreName\": \"string\"\n        },\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"rm\",\n            \"status\": \"True\",\n            \"type\": \"O\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"t\",\n            \"status\": \"Unknown\",\n            \"type\": \"0k\"\n          }\n        ]\n      }\n    ],\n    \"meshServices\": [\n      {\n        \"mesh\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"zone\": \"string\"\n      },\n      {\n        \"mesh\": \"string\",\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"zone\": \"string\"\n      }\n    ],\n    \"vips\": [\n      {\n        \"ip\": \"string\"\n      },\n      {\n        \"ip\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e716f728-fa40-492e-962a-e021479314c5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmultizoneservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMultiZoneService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e288d34a-ae72-4e8f-9ccc-954b8e4a2bdf",
+          "name": "Creates or Updates MeshMultiZoneService entity",
+          "request": {
+            "name": "Creates or Updates MeshMultiZoneService entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshmultizoneservices",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshMultiZoneService"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"ports\": [\n      {\n        \"port\": \"<integer>\",\n        \"appProtocol\": \"tcp\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"selector\": {\n      \"meshService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bd9b9079-716e-40a1-a236-8f9ad3bb2ffd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmultizoneservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMultiZoneService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"ports\": [\n      {\n        \"port\": \"<integer>\",\n        \"appProtocol\": \"tcp\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"selector\": {\n      \"meshService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ecffdd6-9473-438f-9df8-2264bcf7df22",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmultizoneservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMultiZoneService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"ports\": [\n      {\n        \"port\": \"<integer>\",\n        \"appProtocol\": \"tcp\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"selector\": {\n      \"meshService\": {\n        \"matchLabels\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fee789e1-a1a3-4c21-b88a-cc128c4d631f",
+          "name": "Deletes MeshMultiZoneService entity",
+          "request": {
+            "name": "Deletes MeshMultiZoneService entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshmultizoneservices",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshMultiZoneService"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef524560-c3dc-4e4b-a895-b93c3cd71047",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmultizoneservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMultiZoneService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d70eb05-e5ec-465f-a9c1-9bfa18930938",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmultizoneservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMultiZoneService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a8ac8ca-1a07-46ef-a54f-8b09544561b6",
+          "name": "Returns a list of MeshMultiZoneService in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshMultiZoneService in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshmultizoneservices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13571b63-fce3-47b0-bd3a-ba38a98238be",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmultizoneservices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshMultiZoneService\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"ports\": [\n          {\n            \"port\": 1861,\n            \"appProtocol\": \"tcp\",\n            \"name\": \"string\"\n          }\n        ],\n        \"selector\": {\n          \"meshService\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\"\n            }\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mzsvc_default_zone-east_kuma-demo_myresource1_\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"addresses\": [\n          {\n            \"hostname\": \"string\",\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"origin\": \"string\"\n          },\n          {\n            \"hostname\": \"string\",\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"origin\": \"string\"\n          }\n        ],\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"AUJo\",\n            \"status\": \"Unknown\",\n            \"type\": \"o.h.pya1pzzcmoy.npt1ij9fo4m.qv415h.g.a/k\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"OfzjXD\",\n            \"status\": \"Unknown\",\n            \"type\": \"K0AvNx\"\n          }\n        ],\n        \"hostnameGenerators\": [\n          {\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"conditions\": [\n              {\n                \"message\": \"string\",\n                \"reason\": \"qoOB9IL_TV\",\n                \"status\": \"False\",\n                \"type\": \"i.c.p.5.a06vg7vyxf.1t-epa.9/K\"\n              },\n              {\n                \"message\": \"string\",\n                \"reason\": \"bvLoh2sGf\",\n                \"status\": \"Unknown\",\n                \"type\": \"1gghc.u.t/a\"\n              }\n            ]\n          },\n          {\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"conditions\": [\n              {\n                \"message\": \"string\",\n                \"reason\": \"vVeyDLAvSEf\",\n                \"status\": \"True\",\n                \"type\": \"5\"\n              },\n              {\n                \"message\": \"string\",\n                \"reason\": \"f\",\n                \"status\": \"True\",\n                \"type\": \"humwc3/P\"\n              }\n            ]\n          }\n        ],\n        \"meshServices\": [\n          {\n            \"mesh\": \"string\",\n            \"name\": \"string\",\n            \"namespace\": \"string\",\n            \"zone\": \"string\"\n          },\n          {\n            \"mesh\": \"string\",\n            \"name\": \"string\",\n            \"namespace\": \"string\",\n            \"zone\": \"string\"\n          }\n        ],\n        \"vips\": [\n          {\n            \"ip\": \"string\"\n          },\n          {\n            \"ip\": \"string\"\n          }\n        ]\n      }\n    },\n    {\n      \"type\": \"MeshMultiZoneService\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"ports\": [\n          {\n            \"port\": 5985,\n            \"appProtocol\": \"tcp\",\n            \"name\": \"string\"\n          }\n        ],\n        \"selector\": {\n          \"meshService\": {\n            \"matchLabels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            }\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mzsvc_default_zone-east_kuma-demo_myresource1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"addresses\": [\n          {\n            \"hostname\": \"string\",\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"origin\": \"string\"\n          },\n          {\n            \"hostname\": \"string\",\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"origin\": \"string\"\n          }\n        ],\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"G\",\n            \"status\": \"False\",\n            \"type\": \"Q\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"ntHZEGtTL2\",\n            \"status\": \"False\",\n            \"type\": \"86HifP0\"\n          }\n        ],\n        \"hostnameGenerators\": [\n          {\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"conditions\": [\n              {\n                \"message\": \"string\",\n                \"reason\": \"n_exwF70QI\",\n                \"status\": \"Unknown\",\n                \"type\": \"9.r/KNysTb\"\n              },\n              {\n                \"message\": \"string\",\n                \"reason\": \"X\",\n                \"status\": \"True\",\n                \"type\": \"1wN7chWcokCx\"\n              }\n            ]\n          },\n          {\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"conditions\": [\n              {\n                \"message\": \"string\",\n                \"reason\": \"lPfZEhfhm7\",\n                \"status\": \"Unknown\",\n                \"type\": \"62ipt6tnz4vi.c.49d0p9w5.nkp.a.3j20/X\"\n              },\n              {\n                \"message\": \"string\",\n                \"reason\": \"r\",\n                \"status\": \"True\",\n                \"type\": \"7l.1kcqfepa549.bsnlpgg7z7zu.u/4\"\n              }\n            ]\n          }\n        ],\n        \"meshServices\": [\n          {\n            \"mesh\": \"string\",\n            \"name\": \"string\",\n            \"namespace\": \"string\",\n            \"zone\": \"string\"\n          },\n          {\n            \"mesh\": \"string\",\n            \"name\": \"string\",\n            \"namespace\": \"string\",\n            \"zone\": \"string\"\n          }\n        ],\n        \"vips\": [\n          {\n            \"ip\": \"string\"\n          },\n          {\n            \"ip\": \"string\"\n          }\n        ]\n      }\n    }\n  ],\n  \"total\": 9598.207982517433,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0426be1c-edfb-40a9-9149-e28621744273",
+    "name": "Kuma Dataplane MeshMultiZoneService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

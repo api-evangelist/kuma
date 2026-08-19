@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "bedd126e-1dcb-4355-bfb6-5776fe73a281",
+      "name": "MeshRetry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "06c12b04-1e82-4189-81e8-fbe0c5799fd0",
+          "name": "Returns MeshRetry entity",
+          "request": {
+            "name": "Returns MeshRetry entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshretries",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshRetry"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "270c68be-6fe9-4100-9484-4cce2693f50a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshretries",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRetry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshRetry\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"MeshHTTPRoute\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Gateway\",\n        \"Sidecar\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshHTTPRoute\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"default\": {\n          \"grpc\": {\n            \"backOff\": {\n              \"baseInterval\": \"string\",\n              \"maxInterval\": \"string\"\n            },\n            \"numRetries\": 6323,\n            \"perTryTimeout\": \"string\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"string\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"UnixTimestamp\",\n                  \"name\": \"&o27p-g$'\"\n                },\n                {\n                  \"format\": \"UnixTimestamp\",\n                  \"name\": \"r$kw*2qiom-\"\n                }\n              ]\n            },\n            \"retryOn\": [\n              \"Canceled\",\n              \"DeadlineExceeded\",\n              \"Internal\",\n              \"ResourceExhausted\",\n              \"Unavailable\"\n            ]\n          },\n          \"http\": {\n            \"backOff\": {\n              \"baseInterval\": \"string\",\n              \"maxInterval\": \"string\"\n            },\n            \"hostSelection\": [\n              {\n                \"predicate\": \"OmitPreviousPriorities\",\n                \"tags\": {\n                  \"key_0\": \"string\"\n                },\n                \"updateFrequency\": 2\n              },\n              {\n                \"predicate\": \"OmitPreviousHosts\",\n                \"tags\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\",\n                  \"key_2\": \"string\",\n                  \"key_3\": \"string\"\n                },\n                \"updateFrequency\": 2\n              }\n            ],\n            \"hostSelectionMaxAttempts\": 8862,\n            \"numRetries\": 9922,\n            \"perTryTimeout\": \"string\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"string\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"UnixTimestamp\",\n                  \"name\": \"cwwg&y6c18\"\n                },\n                {\n                  \"format\": \"Seconds\",\n                  \"name\": \"t20e#ea$\"\n                }\n              ]\n            },\n            \"retriableRequestHeaders\": [\n              {\n                \"name\": \"dkaof\",\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              },\n              {\n                \"name\": \"grwnui&hg\",\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            ],\n            \"retriableResponseHeaders\": [\n              {\n                \"name\": \"yv%1n4_32\",\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              },\n              {\n                \"name\": \"t's3f\",\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            ],\n            \"retryOn\": [\n              \"5XX\",\n              \"GatewayError\",\n              \"Reset\",\n              \"Retriable4xx\",\n              \"ConnectFailure\",\n              \"EnvoyRatelimited\",\n              \"RefusedStream\",\n              \"Http3PostConnectFailure\",\n              \"HttpMethodConnect\",\n              \"HttpMethodDelete\",\n              \"HttpMethodGet\",\n              \"HttpMethodHead\",\n              \"HttpMethodOptions\",\n              \"HttpMethodPatch\",\n              \"HttpMethodPost\",\n              \"HttpMethodPut\",\n              \"HttpMethodTrace\",\n              \"500\",\n              \"503\"\n            ]\n          },\n          \"tcp\": {\n            \"maxConnectAttempt\": 7346\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshExternalService\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"default\": {\n          \"grpc\": {\n            \"backOff\": {\n              \"baseInterval\": \"string\",\n              \"maxInterval\": \"string\"\n            },\n            \"numRetries\": 516,\n            \"perTryTimeout\": \"string\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"string\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"UnixTimestamp\",\n                  \"name\": \"b|-y60df0\"\n                },\n                {\n                  \"format\": \"UnixTimestamp\",\n                  \"name\": \"1\"\n                }\n              ]\n            },\n            \"retryOn\": [\n              \"Canceled\",\n              \"DeadlineExceeded\",\n              \"Internal\",\n              \"ResourceExhausted\",\n              \"Unavailable\"\n            ]\n          },\n          \"http\": {\n            \"backOff\": {\n              \"baseInterval\": \"string\",\n              \"maxInterval\": \"string\"\n            },\n            \"hostSelection\": [\n              {\n                \"predicate\": \"OmitPreviousHosts\",\n                \"tags\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\"\n                },\n                \"updateFrequency\": 2\n              },\n              {\n                \"predicate\": \"OmitPreviousHosts\",\n                \"tags\": {\n                  \"key_0\": \"string\"\n                },\n                \"updateFrequency\": 2\n              }\n            ],\n            \"hostSelectionMaxAttempts\": 4437,\n            \"numRetries\": 4596,\n            \"perTryTimeout\": \"string\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"string\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"Seconds\",\n                  \"name\": \"x7m`_pn_\"\n                },\n                {\n                  \"format\": \"UnixTimestamp\",\n                  \"name\": \"5#hwxo\"\n                }\n              ]\n            },\n            \"retriableRequestHeaders\": [\n              {\n                \"name\": \"kbz*'\",\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              },\n              {\n                \"name\": \"kqw`gv4wc\",\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            ],\n            \"retriableResponseHeaders\": [\n              {\n                \"name\": \"e\",\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              },\n              {\n                \"name\": \"1_f5^\",\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            ],\n            \"retryOn\": [\n              \"5XX\",\n              \"GatewayError\",\n              \"Reset\",\n              \"Retriable4xx\",\n              \"ConnectFailure\",\n              \"EnvoyRatelimited\",\n              \"RefusedStream\",\n              \"Http3PostConnectFailure\",\n              \"HttpMethodConnect\",\n              \"HttpMethodDelete\",\n              \"HttpMethodGet\",\n              \"HttpMethodHead\",\n              \"HttpMethodOptions\",\n              \"HttpMethodPatch\",\n              \"HttpMethodPost\",\n              \"HttpMethodPut\",\n              \"HttpMethodTrace\",\n              \"500\",\n              \"503\"\n            ]\n          },\n          \"tcp\": {\n            \"maxConnectAttempt\": 5649\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mr_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bced59e7-8a35-4ce0-8c4a-48a07b8ad41a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshretries",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRetry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cabe484-60c2-4ee6-91e4-dd9e16ea4d2f",
+          "name": "Creates or Updates MeshRetry entity",
+          "request": {
+            "name": "Creates or Updates MeshRetry entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshretries",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshRetry"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"grpc\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retryOn\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"http\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"hostSelection\": [\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\",\n                  \"key_1\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              },\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\",\n                  \"key_1\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              }\n            ],\n            \"hostSelectionMaxAttempts\": \"<long>\",\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retriableRequestHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retriableResponseHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retryOn\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tcp\": {\n            \"maxConnectAttempt\": \"<integer>\"\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"grpc\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retryOn\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"http\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"hostSelection\": [\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\",\n                  \"key_1\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              },\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\",\n                  \"key_1\": \"<string>\",\n                  \"key_2\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              }\n            ],\n            \"hostSelectionMaxAttempts\": \"<long>\",\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retriableRequestHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retriableResponseHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retryOn\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"tcp\": {\n            \"maxConnectAttempt\": \"<integer>\"\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91d1949b-7f4b-4c2f-98fa-83861dfc1759",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshretries",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRetry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"grpc\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retryOn\": [\n              \"Canceled\",\n              \"DeadlineExceeded\",\n              \"Internal\",\n              \"ResourceExhausted\",\n              \"Unavailable\"\n            ]\n          },\n          \"http\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"hostSelection\": [\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              },\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\",\n                  \"key_1\": \"<string>\",\n                  \"key_2\": \"<string>\",\n                  \"key_3\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              }\n            ],\n            \"hostSelectionMaxAttempts\": \"<long>\",\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retriableRequestHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retriableResponseHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retryOn\": [\n              \"5XX\",\n              \"GatewayError\",\n              \"Reset\",\n              \"Retriable4xx\",\n              \"ConnectFailure\",\n              \"EnvoyRatelimited\",\n              \"RefusedStream\",\n              \"Http3PostConnectFailure\",\n              \"HttpMethodConnect\",\n              \"HttpMethodDelete\",\n              \"HttpMethodGet\",\n              \"HttpMethodHead\",\n              \"HttpMethodOptions\",\n              \"HttpMethodPatch\",\n              \"HttpMethodPost\",\n              \"HttpMethodPut\",\n              \"HttpMethodTrace\",\n              \"500\",\n              \"503\"\n            ]\n          },\n          \"tcp\": {\n            \"maxConnectAttempt\": \"<integer>\"\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"grpc\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retryOn\": [\n              \"Canceled\",\n              \"DeadlineExceeded\",\n              \"Internal\",\n              \"ResourceExhausted\",\n              \"Unavailable\"\n            ]\n          },\n          \"http\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"hostSelection\": [\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              },\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\",\n                  \"key_1\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              }\n            ],\n            \"hostSelectionMaxAttempts\": \"<long>\",\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retriableRequestHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retriableResponseHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retryOn\": [\n              \"5XX\",\n              \"GatewayError\",\n              \"Reset\",\n              \"Retriable4xx\",\n              \"ConnectFailure\",\n              \"EnvoyRatelimited\",\n              \"RefusedStream\",\n              \"Http3PostConnectFailure\",\n              \"HttpMethodConnect\",\n              \"HttpMethodDelete\",\n              \"HttpMethodGet\",\n              \"HttpMethodHead\",\n              \"HttpMethodOptions\",\n              \"HttpMethodPatch\",\n              \"HttpMethodPost\",\n              \"HttpMethodPut\",\n              \"HttpMethodTrace\",\n              \"500\",\n              \"503\"\n            ]\n          },\n          \"tcp\": {\n            \"maxConnectAttempt\": \"<integer>\"\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0586050-8bcb-4e8c-9fe2-726af71a6399",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshretries",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRetry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"grpc\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retryOn\": [\n              \"Canceled\",\n              \"DeadlineExceeded\",\n              \"Internal\",\n              \"ResourceExhausted\",\n              \"Unavailable\"\n            ]\n          },\n          \"http\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"hostSelection\": [\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              },\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\",\n                  \"key_1\": \"<string>\",\n                  \"key_2\": \"<string>\",\n                  \"key_3\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              }\n            ],\n            \"hostSelectionMaxAttempts\": \"<long>\",\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retriableRequestHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retriableResponseHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retryOn\": [\n              \"5XX\",\n              \"GatewayError\",\n              \"Reset\",\n              \"Retriable4xx\",\n              \"ConnectFailure\",\n              \"EnvoyRatelimited\",\n              \"RefusedStream\",\n              \"Http3PostConnectFailure\",\n              \"HttpMethodConnect\",\n              \"HttpMethodDelete\",\n              \"HttpMethodGet\",\n              \"HttpMethodHead\",\n              \"HttpMethodOptions\",\n              \"HttpMethodPatch\",\n              \"HttpMethodPost\",\n              \"HttpMethodPut\",\n              \"HttpMethodTrace\",\n              \"500\",\n              \"503\"\n            ]\n          },\n          \"tcp\": {\n            \"maxConnectAttempt\": \"<integer>\"\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"grpc\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retryOn\": [\n              \"Canceled\",\n              \"DeadlineExceeded\",\n              \"Internal\",\n              \"ResourceExhausted\",\n              \"Unavailable\"\n            ]\n          },\n          \"http\": {\n            \"backOff\": {\n              \"baseInterval\": \"<string>\",\n              \"maxInterval\": \"<string>\"\n            },\n            \"hostSelection\": [\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              },\n              {\n                \"predicate\": \"<string>\",\n                \"tags\": {\n                  \"key_0\": \"<string>\",\n                  \"key_1\": \"<string>\"\n                },\n                \"updateFrequency\": 2\n              }\n            ],\n            \"hostSelectionMaxAttempts\": \"<long>\",\n            \"numRetries\": \"<integer>\",\n            \"perTryTimeout\": \"<string>\",\n            \"rateLimitedBackOff\": {\n              \"maxInterval\": \"<string>\",\n              \"resetHeaders\": [\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                },\n                {\n                  \"format\": \"<string>\",\n                  \"name\": \"<string>\"\n                }\n              ]\n            },\n            \"retriableRequestHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retriableResponseHeaders\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Exact\",\n                \"value\": \"<string>\"\n              }\n            ],\n            \"retryOn\": [\n              \"5XX\",\n              \"GatewayError\",\n              \"Reset\",\n              \"Retriable4xx\",\n              \"ConnectFailure\",\n              \"EnvoyRatelimited\",\n              \"RefusedStream\",\n              \"Http3PostConnectFailure\",\n              \"HttpMethodConnect\",\n              \"HttpMethodDelete\",\n              \"HttpMethodGet\",\n              \"HttpMethodHead\",\n              \"HttpMethodOptions\",\n              \"HttpMethodPatch\",\n              \"HttpMethodPost\",\n              \"HttpMethodPut\",\n              \"HttpMethodTrace\",\n              \"500\",\n              \"503\"\n            ]\n          },\n          \"tcp\": {\n            \"maxConnectAttempt\": \"<integer>\"\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb6a0709-f29a-42c0-862e-0dac373f3973",
+          "name": "Deletes MeshRetry entity",
+          "request": {
+            "name": "Deletes MeshRetry entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshretries",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshRetry"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eaaf109e-4072-4857-ae78-d4ee73b7ffa4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshretries",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRetry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4446800-a6f3-4608-b3d4-9bfacdc3a445",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshretries",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRetry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "929ae1bc-a0b3-4bc4-bf42-f2e02bc6a063",
+          "name": "Returns a list of MeshRetry in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshRetry in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshretries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84070cb6-b73e-4b21-a2c4-6cade5d1dc7a",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshretries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshRetry\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"targetRef\": {\n          \"kind\": \"Dataplane\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshMultiZoneService\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"grpc\": {\n                \"backOff\": {\n                  \"baseInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"numRetries\": 6763,\n                \"perTryTimeout\": \"string\",\n                \"rateLimitedBackOff\": {\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"resetHeaders\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"retryOn\": [\n                  \"Canceled\",\n                  \"DeadlineExceeded\",\n                  \"Internal\",\n                  \"ResourceExhausted\",\n                  \"Unavailable\"\n                ]\n              },\n              \"http\": {\n                \"backOff\": {\n                  \"baseInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"hostSelection\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"hostSelectionMaxAttempts\": 566,\n                \"numRetries\": 5933,\n                \"perTryTimeout\": \"string\",\n                \"rateLimitedBackOff\": {\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"resetHeaders\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"retriableRequestHeaders\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"retriableResponseHeaders\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"retryOn\": [\n                  \"5XX\",\n                  \"GatewayError\",\n                  \"Reset\",\n                  \"Retriable4xx\",\n                  \"ConnectFailure\",\n                  \"EnvoyRatelimited\",\n                  \"RefusedStream\",\n                  \"Http3PostConnectFailure\",\n                  \"HttpMethodConnect\",\n                  \"HttpMethodDelete\",\n                  \"HttpMethodGet\",\n                  \"HttpMethodHead\",\n                  \"HttpMethodOptions\",\n                  \"HttpMethodPatch\",\n                  \"HttpMethodPost\",\n                  \"HttpMethodPut\",\n                  \"HttpMethodTrace\",\n                  \"500\",\n                  \"503\"\n                ]\n              },\n              \"tcp\": {\n                \"maxConnectAttempt\": 765\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshHTTPRoute\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"grpc\": {\n                \"backOff\": {\n                  \"baseInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"numRetries\": 2748,\n                \"perTryTimeout\": \"string\",\n                \"rateLimitedBackOff\": {\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"resetHeaders\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"retryOn\": [\n                  \"Canceled\",\n                  \"DeadlineExceeded\",\n                  \"Internal\",\n                  \"ResourceExhausted\",\n                  \"Unavailable\"\n                ]\n              },\n              \"http\": {\n                \"backOff\": {\n                  \"baseInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"hostSelection\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"hostSelectionMaxAttempts\": 8736,\n                \"numRetries\": 9507,\n                \"perTryTimeout\": \"string\",\n                \"rateLimitedBackOff\": {\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"resetHeaders\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"retriableRequestHeaders\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"retriableResponseHeaders\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"retryOn\": [\n                  \"5XX\",\n                  \"GatewayError\",\n                  \"Reset\",\n                  \"Retriable4xx\",\n                  \"ConnectFailure\",\n                  \"EnvoyRatelimited\",\n                  \"RefusedStream\",\n                  \"Http3PostConnectFailure\",\n                  \"HttpMethodConnect\",\n                  \"HttpMethodDelete\",\n                  \"HttpMethodGet\",\n                  \"HttpMethodHead\",\n                  \"HttpMethodOptions\",\n                  \"HttpMethodPatch\",\n                  \"HttpMethodPost\",\n                  \"HttpMethodPut\",\n                  \"HttpMethodTrace\",\n                  \"500\",\n                  \"503\"\n                ]\n              },\n              \"tcp\": {\n                \"maxConnectAttempt\": 4136\n              }\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mr_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n      \"type\": \"MeshRetry\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"targetRef\": {\n          \"kind\": \"MeshExternalService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"Dataplane\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"grpc\": {\n                \"backOff\": {\n                  \"baseInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"numRetries\": 5470,\n                \"perTryTimeout\": \"string\",\n                \"rateLimitedBackOff\": {\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"resetHeaders\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"retryOn\": [\n                  \"Canceled\",\n                  \"DeadlineExceeded\",\n                  \"Internal\",\n                  \"ResourceExhausted\",\n                  \"Unavailable\"\n                ]\n              },\n              \"http\": {\n                \"backOff\": {\n                  \"baseInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"hostSelection\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"hostSelectionMaxAttempts\": 1541,\n                \"numRetries\": 7515,\n                \"perTryTimeout\": \"string\",\n                \"rateLimitedBackOff\": {\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"resetHeaders\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"retriableRequestHeaders\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"retriableResponseHeaders\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"retryOn\": [\n                  \"5XX\",\n                  \"GatewayError\",\n                  \"Reset\",\n                  \"Retriable4xx\",\n                  \"ConnectFailure\",\n                  \"EnvoyRatelimited\",\n                  \"RefusedStream\",\n                  \"Http3PostConnectFailure\",\n                  \"HttpMethodConnect\",\n                  \"HttpMethodDelete\",\n                  \"HttpMethodGet\",\n                  \"HttpMethodHead\",\n                  \"HttpMethodOptions\",\n                  \"HttpMethodPatch\",\n                  \"HttpMethodPost\",\n                  \"HttpMethodPut\",\n                  \"HttpMethodTrace\",\n                  \"500\",\n                  \"503\"\n                ]\n              },\n              \"tcp\": {\n                \"maxConnectAttempt\": 998\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshGateway\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"grpc\": {\n                \"backOff\": {\n                  \"baseInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"numRetries\": 8167,\n                \"perTryTimeout\": \"string\",\n                \"rateLimitedBackOff\": {\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"resetHeaders\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"retryOn\": [\n                  \"Canceled\",\n                  \"DeadlineExceeded\",\n                  \"Internal\",\n                  \"ResourceExhausted\",\n                  \"Unavailable\"\n                ]\n              },\n              \"http\": {\n                \"backOff\": {\n                  \"baseInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"hostSelection\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"hostSelectionMaxAttempts\": 5134,\n                \"numRetries\": 5961,\n                \"perTryTimeout\": \"string\",\n                \"rateLimitedBackOff\": {\n                  \"maxInterval\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"resetHeaders\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"retriableRequestHeaders\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"retriableResponseHeaders\": [\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                ],\n                \"retryOn\": [\n                  \"5XX\",\n                  \"GatewayError\",\n                  \"Reset\",\n                  \"Retriable4xx\",\n                  \"ConnectFailure\",\n                  \"EnvoyRatelimited\",\n                  \"RefusedStream\",\n                  \"Http3PostConnectFailure\",\n                  \"HttpMethodConnect\",\n                  \"HttpMethodDelete\",\n                  \"HttpMethodGet\",\n                  \"HttpMethodHead\",\n                  \"HttpMethodOptions\",\n                  \"HttpMethodPatch\",\n                  \"HttpMethodPost\",\n                  \"HttpMethodPut\",\n                  \"HttpMethodTrace\",\n                  \"500\",\n                  \"503\"\n                ]\n              },\n              \"tcp\": {\n                \"maxConnectAttempt\": 6958\n              }\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mr_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    }\n  ],\n  \"total\": 6330.26660682033,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a19a9492-3401-4b94-9523-284918efede8",
+    "name": "Kuma Dataplane MeshRetry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

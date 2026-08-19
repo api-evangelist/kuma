@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "1963c49d-7503-4b04-a8f8-29e9b88398ae",
+      "name": "MeshRateLimit",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dc9005e5-20e4-4042-8806-8f2e4256b683",
+          "name": "Returns MeshRateLimit entity",
+          "request": {
+            "name": "Returns MeshRateLimit entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshratelimits",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshRateLimit"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f91c6a70-dba2-4d5c-8db2-312ef10bf8f9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshratelimits",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRateLimit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshRateLimit\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"Mesh\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": false,\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": 803\n              },\n              \"requestRate\": {\n                \"interval\": \"string\",\n                \"num\": 8379\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"string\",\n                \"num\": 3427\n              },\n              \"disabled\": false\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshMultiZoneService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": false,\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": 6604\n              },\n              \"requestRate\": {\n                \"interval\": \"string\",\n                \"num\": 4846\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"string\",\n                \"num\": 5564\n              },\n              \"disabled\": true\n            }\n          }\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": true,\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": 555\n              },\n              \"requestRate\": {\n                \"interval\": \"string\",\n                \"num\": 6318\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"string\",\n                \"num\": 9395\n              },\n              \"disabled\": true\n            }\n          }\n        }\n      },\n      {\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": false,\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": 5682\n              },\n              \"requestRate\": {\n                \"interval\": \"string\",\n                \"num\": 675\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"string\",\n                \"num\": 1084\n              },\n              \"disabled\": false\n            }\n          }\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"MeshService\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Gateway\",\n        \"Gateway\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshSubset\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": true,\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": 5486\n              },\n              \"requestRate\": {\n                \"interval\": \"string\",\n                \"num\": 2772\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"string\",\n                \"num\": 9701\n              },\n              \"disabled\": false\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshGateway\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": false,\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": 2906\n              },\n              \"requestRate\": {\n                \"interval\": \"string\",\n                \"num\": 9805\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"string\",\n                \"num\": 2691\n              },\n              \"disabled\": true\n            }\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mrl_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3994278c-ad28-4714-876e-3e41710719f0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshratelimits",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRateLimit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bc568ef-dac3-4acf-90b4-d120295065e5",
+          "name": "Creates or Updates MeshRateLimit entity",
+          "request": {
+            "name": "Creates or Updates MeshRateLimit entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshratelimits",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshRateLimit"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      {\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9d3f06b3-161a-4bc3-a332-e2ab5d285d8d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshratelimits",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRateLimit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      {\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f067f34f-9f87-4647-ae96-8da6625bf199",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshratelimits",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRateLimit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      {\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"local\": {\n            \"http\": {\n              \"disabled\": \"<boolean>\",\n              \"onRateLimit\": {\n                \"headers\": {\n                  \"add\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"set\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"status\": \"<integer>\"\n              },\n              \"requestRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              }\n            },\n            \"tcp\": {\n              \"connectionRate\": {\n                \"interval\": \"<string>\",\n                \"num\": \"<integer>\"\n              },\n              \"disabled\": \"<boolean>\"\n            }\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e75a294-6063-413e-801f-90f2d7e5cbbf",
+          "name": "Deletes MeshRateLimit entity",
+          "request": {
+            "name": "Deletes MeshRateLimit entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshratelimits",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshRateLimit"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2a61a25-cdd1-48ce-901f-461a739a4535",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshratelimits",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRateLimit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1fdc7ae-cc7a-485b-bdf4-986a2b3376de",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshratelimits",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshRateLimit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ebba0431-f0d7-4d7a-8ef6-e5e9e75ac157",
+          "name": "Returns a list of MeshRateLimit in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshRateLimit in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshratelimits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da4c21a9-2455-4d5e-b4dd-6b8c8b8fb9d2",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshratelimits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshRateLimit\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshSubset\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"Mesh\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          },\n          {\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"MeshGateway\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshGateway\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"Mesh\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mrl_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n      \"type\": \"MeshRateLimit\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshSubset\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"Mesh\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          },\n          {\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"MeshService\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshSubset\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshServiceSubset\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\",\n                \"key_3\": \"string\"\n              }\n            },\n            \"default\": {\n              \"local\": {\n                \"http\": {\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"onRateLimit\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"requestRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"tcp\": {\n                  \"connectionRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"disabled\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mrl_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    }\n  ],\n  \"total\": 238.74830406038882,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5c129872-04b0-434f-9cfa-88e770012f9c",
+    "name": "Kuma Dataplane MeshRateLimit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

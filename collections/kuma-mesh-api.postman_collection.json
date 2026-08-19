@@ -1,0 +1,622 @@
+{
+  "item": [
+    {
+      "id": "8541aed1-e70d-4c2d-aee6-011e6e7f4599",
+      "name": "Mesh",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "affe4047-4dcf-49cd-8c6c-ae0aba348ebb",
+          "name": "Returns a list of Mesh in the mesh.",
+          "request": {
+            "name": "Returns a list of Mesh in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c70ce746-8cae-4d1f-aa34-13ce968b14c1",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"constraints\": {\n        \"dataplaneProxy\": {\n          \"requirements\": [\n            {\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\",\n                \"key_3\": \"string\"\n              }\n            },\n            {\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            }\n          ],\n          \"restrictions\": [\n            {\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            {\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            }\n          ]\n        }\n      },\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"logging\": {\n        \"backends\": [\n          {\n            \"conf\": {\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"format\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"string\"\n          },\n          {\n            \"conf\": {\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"format\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"string\"\n          }\n        ],\n        \"defaultBackend\": \"string\"\n      },\n      \"meshServices\": {\n        \"mode\": \"string\"\n      },\n      \"metrics\": {\n        \"backends\": [\n          {\n            \"conf\": {\n              \"aggregate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"envoy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"skipMTLS\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tls\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"name\": \"string\",\n            \"type\": \"string\"\n          },\n          {\n            \"conf\": {\n              \"aggregate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"envoy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"skipMTLS\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tls\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"name\": \"string\",\n            \"type\": \"string\"\n          }\n        ],\n        \"enabledBackend\": \"string\"\n      },\n      \"mtls\": {\n        \"backends\": [\n          {\n            \"conf\": {\n              \"cert\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"dpCert\": {\n              \"requestTimeout\": {\n                \"nanos\": 4315,\n                \"seconds\": 2993\n              },\n              \"rotation\": {\n                \"expiration\": \"string\"\n              }\n            },\n            \"mode\": \"string\",\n            \"name\": \"string\",\n            \"rootChain\": {\n              \"requestTimeout\": {\n                \"nanos\": 627,\n                \"seconds\": 575\n              }\n            },\n            \"type\": \"string\"\n          },\n          {\n            \"conf\": {\n              \"cert\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"dpCert\": {\n              \"requestTimeout\": {\n                \"nanos\": 7869,\n                \"seconds\": 3732\n              },\n              \"rotation\": {\n                \"expiration\": \"string\"\n              }\n            },\n            \"mode\": \"string\",\n            \"name\": \"string\",\n            \"rootChain\": {\n              \"requestTimeout\": {\n                \"nanos\": 4158,\n                \"seconds\": 9843\n              }\n            },\n            \"type\": \"string\"\n          }\n        ],\n        \"enabledBackend\": \"string\",\n        \"skipValidation\": true\n      },\n      \"networking\": {\n        \"outbound\": {\n          \"passthrough\": false\n        }\n      },\n      \"routing\": {\n        \"defaultForbidMeshExternalServiceAccess\": true,\n        \"localityAwareLoadBalancing\": false,\n        \"zoneEgress\": false\n      },\n      \"skipCreatingInitialPolicies\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tracing\": {\n        \"backends\": [\n          {\n            \"conf\": {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"splitService\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"name\": \"string\",\n            \"sampling\": 613.4552255193981,\n            \"type\": \"string\"\n          },\n          {\n            \"conf\": {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"splitService\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"name\": \"string\",\n            \"sampling\": 9198.876203330125,\n            \"type\": \"string\"\n          }\n        ],\n        \"defaultBackend\": \"string\"\n      }\n    },\n    {\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"constraints\": {\n        \"dataplaneProxy\": {\n          \"requirements\": [\n            {\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\",\n                \"key_3\": \"string\"\n              }\n            },\n            {\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              }\n            }\n          ],\n          \"restrictions\": [\n            {\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            {\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            }\n          ]\n        }\n      },\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"logging\": {\n        \"backends\": [\n          {\n            \"conf\": {\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"format\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"string\"\n          },\n          {\n            \"conf\": {\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"format\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"string\"\n          }\n        ],\n        \"defaultBackend\": \"string\"\n      },\n      \"meshServices\": {\n        \"mode\": \"string\"\n      },\n      \"metrics\": {\n        \"backends\": [\n          {\n            \"conf\": {\n              \"aggregate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"envoy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"skipMTLS\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tls\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"name\": \"string\",\n            \"type\": \"string\"\n          },\n          {\n            \"conf\": {\n              \"aggregate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"envoy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"skipMTLS\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tls\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"name\": \"string\",\n            \"type\": \"string\"\n          }\n        ],\n        \"enabledBackend\": \"string\"\n      },\n      \"mtls\": {\n        \"backends\": [\n          {\n            \"conf\": {\n              \"cert\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"dpCert\": {\n              \"requestTimeout\": {\n                \"nanos\": 1174,\n                \"seconds\": 5387\n              },\n              \"rotation\": {\n                \"expiration\": \"string\"\n              }\n            },\n            \"mode\": \"string\",\n            \"name\": \"string\",\n            \"rootChain\": {\n              \"requestTimeout\": {\n                \"nanos\": 7292,\n                \"seconds\": 2906\n              }\n            },\n            \"type\": \"string\"\n          },\n          {\n            \"conf\": {\n              \"cert\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"dpCert\": {\n              \"requestTimeout\": {\n                \"nanos\": 9934,\n                \"seconds\": 2388\n              },\n              \"rotation\": {\n                \"expiration\": \"string\"\n              }\n            },\n            \"mode\": \"string\",\n            \"name\": \"string\",\n            \"rootChain\": {\n              \"requestTimeout\": {\n                \"nanos\": 95,\n                \"seconds\": 3626\n              }\n            },\n            \"type\": \"string\"\n          }\n        ],\n        \"enabledBackend\": \"string\",\n        \"skipValidation\": true\n      },\n      \"networking\": {\n        \"outbound\": {\n          \"passthrough\": true\n        }\n      },\n      \"routing\": {\n        \"defaultForbidMeshExternalServiceAccess\": false,\n        \"localityAwareLoadBalancing\": true,\n        \"zoneEgress\": false\n      },\n      \"skipCreatingInitialPolicies\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tracing\": {\n        \"backends\": [\n          {\n            \"conf\": {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"splitService\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"name\": \"string\",\n            \"sampling\": 6800.922645459991,\n            \"type\": \"string\"\n          },\n          {\n            \"conf\": {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"splitService\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"name\": \"string\",\n            \"sampling\": 2887.662305690767,\n            \"type\": \"string\"\n          }\n        ],\n        \"defaultBackend\": \"string\"\n      }\n    }\n  ],\n  \"next\": \"string\",\n  \"total\": 2024.466097066724\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb8400ea-43b4-45e0-a271-cb72b6b9cc62",
+          "name": "Deletes Mesh entity",
+          "request": {
+            "name": "Deletes Mesh entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the Mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea468bbf-e73e-47fc-86d4-2b01e12cfc82",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "301e9612-ff3d-45a7-a00b-b13b36852d99",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97131521-3d33-40b4-bc7a-86012eefd9be",
+          "name": "Returns Mesh entity",
+          "request": {
+            "name": "Returns Mesh entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the Mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8dacbb2d-5c1a-4d33-8bd5-082da0b59933",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"name\": \"string\",\n  \"constraints\": {\n    \"dataplaneProxy\": {\n      \"requirements\": [\n        {\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      ],\n      \"restrictions\": [\n        {\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        },\n        {\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      ]\n    }\n  },\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\",\n    \"key_4\": \"string\"\n  },\n  \"logging\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"path\": \"string\"\n        },\n        \"format\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"conf\": {\n          \"path\": \"string\"\n        },\n        \"format\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"defaultBackend\": \"string\"\n  },\n  \"meshServices\": {\n    \"mode\": \"string\"\n  },\n  \"metrics\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": \"string\",\n              \"enabled\": true,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 3128\n            },\n            {\n              \"address\": \"string\",\n              \"enabled\": false,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 6033\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"string\",\n            \"usedOnly\": true\n          },\n          \"path\": \"string\",\n          \"port\": 928,\n          \"skipMTLS\": false,\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"tls\": {\n            \"mode\": \"string\"\n          }\n        },\n        \"name\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": \"string\",\n              \"enabled\": false,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 5124\n            },\n            {\n              \"address\": \"string\",\n              \"enabled\": true,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 7181\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"string\",\n            \"usedOnly\": true\n          },\n          \"path\": \"string\",\n          \"port\": 9600,\n          \"skipMTLS\": false,\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"tls\": {\n            \"mode\": \"string\"\n          }\n        },\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"enabledBackend\": \"string\"\n  },\n  \"mtls\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"cert\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"dpCert\": {\n          \"requestTimeout\": {\n            \"nanos\": 2027,\n            \"seconds\": 2941\n          },\n          \"rotation\": {\n            \"expiration\": \"string\"\n          }\n        },\n        \"mode\": \"string\",\n        \"name\": \"string\",\n        \"rootChain\": {\n          \"requestTimeout\": {\n            \"nanos\": 6290,\n            \"seconds\": 9372\n          }\n        },\n        \"type\": \"string\"\n      },\n      {\n        \"conf\": {\n          \"cert\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"dpCert\": {\n          \"requestTimeout\": {\n            \"nanos\": 4352,\n            \"seconds\": 1488\n          },\n          \"rotation\": {\n            \"expiration\": \"string\"\n          }\n        },\n        \"mode\": \"string\",\n        \"name\": \"string\",\n        \"rootChain\": {\n          \"requestTimeout\": {\n            \"nanos\": 9744,\n            \"seconds\": 6400\n          }\n        },\n        \"type\": \"string\"\n      }\n    ],\n    \"enabledBackend\": \"string\",\n    \"skipValidation\": false\n  },\n  \"networking\": {\n    \"outbound\": {\n      \"passthrough\": true\n    }\n  },\n  \"routing\": {\n    \"defaultForbidMeshExternalServiceAccess\": true,\n    \"localityAwareLoadBalancing\": true,\n    \"zoneEgress\": false\n  },\n  \"skipCreatingInitialPolicies\": [\n    \"string\",\n    \"string\"\n  ],\n  \"tracing\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"address\": \"string\",\n          \"port\": 1748,\n          \"splitService\": true\n        },\n        \"name\": \"string\",\n        \"sampling\": 7549.545363121758,\n        \"type\": \"string\"\n      },\n      {\n        \"conf\": {\n          \"address\": \"string\",\n          \"port\": 7402,\n          \"splitService\": true\n        },\n        \"name\": \"string\",\n        \"sampling\": 5083.093303675107,\n        \"type\": \"string\"\n      }\n    ],\n    \"defaultBackend\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "675523c3-ba72-4207-bfa3-866395dc8e2d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f21dc0a-8a50-4ea7-a656-f844d567c45e",
+          "name": "Creates or Updates Mesh entity",
+          "request": {
+            "name": "Creates or Updates Mesh entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the Mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"constraints\": {\n    \"dataplaneProxy\": {\n      \"requirements\": [\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"restrictions\": [\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        }\n      ]\n    }\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"logging\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"path\": \"<string>\"\n        },\n        \"format\": \"<string>\",\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"path\": \"<string>\"\n        },\n        \"format\": \"<string>\",\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"defaultBackend\": \"<string>\"\n  },\n  \"meshServices\": {\n    \"mode\": \"<string>\"\n  },\n  \"metrics\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": \"<string>\",\n              \"enabled\": \"<boolean>\",\n              \"name\": \"<string>\",\n              \"path\": \"<string>\",\n              \"port\": \"<integer>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"enabled\": \"<boolean>\",\n              \"name\": \"<string>\",\n              \"path\": \"<string>\",\n              \"port\": \"<integer>\"\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"<string>\",\n            \"usedOnly\": \"<boolean>\"\n          },\n          \"path\": \"<string>\",\n          \"port\": \"<integer>\",\n          \"skipMTLS\": \"<boolean>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"tls\": {\n            \"mode\": \"<string>\"\n          }\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": \"<string>\",\n              \"enabled\": \"<boolean>\",\n              \"name\": \"<string>\",\n              \"path\": \"<string>\",\n              \"port\": \"<integer>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"enabled\": \"<boolean>\",\n              \"name\": \"<string>\",\n              \"path\": \"<string>\",\n              \"port\": \"<integer>\"\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"<string>\",\n            \"usedOnly\": \"<boolean>\"\n          },\n          \"path\": \"<string>\",\n          \"port\": \"<integer>\",\n          \"skipMTLS\": \"<boolean>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"tls\": {\n            \"mode\": \"<string>\"\n          }\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"enabledBackend\": \"<string>\"\n  },\n  \"mtls\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"cert\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"dpCert\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"rotation\": {\n            \"expiration\": \"<string>\"\n          }\n        },\n        \"mode\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rootChain\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          }\n        },\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"cert\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"dpCert\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"rotation\": {\n            \"expiration\": \"<string>\"\n          }\n        },\n        \"mode\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rootChain\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          }\n        },\n        \"type\": \"<string>\"\n      }\n    ],\n    \"enabledBackend\": \"<string>\",\n    \"skipValidation\": \"<boolean>\"\n  },\n  \"networking\": {\n    \"outbound\": {\n      \"passthrough\": \"<boolean>\"\n    }\n  },\n  \"routing\": {\n    \"defaultForbidMeshExternalServiceAccess\": \"<boolean>\",\n    \"localityAwareLoadBalancing\": \"<boolean>\",\n    \"zoneEgress\": \"<boolean>\"\n  },\n  \"skipCreatingInitialPolicies\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tracing\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"address\": \"<string>\",\n          \"port\": \"<integer>\",\n          \"splitService\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"sampling\": \"<number>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"address\": \"<string>\",\n          \"port\": \"<integer>\",\n          \"splitService\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"sampling\": \"<number>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"defaultBackend\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f385f251-9063-4946-aa8f-739274936ca8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"constraints\": {\n    \"dataplaneProxy\": {\n      \"requirements\": [\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        }\n      ],\n      \"restrictions\": [\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ]\n    }\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  },\n  \"logging\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"path\": \"string\"\n        },\n        \"format\": \"<string>\",\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"path\": \"string\"\n        },\n        \"format\": \"<string>\",\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"defaultBackend\": \"<string>\"\n  },\n  \"meshServices\": {\n    \"mode\": \"<string>\"\n  },\n  \"metrics\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": \"string\",\n              \"enabled\": false,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 8709\n            },\n            {\n              \"address\": \"string\",\n              \"enabled\": true,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 878\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"string\",\n            \"usedOnly\": true\n          },\n          \"path\": \"string\",\n          \"port\": 5305,\n          \"skipMTLS\": true,\n          \"tags\": {\n            \"key_0\": \"string\"\n          },\n          \"tls\": {\n            \"mode\": \"string\"\n          }\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": \"string\",\n              \"enabled\": false,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 1430\n            },\n            {\n              \"address\": \"string\",\n              \"enabled\": false,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 5652\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"string\",\n            \"usedOnly\": true\n          },\n          \"path\": \"string\",\n          \"port\": 7342,\n          \"skipMTLS\": true,\n          \"tags\": {\n            \"key_0\": \"string\"\n          },\n          \"tls\": {\n            \"mode\": \"string\"\n          }\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"enabledBackend\": \"<string>\"\n  },\n  \"mtls\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"cert\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"dpCert\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"rotation\": {\n            \"expiration\": \"<string>\"\n          }\n        },\n        \"mode\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rootChain\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          }\n        },\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"cert\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"dpCert\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"rotation\": {\n            \"expiration\": \"<string>\"\n          }\n        },\n        \"mode\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rootChain\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          }\n        },\n        \"type\": \"<string>\"\n      }\n    ],\n    \"enabledBackend\": \"<string>\",\n    \"skipValidation\": \"<boolean>\"\n  },\n  \"networking\": {\n    \"outbound\": {\n      \"passthrough\": \"<boolean>\"\n    }\n  },\n  \"routing\": {\n    \"defaultForbidMeshExternalServiceAccess\": \"<boolean>\",\n    \"localityAwareLoadBalancing\": \"<boolean>\",\n    \"zoneEgress\": \"<boolean>\"\n  },\n  \"skipCreatingInitialPolicies\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tracing\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"address\": \"string\",\n          \"port\": 4619,\n          \"splitService\": false\n        },\n        \"name\": \"<string>\",\n        \"sampling\": \"<number>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"address\": \"string\",\n          \"port\": 5138,\n          \"splitService\": true\n        },\n        \"name\": \"<string>\",\n        \"sampling\": \"<number>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"defaultBackend\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95463cc8-dcff-4a9a-80d6-88ff5894857f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"constraints\": {\n    \"dataplaneProxy\": {\n      \"requirements\": [\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        }\n      ],\n      \"restrictions\": [\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ]\n    }\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  },\n  \"logging\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"path\": \"string\"\n        },\n        \"format\": \"<string>\",\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"path\": \"string\"\n        },\n        \"format\": \"<string>\",\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"defaultBackend\": \"<string>\"\n  },\n  \"meshServices\": {\n    \"mode\": \"<string>\"\n  },\n  \"metrics\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": \"string\",\n              \"enabled\": false,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 8709\n            },\n            {\n              \"address\": \"string\",\n              \"enabled\": true,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 878\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"string\",\n            \"usedOnly\": true\n          },\n          \"path\": \"string\",\n          \"port\": 5305,\n          \"skipMTLS\": true,\n          \"tags\": {\n            \"key_0\": \"string\"\n          },\n          \"tls\": {\n            \"mode\": \"string\"\n          }\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": \"string\",\n              \"enabled\": false,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 1430\n            },\n            {\n              \"address\": \"string\",\n              \"enabled\": false,\n              \"name\": \"string\",\n              \"path\": \"string\",\n              \"port\": 5652\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"string\",\n            \"usedOnly\": true\n          },\n          \"path\": \"string\",\n          \"port\": 7342,\n          \"skipMTLS\": true,\n          \"tags\": {\n            \"key_0\": \"string\"\n          },\n          \"tls\": {\n            \"mode\": \"string\"\n          }\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"enabledBackend\": \"<string>\"\n  },\n  \"mtls\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"cert\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"dpCert\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"rotation\": {\n            \"expiration\": \"<string>\"\n          }\n        },\n        \"mode\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rootChain\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          }\n        },\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"cert\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key\": {\n            \"file\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"dpCert\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"rotation\": {\n            \"expiration\": \"<string>\"\n          }\n        },\n        \"mode\": \"<string>\",\n        \"name\": \"<string>\",\n        \"rootChain\": {\n          \"requestTimeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          }\n        },\n        \"type\": \"<string>\"\n      }\n    ],\n    \"enabledBackend\": \"<string>\",\n    \"skipValidation\": \"<boolean>\"\n  },\n  \"networking\": {\n    \"outbound\": {\n      \"passthrough\": \"<boolean>\"\n    }\n  },\n  \"routing\": {\n    \"defaultForbidMeshExternalServiceAccess\": \"<boolean>\",\n    \"localityAwareLoadBalancing\": \"<boolean>\",\n    \"zoneEgress\": \"<boolean>\"\n  },\n  \"skipCreatingInitialPolicies\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tracing\": {\n    \"backends\": [\n      {\n        \"conf\": {\n          \"address\": \"string\",\n          \"port\": 4619,\n          \"splitService\": false\n        },\n        \"name\": \"<string>\",\n        \"sampling\": \"<number>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"conf\": {\n          \"address\": \"string\",\n          \"port\": 5138,\n          \"splitService\": true\n        },\n        \"name\": \"<string>\",\n        \"sampling\": \"<number>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"defaultBackend\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "19ab9c9d-f8a5-4982-beee-f6958c94d4bb",
+    "name": "Kuma Dataplane Mesh API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

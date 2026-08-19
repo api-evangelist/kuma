@@ -1,0 +1,209 @@
+{
+  "item": [
+    {
+      "id": "936a09ec-463e-48c0-9b1d-b8f90d832071",
+      "name": "GlobalInsight",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ae644e2-5a5d-48e5-9f4a-1359434421ce",
+          "name": "Get Global Insight",
+          "request": {
+            "name": "Get Global Insight",
+            "description": {
+              "content": "Returns a Global Insight object",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "global-insight"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37a37383-37a8-4458-9581-202a0631d015",
+              "name": "A response containing global insight.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "global-insight"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"2023-01-11T02:30:42.227Z\",\n  \"services\": {\n    \"total\": 5,\n    \"internal\": {\n      \"total\": 4,\n      \"online\": 2,\n      \"offline\": 1,\n      \"partiallyDegraded\": 1\n    },\n    \"external\": {\n      \"total\": 1\n    },\n    \"gatewayDelegated\": {\n      \"total\": 4,\n      \"online\": 2,\n      \"offline\": 1,\n      \"partiallyDegraded\": 1\n    },\n    \"gatewayBuiltin\": {\n      \"total\": 4,\n      \"online\": 2,\n      \"offline\": 1,\n      \"partiallyDegraded\": 1\n    },\n    \"internalByStatus\": {\n      \"total\": 4,\n      \"online\": 2,\n      \"offline\": 1,\n      \"partiallyDegraded\": 1\n    }\n  },\n  \"zones\": {\n    \"controlPlanes\": {\n      \"online\": 1,\n      \"total\": 1\n    },\n    \"zoneEgresses\": {\n      \"online\": 1,\n      \"total\": 1\n    },\n    \"zoneIngresses\": {\n      \"online\": 1,\n      \"total\": 1\n    }\n  },\n  \"dataplanes\": {\n    \"standard\": {\n      \"total\": 4,\n      \"online\": 2,\n      \"offline\": 1,\n      \"partiallyDegraded\": 1\n    },\n    \"gatewayBuiltin\": {\n      \"total\": 4,\n      \"online\": 2,\n      \"offline\": 1,\n      \"partiallyDegraded\": 1\n    },\n    \"gatewayDelegated\": {\n      \"total\": 4,\n      \"online\": 2,\n      \"offline\": 1,\n      \"partiallyDegraded\": 1\n    }\n  },\n  \"policies\": {\n    \"total\": 100\n  },\n  \"meshes\": {\n    \"total\": 3\n  },\n  \"resources\": {\n    \"MeshTrafficPermission\": {\n      \"total\": 42\n    },\n    \"MeshService\": {\n      \"total\": 84\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45abff48-665b-483a-b5e6-02f7e58ad184",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "global-insight"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5626fdc9-d38d-42d3-886a-00e37816c740",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "global-insight"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "50aaf4bb-59f1-4693-9200-2c833625ad15",
+    "name": "Kuma Dataplane GlobalInsight API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

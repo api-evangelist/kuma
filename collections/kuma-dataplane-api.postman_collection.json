@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "363c6248-20a4-4d5b-9ee8-8570530ed351",
+      "name": "Dataplane",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65f90768-afb5-4dc4-95e3-e2303a0a4e52",
+          "name": "Returns a list of Dataplane in the mesh.",
+          "request": {
+            "name": "Returns a list of Dataplane in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26d47260-02c3-4f5d-a6ae-6560167741b2",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"mesh\": \"string\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"metrics\": {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"string\",\n            \"usedOnly\": false\n          },\n          \"path\": \"string\",\n          \"port\": 4650,\n          \"skipMTLS\": false,\n          \"tags\": {\n            \"key_0\": \"string\"\n          },\n          \"tls\": {\n            \"mode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"string\",\n        \"type\": \"string\"\n      },\n      \"networking\": {\n        \"address\": \"string\",\n        \"admin\": {\n          \"port\": 6646\n        },\n        \"advertisedAddress\": \"string\",\n        \"gateway\": {\n          \"tags\": {\n            \"key_0\": \"string\"\n          },\n          \"type\": \"string\"\n        },\n        \"inbound\": [\n          {\n            \"address\": \"string\",\n            \"health\": {\n              \"ready\": true\n            },\n            \"name\": \"string\",\n            \"port\": 5911,\n            \"protocol\": \"string\",\n            \"serviceAddress\": \"string\",\n            \"servicePort\": 3413,\n            \"serviceProbe\": {\n              \"healthyThreshold\": 1718,\n              \"interval\": {\n                \"nanos\": 2559,\n                \"seconds\": 8561\n              },\n              \"tcp\": {},\n              \"timeout\": {\n                \"nanos\": 7389,\n                \"seconds\": 3071\n              },\n              \"unhealthyThreshold\": 9819\n            },\n            \"state\": \"string\",\n            \"tags\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            }\n          },\n          {\n            \"address\": \"string\",\n            \"health\": {\n              \"ready\": false\n            },\n            \"name\": \"string\",\n            \"port\": 4593,\n            \"protocol\": \"string\",\n            \"serviceAddress\": \"string\",\n            \"servicePort\": 7519,\n            \"serviceProbe\": {\n              \"healthyThreshold\": 9137,\n              \"interval\": {\n                \"nanos\": 8649,\n                \"seconds\": 8162\n              },\n              \"tcp\": {},\n              \"timeout\": {\n                \"nanos\": 172,\n                \"seconds\": 1886\n              },\n              \"unhealthyThreshold\": 622\n            },\n            \"state\": \"string\",\n            \"tags\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\"\n            }\n          }\n        ],\n        \"listeners\": [\n          {\n            \"address\": \"string\",\n            \"name\": \"string\",\n            \"port\": 320,\n            \"state\": \"string\",\n            \"type\": \"string\"\n          },\n          {\n            \"address\": \"string\",\n            \"name\": \"string\",\n            \"port\": 633,\n            \"state\": \"string\",\n            \"type\": \"string\"\n          }\n        ],\n        \"outbound\": [\n          {\n            \"address\": \"string\",\n            \"backendRef\": {\n              \"kind\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              },\n              \"name\": \"string\",\n              \"port\": 2928\n            },\n            \"port\": 5837,\n            \"tags\": {\n              \"key_0\": \"string\"\n            }\n          },\n          {\n            \"address\": \"string\",\n            \"backendRef\": {\n              \"kind\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"name\": \"string\",\n              \"port\": 5584\n            },\n            \"port\": 7681,\n            \"tags\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            }\n          }\n        ],\n        \"transparentProxying\": {\n          \"directAccessServices\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ipFamilyMode\": \"string\",\n          \"reachableBackends\": {\n            \"refs\": [\n              {\n                \"kind\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"name\": \"string\",\n                \"namespace\": \"string\",\n                \"port\": 911\n              },\n              {\n                \"kind\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_2\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_3\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"name\": \"string\",\n                \"namespace\": \"string\",\n                \"port\": 7696\n              }\n            ]\n          },\n          \"reachableServices\": [\n            \"string\",\n            \"string\"\n          ],\n          \"redirectPortInbound\": 6368,\n          \"redirectPortOutbound\": 3419\n        }\n      },\n      \"probes\": {\n        \"endpoints\": [\n          {\n            \"inboundPath\": \"string\",\n            \"inboundPort\": 4731,\n            \"path\": \"string\"\n          },\n          {\n            \"inboundPath\": \"string\",\n            \"inboundPort\": 1463,\n            \"path\": \"string\"\n          }\n        ],\n        \"port\": 8974\n      }\n    },\n    {\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"mesh\": \"string\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"metrics\": {\n        \"conf\": {\n          \"aggregate\": [\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"envoy\": {\n            \"filterRegex\": \"string\",\n            \"usedOnly\": true\n          },\n          \"path\": \"string\",\n          \"port\": 6576,\n          \"skipMTLS\": false,\n          \"tags\": {\n            \"key_0\": \"string\"\n          },\n          \"tls\": {\n            \"mode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"string\",\n        \"type\": \"string\"\n      },\n      \"networking\": {\n        \"address\": \"string\",\n        \"admin\": {\n          \"port\": 7438\n        },\n        \"advertisedAddress\": \"string\",\n        \"gateway\": {\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"type\": \"string\"\n        },\n        \"inbound\": [\n          {\n            \"address\": \"string\",\n            \"health\": {\n              \"ready\": false\n            },\n            \"name\": \"string\",\n            \"port\": 3669,\n            \"protocol\": \"string\",\n            \"serviceAddress\": \"string\",\n            \"servicePort\": 3616,\n            \"serviceProbe\": {\n              \"healthyThreshold\": 854,\n              \"interval\": {\n                \"nanos\": 3137,\n                \"seconds\": 2760\n              },\n              \"tcp\": {},\n              \"timeout\": {\n                \"nanos\": 4119,\n                \"seconds\": 2458\n              },\n              \"unhealthyThreshold\": 3996\n            },\n            \"state\": \"string\",\n            \"tags\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            }\n          },\n          {\n            \"address\": \"string\",\n            \"health\": {\n              \"ready\": true\n            },\n            \"name\": \"string\",\n            \"port\": 934,\n            \"protocol\": \"string\",\n            \"serviceAddress\": \"string\",\n            \"servicePort\": 1346,\n            \"serviceProbe\": {\n              \"healthyThreshold\": 2746,\n              \"interval\": {\n                \"nanos\": 1418,\n                \"seconds\": 4830\n              },\n              \"tcp\": {},\n              \"timeout\": {\n                \"nanos\": 8427,\n                \"seconds\": 348\n              },\n              \"unhealthyThreshold\": 6262\n            },\n            \"state\": \"string\",\n            \"tags\": {\n              \"key_0\": \"string\"\n            }\n          }\n        ],\n        \"listeners\": [\n          {\n            \"address\": \"string\",\n            \"name\": \"string\",\n            \"port\": 6938,\n            \"state\": \"string\",\n            \"type\": \"string\"\n          },\n          {\n            \"address\": \"string\",\n            \"name\": \"string\",\n            \"port\": 5778,\n            \"state\": \"string\",\n            \"type\": \"string\"\n          }\n        ],\n        \"outbound\": [\n          {\n            \"address\": \"string\",\n            \"backendRef\": {\n              \"kind\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"name\": \"string\",\n              \"port\": 9412\n            },\n            \"port\": 7527,\n            \"tags\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\",\n              \"key_3\": \"string\"\n            }\n          },\n          {\n            \"address\": \"string\",\n            \"backendRef\": {\n              \"kind\": \"string\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"name\": \"string\",\n              \"port\": 3898\n            },\n            \"port\": 3465,\n            \"tags\": {\n              \"key_0\": \"string\"\n            }\n          }\n        ],\n        \"transparentProxying\": {\n          \"directAccessServices\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ipFamilyMode\": \"string\",\n          \"reachableBackends\": {\n            \"refs\": [\n              {\n                \"kind\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"name\": \"string\",\n                \"namespace\": \"string\",\n                \"port\": 4517\n              },\n              {\n                \"kind\": \"string\",\n                \"labels\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"name\": \"string\",\n                \"namespace\": \"string\",\n                \"port\": 5886\n              }\n            ]\n          },\n          \"reachableServices\": [\n            \"string\",\n            \"string\"\n          ],\n          \"redirectPortInbound\": 3631,\n          \"redirectPortOutbound\": 3372\n        }\n      },\n      \"probes\": {\n        \"endpoints\": [\n          {\n            \"inboundPath\": \"string\",\n            \"inboundPort\": 9017,\n            \"path\": \"string\"\n          },\n          {\n            \"inboundPath\": \"string\",\n            \"inboundPort\": 162,\n            \"path\": \"string\"\n          }\n        ],\n        \"port\": 2872\n      }\n    }\n  ],\n  \"next\": \"string\",\n  \"total\": 5218.499822948141\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6da2b025-80e2-45ff-afe0-89a00d3e7af1",
+          "name": "Deletes Dataplane entity",
+          "request": {
+            "name": "Deletes Dataplane entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the Dataplane"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66b8731c-4520-4b9e-a3ba-e46d2c8e8f45",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Dataplane"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ae69972-d613-43f1-bd84-aa8e32b74ee5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Dataplane"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9863da74-0850-47b4-96eb-24df0db06145",
+          "name": "Returns Dataplane entity",
+          "request": {
+            "name": "Returns Dataplane entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the Dataplane"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0487930d-cb52-4403-8bf0-0418ad433f44",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Dataplane"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"name\": \"string\",\n  \"mesh\": \"string\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"metrics\": {\n    \"conf\": {\n      \"aggregate\": [\n        {\n          \"address\": \"string\",\n          \"enabled\": true,\n          \"name\": \"string\",\n          \"path\": \"string\",\n          \"port\": 2797\n        },\n        {\n          \"address\": \"string\",\n          \"enabled\": true,\n          \"name\": \"string\",\n          \"path\": \"string\",\n          \"port\": 4707\n        }\n      ],\n      \"envoy\": {\n        \"filterRegex\": \"string\",\n        \"usedOnly\": true\n      },\n      \"path\": \"string\",\n      \"port\": 5349,\n      \"skipMTLS\": false,\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"tls\": {\n        \"mode\": \"string\"\n      }\n    },\n    \"name\": \"string\",\n    \"type\": \"string\"\n  },\n  \"networking\": {\n    \"address\": \"string\",\n    \"admin\": {\n      \"port\": 3600\n    },\n    \"advertisedAddress\": \"string\",\n    \"gateway\": {\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"type\": \"string\"\n    },\n    \"inbound\": [\n      {\n        \"address\": \"string\",\n        \"health\": {\n          \"ready\": false\n        },\n        \"name\": \"string\",\n        \"port\": 8583,\n        \"protocol\": \"string\",\n        \"serviceAddress\": \"string\",\n        \"servicePort\": 6835,\n        \"serviceProbe\": {\n          \"healthyThreshold\": 3502,\n          \"interval\": {\n            \"nanos\": 3437,\n            \"seconds\": 9012\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": 5187,\n            \"seconds\": 4094\n          },\n          \"unhealthyThreshold\": 7975\n        },\n        \"state\": \"string\",\n        \"tags\": {\n          \"key_0\": \"string\"\n        }\n      },\n      {\n        \"address\": \"string\",\n        \"health\": {\n          \"ready\": false\n        },\n        \"name\": \"string\",\n        \"port\": 3416,\n        \"protocol\": \"string\",\n        \"serviceAddress\": \"string\",\n        \"servicePort\": 137,\n        \"serviceProbe\": {\n          \"healthyThreshold\": 1291,\n          \"interval\": {\n            \"nanos\": 2656,\n            \"seconds\": 2250\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": 7751,\n            \"seconds\": 8028\n          },\n          \"unhealthyThreshold\": 2674\n        },\n        \"state\": \"string\",\n        \"tags\": {\n          \"key_0\": \"string\"\n        }\n      }\n    ],\n    \"listeners\": [\n      {\n        \"address\": \"string\",\n        \"name\": \"string\",\n        \"port\": 8037,\n        \"state\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"address\": \"string\",\n        \"name\": \"string\",\n        \"port\": 5960,\n        \"state\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"outbound\": [\n      {\n        \"address\": \"string\",\n        \"backendRef\": {\n          \"kind\": \"string\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"name\": \"string\",\n          \"port\": 4079\n        },\n        \"port\": 2407,\n        \"tags\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      },\n      {\n        \"address\": \"string\",\n        \"backendRef\": {\n          \"kind\": \"string\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"name\": \"string\",\n          \"port\": 1654\n        },\n        \"port\": 1904,\n        \"tags\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      }\n    ],\n    \"transparentProxying\": {\n      \"directAccessServices\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ipFamilyMode\": \"string\",\n      \"reachableBackends\": {\n        \"refs\": [\n          {\n            \"kind\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\"\n            },\n            \"name\": \"string\",\n            \"namespace\": \"string\",\n            \"port\": 1364\n          },\n          {\n            \"kind\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\"\n            },\n            \"name\": \"string\",\n            \"namespace\": \"string\",\n            \"port\": 2520\n          }\n        ]\n      },\n      \"reachableServices\": [\n        \"string\",\n        \"string\"\n      ],\n      \"redirectPortInbound\": 7391,\n      \"redirectPortOutbound\": 9225\n    }\n  },\n  \"probes\": {\n    \"endpoints\": [\n      {\n        \"inboundPath\": \"string\",\n        \"inboundPort\": 5819,\n        \"path\": \"string\"\n      },\n      {\n        \"inboundPath\": \"string\",\n        \"inboundPort\": 1267,\n        \"path\": \"string\"\n      }\n    ],\n    \"port\": 7433\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2acbde8-9777-41e6-888e-a56abe74ce6b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Dataplane"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "540bd02f-c53e-47b8-b0db-eb9a3c28f148",
+          "name": "Creates or Updates Dataplane entity",
+          "request": {
+            "name": "Creates or Updates Dataplane entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the Dataplane"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mesh\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  },\n  \"metrics\": {\n    \"conf\": {\n      \"aggregate\": [\n        {\n          \"address\": \"<string>\",\n          \"enabled\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"path\": \"<string>\",\n          \"port\": \"<integer>\"\n        },\n        {\n          \"address\": \"<string>\",\n          \"enabled\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"path\": \"<string>\",\n          \"port\": \"<integer>\"\n        }\n      ],\n      \"envoy\": {\n        \"filterRegex\": \"<string>\",\n        \"usedOnly\": \"<boolean>\"\n      },\n      \"path\": \"<string>\",\n      \"port\": \"<integer>\",\n      \"skipMTLS\": \"<boolean>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"tls\": {\n        \"mode\": \"<string>\"\n      }\n    },\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"networking\": {\n    \"address\": \"<string>\",\n    \"admin\": {\n      \"port\": \"<integer>\"\n    },\n    \"advertisedAddress\": \"<string>\",\n    \"gateway\": {\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    \"inbound\": [\n      {\n        \"address\": \"<string>\",\n        \"health\": {\n          \"ready\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"serviceAddress\": \"<string>\",\n        \"servicePort\": \"<integer>\",\n        \"serviceProbe\": {\n          \"healthyThreshold\": \"<uint32>\",\n          \"interval\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"unhealthyThreshold\": \"<uint32>\"\n        },\n        \"state\": \"<string>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        }\n      },\n      {\n        \"address\": \"<string>\",\n        \"health\": {\n          \"ready\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"serviceAddress\": \"<string>\",\n        \"servicePort\": \"<integer>\",\n        \"serviceProbe\": {\n          \"healthyThreshold\": \"<uint32>\",\n          \"interval\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"unhealthyThreshold\": \"<uint32>\"\n        },\n        \"state\": \"<string>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    ],\n    \"listeners\": [\n      {\n        \"address\": \"<string>\",\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"state\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"state\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"outbound\": [\n      {\n        \"address\": \"<string>\",\n        \"backendRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"port\": \"<integer>\"\n        },\n        \"port\": \"<integer>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      {\n        \"address\": \"<string>\",\n        \"backendRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"port\": \"<integer>\"\n        },\n        \"port\": \"<integer>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    ],\n    \"transparentProxying\": {\n      \"directAccessServices\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ipFamilyMode\": \"<string>\",\n      \"reachableBackends\": {\n        \"refs\": [\n          {\n            \"kind\": \"<string>\",\n            \"labels\": {\n              \"key_0\": \"<string>\",\n              \"key_1\": \"<string>\"\n            },\n            \"name\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"port\": \"<uint32>\"\n          },\n          {\n            \"kind\": \"<string>\",\n            \"labels\": {\n              \"key_0\": \"<string>\",\n              \"key_1\": \"<string>\",\n              \"key_2\": \"<string>\"\n            },\n            \"name\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"port\": \"<uint32>\"\n          }\n        ]\n      },\n      \"reachableServices\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"redirectPortInbound\": \"<integer>\",\n      \"redirectPortOutbound\": \"<integer>\"\n    }\n  },\n  \"probes\": {\n    \"endpoints\": [\n      {\n        \"inboundPath\": \"<string>\",\n        \"inboundPort\": \"<integer>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"inboundPath\": \"<string>\",\n        \"inboundPort\": \"<integer>\",\n        \"path\": \"<string>\"\n      }\n    ],\n    \"port\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eac600db-d0a1-4343-83be-67ea8cb891ed",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Dataplane"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mesh\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  },\n  \"metrics\": {\n    \"conf\": {\n      \"aggregate\": [\n        {\n          \"address\": \"string\",\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"path\": \"string\",\n          \"port\": 584\n        },\n        {\n          \"address\": \"string\",\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"path\": \"string\",\n          \"port\": 6180\n        }\n      ],\n      \"envoy\": {\n        \"filterRegex\": \"string\",\n        \"usedOnly\": true\n      },\n      \"path\": \"string\",\n      \"port\": 3620,\n      \"skipMTLS\": true,\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"tls\": {\n        \"mode\": \"string\"\n      }\n    },\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"networking\": {\n    \"address\": \"<string>\",\n    \"admin\": {\n      \"port\": \"<integer>\"\n    },\n    \"advertisedAddress\": \"<string>\",\n    \"gateway\": {\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    \"inbound\": [\n      {\n        \"address\": \"<string>\",\n        \"health\": {\n          \"ready\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"serviceAddress\": \"<string>\",\n        \"servicePort\": \"<integer>\",\n        \"serviceProbe\": {\n          \"healthyThreshold\": \"<uint32>\",\n          \"interval\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"unhealthyThreshold\": \"<uint32>\"\n        },\n        \"state\": \"<string>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      {\n        \"address\": \"<string>\",\n        \"health\": {\n          \"ready\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"serviceAddress\": \"<string>\",\n        \"servicePort\": \"<integer>\",\n        \"serviceProbe\": {\n          \"healthyThreshold\": \"<uint32>\",\n          \"interval\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"unhealthyThreshold\": \"<uint32>\"\n        },\n        \"state\": \"<string>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    ],\n    \"listeners\": [\n      {\n        \"address\": \"<string>\",\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"state\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"state\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"outbound\": [\n      {\n        \"address\": \"<string>\",\n        \"backendRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"port\": \"<integer>\"\n        },\n        \"port\": \"<integer>\",\n        \"tags\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      {\n        \"address\": \"<string>\",\n        \"backendRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"port\": \"<integer>\"\n        },\n        \"port\": \"<integer>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        }\n      }\n    ],\n    \"transparentProxying\": {\n      \"directAccessServices\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ipFamilyMode\": \"<string>\",\n      \"reachableBackends\": {\n        \"refs\": [\n          {\n            \"kind\": \"<string>\",\n            \"labels\": {\n              \"key_0\": \"<string>\",\n              \"key_1\": \"<string>\",\n              \"key_2\": \"<string>\"\n            },\n            \"name\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"port\": \"<uint32>\"\n          },\n          {\n            \"kind\": \"<string>\",\n            \"labels\": {\n              \"key_0\": \"<string>\"\n            },\n            \"name\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"port\": \"<uint32>\"\n          }\n        ]\n      },\n      \"reachableServices\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"redirectPortInbound\": \"<integer>\",\n      \"redirectPortOutbound\": \"<integer>\"\n    }\n  },\n  \"probes\": {\n    \"endpoints\": [\n      {\n        \"inboundPath\": \"<string>\",\n        \"inboundPort\": \"<integer>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"inboundPath\": \"<string>\",\n        \"inboundPort\": \"<integer>\",\n        \"path\": \"<string>\"\n      }\n    ],\n    \"port\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f148f3b2-03e9-4eae-9d3f-5c3dd62d59a0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the Dataplane"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mesh\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  },\n  \"metrics\": {\n    \"conf\": {\n      \"aggregate\": [\n        {\n          \"address\": \"string\",\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"path\": \"string\",\n          \"port\": 584\n        },\n        {\n          \"address\": \"string\",\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"path\": \"string\",\n          \"port\": 6180\n        }\n      ],\n      \"envoy\": {\n        \"filterRegex\": \"string\",\n        \"usedOnly\": true\n      },\n      \"path\": \"string\",\n      \"port\": 3620,\n      \"skipMTLS\": true,\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"tls\": {\n        \"mode\": \"string\"\n      }\n    },\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"networking\": {\n    \"address\": \"<string>\",\n    \"admin\": {\n      \"port\": \"<integer>\"\n    },\n    \"advertisedAddress\": \"<string>\",\n    \"gateway\": {\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    \"inbound\": [\n      {\n        \"address\": \"<string>\",\n        \"health\": {\n          \"ready\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"serviceAddress\": \"<string>\",\n        \"servicePort\": \"<integer>\",\n        \"serviceProbe\": {\n          \"healthyThreshold\": \"<uint32>\",\n          \"interval\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"unhealthyThreshold\": \"<uint32>\"\n        },\n        \"state\": \"<string>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      {\n        \"address\": \"<string>\",\n        \"health\": {\n          \"ready\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"protocol\": \"<string>\",\n        \"serviceAddress\": \"<string>\",\n        \"servicePort\": \"<integer>\",\n        \"serviceProbe\": {\n          \"healthyThreshold\": \"<uint32>\",\n          \"interval\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": \"<integer>\",\n            \"seconds\": \"<integer>\"\n          },\n          \"unhealthyThreshold\": \"<uint32>\"\n        },\n        \"state\": \"<string>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      }\n    ],\n    \"listeners\": [\n      {\n        \"address\": \"<string>\",\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"state\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"name\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"state\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"outbound\": [\n      {\n        \"address\": \"<string>\",\n        \"backendRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"port\": \"<integer>\"\n        },\n        \"port\": \"<integer>\",\n        \"tags\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      {\n        \"address\": \"<string>\",\n        \"backendRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"port\": \"<integer>\"\n        },\n        \"port\": \"<integer>\",\n        \"tags\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        }\n      }\n    ],\n    \"transparentProxying\": {\n      \"directAccessServices\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ipFamilyMode\": \"<string>\",\n      \"reachableBackends\": {\n        \"refs\": [\n          {\n            \"kind\": \"<string>\",\n            \"labels\": {\n              \"key_0\": \"<string>\",\n              \"key_1\": \"<string>\",\n              \"key_2\": \"<string>\"\n            },\n            \"name\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"port\": \"<uint32>\"\n          },\n          {\n            \"kind\": \"<string>\",\n            \"labels\": {\n              \"key_0\": \"<string>\"\n            },\n            \"name\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"port\": \"<uint32>\"\n          }\n        ]\n      },\n      \"reachableServices\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"redirectPortInbound\": \"<integer>\",\n      \"redirectPortOutbound\": \"<integer>\"\n    }\n  },\n  \"probes\": {\n    \"endpoints\": [\n      {\n        \"inboundPath\": \"<string>\",\n        \"inboundPort\": \"<integer>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"inboundPath\": \"<string>\",\n        \"inboundPort\": \"<integer>\",\n        \"path\": \"<string>\"\n      }\n    ],\n    \"port\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1f195d5c-1284-4878-a4d9-e36a2a68bf5a",
+    "name": "Kuma Dataplane API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

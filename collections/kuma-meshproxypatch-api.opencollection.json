@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kuma Dataplane MeshProxyPatch API",
+    "version": "v1alpha1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MeshProxyPatch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns MeshProxyPatch entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshproxypatches/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshProxyPatch"
+              }
+            ]
+          },
+          "docs": "Returns MeshProxyPatch entity"
+        },
+        {
+          "info": {
+            "name": "Creates or Updates MeshProxyPatch entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/meshes/:mesh/meshproxypatches/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshProxyPatch"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or Updates MeshProxyPatch entity"
+        },
+        {
+          "info": {
+            "name": "Deletes MeshProxyPatch entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/meshes/:mesh/meshproxypatches/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshProxyPatch"
+              }
+            ]
+          },
+          "docs": "Deletes MeshProxyPatch entity"
+        },
+        {
+          "info": {
+            "name": "Returns a list of MeshProxyPatch in the mesh.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshproxypatches",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "offset in the list of entities"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "the number of items per page"
+              },
+              {
+                "name": "filter",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "filter by labels when multiple filters are present, they are ANDed"
+              },
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              }
+            ]
+          },
+          "docs": "Returns a list of MeshProxyPatch in the mesh."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

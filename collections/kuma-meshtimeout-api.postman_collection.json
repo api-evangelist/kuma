@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "df23919b-ee84-4c0d-9d2f-3a56791d0c2a",
+      "name": "MeshTimeout",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "453efaf5-276a-4bbb-b9c4-c473f97930bf",
+          "name": "Returns MeshTimeout entity",
+          "request": {
+            "name": "Returns MeshTimeout entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtimeouts",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshTimeout"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3882d456-40ff-4939-ae1d-6baf39eca6c6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtimeouts",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTimeout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshTimeout\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshHTTPRoute\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"string\",\n          \"http\": {\n            \"maxConnectionDuration\": \"string\",\n            \"maxStreamDuration\": \"string\",\n            \"requestHeadersTimeout\": \"string\",\n            \"requestTimeout\": \"string\",\n            \"streamIdleTimeout\": \"string\"\n          },\n          \"idleTimeout\": \"string\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshSubset\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"string\",\n          \"http\": {\n            \"maxConnectionDuration\": \"string\",\n            \"maxStreamDuration\": \"string\",\n            \"requestHeadersTimeout\": \"string\",\n            \"requestTimeout\": \"string\",\n            \"streamIdleTimeout\": \"string\"\n          },\n          \"idleTimeout\": \"string\"\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"connectionTimeout\": \"string\",\n          \"http\": {\n            \"maxConnectionDuration\": \"string\",\n            \"maxStreamDuration\": \"string\",\n            \"requestHeadersTimeout\": \"string\",\n            \"requestTimeout\": \"string\",\n            \"streamIdleTimeout\": \"string\"\n          },\n          \"idleTimeout\": \"string\"\n        }\n      },\n      {\n        \"default\": {\n          \"connectionTimeout\": \"string\",\n          \"http\": {\n            \"maxConnectionDuration\": \"string\",\n            \"maxStreamDuration\": \"string\",\n            \"requestHeadersTimeout\": \"string\",\n            \"requestTimeout\": \"string\",\n            \"streamIdleTimeout\": \"string\"\n          },\n          \"idleTimeout\": \"string\"\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"MeshExternalService\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Sidecar\",\n        \"Gateway\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"Mesh\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"string\",\n          \"http\": {\n            \"maxConnectionDuration\": \"string\",\n            \"maxStreamDuration\": \"string\",\n            \"requestHeadersTimeout\": \"string\",\n            \"requestTimeout\": \"string\",\n            \"streamIdleTimeout\": \"string\"\n          },\n          \"idleTimeout\": \"string\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"string\",\n          \"http\": {\n            \"maxConnectionDuration\": \"string\",\n            \"maxStreamDuration\": \"string\",\n            \"requestHeadersTimeout\": \"string\",\n            \"requestTimeout\": \"string\",\n            \"streamIdleTimeout\": \"string\"\n          },\n          \"idleTimeout\": \"string\"\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mt_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7dfedcd-1c72-4237-af42-6d0185a6543f",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtimeouts",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTimeout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26b633ac-c560-4b2b-a400-bdb720d23af7",
+          "name": "Creates or Updates MeshTimeout entity",
+          "request": {
+            "name": "Creates or Updates MeshTimeout entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtimeouts",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshTimeout"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      },\n      {\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ab8ca5b-6b6e-4309-a345-bdd735e9d0ad",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtimeouts",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTimeout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      },\n      {\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c24f580-0a20-4a0d-a73b-5c1f4828617a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtimeouts",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTimeout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      },\n      {\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionTimeout\": \"<string>\",\n          \"http\": {\n            \"maxConnectionDuration\": \"<string>\",\n            \"maxStreamDuration\": \"<string>\",\n            \"requestHeadersTimeout\": \"<string>\",\n            \"requestTimeout\": \"<string>\",\n            \"streamIdleTimeout\": \"<string>\"\n          },\n          \"idleTimeout\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "619e9fd0-b63c-4662-9277-1be3b2ca2b90",
+          "name": "Deletes MeshTimeout entity",
+          "request": {
+            "name": "Deletes MeshTimeout entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtimeouts",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshTimeout"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bbfa7207-dee3-417d-8dc3-9b0af45ff32f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtimeouts",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTimeout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b7f2dd0-abaa-4e5d-b0c4-5b8c2d5bbbf6",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtimeouts",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTimeout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7538fa2f-705e-436c-85cd-3946b8d2275f",
+          "name": "Returns a list of MeshTimeout in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshTimeout in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtimeouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d47b274-a5df-41d5-9d06-993ece28515d",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtimeouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshTimeout\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"Mesh\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"Dataplane\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\",\n                \"key_3\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          },\n          {\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"MeshMultiZoneService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshMultiZoneService\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshService\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mt_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n      \"type\": \"MeshTimeout\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshExternalService\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"Mesh\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          },\n          {\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"Mesh\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshGateway\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshMultiZoneService\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionTimeout\": \"string\",\n              \"http\": {\n                \"maxConnectionDuration\": \"string\",\n                \"maxStreamDuration\": \"string\",\n                \"requestHeadersTimeout\": \"string\",\n                \"requestTimeout\": \"string\",\n                \"streamIdleTimeout\": \"string\"\n              },\n              \"idleTimeout\": \"string\"\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mt_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    }\n  ],\n  \"total\": 9075.768558214739,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eded21af-5e8b-4b28-b9b9-628ca2195b84",
+    "name": "Kuma Dataplane MeshTimeout API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

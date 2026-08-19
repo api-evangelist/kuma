@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kuma Dataplane MeshMultiZoneService API",
+    "version": "v1alpha1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MeshMultiZoneService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns MeshMultiZoneService entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshmultizoneservices/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshMultiZoneService"
+              }
+            ]
+          },
+          "docs": "Returns MeshMultiZoneService entity"
+        },
+        {
+          "info": {
+            "name": "Creates or Updates MeshMultiZoneService entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/meshes/:mesh/meshmultizoneservices/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshMultiZoneService"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or Updates MeshMultiZoneService entity"
+        },
+        {
+          "info": {
+            "name": "Deletes MeshMultiZoneService entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/meshes/:mesh/meshmultizoneservices/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshMultiZoneService"
+              }
+            ]
+          },
+          "docs": "Deletes MeshMultiZoneService entity"
+        },
+        {
+          "info": {
+            "name": "Returns a list of MeshMultiZoneService in the mesh.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshmultizoneservices",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "offset in the list of entities"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "the number of items per page"
+              },
+              {
+                "name": "filter",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "filter by labels when multiple filters are present, they are ANDed"
+              },
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              }
+            ]
+          },
+          "docs": "Returns a list of MeshMultiZoneService in the mesh."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

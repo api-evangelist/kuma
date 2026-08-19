@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kuma Dataplane HostnameGenerator API",
+    "version": "v1alpha1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "HostnameGenerator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns HostnameGenerator entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hostnamegenerators/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the HostnameGenerator"
+              }
+            ]
+          },
+          "docs": "Returns HostnameGenerator entity"
+        },
+        {
+          "info": {
+            "name": "Creates or Updates HostnameGenerator entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/hostnamegenerators/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the HostnameGenerator"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or Updates HostnameGenerator entity"
+        },
+        {
+          "info": {
+            "name": "Deletes HostnameGenerator entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/hostnamegenerators/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the HostnameGenerator"
+              }
+            ]
+          },
+          "docs": "Deletes HostnameGenerator entity"
+        },
+        {
+          "info": {
+            "name": "Returns a list of HostnameGenerator in the mesh.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hostnamegenerators",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "offset in the list of entities"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "the number of items per page"
+              },
+              {
+                "name": "filter",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "filter by labels when multiple filters are present, they are ANDed"
+              }
+            ]
+          },
+          "docs": "Returns a list of HostnameGenerator in the mesh."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

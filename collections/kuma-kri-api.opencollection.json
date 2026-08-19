@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kuma Dataplane KRI API",
+    "version": "v1alpha1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "KRI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a resource by KRI",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/_kri/:kri",
+            "params": [
+              {
+                "name": "kri",
+                "value": "",
+                "type": "path",
+                "description": "KRI of the resource"
+              }
+            ]
+          },
+          "docs": "Returns a resource by KRI"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "de558ec7-df1d-4ca7-be11-a4df836a3d8f",
+      "name": "MeshLoadBalancingStrategy",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "764d2430-3032-4e6a-a7ef-45fd73eac898",
+          "name": "Returns MeshLoadBalancingStrategy entity",
+          "request": {
+            "name": "Returns MeshLoadBalancingStrategy entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshloadbalancingstrategies",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshLoadBalancingStrategy"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4a19b49-67a2-4d28-9574-73c3d277b464",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshloadbalancingstrategies",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshLoadBalancingStrategy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshLoadBalancingStrategy\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"MeshService\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Gateway\",\n        \"Gateway\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshGateway\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        },\n        \"default\": {\n          \"hashPolicies\": [\n            {\n              \"type\": \"QueryParameter\",\n              \"connection\": {\n                \"sourceIP\": true\n              },\n              \"cookie\": {\n                \"name\": \"string\",\n                \"path\": \"string\",\n                \"ttl\": \"string\"\n              },\n              \"filterState\": {\n                \"key\": \"string\"\n              },\n              \"header\": {\n                \"name\": \"string\"\n              },\n              \"queryParameter\": {\n                \"name\": \"string\"\n              },\n              \"terminal\": false\n            },\n            {\n              \"type\": \"QueryParameter\",\n              \"connection\": {\n                \"sourceIP\": false\n              },\n              \"cookie\": {\n                \"name\": \"string\",\n                \"path\": \"string\",\n                \"ttl\": \"string\"\n              },\n              \"filterState\": {\n                \"key\": \"string\"\n              },\n              \"header\": {\n                \"name\": \"string\"\n              },\n              \"queryParameter\": {\n                \"name\": \"string\"\n              },\n              \"terminal\": true\n            }\n          ],\n          \"loadBalancer\": {\n            \"type\": \"Random\",\n            \"leastRequest\": {\n              \"activeRequestBias\": 9811,\n              \"choiceCount\": 5663\n            },\n            \"maglev\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": \"Cookie\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": true\n                },\n                {\n                  \"type\": \"FilterState\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": false\n                }\n              ],\n              \"tableSize\": 2744530\n            },\n            \"random\": {},\n            \"ringHash\": {\n              \"hashFunction\": \"MurmurHash2\",\n              \"hashPolicies\": [\n                {\n                  \"type\": \"QueryParameter\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": false\n                },\n                {\n                  \"type\": \"Connection\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": false\n                }\n              ],\n              \"maxRingSize\": 6042605,\n              \"minRingSize\": 3817093\n            },\n            \"roundRobin\": {}\n          },\n          \"localityAwareness\": {\n            \"crossZone\": {\n              \"failover\": [\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                },\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              ],\n              \"failoverThreshold\": {\n                \"percentage\": 4624\n              }\n            },\n            \"disabled\": true,\n            \"localZone\": {\n              \"affinityTags\": [\n                {\n                  \"key\": \"string\",\n                  \"weight\": 3049\n                },\n                {\n                  \"key\": \"string\",\n                  \"weight\": 5682\n                }\n              ]\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"default\": {\n          \"hashPolicies\": [\n            {\n              \"type\": \"QueryParameter\",\n              \"connection\": {\n                \"sourceIP\": false\n              },\n              \"cookie\": {\n                \"name\": \"string\",\n                \"path\": \"string\",\n                \"ttl\": \"string\"\n              },\n              \"filterState\": {\n                \"key\": \"string\"\n              },\n              \"header\": {\n                \"name\": \"string\"\n              },\n              \"queryParameter\": {\n                \"name\": \"string\"\n              },\n              \"terminal\": true\n            },\n            {\n              \"type\": \"Connection\",\n              \"connection\": {\n                \"sourceIP\": true\n              },\n              \"cookie\": {\n                \"name\": \"string\",\n                \"path\": \"string\",\n                \"ttl\": \"string\"\n              },\n              \"filterState\": {\n                \"key\": \"string\"\n              },\n              \"header\": {\n                \"name\": \"string\"\n              },\n              \"queryParameter\": {\n                \"name\": \"string\"\n              },\n              \"terminal\": false\n            }\n          ],\n          \"loadBalancer\": {\n            \"type\": \"Random\",\n            \"leastRequest\": {\n              \"activeRequestBias\": 5448,\n              \"choiceCount\": 8159\n            },\n            \"maglev\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": \"Cookie\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": false\n                },\n                {\n                  \"type\": \"Header\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": false\n                }\n              ],\n              \"tableSize\": 2721901\n            },\n            \"random\": {},\n            \"ringHash\": {\n              \"hashFunction\": \"XXHash\",\n              \"hashPolicies\": [\n                {\n                  \"type\": \"SourceIP\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": false\n                },\n                {\n                  \"type\": \"Cookie\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": false\n                }\n              ],\n              \"maxRingSize\": 717116,\n              \"minRingSize\": 2769742\n            },\n            \"roundRobin\": {}\n          },\n          \"localityAwareness\": {\n            \"crossZone\": {\n              \"failover\": [\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                },\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              ],\n              \"failoverThreshold\": {\n                \"percentage\": 9950\n              }\n            },\n            \"disabled\": true,\n            \"localZone\": {\n              \"affinityTags\": [\n                {\n                  \"key\": \"string\",\n                  \"weight\": 7603\n                },\n                {\n                  \"key\": \"string\",\n                  \"weight\": 1226\n                }\n              ]\n            }\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mlbs_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad1a7efc-99a3-4315-be98-fc14d3664f3e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshloadbalancingstrategies",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshLoadBalancingStrategy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f30e179-57d9-4270-974f-eea2e41a14c2",
+          "name": "Creates or Updates MeshLoadBalancingStrategy entity",
+          "request": {
+            "name": "Creates or Updates MeshLoadBalancingStrategy entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshloadbalancingstrategies",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshLoadBalancingStrategy"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"hashPolicies\": [\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            },\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            }\n          ],\n          \"loadBalancer\": {\n            \"type\": \"<string>\",\n            \"leastRequest\": {\n              \"activeRequestBias\": \"<integer>\",\n              \"choiceCount\": \"<integer>\"\n            },\n            \"maglev\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"tableSize\": \"<integer>\"\n            },\n            \"random\": \"<object>\",\n            \"ringHash\": {\n              \"hashFunction\": \"<string>\",\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"maxRingSize\": \"<integer>\",\n              \"minRingSize\": \"<integer>\"\n            },\n            \"roundRobin\": \"<object>\"\n          },\n          \"localityAwareness\": {\n            \"crossZone\": {\n              \"failover\": [\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                },\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              ],\n              \"failoverThreshold\": {\n                \"percentage\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"localZone\": {\n              \"affinityTags\": [\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                }\n              ]\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"hashPolicies\": [\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            },\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            }\n          ],\n          \"loadBalancer\": {\n            \"type\": \"<string>\",\n            \"leastRequest\": {\n              \"activeRequestBias\": \"<integer>\",\n              \"choiceCount\": \"<integer>\"\n            },\n            \"maglev\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"tableSize\": \"<integer>\"\n            },\n            \"random\": \"<object>\",\n            \"ringHash\": {\n              \"hashFunction\": \"<string>\",\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"maxRingSize\": \"<integer>\",\n              \"minRingSize\": \"<integer>\"\n            },\n            \"roundRobin\": \"<object>\"\n          },\n          \"localityAwareness\": {\n            \"crossZone\": {\n              \"failover\": [\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                },\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              ],\n              \"failoverThreshold\": {\n                \"percentage\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"localZone\": {\n              \"affinityTags\": [\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b94c434c-e2a9-49fc-8644-e8828bfb102d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshloadbalancingstrategies",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshLoadBalancingStrategy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"hashPolicies\": [\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            },\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            }\n          ],\n          \"loadBalancer\": {\n            \"type\": \"<string>\",\n            \"leastRequest\": {\n              \"activeRequestBias\": \"<integer>\",\n              \"choiceCount\": \"<integer>\"\n            },\n            \"maglev\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"tableSize\": \"<integer>\"\n            },\n            \"random\": \"<object>\",\n            \"ringHash\": {\n              \"hashFunction\": \"<string>\",\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"maxRingSize\": \"<integer>\",\n              \"minRingSize\": \"<integer>\"\n            },\n            \"roundRobin\": \"<object>\"\n          },\n          \"localityAwareness\": {\n            \"crossZone\": {\n              \"failover\": [\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                },\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              ],\n              \"failoverThreshold\": {\n                \"percentage\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"localZone\": {\n              \"affinityTags\": [\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                }\n              ]\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"hashPolicies\": [\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            },\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            }\n          ],\n          \"loadBalancer\": {\n            \"type\": \"<string>\",\n            \"leastRequest\": {\n              \"activeRequestBias\": \"<integer>\",\n              \"choiceCount\": \"<integer>\"\n            },\n            \"maglev\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"tableSize\": \"<integer>\"\n            },\n            \"random\": \"<object>\",\n            \"ringHash\": {\n              \"hashFunction\": \"<string>\",\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"maxRingSize\": \"<integer>\",\n              \"minRingSize\": \"<integer>\"\n            },\n            \"roundRobin\": \"<object>\"\n          },\n          \"localityAwareness\": {\n            \"crossZone\": {\n              \"failover\": [\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                },\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              ],\n              \"failoverThreshold\": {\n                \"percentage\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"localZone\": {\n              \"affinityTags\": [\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "401a3b68-6dc3-40f5-a7bb-6c013d751ec5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshloadbalancingstrategies",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshLoadBalancingStrategy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"hashPolicies\": [\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            },\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            }\n          ],\n          \"loadBalancer\": {\n            \"type\": \"<string>\",\n            \"leastRequest\": {\n              \"activeRequestBias\": \"<integer>\",\n              \"choiceCount\": \"<integer>\"\n            },\n            \"maglev\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"tableSize\": \"<integer>\"\n            },\n            \"random\": \"<object>\",\n            \"ringHash\": {\n              \"hashFunction\": \"<string>\",\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"maxRingSize\": \"<integer>\",\n              \"minRingSize\": \"<integer>\"\n            },\n            \"roundRobin\": \"<object>\"\n          },\n          \"localityAwareness\": {\n            \"crossZone\": {\n              \"failover\": [\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                },\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              ],\n              \"failoverThreshold\": {\n                \"percentage\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"localZone\": {\n              \"affinityTags\": [\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                }\n              ]\n            }\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"hashPolicies\": [\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            },\n            {\n              \"type\": \"<string>\",\n              \"connection\": {\n                \"sourceIP\": \"<boolean>\"\n              },\n              \"cookie\": {\n                \"name\": \"<string>\",\n                \"path\": \"<string>\",\n                \"ttl\": \"<string>\"\n              },\n              \"filterState\": {\n                \"key\": \"<string>\"\n              },\n              \"header\": {\n                \"name\": \"<string>\"\n              },\n              \"queryParameter\": {\n                \"name\": \"<string>\"\n              },\n              \"terminal\": \"<boolean>\"\n            }\n          ],\n          \"loadBalancer\": {\n            \"type\": \"<string>\",\n            \"leastRequest\": {\n              \"activeRequestBias\": \"<integer>\",\n              \"choiceCount\": \"<integer>\"\n            },\n            \"maglev\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"tableSize\": \"<integer>\"\n            },\n            \"random\": \"<object>\",\n            \"ringHash\": {\n              \"hashFunction\": \"<string>\",\n              \"hashPolicies\": [\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                },\n                {\n                  \"type\": \"<string>\",\n                  \"connection\": {\n                    \"sourceIP\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"cookie\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"path\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"ttl\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"filterState\": {\n                    \"key\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"header\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"queryParameter\": {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"terminal\": \"<boolean>\"\n                }\n              ],\n              \"maxRingSize\": \"<integer>\",\n              \"minRingSize\": \"<integer>\"\n            },\n            \"roundRobin\": \"<object>\"\n          },\n          \"localityAwareness\": {\n            \"crossZone\": {\n              \"failover\": [\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                },\n                {\n                  \"to\": {\n                    \"type\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"from\": {\n                    \"zones\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              ],\n              \"failoverThreshold\": {\n                \"percentage\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"localZone\": {\n              \"affinityTags\": [\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"weight\": \"<integer>\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b87cc9e1-704b-4182-9f2d-4e45242f21a5",
+          "name": "Deletes MeshLoadBalancingStrategy entity",
+          "request": {
+            "name": "Deletes MeshLoadBalancingStrategy entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshloadbalancingstrategies",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshLoadBalancingStrategy"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89e5895f-8770-43ac-9184-8a8f3dea250a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshloadbalancingstrategies",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshLoadBalancingStrategy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "231bae16-1382-4b48-b526-90e2022e3af3",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshloadbalancingstrategies",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshLoadBalancingStrategy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9bec7b5-9b91-435f-bba4-ed0d3798e19d",
+          "name": "Returns a list of MeshLoadBalancingStrategy in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshLoadBalancingStrategy in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshloadbalancingstrategies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88760740-289c-442b-b4e7-6af3de91c5eb",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshloadbalancingstrategies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshLoadBalancingStrategy\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"targetRef\": {\n          \"kind\": \"MeshMultiZoneService\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshGateway\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              }\n            },\n            \"default\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"connection\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"cookie\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"filterState\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"header\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"queryParameter\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"terminal\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"connection\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"cookie\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"filterState\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"header\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"queryParameter\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"terminal\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"loadBalancer\": {\n                \"type\": \"RingHash\",\n                \"leastRequest\": {\n                  \"activeRequestBias\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"choiceCount\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"maglev\": {\n                  \"hashPolicies\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"tableSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"random\": {},\n                \"ringHash\": {\n                  \"hashFunction\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"hashPolicies\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxRingSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"minRingSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"roundRobin\": {}\n              },\n              \"localityAwareness\": {\n                \"crossZone\": {\n                  \"failover\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"failoverThreshold\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"localZone\": {\n                  \"affinityTags\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshHTTPRoute\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"connection\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"cookie\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"filterState\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"header\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"queryParameter\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"terminal\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"connection\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"cookie\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"filterState\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"header\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"queryParameter\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"terminal\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"loadBalancer\": {\n                \"type\": \"Maglev\",\n                \"leastRequest\": {\n                  \"activeRequestBias\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"choiceCount\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"maglev\": {\n                  \"hashPolicies\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"tableSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"random\": {},\n                \"ringHash\": {\n                  \"hashFunction\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"hashPolicies\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxRingSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"minRingSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"roundRobin\": {}\n              },\n              \"localityAwareness\": {\n                \"crossZone\": {\n                  \"failover\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"failoverThreshold\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": false,\n                \"localZone\": {\n                  \"affinityTags\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mlbs_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n      \"type\": \"MeshLoadBalancingStrategy\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"targetRef\": {\n          \"kind\": \"MeshService\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshService\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              }\n            },\n            \"default\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"connection\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"cookie\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"filterState\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"header\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"queryParameter\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"terminal\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"connection\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"cookie\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"filterState\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"header\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"queryParameter\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"terminal\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"loadBalancer\": {\n                \"type\": \"Maglev\",\n                \"leastRequest\": {\n                  \"activeRequestBias\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"choiceCount\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"maglev\": {\n                  \"hashPolicies\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"tableSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"random\": {},\n                \"ringHash\": {\n                  \"hashFunction\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"hashPolicies\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxRingSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"minRingSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"roundRobin\": {}\n              },\n              \"localityAwareness\": {\n                \"crossZone\": {\n                  \"failover\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"failoverThreshold\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"localZone\": {\n                  \"affinityTags\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"Mesh\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"hashPolicies\": [\n                {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"connection\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"cookie\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"filterState\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"header\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"queryParameter\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"terminal\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"connection\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"cookie\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"filterState\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"header\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"queryParameter\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"terminal\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"loadBalancer\": {\n                \"type\": \"Random\",\n                \"leastRequest\": {\n                  \"activeRequestBias\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"choiceCount\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"maglev\": {\n                  \"hashPolicies\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"tableSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"random\": {},\n                \"ringHash\": {\n                  \"hashFunction\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"hashPolicies\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"maxRingSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"minRingSize\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"roundRobin\": {}\n              },\n              \"localityAwareness\": {\n                \"crossZone\": {\n                  \"failover\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"failoverThreshold\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"localZone\": {\n                  \"affinityTags\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mlbs_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    }\n  ],\n  \"total\": 5967.780418150376,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "baf26960-450f-4232-9c00-bc145b80125a",
+    "name": "Kuma Dataplane MeshLoadBalancingStrategy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

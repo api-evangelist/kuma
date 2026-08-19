@@ -1,0 +1,242 @@
+{
+  "item": [
+    {
+      "id": "6f366d0d-a878-46f3-be5c-d946966769d3",
+      "name": "KRI",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc80e287-d914-4ebb-8ba5-aaf292e41f75",
+          "name": "Returns a resource by KRI",
+          "request": {
+            "name": "Returns a resource by KRI",
+            "description": {},
+            "url": {
+              "path": [
+                "_kri",
+                ":kri"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "kri",
+                  "description": "(Required) KRI of the resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2a9a361-1765-4ae1-a48b-a66a26f1c905",
+              "name": "The resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_kri",
+                    ":kri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kri",
+                      "description": "(Required) KRI of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"name\": \"string\",\n  \"mesh\": \"string\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"metrics\": {\n    \"conf\": {\n      \"aggregate\": [\n        {\n          \"address\": \"string\",\n          \"enabled\": true,\n          \"name\": \"string\",\n          \"path\": \"string\",\n          \"port\": 7720\n        },\n        {\n          \"address\": \"string\",\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"path\": \"string\",\n          \"port\": 8844\n        }\n      ],\n      \"envoy\": {\n        \"filterRegex\": \"string\",\n        \"usedOnly\": true\n      },\n      \"path\": \"string\",\n      \"port\": 6012,\n      \"skipMTLS\": false,\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"tls\": {\n        \"mode\": \"string\"\n      }\n    },\n    \"name\": \"string\",\n    \"type\": \"string\"\n  },\n  \"networking\": {\n    \"address\": \"string\",\n    \"admin\": {\n      \"port\": 1746\n    },\n    \"advertisedAddress\": \"string\",\n    \"gateway\": {\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"type\": \"string\"\n    },\n    \"inbound\": [\n      {\n        \"address\": \"string\",\n        \"health\": {\n          \"ready\": true\n        },\n        \"name\": \"string\",\n        \"port\": 7762,\n        \"protocol\": \"string\",\n        \"serviceAddress\": \"string\",\n        \"servicePort\": 2101,\n        \"serviceProbe\": {\n          \"healthyThreshold\": 122,\n          \"interval\": {\n            \"nanos\": 8409,\n            \"seconds\": 9718\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": 3069,\n            \"seconds\": 7829\n          },\n          \"unhealthyThreshold\": 8359\n        },\n        \"state\": \"string\",\n        \"tags\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      {\n        \"address\": \"string\",\n        \"health\": {\n          \"ready\": false\n        },\n        \"name\": \"string\",\n        \"port\": 7129,\n        \"protocol\": \"string\",\n        \"serviceAddress\": \"string\",\n        \"servicePort\": 9164,\n        \"serviceProbe\": {\n          \"healthyThreshold\": 4372,\n          \"interval\": {\n            \"nanos\": 2206,\n            \"seconds\": 3150\n          },\n          \"tcp\": {},\n          \"timeout\": {\n            \"nanos\": 9537,\n            \"seconds\": 7286\n          },\n          \"unhealthyThreshold\": 9078\n        },\n        \"state\": \"string\",\n        \"tags\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      }\n    ],\n    \"listeners\": [\n      {\n        \"address\": \"string\",\n        \"name\": \"string\",\n        \"port\": 6471,\n        \"state\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"address\": \"string\",\n        \"name\": \"string\",\n        \"port\": 8451,\n        \"state\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"outbound\": [\n      {\n        \"address\": \"string\",\n        \"backendRef\": {\n          \"kind\": \"string\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"name\": \"string\",\n          \"port\": 11\n        },\n        \"port\": 8246,\n        \"tags\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      },\n      {\n        \"address\": \"string\",\n        \"backendRef\": {\n          \"kind\": \"string\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"name\": \"string\",\n          \"port\": 5354\n        },\n        \"port\": 7021,\n        \"tags\": {\n          \"key_0\": \"string\"\n        }\n      }\n    ],\n    \"transparentProxying\": {\n      \"directAccessServices\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ipFamilyMode\": \"string\",\n      \"reachableBackends\": {\n        \"refs\": [\n          {\n            \"kind\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\"\n            },\n            \"name\": \"string\",\n            \"namespace\": \"string\",\n            \"port\": 7260\n          },\n          {\n            \"kind\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\"\n            },\n            \"name\": \"string\",\n            \"namespace\": \"string\",\n            \"port\": 496\n          }\n        ]\n      },\n      \"reachableServices\": [\n        \"string\",\n        \"string\"\n      ],\n      \"redirectPortInbound\": 4548,\n      \"redirectPortOutbound\": 4077\n    }\n  },\n  \"probes\": {\n    \"endpoints\": [\n      {\n        \"inboundPath\": \"string\",\n        \"inboundPort\": 1985,\n        \"path\": \"string\"\n      },\n      {\n        \"inboundPath\": \"string\",\n        \"inboundPort\": 1996,\n        \"path\": \"string\"\n      }\n    ],\n    \"port\": 7683\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "990fccfe-f346-47a4-9aab-1b5d96345f28",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_kri",
+                    ":kri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kri",
+                      "description": "(Required) KRI of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89352102-348d-4343-b3b0-8dd4b49d4d10",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_kri",
+                    ":kri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kri",
+                      "description": "(Required) KRI of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2f3a25f8-fdd7-4bf7-9725-8c6b1df41801",
+    "name": "Kuma Dataplane KRI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

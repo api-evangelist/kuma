@@ -1,0 +1,2405 @@
+{
+  "item": [
+    {
+      "id": "c5f51da8-b478-42e9-af5e-e545dbfcc3d8",
+      "name": "Meshes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64cba2aa-de53-460c-a89e-5d87d8b2ba42",
+          "name": "Get a proxy XDS config on a CP, this endpoint is only available on zone CPs.",
+          "request": {
+            "name": "Get a proxy XDS config on a CP, this endpoint is only available on zone CPs.",
+            "description": {
+              "content": "Returns the [xds](https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol) configuration of the proxy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name",
+                "_config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "shadow",
+                  "value": "false",
+                  "description": "When computing XDS config the CP take into account policies with 'kuma.io/effect: shadow' label\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "An array of extra fields to include in the response. When `include=diff` the server computes a diff in JSONPatch format\nbetween the current proxy XDS config and the config returned in the 'xds' field.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "An array of extra fields to include in the response. When `include=diff` the server computes a diff in JSONPatch format\nbetween the current proxy XDS config and the config returned in the 'xds' field.\n"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) The mesh of the DPP to get the diff for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "416e2462-7706-475d-a4d4-20db24d9e93a",
+              "name": "Successfully retrieved proxy XDS config.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "shadow",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"xds\": {},\n  \"diff\": [\n    {\n      \"op\": \"add\",\n      \"path\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"op\": \"test\",\n      \"path\": \"string\",\n      \"value\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15430e1b-bb0b-4cda-8cf5-d4ead8d9c1f2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "shadow",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd22228d-c3ad-4ca5-9410-ae43b3024b9d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "shadow",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bfca258-c024-4847-85c0-5e8932993f26",
+          "name": "Get networking layout for this dataplane",
+          "request": {
+            "name": "Get networking layout for this dataplane",
+            "description": {
+              "content": "Returns detailed dataplane networking layout with most important information on dataplane and list of its inbounds and outbounds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name",
+                "_layout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) The mesh of the DPP to get the layout for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the DPP within the mesh to get the layout for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64868529-4aca-497e-b976-c2533be96fff",
+              "name": "A response containing dataplane networking layout.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_layout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the layout for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the layout for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kri\": \"kri_dp_default_default_kuma-demo_demo-app-75ff54499c-ttwd7_http-port\",\n  \"labels\": {\n    \"k8s.kuma.io/namespace\": \"kuma-demo\",\n    \"kuma.io/display-name\": \"demo-app\",\n    \"kuma.io/mesh\": \"default\",\n    \"kuma.io/origin\": \"zone\"\n  },\n  \"inbounds\": [\n    {\n      \"kri\": \"string\",\n      \"port\": 6827,\n      \"protocol\": \"string\",\n      \"proxyResourceName\": \"string\"\n    },\n    {\n      \"kri\": \"string\",\n      \"port\": 9872,\n      \"protocol\": \"string\",\n      \"proxyResourceName\": \"string\"\n    }\n  ],\n  \"outbounds\": [\n    {\n      \"kri\": \"string\",\n      \"port\": 4640,\n      \"protocol\": \"string\",\n      \"proxyResourceName\": \"string\"\n    },\n    {\n      \"kri\": \"string\",\n      \"port\": 1311,\n      \"protocol\": \"string\",\n      \"proxyResourceName\": \"string\"\n    }\n  ],\n  \"listeners\": [\n    {\n      \"kri\": \"string\",\n      \"type\": \"ZoneIngress\",\n      \"port\": 8686,\n      \"proxyResourceName\": \"string\"\n    },\n    {\n      \"kri\": \"string\",\n      \"type\": \"ZoneEgress\",\n      \"port\": 6024,\n      \"proxyResourceName\": \"string\"\n    }\n  ],\n  \"spiffeId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d015a1f9-faa4-4fd3-803d-d9d57d55124f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_layout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the layout for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the layout for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0640e945-5a30-4c6b-9002-bfc67b1abf36",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_layout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the layout for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the layout for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74b5117b-f8f8-4f3e-a8c5-c874603ba9ea",
+          "name": "Get proxy policies for this dataplane",
+          "request": {
+            "name": "Get proxy policies for this dataplane",
+            "description": {
+              "content": "Returns proxy level policy configuration derived from combining all proxy policies selecting this dataplane",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name",
+                "_policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) The mesh of the DPP to get the diff for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b635a9c8-297a-4567-9cc3-8c399520acf4",
+              "name": "A response containing policies configuration for selected dataplane",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"kind\": \"string\",\n      \"conf\": {\n        \"key_0\": 6458,\n        \"key_1\": 4898.900112212898,\n        \"key_2\": \"string\",\n        \"key_3\": 9052,\n        \"key_4\": true\n      },\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    },\n    {\n      \"kind\": \"string\",\n      \"conf\": {\n        \"key_0\": 3132,\n        \"key_1\": \"string\"\n      },\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9724ecaa-dfe3-4534-ae33-118c3c6780ef",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0918491-c0ac-47ec-b0ba-716daa07aa2e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9975acfc-2263-4e85-97d1-7c13c5f9a089",
+          "name": "Get policies for this inbound",
+          "request": {
+            "name": "Get policies for this inbound",
+            "description": {
+              "content": "Returns inbound policy configuration derived from combining all policies selecting this dataplane",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name",
+                "_inbounds",
+                ":inbound-kri",
+                "_policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) The mesh of the DPP to get the policies for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "inbound-kri",
+                  "description": "(Required) The name of the Inbound from DPP to get the policies for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb3968b7-0143-4117-9cfe-0195ff6a089f",
+              "name": "A response containing policies configuration for selected inbound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_inbounds",
+                    ":inbound-kri",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "inbound-kri",
+                      "description": "(Required) The name of the Inbound from DPP to get the policies for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"kind\": \"string\",\n      \"rules\": [\n        {\n          \"conf\": {\n            \"key_0\": 8980.041164534527,\n            \"key_1\": 7694.3414582063915\n          },\n          \"kri\": \"string\"\n        },\n        {\n          \"conf\": {\n            \"key_0\": \"string\",\n            \"key_1\": true,\n            \"key_2\": 443\n          },\n          \"kri\": \"string\"\n        }\n      ],\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    },\n    {\n      \"kind\": \"string\",\n      \"rules\": [\n        {\n          \"conf\": {\n            \"key_0\": 1134.39700463672,\n            \"key_1\": \"string\"\n          },\n          \"kri\": \"string\"\n        },\n        {\n          \"conf\": {\n            \"key_0\": 6698,\n            \"key_1\": true,\n            \"key_2\": \"string\"\n          },\n          \"kri\": \"string\"\n        }\n      ],\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "145c4400-099b-47fd-8684-67b3d22ee2ee",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_inbounds",
+                    ":inbound-kri",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "inbound-kri",
+                      "description": "(Required) The name of the Inbound from DPP to get the policies for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80e9dac7-c60c-4e3f-abd5-061b244282ac",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_inbounds",
+                    ":inbound-kri",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "inbound-kri",
+                      "description": "(Required) The name of the Inbound from DPP to get the policies for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "926dc4c0-0c92-477a-bb5a-7939a414c6ec",
+          "name": "Get policies for this outbound",
+          "request": {
+            "name": "Get policies for this outbound",
+            "description": {
+              "content": "Returns outbound policy configuration derived from combining all policies selecting this dataplane",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name",
+                "_outbounds",
+                ":kri",
+                "_policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) The mesh of the DPP to get the policies for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "kri",
+                  "description": "(Required) The KRI of the Outbound to get the policies for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7dcb9580-56f9-43cc-9a93-2fff2d43ed3f",
+              "name": "A response containing policies configuration for selected outbound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_outbounds",
+                    ":kri",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kri",
+                      "description": "(Required) The KRI of the Outbound to get the policies for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"kind\": \"string\",\n      \"conf\": {\n        \"key_0\": 6458,\n        \"key_1\": 4898.900112212898,\n        \"key_2\": \"string\",\n        \"key_3\": 9052,\n        \"key_4\": true\n      },\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    },\n    {\n      \"kind\": \"string\",\n      \"conf\": {\n        \"key_0\": 3132,\n        \"key_1\": \"string\"\n      },\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee9ad43a-5b2a-4c41-9181-70fca4dcc06a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_outbounds",
+                    ":kri",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kri",
+                      "description": "(Required) The KRI of the Outbound to get the policies for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12ae8d10-73f4-4370-9c22-e6af8bdfaccf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_outbounds",
+                    ":kri",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kri",
+                      "description": "(Required) The KRI of the Outbound to get the policies for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b9dd2d0-6738-4a64-8608-9eac2b76d499",
+          "name": "Get routes configuration for this outbound",
+          "request": {
+            "name": "Get routes configuration for this outbound",
+            "description": {
+              "content": "Returns routes configuration derived from combining all routes on this outbound",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name",
+                "_outbounds",
+                ":kri",
+                "_routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) The mesh of the DPP to get the policies for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "kri",
+                  "description": "(Required) The KRI of the Outbound to get the routes for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "268a0cce-5985-4895-affa-d644092bbd15",
+              "name": "A response containing routes configuration for selected outbound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_outbounds",
+                    ":kri",
+                    "_routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kri",
+                      "description": "(Required) The KRI of the Outbound to get the routes for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"routes\": [\n    {\n      \"kind\": \"string\",\n      \"rules\": [\n        {\n          \"kri\": \"string\",\n          \"conf\": {\n            \"key_0\": \"string\",\n            \"key_1\": 1354\n          },\n          \"matches\": [\n            {\n              \"key_0\": true\n            },\n            {\n              \"key_0\": true,\n              \"key_1\": 6,\n              \"key_2\": true\n            }\n          ]\n        },\n        {\n          \"kri\": \"string\",\n          \"conf\": {\n            \"key_0\": 8353\n          },\n          \"matches\": [\n            {\n              \"key_0\": \"string\",\n              \"key_1\": 8438\n            },\n            {\n              \"key_0\": false\n            }\n          ]\n        }\n      ],\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    },\n    {\n      \"kind\": \"string\",\n      \"rules\": [\n        {\n          \"kri\": \"string\",\n          \"conf\": {\n            \"key_0\": false,\n            \"key_1\": 6427\n          },\n          \"matches\": [\n            {\n              \"key_0\": \"string\"\n            },\n            {\n              \"key_0\": \"string\",\n              \"key_1\": 5604.425411880981,\n              \"key_2\": \"string\"\n            }\n          ]\n        },\n        {\n          \"kri\": \"string\",\n          \"conf\": {\n            \"key_0\": false,\n            \"key_1\": true,\n            \"key_2\": 6166.483438382823\n          },\n          \"matches\": [\n            {\n              \"key_0\": 4409.94970195637\n            },\n            {\n              \"key_0\": false\n            }\n          ]\n        }\n      ],\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb27208a-add7-4447-9892-61b33b0c1442",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_outbounds",
+                    ":kri",
+                    "_routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kri",
+                      "description": "(Required) The KRI of the Outbound to get the routes for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a585356-e0b4-4c6b-9211-ea2f2479095d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_outbounds",
+                    ":kri",
+                    "_routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kri",
+                      "description": "(Required) The KRI of the Outbound to get the routes for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e926b08-043f-479c-adab-7b8e971aaf70",
+          "name": "Get policies for this route",
+          "request": {
+            "name": "Get policies for this route",
+            "description": {
+              "content": "Returns route policy configuration derived from combining all policies selecting this dataplane",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name",
+                "_outbounds",
+                ":outbound-kri",
+                "_routes",
+                ":route-kri",
+                "_policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) The mesh of the DPP to get the policies for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "outbound-kri",
+                  "description": "(Required) The KRI of the Outbound to get the routes for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "route-kri",
+                  "description": "(Required) The KRI of the Route to get the configuration for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cdb0998-fb8d-4dd6-b6e6-d1990ec85fdf",
+              "name": "A response containing policies configuration for selected route",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_outbounds",
+                    ":outbound-kri",
+                    "_routes",
+                    ":route-kri",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "outbound-kri",
+                      "description": "(Required) The KRI of the Outbound to get the routes for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route-kri",
+                      "description": "(Required) The KRI of the Route to get the configuration for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"kind\": \"string\",\n      \"conf\": {\n        \"key_0\": 6458,\n        \"key_1\": 4898.900112212898,\n        \"key_2\": \"string\",\n        \"key_3\": 9052,\n        \"key_4\": true\n      },\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    },\n    {\n      \"kind\": \"string\",\n      \"conf\": {\n        \"key_0\": 3132,\n        \"key_1\": \"string\"\n      },\n      \"origins\": [\n        {\n          \"kri\": \"string\"\n        },\n        {\n          \"kri\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13006170-9baa-4d7e-a05c-2a94911439c7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_outbounds",
+                    ":outbound-kri",
+                    "_routes",
+                    ":route-kri",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "outbound-kri",
+                      "description": "(Required) The KRI of the Outbound to get the routes for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route-kri",
+                      "description": "(Required) The KRI of the Route to get the configuration for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2137596-59f8-4e90-acdb-f3382a1635f2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_outbounds",
+                    ":outbound-kri",
+                    "_routes",
+                    ":route-kri",
+                    "_policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the policies for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "outbound-kri",
+                      "description": "(Required) The KRI of the Outbound to get the routes for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route-kri",
+                      "description": "(Required) The KRI of the Route to get the configuration for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "278c144c-1b86-4344-b1c6-827303d51cb1",
+          "name": "get Dataplane Overview",
+          "request": {
+            "name": "get Dataplane Overview",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                ":name",
+                "_overview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) The mesh of the DPP to get the diff for."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69c1b453-3794-4d1e-a4ab-68ac3bf90620",
+              "name": "A response containing the overview of a dataplane.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"Dataplane\",\n  \"mesh\": \"default\",\n  \"name\": \"my-resource\",\n  \"labels\": {\n    \"k8s.kuma.io/namespace\": \"kuma-system\",\n    \"kuma.io/display-name\": \"mtp\",\n    \"kuma.io/mesh\": \"default\",\n    \"kuma.io/origin\": \"zone\"\n  },\n  \"kri\": \"kri_mtp_default_zone-east_kuma-demo_mypolicy1_\",\n  \"dataplane\": {\n    \"metrics\": {\n      \"conf\": {\n        \"aggregate\": [\n          {\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"path\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"port\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"path\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"port\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"envoy\": {\n          \"filterRegex\": \"string\",\n          \"usedOnly\": false\n        },\n        \"path\": \"string\",\n        \"port\": 742,\n        \"skipMTLS\": false,\n        \"tags\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"tls\": {\n          \"mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"name\": \"string\",\n      \"type\": \"string\"\n    },\n    \"networking\": {\n      \"address\": \"string\",\n      \"admin\": {\n        \"port\": 8732\n      },\n      \"advertisedAddress\": \"string\",\n      \"gateway\": {\n        \"tags\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"type\": \"string\"\n      },\n      \"inbound\": [\n        {\n          \"address\": \"string\",\n          \"health\": {\n            \"ready\": false\n          },\n          \"name\": \"string\",\n          \"port\": 5308,\n          \"protocol\": \"string\",\n          \"serviceAddress\": \"string\",\n          \"servicePort\": 944,\n          \"serviceProbe\": {\n            \"healthyThreshold\": 7723,\n            \"interval\": {\n              \"nanos\": 8120,\n              \"seconds\": 6218\n            },\n            \"tcp\": {},\n            \"timeout\": {\n              \"nanos\": 3193,\n              \"seconds\": 2738\n            },\n            \"unhealthyThreshold\": 6780\n          },\n          \"state\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"address\": \"string\",\n          \"health\": {\n            \"ready\": false\n          },\n          \"name\": \"string\",\n          \"port\": 1885,\n          \"protocol\": \"string\",\n          \"serviceAddress\": \"string\",\n          \"servicePort\": 2851,\n          \"serviceProbe\": {\n            \"healthyThreshold\": 1960,\n            \"interval\": {\n              \"nanos\": 9206,\n              \"seconds\": 8282\n            },\n            \"tcp\": {},\n            \"timeout\": {\n              \"nanos\": 6465,\n              \"seconds\": 5850\n            },\n            \"unhealthyThreshold\": 4004\n          },\n          \"state\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      ],\n      \"listeners\": [\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"port\": 9457,\n          \"state\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"port\": 5475,\n          \"state\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"outbound\": [\n        {\n          \"address\": \"string\",\n          \"backendRef\": {\n            \"kind\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"name\": \"string\",\n            \"port\": 1175\n          },\n          \"port\": 5996,\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        {\n          \"address\": \"string\",\n          \"backendRef\": {\n            \"kind\": \"string\",\n            \"labels\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\"\n            },\n            \"name\": \"string\",\n            \"port\": 5819\n          },\n          \"port\": 6098,\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ],\n      \"transparentProxying\": {\n        \"directAccessServices\": [\n          \"string\",\n          \"string\"\n        ],\n        \"ipFamilyMode\": \"string\",\n        \"reachableBackends\": {\n          \"refs\": [\n            {\n              \"kind\": \"string\",\n              \"labels\": {\n                \"key_0\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"port\": 6371\n            },\n            {\n              \"kind\": \"string\",\n              \"labels\": {\n                \"key_0\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"key_1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"port\": 2602\n            }\n          ]\n        },\n        \"reachableServices\": [\n          \"string\",\n          \"string\"\n        ],\n        \"redirectPortInbound\": 3282,\n        \"redirectPortOutbound\": 2345\n      }\n    },\n    \"probes\": {\n      \"endpoints\": [\n        {\n          \"inboundPath\": \"string\",\n          \"inboundPort\": 1947,\n          \"path\": \"string\"\n        },\n        {\n          \"inboundPath\": \"string\",\n          \"inboundPort\": 4,\n          \"path\": \"string\"\n        }\n      ],\n      \"port\": 9742\n    }\n  },\n  \"dataplaneInsight\": {\n    \"mTLS\": {\n      \"certificateExpirationTime\": {\n        \"nanos\": 4980,\n        \"seconds\": 9464\n      },\n      \"certificateRegenerations\": 7387,\n      \"issuedBackend\": \"string\",\n      \"lastCertificateRegeneration\": {\n        \"nanos\": 8060,\n        \"seconds\": 2702\n      },\n      \"supportedBackends\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"metadata\": {},\n    \"openTelemetry\": {\n      \"backends\": [\n        {\n          \"logs\": {\n            \"blockedReasons\": [\n              \"string\",\n              \"string\"\n            ],\n            \"enabled\": true,\n            \"envAllowed\": false,\n            \"envInputPresent\": false,\n            \"missingFields\": [\n              \"string\",\n              \"string\"\n            ],\n            \"overrideKinds\": [\n              \"string\",\n              \"string\"\n            ],\n            \"state\": \"string\"\n          },\n          \"metrics\": {\n            \"blockedReasons\": [\n              \"string\",\n              \"string\"\n            ],\n            \"enabled\": true,\n            \"envAllowed\": true,\n            \"envInputPresent\": false,\n            \"missingFields\": [\n              \"string\",\n              \"string\"\n            ],\n            \"overrideKinds\": [\n              \"string\",\n              \"string\"\n            ],\n            \"state\": \"string\"\n          },\n          \"name\": \"string\",\n          \"traces\": {\n            \"blockedReasons\": [\n              \"string\",\n              \"string\"\n            ],\n            \"enabled\": true,\n            \"envAllowed\": true,\n            \"envInputPresent\": true,\n            \"missingFields\": [\n              \"string\",\n              \"string\"\n            ],\n            \"overrideKinds\": [\n              \"string\",\n              \"string\"\n            ],\n            \"state\": \"string\"\n          }\n        },\n        {\n          \"logs\": {\n            \"blockedReasons\": [\n              \"string\",\n              \"string\"\n            ],\n            \"enabled\": true,\n            \"envAllowed\": true,\n            \"envInputPresent\": false,\n            \"missingFields\": [\n              \"string\",\n              \"string\"\n            ],\n            \"overrideKinds\": [\n              \"string\",\n              \"string\"\n            ],\n            \"state\": \"string\"\n          },\n          \"metrics\": {\n            \"blockedReasons\": [\n              \"string\",\n              \"string\"\n            ],\n            \"enabled\": true,\n            \"envAllowed\": true,\n            \"envInputPresent\": false,\n            \"missingFields\": [\n              \"string\",\n              \"string\"\n            ],\n            \"overrideKinds\": [\n              \"string\",\n              \"string\"\n            ],\n            \"state\": \"string\"\n          },\n          \"name\": \"string\",\n          \"traces\": {\n            \"blockedReasons\": [\n              \"string\",\n              \"string\"\n            ],\n            \"enabled\": true,\n            \"envAllowed\": true,\n            \"envInputPresent\": true,\n            \"missingFields\": [\n              \"string\",\n              \"string\"\n            ],\n            \"overrideKinds\": [\n              \"string\",\n              \"string\"\n            ],\n            \"state\": \"string\"\n          }\n        }\n      ]\n    },\n    \"subscriptions\": [\n      {\n        \"connectTime\": {\n          \"nanos\": 2786,\n          \"seconds\": 7802\n        },\n        \"controlPlaneInstanceId\": \"string\",\n        \"disconnectTime\": {\n          \"nanos\": 8414,\n          \"seconds\": 40\n        },\n        \"generation\": 3857,\n        \"id\": \"string\",\n        \"status\": {\n          \"cds\": {\n            \"responsesAcknowledged\": 9812,\n            \"responsesRejected\": 2705,\n            \"responsesSent\": 5673\n          },\n          \"eds\": {\n            \"responsesAcknowledged\": 9159,\n            \"responsesRejected\": 8516,\n            \"responsesSent\": 4225\n          },\n          \"lastUpdateTime\": {\n            \"nanos\": 7786,\n            \"seconds\": 3941\n          },\n          \"lds\": {\n            \"responsesAcknowledged\": 2932,\n            \"responsesRejected\": 3264,\n            \"responsesSent\": 3025\n          },\n          \"rds\": {\n            \"responsesAcknowledged\": 4236,\n            \"responsesRejected\": 1478,\n            \"responsesSent\": 7100\n          },\n          \"total\": {\n            \"responsesAcknowledged\": 754,\n            \"responsesRejected\": 7793,\n            \"responsesSent\": 2808\n          }\n        },\n        \"version\": {\n          \"dependencies\": {\n            \"key_0\": \"string\"\n          },\n          \"envoy\": {\n            \"build\": \"string\",\n            \"kumaDpCompatible\": true,\n            \"version\": \"string\"\n          },\n          \"kumaDp\": {\n            \"buildDate\": \"string\",\n            \"gitCommit\": \"string\",\n            \"gitTag\": \"string\",\n            \"kumaCpCompatible\": false,\n            \"version\": \"string\"\n          }\n        }\n      },\n      {\n        \"connectTime\": {\n          \"nanos\": 8133,\n          \"seconds\": 2927\n        },\n        \"controlPlaneInstanceId\": \"string\",\n        \"disconnectTime\": {\n          \"nanos\": 7874,\n          \"seconds\": 6701\n        },\n        \"generation\": 1462,\n        \"id\": \"string\",\n        \"status\": {\n          \"cds\": {\n            \"responsesAcknowledged\": 7727,\n            \"responsesRejected\": 5794,\n            \"responsesSent\": 8309\n          },\n          \"eds\": {\n            \"responsesAcknowledged\": 8249,\n            \"responsesRejected\": 5343,\n            \"responsesSent\": 6378\n          },\n          \"lastUpdateTime\": {\n            \"nanos\": 9120,\n            \"seconds\": 997\n          },\n          \"lds\": {\n            \"responsesAcknowledged\": 5622,\n            \"responsesRejected\": 8586,\n            \"responsesSent\": 4043\n          },\n          \"rds\": {\n            \"responsesAcknowledged\": 1536,\n            \"responsesRejected\": 6048,\n            \"responsesSent\": 7665\n          },\n          \"total\": {\n            \"responsesAcknowledged\": 3557,\n            \"responsesRejected\": 2264,\n            \"responsesSent\": 8026\n          }\n        },\n        \"version\": {\n          \"dependencies\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"envoy\": {\n            \"build\": \"string\",\n            \"kumaDpCompatible\": false,\n            \"version\": \"string\"\n          },\n          \"kumaDp\": {\n            \"buildDate\": \"string\",\n            \"gitCommit\": \"string\",\n            \"gitTag\": \"string\",\n            \"kumaCpCompatible\": false,\n            \"version\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c876e65-44a1-4922-b460-113c812c6e9d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f65e7db9-db74-4d01-a04c-198a3aec5401",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    ":name",
+                    "_overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) The name of the DPP within the mesh to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "452f8aae-2d60-431b-af21-7dca950e70b9",
+          "name": "get Dataplane Overview List",
+          "request": {
+            "name": "get Dataplane Overview List",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "dataplanes",
+                "_overview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) The mesh of the DPP to get the diff for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c140d91-4a33-45ca-ad1c-6326fe7842fe",
+              "name": "A response containing the overview of a dataplane.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    "_overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 200,\n  \"next\": \"string\",\n  \"items\": [\n    {\n      \"type\": \"Dataplane\",\n      \"mesh\": \"default\",\n      \"name\": \"my-resource\",\n      \"labels\": {\n        \"k8s.kuma.io/namespace\": \"kuma-system\",\n        \"kuma.io/display-name\": \"mtp\",\n        \"kuma.io/mesh\": \"default\",\n        \"kuma.io/origin\": \"zone\"\n      },\n      \"kri\": \"kri_mtp_default_zone-east_kuma-demo_mypolicy1_\",\n      \"dataplane\": {\n        \"metrics\": {\n          \"conf\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"type\": \"string\"\n        },\n        \"networking\": {\n          \"address\": \"string\",\n          \"admin\": {\n            \"port\": 6085\n          },\n          \"advertisedAddress\": \"string\",\n          \"gateway\": {\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"inbound\": [\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"protocol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceAddress\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"servicePort\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceProbe\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"protocol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceAddress\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"servicePort\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceProbe\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"listeners\": [\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"outbound\": [\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"backendRef\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"backendRef\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"transparentProxying\": {\n            \"directAccessServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ipFamilyMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reachableBackends\": {\n              \"refs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"reachableServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"redirectPortInbound\": 4909,\n            \"redirectPortOutbound\": 8068\n          }\n        },\n        \"probes\": {\n          \"endpoints\": [\n            {\n              \"inboundPath\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"inboundPort\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"inboundPath\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"inboundPort\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"port\": 3660\n        }\n      },\n      \"dataplaneInsight\": {\n        \"mTLS\": {\n          \"certificateExpirationTime\": {\n            \"nanos\": 6198,\n            \"seconds\": 7991\n          },\n          \"certificateRegenerations\": 5623,\n          \"issuedBackend\": \"string\",\n          \"lastCertificateRegeneration\": {\n            \"nanos\": 9025,\n            \"seconds\": 9073\n          },\n          \"supportedBackends\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"metadata\": {},\n        \"openTelemetry\": {\n          \"backends\": [\n            {\n              \"logs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"logs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"subscriptions\": [\n          {\n            \"connectTime\": {\n              \"nanos\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"seconds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"controlPlaneInstanceId\": \"string\",\n            \"disconnectTime\": {\n              \"nanos\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"seconds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"generation\": 6295,\n            \"id\": \"string\",\n            \"status\": {\n              \"cds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"eds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastUpdateTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"rds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"version\": {\n              \"dependencies\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"envoy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kumaDp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"connectTime\": {\n              \"nanos\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"seconds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"controlPlaneInstanceId\": \"string\",\n            \"disconnectTime\": {\n              \"nanos\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"seconds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"generation\": 6744,\n            \"id\": \"string\",\n            \"status\": {\n              \"cds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"eds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastUpdateTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"rds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"version\": {\n              \"dependencies\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"envoy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kumaDp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"type\": \"Dataplane\",\n      \"mesh\": \"default\",\n      \"name\": \"my-resource\",\n      \"labels\": {\n        \"k8s.kuma.io/namespace\": \"kuma-system\",\n        \"kuma.io/display-name\": \"mtp\",\n        \"kuma.io/mesh\": \"default\",\n        \"kuma.io/origin\": \"zone\"\n      },\n      \"kri\": \"kri_mtp_default_zone-east_kuma-demo_mypolicy1_\",\n      \"dataplane\": {\n        \"metrics\": {\n          \"conf\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"type\": \"string\"\n        },\n        \"networking\": {\n          \"address\": \"string\",\n          \"admin\": {\n            \"port\": 4682\n          },\n          \"advertisedAddress\": \"string\",\n          \"gateway\": {\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"inbound\": [\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"protocol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceAddress\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"servicePort\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceProbe\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"protocol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceAddress\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"servicePort\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceProbe\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"listeners\": [\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"state\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"outbound\": [\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"backendRef\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"address\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"backendRef\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"port\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"transparentProxying\": {\n            \"directAccessServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ipFamilyMode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reachableBackends\": {\n              \"refs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"reachableServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"redirectPortInbound\": 5641,\n            \"redirectPortOutbound\": 8936\n          }\n        },\n        \"probes\": {\n          \"endpoints\": [\n            {\n              \"inboundPath\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"inboundPort\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"inboundPath\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"inboundPort\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"path\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"port\": 5343\n        }\n      },\n      \"dataplaneInsight\": {\n        \"mTLS\": {\n          \"certificateExpirationTime\": {\n            \"nanos\": 7540,\n            \"seconds\": 2025\n          },\n          \"certificateRegenerations\": 2483,\n          \"issuedBackend\": \"string\",\n          \"lastCertificateRegeneration\": {\n            \"nanos\": 7544,\n            \"seconds\": 4011\n          },\n          \"supportedBackends\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"metadata\": {},\n        \"openTelemetry\": {\n          \"backends\": [\n            {\n              \"logs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"logs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traces\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        \"subscriptions\": [\n          {\n            \"connectTime\": {\n              \"nanos\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"seconds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"controlPlaneInstanceId\": \"string\",\n            \"disconnectTime\": {\n              \"nanos\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"seconds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"generation\": 2240,\n            \"id\": \"string\",\n            \"status\": {\n              \"cds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"eds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastUpdateTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"rds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"version\": {\n              \"dependencies\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"envoy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kumaDp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"connectTime\": {\n              \"nanos\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"seconds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"controlPlaneInstanceId\": \"string\",\n            \"disconnectTime\": {\n              \"nanos\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"seconds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"generation\": 360,\n            \"id\": \"string\",\n            \"status\": {\n              \"cds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"eds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastUpdateTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"rds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"version\": {\n              \"dependencies\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"envoy\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kumaDp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "840491e1-1405-4196-9532-f111b51d7b1d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    "_overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7652fb35-27a5-4bce-bc84-819ad3fd4c42",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "dataplanes",
+                    "_overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) The mesh of the DPP to get the diff for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "238a65ba-d946-42e1-8316-645ac459d883",
+    "name": "Kuma Dataplane Meshes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

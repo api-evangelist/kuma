@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kuma Dataplane MeshTrafficPermission API",
+    "version": "v1alpha1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MeshTrafficPermission",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns MeshTrafficPermission entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshtrafficpermissions/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshTrafficPermission"
+              }
+            ]
+          },
+          "docs": "Returns MeshTrafficPermission entity"
+        },
+        {
+          "info": {
+            "name": "Creates or Updates MeshTrafficPermission entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/meshes/:mesh/meshtrafficpermissions/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshTrafficPermission"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or Updates MeshTrafficPermission entity"
+        },
+        {
+          "info": {
+            "name": "Deletes MeshTrafficPermission entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/meshes/:mesh/meshtrafficpermissions/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshTrafficPermission"
+              }
+            ]
+          },
+          "docs": "Deletes MeshTrafficPermission entity"
+        },
+        {
+          "info": {
+            "name": "Returns a list of MeshTrafficPermission in the mesh.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshtrafficpermissions",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "offset in the list of entities"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "the number of items per page"
+              },
+              {
+                "name": "filter",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "filter by labels when multiple filters are present, they are ANDed"
+              },
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              }
+            ]
+          },
+          "docs": "Returns a list of MeshTrafficPermission in the mesh."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

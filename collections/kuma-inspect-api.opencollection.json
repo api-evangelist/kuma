@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kuma Dataplane Inspect API",
+    "version": "v1alpha1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inspect",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns rules matching this dataplane",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/:resourceType/:resourceName/_rules",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "default",
+                "type": "path",
+                "description": "The mesh the policy is part of"
+              },
+              {
+                "name": "resourceType",
+                "value": "dataplanes",
+                "type": "path",
+                "description": "The type of resource (only some resources support rules api)"
+              },
+              {
+                "name": "resourceName",
+                "value": "my-dp",
+                "type": "path",
+                "description": "The name of the resource"
+              }
+            ]
+          },
+          "docs": "Returns rules matching this dataplane"
+        },
+        {
+          "info": {
+            "name": "Returns resources matched by this policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/:policyType/:policyName/_resources/dataplanes",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "default",
+                "type": "path",
+                "description": "The mesh the policy is part of"
+              },
+              {
+                "name": "policyType",
+                "value": "meshretries",
+                "type": "path",
+                "description": "The type of the policy"
+              },
+              {
+                "name": "policyName",
+                "value": "retry-all",
+                "type": "path",
+                "description": "The type of the policy"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The max number of items to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of result"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "A sub string to filter resources by name"
+              }
+            ]
+          },
+          "docs": "Returns resources matched by this policy. In the case of `targetRef` policies we'll match using the top level `targetRef`"
+        },
+        {
+          "info": {
+            "name": "Returns dataplanes matched by a MeshService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshservices/:name/_dataplanes",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "default",
+                "type": "path",
+                "description": "The mesh the service is part of"
+              },
+              {
+                "name": "name",
+                "value": "redis",
+                "type": "path",
+                "description": "The name of the service"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The max number of items to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of result"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "A sub string to filter resources by name"
+              }
+            ]
+          },
+          "docs": "Returns dataplanes matched by a MeshService"
+        },
+        {
+          "info": {
+            "name": "Returns hostnames for service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/:serviceType/:serviceName/_hostnames",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "default",
+                "type": "path",
+                "description": "The mesh the service is part of"
+              },
+              {
+                "name": "serviceType",
+                "value": "meshservices",
+                "type": "path",
+                "description": "The type of the service"
+              },
+              {
+                "name": "serviceName",
+                "value": "redis",
+                "type": "path",
+                "description": "The name of the service"
+              }
+            ]
+          },
+          "docs": "Returns hostnames for a service"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

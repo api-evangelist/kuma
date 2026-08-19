@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "fcc096f2-f984-4457-ae8a-91337b7c3cd4",
+      "name": "MeshTrafficPermission",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da663287-fe60-4dda-b74a-71db9cca2f2e",
+          "name": "Returns MeshTrafficPermission entity",
+          "request": {
+            "name": "Returns MeshTrafficPermission entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtrafficpermissions",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshTrafficPermission"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3716175e-8c47-4eca-8637-2293e44b8ace",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtrafficpermissions",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrafficPermission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshTrafficPermission\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshHTTPRoute\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"default\": {\n          \"action\": \"AllowWithShadowDeny\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshHTTPRoute\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"default\": {\n          \"action\": \"Deny\"\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"allow\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            }\n          ],\n          \"allowWithShadowDeny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"Prefix\",\n                \"value\": \"string\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"Prefix\",\n                \"value\": \"string\"\n              }\n            }\n          ],\n          \"deny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"Prefix\",\n                \"value\": \"string\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"Prefix\",\n                \"value\": \"string\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"default\": {\n          \"allow\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            }\n          ],\n          \"allowWithShadowDeny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            }\n          ],\n          \"deny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"Exact\",\n                \"value\": \"string\"\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"MeshServiceSubset\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Sidecar\",\n        \"Sidecar\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mtp_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b79d7892-8145-4568-90c1-7f5973a80a61",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtrafficpermissions",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrafficPermission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94758a78-cbbc-41d3-a043-3436060bf8a9",
+          "name": "Creates or Updates MeshTrafficPermission entity",
+          "request": {
+            "name": "Creates or Updates MeshTrafficPermission entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtrafficpermissions",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshTrafficPermission"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"action\": \"<string>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"action\": \"<string>\"\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"allow\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"allowWithShadowDeny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"deny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"default\": {\n          \"allow\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"allowWithShadowDeny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"deny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbdd0cfa-2231-4d54-a32b-1e19d7148a77",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtrafficpermissions",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrafficPermission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"action\": \"<string>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"action\": \"<string>\"\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"allow\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"allowWithShadowDeny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"deny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"default\": {\n          \"allow\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"allowWithShadowDeny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"deny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8741eddb-f95b-4272-803a-47c76eecbc35",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtrafficpermissions",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrafficPermission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"action\": \"<string>\"\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"action\": \"<string>\"\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"allow\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"allowWithShadowDeny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"deny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"default\": {\n          \"allow\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"allowWithShadowDeny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ],\n          \"deny\": [\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            },\n            {\n              \"spiffeID\": {\n                \"type\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b79dc24c-eeeb-4b78-a1a9-4a0254b83b10",
+          "name": "Deletes MeshTrafficPermission entity",
+          "request": {
+            "name": "Deletes MeshTrafficPermission entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtrafficpermissions",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshTrafficPermission"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04244deb-6bd2-4dc3-aefa-2189dec87d0e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtrafficpermissions",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrafficPermission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e7df865-0591-4f22-bb1b-db8eaea0e096",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtrafficpermissions",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshTrafficPermission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e8f658c-1bd7-4364-a71b-356f91efa0f2",
+          "name": "Returns a list of MeshTrafficPermission in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshTrafficPermission in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshtrafficpermissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56210829-cb90-48f1-8e4c-791455a13171",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshtrafficpermissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshTrafficPermission\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshExternalService\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"action\": \"Deny\"\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"Dataplane\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"action\": \"AllowWithShadowDeny\"\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"allow\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"allowWithShadowDeny\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"deny\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          },\n          {\n            \"default\": {\n              \"allow\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"allowWithShadowDeny\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"deny\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"MeshServiceSubset\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mtp_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n      \"type\": \"MeshTrafficPermission\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshService\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"action\": \"Allow\"\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"Mesh\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"action\": \"Allow\"\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"allow\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"allowWithShadowDeny\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"deny\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          },\n          {\n            \"default\": {\n              \"allow\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"allowWithShadowDeny\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"deny\": [\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"spiffeID\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"Dataplane\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mtp_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    }\n  ],\n  \"total\": 8986.07384122321,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c9b059ac-63bd-4aaa-9867-a0b2a93a014d",
+    "name": "Kuma Dataplane MeshTrafficPermission API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

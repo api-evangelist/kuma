@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "e0223c06-2c7e-4206-aedb-20fe01cad4f6",
+      "name": "MeshMetric",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d493c698-7d6b-4e68-9b00-7b5f14d63190",
+          "name": "Returns MeshMetric entity",
+          "request": {
+            "name": "Returns MeshMetric entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshmetrics",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshMetric"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "568b3e88-af47-4188-92e1-1baae053772d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmetrics",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMetric"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshMetric\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"default\": {\n      \"applications\": [\n        {\n          \"port\": 4245,\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"path\": \"/metrics\"\n        },\n        {\n          \"port\": 8480,\n          \"address\": \"string\",\n          \"name\": \"string\",\n          \"path\": \"/metrics\"\n        }\n      ],\n      \"backends\": [\n        {\n          \"type\": \"OpenTelemetry\",\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"MeshOpenTelemetryBackend\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"name\": \"string\"\n            },\n            \"endpoint\": \"\",\n            \"refreshInterval\": \"string\"\n          },\n          \"prometheus\": {\n            \"clientId\": \"string\",\n            \"path\": \"/metrics\",\n            \"port\": 5670,\n            \"tls\": {\n              \"mode\": \"Disabled\"\n            }\n          }\n        },\n        {\n          \"type\": \"Prometheus\",\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"MeshOpenTelemetryBackend\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"name\": \"string\"\n            },\n            \"endpoint\": \"\",\n            \"refreshInterval\": \"string\"\n          },\n          \"prometheus\": {\n            \"clientId\": \"string\",\n            \"path\": \"/metrics\",\n            \"port\": 5670,\n            \"tls\": {\n              \"mode\": \"Disabled\"\n            }\n          }\n        }\n      ],\n      \"sidecar\": {\n        \"includeUnused\": false,\n        \"profiles\": {\n          \"appendProfiles\": [\n            {\n              \"name\": \"Basic\"\n            },\n            {\n              \"name\": \"None\"\n            }\n          ],\n          \"exclude\": [\n            {\n              \"match\": \"string\",\n              \"type\": \"Contains\"\n            },\n            {\n              \"match\": \"string\",\n              \"type\": \"Contains\"\n            }\n          ],\n          \"include\": [\n            {\n              \"match\": \"string\",\n              \"type\": \"Contains\"\n            },\n            {\n              \"match\": \"string\",\n              \"type\": \"Prefix\"\n            }\n          ]\n        }\n      }\n    },\n    \"targetRef\": {\n      \"kind\": \"Mesh\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Sidecar\",\n        \"Sidecar\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mm_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\",\n  \"status\": {\n    \"conditions\": [\n      {\n        \"message\": \"string\",\n        \"reason\": \"tf1uGaU\",\n        \"status\": \"Unknown\",\n        \"type\": \"z.g21m.l.r4om5-z.t.iv3742nrmar5.yqzk7et.o3-m11ep.j7l/QgkEl\"\n      },\n      {\n        \"message\": \"string\",\n        \"reason\": \"UhafF_Dj,gU\",\n        \"status\": \"False\",\n        \"type\": \"EC\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b513fc0-6d50-4b0c-bf55-d638f9ff2b10",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmetrics",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMetric"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a4c5717-cab1-4393-bc19-ecc60779a5d7",
+          "name": "Creates or Updates MeshMetric entity",
+          "request": {
+            "name": "Creates or Updates MeshMetric entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshmetrics",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshMetric"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"default\": {\n      \"applications\": [\n        {\n          \"port\": \"<integer>\",\n          \"address\": \"<string>\",\n          \"name\": \"<string>\",\n          \"path\": \"/metrics\"\n        },\n        {\n          \"port\": \"<integer>\",\n          \"address\": \"<string>\",\n          \"name\": \"<string>\",\n          \"path\": \"/metrics\"\n        }\n      ],\n      \"backends\": [\n        {\n          \"type\": \"<string>\",\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"<string>\",\n              \"labels\": {\n                \"key_0\": \"<string>\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"endpoint\": \"\",\n            \"refreshInterval\": \"<string>\"\n          },\n          \"prometheus\": {\n            \"clientId\": \"<string>\",\n            \"path\": \"/metrics\",\n            \"port\": 5670,\n            \"tls\": {\n              \"mode\": \"Disabled\"\n            }\n          }\n        },\n        {\n          \"type\": \"<string>\",\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"<string>\",\n              \"labels\": {\n                \"key_0\": \"<string>\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"endpoint\": \"\",\n            \"refreshInterval\": \"<string>\"\n          },\n          \"prometheus\": {\n            \"clientId\": \"<string>\",\n            \"path\": \"/metrics\",\n            \"port\": 5670,\n            \"tls\": {\n              \"mode\": \"Disabled\"\n            }\n          }\n        }\n      ],\n      \"sidecar\": {\n        \"includeUnused\": \"<boolean>\",\n        \"profiles\": {\n          \"appendProfiles\": [\n            {\n              \"name\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\"\n            }\n          ],\n          \"exclude\": [\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"include\": [\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ]\n        }\n      }\n    },\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b0c1475c-05dc-4c1d-93d7-e86930eaabde",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmetrics",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMetric"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"default\": {\n      \"applications\": [\n        {\n          \"port\": \"<integer>\",\n          \"address\": \"<string>\",\n          \"name\": \"<string>\",\n          \"path\": \"/metrics\"\n        },\n        {\n          \"port\": \"<integer>\",\n          \"address\": \"<string>\",\n          \"name\": \"<string>\",\n          \"path\": \"/metrics\"\n        }\n      ],\n      \"backends\": [\n        {\n          \"type\": \"<string>\",\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"<string>\",\n              \"labels\": {\n                \"key_0\": \"<string>\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"endpoint\": \"\",\n            \"refreshInterval\": \"<string>\"\n          },\n          \"prometheus\": {\n            \"clientId\": \"<string>\",\n            \"path\": \"/metrics\",\n            \"port\": 5670,\n            \"tls\": {\n              \"mode\": \"Disabled\"\n            }\n          }\n        },\n        {\n          \"type\": \"<string>\",\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"<string>\",\n              \"labels\": {\n                \"key_0\": \"<string>\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"endpoint\": \"\",\n            \"refreshInterval\": \"<string>\"\n          },\n          \"prometheus\": {\n            \"clientId\": \"<string>\",\n            \"path\": \"/metrics\",\n            \"port\": 5670,\n            \"tls\": {\n              \"mode\": \"Disabled\"\n            }\n          }\n        }\n      ],\n      \"sidecar\": {\n        \"includeUnused\": \"<boolean>\",\n        \"profiles\": {\n          \"appendProfiles\": [\n            {\n              \"name\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\"\n            }\n          ],\n          \"exclude\": [\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"include\": [\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ]\n        }\n      }\n    },\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de73a65f-065f-42c2-836b-fe17daabd4d9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmetrics",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMetric"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"default\": {\n      \"applications\": [\n        {\n          \"port\": \"<integer>\",\n          \"address\": \"<string>\",\n          \"name\": \"<string>\",\n          \"path\": \"/metrics\"\n        },\n        {\n          \"port\": \"<integer>\",\n          \"address\": \"<string>\",\n          \"name\": \"<string>\",\n          \"path\": \"/metrics\"\n        }\n      ],\n      \"backends\": [\n        {\n          \"type\": \"<string>\",\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"<string>\",\n              \"labels\": {\n                \"key_0\": \"<string>\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"endpoint\": \"\",\n            \"refreshInterval\": \"<string>\"\n          },\n          \"prometheus\": {\n            \"clientId\": \"<string>\",\n            \"path\": \"/metrics\",\n            \"port\": 5670,\n            \"tls\": {\n              \"mode\": \"Disabled\"\n            }\n          }\n        },\n        {\n          \"type\": \"<string>\",\n          \"openTelemetry\": {\n            \"backendRef\": {\n              \"kind\": \"<string>\",\n              \"labels\": {\n                \"key_0\": \"<string>\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"endpoint\": \"\",\n            \"refreshInterval\": \"<string>\"\n          },\n          \"prometheus\": {\n            \"clientId\": \"<string>\",\n            \"path\": \"/metrics\",\n            \"port\": 5670,\n            \"tls\": {\n              \"mode\": \"Disabled\"\n            }\n          }\n        }\n      ],\n      \"sidecar\": {\n        \"includeUnused\": \"<boolean>\",\n        \"profiles\": {\n          \"appendProfiles\": [\n            {\n              \"name\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\"\n            }\n          ],\n          \"exclude\": [\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"include\": [\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            },\n            {\n              \"match\": \"<string>\",\n              \"type\": \"<string>\"\n            }\n          ]\n        }\n      }\n    },\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b938bd81-3998-4ee1-a8e3-32bda5296ec5",
+          "name": "Deletes MeshMetric entity",
+          "request": {
+            "name": "Deletes MeshMetric entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshmetrics",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshMetric"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c02fa54-eb93-45cb-bb8d-84cd22fda5b2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmetrics",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMetric"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f452012-572c-4ea0-9a2f-9c62f6c00a9c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmetrics",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshMetric"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5feff7c2-3014-4a70-8088-cba0d85fa653",
+          "name": "Returns a list of MeshMetric in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshMetric in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshmetrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "227816ef-aa65-4b5b-8380-16e4984740a0",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshmetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshMetric\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"default\": {\n          \"applications\": [\n            {\n              \"port\": 7690,\n              \"address\": \"string\",\n              \"name\": \"string\",\n              \"path\": \"/metrics\"\n            },\n            {\n              \"port\": 9860,\n              \"address\": \"string\",\n              \"name\": \"string\",\n              \"path\": \"/metrics\"\n            }\n          ],\n          \"backends\": [\n            {\n              \"type\": \"Prometheus\",\n              \"openTelemetry\": {\n                \"backendRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"endpoint\": \"\",\n                \"refreshInterval\": \"string\"\n              },\n              \"prometheus\": {\n                \"clientId\": \"string\",\n                \"path\": \"/metrics\",\n                \"port\": 5670,\n                \"tls\": {\n                  \"mode\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            },\n            {\n              \"type\": \"Prometheus\",\n              \"openTelemetry\": {\n                \"backendRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"endpoint\": \"\",\n                \"refreshInterval\": \"string\"\n              },\n              \"prometheus\": {\n                \"clientId\": \"string\",\n                \"path\": \"/metrics\",\n                \"port\": 5670,\n                \"tls\": {\n                  \"mode\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          ],\n          \"sidecar\": {\n            \"includeUnused\": false,\n            \"profiles\": {\n              \"appendProfiles\": [\n                {\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"exclude\": [\n                {\n                  \"match\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"match\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"include\": [\n                {\n                  \"match\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"match\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"targetRef\": {\n          \"kind\": \"MeshService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mm_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"x\",\n            \"status\": \"True\",\n            \"type\": \"b985.m81l9rfvye8.towy2b00ugh.6.cuh3y.3-buv.c.w.fd1uecqq8c/d\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"C\",\n            \"status\": \"Unknown\",\n            \"type\": \"3vbg3I\"\n          }\n        ]\n      }\n    },\n    {\n      \"type\": \"MeshMetric\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"default\": {\n          \"applications\": [\n            {\n              \"port\": 8704,\n              \"address\": \"string\",\n              \"name\": \"string\",\n              \"path\": \"/metrics\"\n            },\n            {\n              \"port\": 6347,\n              \"address\": \"string\",\n              \"name\": \"string\",\n              \"path\": \"/metrics\"\n            }\n          ],\n          \"backends\": [\n            {\n              \"type\": \"OpenTelemetry\",\n              \"openTelemetry\": {\n                \"backendRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"endpoint\": \"\",\n                \"refreshInterval\": \"string\"\n              },\n              \"prometheus\": {\n                \"clientId\": \"string\",\n                \"path\": \"/metrics\",\n                \"port\": 5670,\n                \"tls\": {\n                  \"mode\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            },\n            {\n              \"type\": \"Prometheus\",\n              \"openTelemetry\": {\n                \"backendRef\": {\n                  \"kind\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"labels\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"endpoint\": \"\",\n                \"refreshInterval\": \"string\"\n              },\n              \"prometheus\": {\n                \"clientId\": \"string\",\n                \"path\": \"/metrics\",\n                \"port\": 5670,\n                \"tls\": {\n                  \"mode\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            }\n          ],\n          \"sidecar\": {\n            \"includeUnused\": false,\n            \"profiles\": {\n              \"appendProfiles\": [\n                {\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"name\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"exclude\": [\n                {\n                  \"match\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"match\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ],\n              \"include\": [\n                {\n                  \"match\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"match\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"targetRef\": {\n          \"kind\": \"MeshHTTPRoute\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mm_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"xmer8bqbF\",\n            \"status\": \"False\",\n            \"type\": \"lbbcjq/RYC_Cd_yLu2\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"QAr\",\n            \"status\": \"False\",\n            \"type\": \"t0ejg\"\n          }\n        ]\n      }\n    }\n  ],\n  \"total\": 1688.9013895550574,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "83d02434-24c8-4098-aa67-20bab5829463",
+    "name": "Kuma Dataplane MeshMetric API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

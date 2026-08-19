@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kuma Dataplane MeshTrust API",
+    "version": "v1alpha1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MeshTrust",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns MeshTrust entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshtrusts/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshTrust"
+              }
+            ]
+          },
+          "docs": "Returns MeshTrust entity"
+        },
+        {
+          "info": {
+            "name": "Creates or Updates MeshTrust entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/meshes/:mesh/meshtrusts/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshTrust"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or Updates MeshTrust entity"
+        },
+        {
+          "info": {
+            "name": "Deletes MeshTrust entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/meshes/:mesh/meshtrusts/:name",
+            "params": [
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name of the MeshTrust"
+              }
+            ]
+          },
+          "docs": "Deletes MeshTrust entity"
+        },
+        {
+          "info": {
+            "name": "Returns a list of MeshTrust in the mesh.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meshes/:mesh/meshtrusts",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "offset in the list of entities"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "the number of items per page"
+              },
+              {
+                "name": "filter",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "filter by labels when multiple filters are present, they are ANDed"
+              },
+              {
+                "name": "mesh",
+                "value": "",
+                "type": "path",
+                "description": "name of the mesh"
+              }
+            ]
+          },
+          "docs": "Returns a list of MeshTrust in the mesh."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

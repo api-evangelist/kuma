@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "ab6e4be2-08f5-4ce0-b6f2-12d132415d47",
+      "name": "MeshCircuitBreaker",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae5aed43-bb7b-44b2-9116-289c42171906",
+          "name": "Returns MeshCircuitBreaker entity",
+          "request": {
+            "name": "Returns MeshCircuitBreaker entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshcircuitbreakers",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshCircuitBreaker"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "252082bb-3530-4b5b-bd17-c9c708b62daa",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshcircuitbreakers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshCircuitBreaker"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshCircuitBreaker\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshHTTPRoute\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": 5840,\n            \"maxConnections\": 5429,\n            \"maxPendingRequests\": 2028,\n            \"maxRequests\": 1364,\n            \"maxRetries\": 2599\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"string\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": 2958,\n                \"requestVolume\": 3077,\n                \"threshold\": 1525\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": 1979\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": 1467\n              },\n              \"successRate\": {\n                \"minimumHosts\": 9499,\n                \"requestVolume\": 3661,\n                \"standardDeviationFactor\": 4709\n              },\n              \"totalFailures\": {\n                \"consecutive\": 3986\n              }\n            },\n            \"disabled\": true,\n            \"healthyPanicThreshold\": 7258,\n            \"interval\": \"string\",\n            \"maxEjectionPercent\": 33,\n            \"splitExternalAndLocalErrors\": false\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": 7977,\n            \"maxConnections\": 906,\n            \"maxPendingRequests\": 3271,\n            \"maxRequests\": 7933,\n            \"maxRetries\": 6471\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"string\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": 9431,\n                \"requestVolume\": 994,\n                \"threshold\": 5190\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": 8770\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": 7067\n              },\n              \"successRate\": {\n                \"minimumHosts\": 1916,\n                \"requestVolume\": 3126,\n                \"standardDeviationFactor\": 3561\n              },\n              \"totalFailures\": {\n                \"consecutive\": 1751\n              }\n            },\n            \"disabled\": false,\n            \"healthyPanicThreshold\": 6378,\n            \"interval\": \"string\",\n            \"maxEjectionPercent\": 4057,\n            \"splitExternalAndLocalErrors\": true\n          }\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": 3367,\n            \"maxConnections\": 9789,\n            \"maxPendingRequests\": 9312,\n            \"maxRequests\": 4785,\n            \"maxRetries\": 8770\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"string\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": 590,\n                \"requestVolume\": 6793,\n                \"threshold\": 3246\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": 1639\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": 3031\n              },\n              \"successRate\": {\n                \"minimumHosts\": 7717,\n                \"requestVolume\": 5728,\n                \"standardDeviationFactor\": 5646\n              },\n              \"totalFailures\": {\n                \"consecutive\": 5044\n              }\n            },\n            \"disabled\": false,\n            \"healthyPanicThreshold\": 7982,\n            \"interval\": \"string\",\n            \"maxEjectionPercent\": 6360,\n            \"splitExternalAndLocalErrors\": false\n          }\n        }\n      },\n      {\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": 3345,\n            \"maxConnections\": 8792,\n            \"maxPendingRequests\": 741,\n            \"maxRequests\": 9326,\n            \"maxRetries\": 6554\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"string\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": 2791,\n                \"requestVolume\": 7911,\n                \"threshold\": 9196\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": 445\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": 3327\n              },\n              \"successRate\": {\n                \"minimumHosts\": 1978,\n                \"requestVolume\": 4476,\n                \"standardDeviationFactor\": 1623\n              },\n              \"totalFailures\": {\n                \"consecutive\": 2366\n              }\n            },\n            \"disabled\": true,\n            \"healthyPanicThreshold\": 517,\n            \"interval\": \"string\",\n            \"maxEjectionPercent\": 2663,\n            \"splitExternalAndLocalErrors\": true\n          }\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"MeshMultiZoneService\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Gateway\",\n        \"Gateway\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshHTTPRoute\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": 602,\n            \"maxConnections\": 873,\n            \"maxPendingRequests\": 3441,\n            \"maxRequests\": 9477,\n            \"maxRetries\": 4254\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"string\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": 4396,\n                \"requestVolume\": 6520,\n                \"threshold\": 7504\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": 5720\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": 8385\n              },\n              \"successRate\": {\n                \"minimumHosts\": 9831,\n                \"requestVolume\": 1832,\n                \"standardDeviationFactor\": 6475\n              },\n              \"totalFailures\": {\n                \"consecutive\": 2017\n              }\n            },\n            \"disabled\": false,\n            \"healthyPanicThreshold\": 6919,\n            \"interval\": \"string\",\n            \"maxEjectionPercent\": 5008,\n            \"splitExternalAndLocalErrors\": false\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshHTTPRoute\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": 7920,\n            \"maxConnections\": 9609,\n            \"maxPendingRequests\": 5774,\n            \"maxRequests\": 6705,\n            \"maxRetries\": 3523\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"string\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": 9406,\n                \"requestVolume\": 8791,\n                \"threshold\": 1103\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": 6405\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": 9029\n              },\n              \"successRate\": {\n                \"minimumHosts\": 2429,\n                \"requestVolume\": 7654,\n                \"standardDeviationFactor\": 8464\n              },\n              \"totalFailures\": {\n                \"consecutive\": 4314\n              }\n            },\n            \"disabled\": true,\n            \"healthyPanicThreshold\": 6886,\n            \"interval\": \"string\",\n            \"maxEjectionPercent\": 9559,\n            \"splitExternalAndLocalErrors\": false\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mcb_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc85a6f4-1b64-4079-9c63-26ce33ddb655",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshcircuitbreakers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshCircuitBreaker"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95954b34-b03c-436b-97be-55730a921c0f",
+          "name": "Creates or Updates MeshCircuitBreaker entity",
+          "request": {
+            "name": "Creates or Updates MeshCircuitBreaker entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshcircuitbreakers",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshCircuitBreaker"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      },\n      {\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f8ca0167-0806-4785-8194-ea76c0cb3914",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshcircuitbreakers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshCircuitBreaker"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      },\n      {\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96f8d851-440c-4fa2-a1d1-51f8a6d3598a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshcircuitbreakers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshCircuitBreaker"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      },\n      {\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"connectionLimits\": {\n            \"maxConnectionPools\": \"<integer>\",\n            \"maxConnections\": \"<integer>\",\n            \"maxPendingRequests\": \"<integer>\",\n            \"maxRequests\": \"<integer>\",\n            \"maxRetries\": \"<integer>\"\n          },\n          \"outlierDetection\": {\n            \"baseEjectionTime\": \"<string>\",\n            \"detectors\": {\n              \"failurePercentage\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"threshold\": \"<integer>\"\n              },\n              \"gatewayFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"localOriginFailures\": {\n                \"consecutive\": \"<integer>\"\n              },\n              \"successRate\": {\n                \"minimumHosts\": \"<integer>\",\n                \"requestVolume\": \"<integer>\",\n                \"standardDeviationFactor\": \"<integer>\"\n              },\n              \"totalFailures\": {\n                \"consecutive\": \"<integer>\"\n              }\n            },\n            \"disabled\": \"<boolean>\",\n            \"healthyPanicThreshold\": \"<integer>\",\n            \"interval\": \"<string>\",\n            \"maxEjectionPercent\": \"<integer>\",\n            \"splitExternalAndLocalErrors\": \"<boolean>\"\n          }\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5682bf25-af6c-40f7-a2ca-4585e1a5a1e7",
+          "name": "Deletes MeshCircuitBreaker entity",
+          "request": {
+            "name": "Deletes MeshCircuitBreaker entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshcircuitbreakers",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshCircuitBreaker"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "277ceb14-6464-4d50-8912-6532e5c93d77",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshcircuitbreakers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshCircuitBreaker"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea2bbcc3-cb0b-4d1a-ab6c-dab8339e682f",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshcircuitbreakers",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshCircuitBreaker"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1137dc24-220d-4ce3-9cd0-ce69aaa91b47",
+          "name": "Returns a list of MeshCircuitBreaker in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshCircuitBreaker in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshcircuitbreakers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "834614d6-2c3d-4e8b-8ec1-8b7f92afc405",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshcircuitbreakers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshCircuitBreaker\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshService\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 8665,\n                \"maxConnections\": 852,\n                \"maxPendingRequests\": 5902,\n                \"maxRequests\": 8845,\n                \"maxRetries\": 4445\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 8542,\n                \"splitExternalAndLocalErrors\": true\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshExternalService\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 2133,\n                \"maxConnections\": 1339,\n                \"maxPendingRequests\": 2787,\n                \"maxRequests\": 6057,\n                \"maxRetries\": 2066\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 3298,\n                \"splitExternalAndLocalErrors\": true\n              }\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 96,\n                \"maxConnections\": 6663,\n                \"maxPendingRequests\": 5929,\n                \"maxRequests\": 9198,\n                \"maxRetries\": 3133\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 5681,\n                \"splitExternalAndLocalErrors\": true\n              }\n            }\n          },\n          {\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 7376,\n                \"maxConnections\": 449,\n                \"maxPendingRequests\": 5280,\n                \"maxRequests\": 9488,\n                \"maxRetries\": 3498\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 5063,\n                \"splitExternalAndLocalErrors\": false\n              }\n            }\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"Mesh\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshServiceSubset\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 7305,\n                \"maxConnections\": 1559,\n                \"maxPendingRequests\": 5034,\n                \"maxRequests\": 6456,\n                \"maxRetries\": 8604\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": false,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 3672,\n                \"splitExternalAndLocalErrors\": true\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshExternalService\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 3529,\n                \"maxConnections\": 9974,\n                \"maxPendingRequests\": 5356,\n                \"maxRequests\": 1874,\n                \"maxRetries\": 2463\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 6648,\n                \"splitExternalAndLocalErrors\": false\n              }\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mcb_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n      \"type\": \"MeshCircuitBreaker\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshHTTPRoute\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 595,\n                \"maxConnections\": 2581,\n                \"maxPendingRequests\": 1087,\n                \"maxRequests\": 9941,\n                \"maxRetries\": 4661\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 279,\n                \"splitExternalAndLocalErrors\": false\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshServiceSubset\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 9769,\n                \"maxConnections\": 4696,\n                \"maxPendingRequests\": 66,\n                \"maxRequests\": 737,\n                \"maxRetries\": 6625\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": false,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 1414,\n                \"splitExternalAndLocalErrors\": false\n              }\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 2900,\n                \"maxConnections\": 4500,\n                \"maxPendingRequests\": 6869,\n                \"maxRequests\": 3040,\n                \"maxRetries\": 4220\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": false,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 6337,\n                \"splitExternalAndLocalErrors\": true\n              }\n            }\n          },\n          {\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 3804,\n                \"maxConnections\": 5631,\n                \"maxPendingRequests\": 3339,\n                \"maxRequests\": 9950,\n                \"maxRetries\": 3017\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": false,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 1006,\n                \"splitExternalAndLocalErrors\": false\n              }\n            }\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"MeshExternalService\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"Mesh\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 8149,\n                \"maxConnections\": 5415,\n                \"maxPendingRequests\": 7073,\n                \"maxRequests\": 1142,\n                \"maxRetries\": 5867\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": false,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 7662,\n                \"splitExternalAndLocalErrors\": true\n              }\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshMultiZoneService\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\",\n                \"key_3\": \"string\"\n              }\n            },\n            \"default\": {\n              \"connectionLimits\": {\n                \"maxConnectionPools\": 9264,\n                \"maxConnections\": 8712,\n                \"maxPendingRequests\": 3676,\n                \"maxRequests\": 7372,\n                \"maxRetries\": 380\n              },\n              \"outlierDetection\": {\n                \"baseEjectionTime\": \"string\",\n                \"detectors\": {\n                  \"failurePercentage\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"gatewayFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"localOriginFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"successRate\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"totalFailures\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"disabled\": true,\n                \"healthyPanicThreshold\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"interval\": \"string\",\n                \"maxEjectionPercent\": 5605,\n                \"splitExternalAndLocalErrors\": true\n              }\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mcb_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    }\n  ],\n  \"total\": 6578.003539933405,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "83c4d668-ca3a-4a3b-89cb-f697efbe7cc6",
+    "name": "Kuma Dataplane MeshCircuitBreaker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

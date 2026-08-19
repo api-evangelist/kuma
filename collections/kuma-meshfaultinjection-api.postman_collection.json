@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "5b704c77-a132-42aa-b644-04eb97ca83fd",
+      "name": "MeshFaultInjection",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c2104db-443c-4a4c-b168-166155bd1f94",
+          "name": "Returns MeshFaultInjection entity",
+          "request": {
+            "name": "Returns MeshFaultInjection entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshfaultinjections",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshFaultInjection"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d03e176f-8bc3-4c61-a9de-6f6c9f91251a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshfaultinjections",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshFaultInjection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshFaultInjection\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshService\",\n          \"labels\": {\n            \"key_0\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": 6921,\n                \"percentage\": 7863\n              },\n              \"delay\": {\n                \"percentage\": 9557,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 1793\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": 2757,\n                \"percentage\": 1500\n              },\n              \"delay\": {\n                \"percentage\": 9790,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 8659\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"Mesh\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": 9474,\n                \"percentage\": 260\n              },\n              \"delay\": {\n                \"percentage\": 2463,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 1238\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": 71,\n                \"percentage\": 5377\n              },\n              \"delay\": {\n                \"percentage\": 3881,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 5631\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": 8532,\n                \"percentage\": 6723\n              },\n              \"delay\": {\n                \"percentage\": 7156,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 9249\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": 5250,\n                \"percentage\": 3547\n              },\n              \"delay\": {\n                \"percentage\": 2905,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 4675\n              }\n            }\n          ]\n        },\n        \"matches\": [\n          {\n            \"spiffeID\": {\n              \"type\": \"Exact\",\n              \"value\": \"string\"\n            }\n          },\n          {\n            \"spiffeID\": {\n              \"type\": \"Prefix\",\n              \"value\": \"string\"\n            }\n          }\n        ]\n      },\n      {\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": 91,\n                \"percentage\": 9128\n              },\n              \"delay\": {\n                \"percentage\": 3008,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 2356\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": 5955,\n                \"percentage\": 6360\n              },\n              \"delay\": {\n                \"percentage\": 2298,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 1690\n              }\n            }\n          ]\n        },\n        \"matches\": [\n          {\n            \"spiffeID\": {\n              \"type\": \"Exact\",\n              \"value\": \"string\"\n            }\n          },\n          {\n            \"spiffeID\": {\n              \"type\": \"Exact\",\n              \"value\": \"string\"\n            }\n          }\n        ]\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"Dataplane\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"mesh\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"proxyTypes\": [\n        \"Sidecar\",\n        \"Gateway\"\n      ],\n      \"sectionName\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"MeshServiceSubset\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": 7817,\n                \"percentage\": 7592\n              },\n              \"delay\": {\n                \"percentage\": 8735,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 2926\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": 2396,\n                \"percentage\": 8065\n              },\n              \"delay\": {\n                \"percentage\": 4801,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 5844\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"Dataplane\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Sidecar\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": 6243,\n                \"percentage\": 349\n              },\n              \"delay\": {\n                \"percentage\": 1344,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 117\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": 2348,\n                \"percentage\": 6791\n              },\n              \"delay\": {\n                \"percentage\": 7556,\n                \"value\": \"string\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"string\",\n                \"percentage\": 5097\n              }\n            }\n          ]\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_mfi_default_zone-east_kuma-demo_mypolicy1_\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4047c3d1-c8df-4665-9641-affb87e13167",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshfaultinjections",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshFaultInjection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27acf901-c2c9-4f3a-ab13-a82bf7457fa2",
+          "name": "Creates or Updates MeshFaultInjection entity",
+          "request": {
+            "name": "Creates or Updates MeshFaultInjection entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshfaultinjections",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshFaultInjection"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        },\n        \"matches\": [\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          },\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          }\n        ]\n      },\n      {\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        },\n        \"matches\": [\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          },\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f8df61f9-6bd0-45cd-8e5f-e9168c1bca96",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshfaultinjections",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshFaultInjection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        },\n        \"matches\": [\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          },\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          }\n        ]\n      },\n      {\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        },\n        \"matches\": [\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          },\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52ec8632-8921-44f8-907a-520b1a4d0013",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshfaultinjections",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshFaultInjection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"from\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"rules\": [\n      {\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        },\n        \"matches\": [\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          },\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          }\n        ]\n      },\n      {\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        },\n        \"matches\": [\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          },\n          {\n            \"spiffeID\": {\n              \"type\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"targetRef\": {\n      \"kind\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<string>\"\n      },\n      \"mesh\": \"<string>\",\n      \"name\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"proxyTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sectionName\": \"<string>\",\n      \"tags\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"to\": [\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"targetRef\": {\n          \"kind\": \"<string>\",\n          \"labels\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\",\n            \"key_4\": \"<string>\"\n          },\n          \"mesh\": \"<string>\",\n          \"name\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"proxyTypes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sectionName\": \"<string>\",\n          \"tags\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        \"default\": {\n          \"http\": [\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            },\n            {\n              \"abort\": {\n                \"httpStatus\": \"<integer>\",\n                \"percentage\": \"<integer>\"\n              },\n              \"delay\": {\n                \"percentage\": \"<integer>\",\n                \"value\": \"<string>\"\n              },\n              \"responseBandwidth\": {\n                \"limit\": \"<string>\",\n                \"percentage\": \"<integer>\"\n              }\n            }\n          ]\n        }\n      }\n    ]\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a5f50e2-078a-4026-91e9-a8d2ac088179",
+          "name": "Deletes MeshFaultInjection entity",
+          "request": {
+            "name": "Deletes MeshFaultInjection entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshfaultinjections",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshFaultInjection"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88295cc1-f2d7-43eb-9184-115325b64775",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshfaultinjections",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshFaultInjection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15fe043e-6383-40f8-9943-624cd6af58d0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshfaultinjections",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshFaultInjection"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"body\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"query\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37f41c32-6e05-40e9-881a-2c4accace817",
+          "name": "Returns a list of MeshFaultInjection in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshFaultInjection in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshfaultinjections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4588f579-3fbe-443e-80d2-878d6223722d",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshfaultinjections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshFaultInjection\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshService\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshGateway\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\",\n                \"key_3\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            },\n            \"matches\": [\n              {\n                \"spiffeID\": {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              {\n                \"spiffeID\": {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            ]\n          },\n          {\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            },\n            \"matches\": [\n              {\n                \"spiffeID\": {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              {\n                \"spiffeID\": {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            ]\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"MeshServiceSubset\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Sidecar\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshHTTPRoute\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshGateway\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\",\n                \"key_2\": \"string\",\n                \"key_3\": \"string\",\n                \"key_4\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mfi_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n      \"type\": \"MeshFaultInjection\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"from\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshSubset\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshExternalService\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          }\n        ],\n        \"rules\": [\n          {\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            },\n            \"matches\": [\n              {\n                \"spiffeID\": {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              {\n                \"spiffeID\": {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            ]\n          },\n          {\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            },\n            \"matches\": [\n              {\n                \"spiffeID\": {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              },\n              {\n                \"spiffeID\": {\n                  \"type\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"value\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              }\n            ]\n          }\n        ],\n        \"targetRef\": {\n          \"kind\": \"MeshService\",\n          \"labels\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"mesh\": \"string\",\n          \"name\": \"string\",\n          \"namespace\": \"string\",\n          \"proxyTypes\": [\n            \"Gateway\",\n            \"Gateway\"\n          ],\n          \"sectionName\": \"string\",\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"to\": [\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshSubset\",\n              \"labels\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Gateway\",\n                \"Gateway\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\",\n                \"key_1\": \"string\"\n              }\n            },\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          },\n          {\n            \"targetRef\": {\n              \"kind\": \"MeshService\",\n              \"labels\": {\n                \"key_0\": \"string\"\n              },\n              \"mesh\": \"string\",\n              \"name\": \"string\",\n              \"namespace\": \"string\",\n              \"proxyTypes\": [\n                \"Sidecar\",\n                \"Sidecar\"\n              ],\n              \"sectionName\": \"string\",\n              \"tags\": {\n                \"key_0\": \"string\"\n              }\n            },\n            \"default\": {\n              \"http\": [\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                {\n                  \"abort\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"delay\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"responseBandwidth\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                }\n              ]\n            }\n          }\n        ]\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_mfi_default_zone-east_kuma-demo_mypolicy1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\"\n    }\n  ],\n  \"total\": 6850.030967525677,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "df937295-2dcb-4a60-abfe-2254c5e83ae8",
+    "name": "Kuma Dataplane MeshFaultInjection API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}

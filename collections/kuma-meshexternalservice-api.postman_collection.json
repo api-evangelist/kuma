@@ -1,0 +1,723 @@
+{
+  "item": [
+    {
+      "id": "2861ba01-71d8-4df6-9261-96cce609092b",
+      "name": "MeshExternalService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3cad7138-3d19-4ce6-bf2b-84bf41408553",
+          "name": "Returns MeshExternalService entity",
+          "request": {
+            "name": "Returns MeshExternalService entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshexternalservices",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshExternalService"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88817eb4-0eac-44e8-999d-ffdac99f2472",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshexternalservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshExternalService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"MeshExternalService\",\n  \"name\": \"string\",\n  \"spec\": {\n    \"match\": {\n      \"port\": 64704,\n      \"protocol\": \"tcp\",\n      \"type\": \"HostnameGenerator\"\n    },\n    \"endpoints\": [\n      {\n        \"address\": \"example.com\",\n        \"port\": 1922,\n        \"priority\": 114\n      },\n      {\n        \"address\": \"example.com\",\n        \"port\": 35163,\n        \"priority\": 34\n      }\n    ],\n    \"extension\": {\n      \"type\": \"string\",\n      \"config\": {}\n    },\n    \"tls\": {\n      \"allowRenegotiation\": false,\n      \"enabled\": false,\n      \"verification\": {\n        \"caCert\": {\n          \"inline\": \"string\",\n          \"inlineString\": \"string\",\n          \"secret\": \"string\"\n        },\n        \"clientCert\": {\n          \"inline\": \"string\",\n          \"inlineString\": \"string\",\n          \"secret\": \"string\"\n        },\n        \"clientKey\": {\n          \"inline\": \"string\",\n          \"inlineString\": \"string\",\n          \"secret\": \"string\"\n        },\n        \"mode\": \"Secured\",\n        \"serverName\": \"string\",\n        \"subjectAltNames\": [\n          {\n            \"value\": \"string\",\n            \"type\": \"Exact\"\n          },\n          {\n            \"value\": \"string\",\n            \"type\": \"Exact\"\n          }\n        ]\n      },\n      \"version\": {\n        \"max\": \"TLSAuto\",\n        \"min\": \"TLSAuto\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"kri\": \"kri_extsvc_default_zone-east_kuma-system_myresource1_\",\n  \"labels\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"creationTime\": \"0001-01-01T00:00:00Z\",\n  \"modificationTime\": \"0001-01-01T00:00:00Z\",\n  \"status\": {\n    \"addresses\": [\n      {\n        \"hostname\": \"string\",\n        \"hostnameGeneratorRef\": {\n          \"coreName\": \"string\"\n        },\n        \"origin\": \"string\"\n      },\n      {\n        \"hostname\": \"string\",\n        \"hostnameGeneratorRef\": {\n          \"coreName\": \"string\"\n        },\n        \"origin\": \"string\"\n      }\n    ],\n    \"hostnameGenerators\": [\n      {\n        \"hostnameGeneratorRef\": {\n          \"coreName\": \"string\"\n        },\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"F\",\n            \"status\": \"False\",\n            \"type\": \"6\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"VwN:h\",\n            \"status\": \"False\",\n            \"type\": \"m\"\n          }\n        ]\n      },\n      {\n        \"hostnameGeneratorRef\": {\n          \"coreName\": \"string\"\n        },\n        \"conditions\": [\n          {\n            \"message\": \"string\",\n            \"reason\": \"tajGuIH1F\",\n            \"status\": \"False\",\n            \"type\": \"r7jqxsin1o.o.susdnxl6.57e.htzpdnhy.1.0h-4im0xc.jebpth.pxyya65dt.8f6y6u2828/jQ2u_fjYPEd\"\n          },\n          {\n            \"message\": \"string\",\n            \"reason\": \"y\",\n            \"status\": \"True\",\n            \"type\": \"6.y.kl4n-fv-sdu.kjnt.l.c.0.3.g-l8k5z0eu.m/T\"\n          }\n        ]\n      }\n    ],\n    \"vip\": {\n      \"ip\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "774342b1-2b63-4be0-8e83-0aa0f0672569",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshexternalservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshExternalService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fece51c4-56cf-42cf-a2fe-d09e463f44f9",
+          "name": "Creates or Updates MeshExternalService entity",
+          "request": {
+            "name": "Creates or Updates MeshExternalService entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshexternalservices",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshExternalService"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"match\": {\n      \"port\": \"<integer>\",\n      \"protocol\": \"tcp\",\n      \"type\": \"HostnameGenerator\"\n    },\n    \"endpoints\": [\n      {\n        \"address\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"priority\": \"<integer>\"\n      }\n    ],\n    \"extension\": {\n      \"type\": \"<string>\",\n      \"config\": {}\n    },\n    \"tls\": {\n      \"allowRenegotiation\": false,\n      \"enabled\": false,\n      \"verification\": {\n        \"caCert\": {\n          \"inline\": \"<byte>\",\n          \"inlineString\": \"<string>\",\n          \"secret\": \"<string>\"\n        },\n        \"clientCert\": {\n          \"inline\": \"<byte>\",\n          \"inlineString\": \"<string>\",\n          \"secret\": \"<string>\"\n        },\n        \"clientKey\": {\n          \"inline\": \"<byte>\",\n          \"inlineString\": \"<string>\",\n          \"secret\": \"<string>\"\n        },\n        \"mode\": \"Secured\",\n        \"serverName\": \"<string>\",\n        \"subjectAltNames\": [\n          {\n            \"value\": \"<string>\",\n            \"type\": \"Exact\"\n          },\n          {\n            \"value\": \"<string>\",\n            \"type\": \"Exact\"\n          }\n        ]\n      },\n      \"version\": {\n        \"max\": \"TLSAuto\",\n        \"min\": \"TLSAuto\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2c3ffb95-d9a3-4440-905e-76a95a10c545",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshexternalservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshExternalService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"match\": {\n      \"port\": \"<integer>\",\n      \"protocol\": \"tcp\",\n      \"type\": \"HostnameGenerator\"\n    },\n    \"endpoints\": [\n      {\n        \"address\": \"example.com\",\n        \"port\": \"<integer>\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"address\": \"example.com\",\n        \"port\": \"<integer>\",\n        \"priority\": \"<integer>\"\n      }\n    ],\n    \"extension\": {\n      \"type\": \"<string>\",\n      \"config\": {}\n    },\n    \"tls\": {\n      \"allowRenegotiation\": false,\n      \"enabled\": false,\n      \"verification\": {\n        \"caCert\": {\n          \"inline\": \"<byte>\",\n          \"inlineString\": \"<string>\",\n          \"secret\": \"<string>\"\n        },\n        \"clientCert\": {\n          \"inline\": \"<byte>\",\n          \"inlineString\": \"<string>\",\n          \"secret\": \"<string>\"\n        },\n        \"clientKey\": {\n          \"inline\": \"<byte>\",\n          \"inlineString\": \"<string>\",\n          \"secret\": \"<string>\"\n        },\n        \"mode\": \"Secured\",\n        \"serverName\": \"<string>\",\n        \"subjectAltNames\": [\n          {\n            \"value\": \"<string>\",\n            \"type\": \"Exact\"\n          },\n          {\n            \"value\": \"<string>\",\n            \"type\": \"Exact\"\n          }\n        ]\n      },\n      \"version\": {\n        \"max\": \"TLSAuto\",\n        \"min\": \"TLSAuto\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b0c7836-71b7-4ffe-97e8-82233724f289",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshexternalservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshExternalService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"spec\": {\n    \"match\": {\n      \"port\": \"<integer>\",\n      \"protocol\": \"tcp\",\n      \"type\": \"HostnameGenerator\"\n    },\n    \"endpoints\": [\n      {\n        \"address\": \"example.com\",\n        \"port\": \"<integer>\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"address\": \"example.com\",\n        \"port\": \"<integer>\",\n        \"priority\": \"<integer>\"\n      }\n    ],\n    \"extension\": {\n      \"type\": \"<string>\",\n      \"config\": {}\n    },\n    \"tls\": {\n      \"allowRenegotiation\": false,\n      \"enabled\": false,\n      \"verification\": {\n        \"caCert\": {\n          \"inline\": \"<byte>\",\n          \"inlineString\": \"<string>\",\n          \"secret\": \"<string>\"\n        },\n        \"clientCert\": {\n          \"inline\": \"<byte>\",\n          \"inlineString\": \"<string>\",\n          \"secret\": \"<string>\"\n        },\n        \"clientKey\": {\n          \"inline\": \"<byte>\",\n          \"inlineString\": \"<string>\",\n          \"secret\": \"<string>\"\n        },\n        \"mode\": \"Secured\",\n        \"serverName\": \"<string>\",\n        \"subjectAltNames\": [\n          {\n            \"value\": \"<string>\",\n            \"type\": \"Exact\"\n          },\n          {\n            \"value\": \"<string>\",\n            \"type\": \"Exact\"\n          }\n        ]\n      },\n      \"version\": {\n        \"max\": \"TLSAuto\",\n        \"min\": \"TLSAuto\"\n      }\n    }\n  },\n  \"mesh\": \"default\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9759862-b32f-4d5e-8052-c0978dd9a745",
+          "name": "Deletes MeshExternalService entity",
+          "request": {
+            "name": "Deletes MeshExternalService entity",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshexternalservices",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) name of the MeshExternalService"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d143ef7c-6790-4619-8903-a4e9fe3d65e3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshexternalservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshExternalService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d44d5182-6cfb-498d-abaf-e0cf8fae91cf",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshexternalservices",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) name of the MeshExternalService"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"title\": \"Not Found\",\n  \"instance\": \"portal:trace:2287285207635123011\",\n  \"type\": \"Not Found\",\n  \"detail\": \"The requested team was not found\",\n  \"invalid_parameters\": [\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"path\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"field\": \"string\",\n      \"reason\": \"string\",\n      \"source\": \"header\",\n      \"rule\": \"string\",\n      \"choices\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9556340d-a5c1-4769-8151-aa49a31c6cc1",
+          "name": "Returns a list of MeshExternalService in the mesh.",
+          "request": {
+            "name": "Returns a list of MeshExternalService in the mesh.",
+            "description": {},
+            "url": {
+              "path": [
+                "meshes",
+                ":mesh",
+                "meshexternalservices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset in the list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "the number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "filter by labels when multiple filters are present, they are ANDed"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mesh",
+                  "description": "(Required) name of the mesh"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea8efa5d-d728-4442-8f70-c89202adb3f9",
+              "name": "List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meshes",
+                    ":mesh",
+                    "meshexternalservices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "label.k8s.kuma.io/namespace",
+                      "value": "my-ns"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mesh",
+                      "description": "(Required) name of the mesh"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"type\": \"MeshExternalService\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"match\": {\n          \"port\": 27777,\n          \"protocol\": \"tcp\",\n          \"type\": \"HostnameGenerator\"\n        },\n        \"endpoints\": [\n          {\n            \"address\": \"example.com\",\n            \"port\": 62234,\n            \"priority\": 42\n          },\n          {\n            \"address\": \"example.com\",\n            \"port\": 61803,\n            \"priority\": 78\n          }\n        ],\n        \"extension\": {\n          \"type\": \"string\",\n          \"config\": {}\n        },\n        \"tls\": {\n          \"allowRenegotiation\": false,\n          \"enabled\": false,\n          \"verification\": {\n            \"caCert\": {\n              \"inline\": \"string\",\n              \"inlineString\": \"string\",\n              \"secret\": \"string\"\n            },\n            \"clientCert\": {\n              \"inline\": \"string\",\n              \"inlineString\": \"string\",\n              \"secret\": \"string\"\n            },\n            \"clientKey\": {\n              \"inline\": \"string\",\n              \"inlineString\": \"string\",\n              \"secret\": \"string\"\n            },\n            \"mode\": \"Secured\",\n            \"serverName\": \"string\",\n            \"subjectAltNames\": [\n              {\n                \"value\": \"string\",\n                \"type\": \"Exact\"\n              },\n              {\n                \"value\": \"string\",\n                \"type\": \"Exact\"\n              }\n            ]\n          },\n          \"version\": {\n            \"max\": \"TLSAuto\",\n            \"min\": \"TLSAuto\"\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_extsvc_default_zone-east_kuma-system_myresource1_\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"addresses\": [\n          {\n            \"hostname\": \"string\",\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"origin\": \"string\"\n          },\n          {\n            \"hostname\": \"string\",\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"origin\": \"string\"\n          }\n        ],\n        \"hostnameGenerators\": [\n          {\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"conditions\": [\n              {\n                \"message\": \"string\",\n                \"reason\": \"G7\",\n                \"status\": \"True\",\n                \"type\": \"eqbqnh6.y.w.2un-jl02z7w.kxve17usy4.it3engdj9n.6jldjjrwpjo/q\"\n              },\n              {\n                \"message\": \"string\",\n                \"reason\": \"W:5_\",\n                \"status\": \"True\",\n                \"type\": \"3.29fzwu.1.2tbidhiiev.uojb.i.k87xr78nhn.w.6ajpiyn5cq.71mh47mbpb.s/8\"\n              }\n            ]\n          },\n          {\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"conditions\": [\n              {\n                \"message\": \"string\",\n                \"reason\": \"f\",\n                \"status\": \"Unknown\",\n                \"type\": \"iljjjk1rf1.z44s-xj24we.t.g.p.d.8/f\"\n              },\n              {\n                \"message\": \"string\",\n                \"reason\": \"k8hBRnM\",\n                \"status\": \"True\",\n                \"type\": \"a\"\n              }\n            ]\n          }\n        ],\n        \"vip\": {\n          \"ip\": \"string\"\n        }\n      }\n    },\n    {\n      \"type\": \"MeshExternalService\",\n      \"name\": \"string\",\n      \"spec\": {\n        \"match\": {\n          \"port\": 18234,\n          \"protocol\": \"tcp\",\n          \"type\": \"HostnameGenerator\"\n        },\n        \"endpoints\": [\n          {\n            \"address\": \"example.com\",\n            \"port\": 59636,\n            \"priority\": 115\n          },\n          {\n            \"address\": \"example.com\",\n            \"port\": 5469,\n            \"priority\": 88\n          }\n        ],\n        \"extension\": {\n          \"type\": \"string\",\n          \"config\": {}\n        },\n        \"tls\": {\n          \"allowRenegotiation\": false,\n          \"enabled\": false,\n          \"verification\": {\n            \"caCert\": {\n              \"inline\": \"string\",\n              \"inlineString\": \"string\",\n              \"secret\": \"string\"\n            },\n            \"clientCert\": {\n              \"inline\": \"string\",\n              \"inlineString\": \"string\",\n              \"secret\": \"string\"\n            },\n            \"clientKey\": {\n              \"inline\": \"string\",\n              \"inlineString\": \"string\",\n              \"secret\": \"string\"\n            },\n            \"mode\": \"Secured\",\n            \"serverName\": \"string\",\n            \"subjectAltNames\": [\n              {\n                \"value\": \"string\",\n                \"type\": \"Exact\"\n              },\n              {\n                \"value\": \"string\",\n                \"type\": \"Exact\"\n              }\n            ]\n          },\n          \"version\": {\n            \"max\": \"TLSAuto\",\n            \"min\": \"TLSAuto\"\n          }\n        }\n      },\n      \"mesh\": \"default\",\n      \"kri\": \"kri_extsvc_default_zone-east_kuma-system_myresource1_\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"creationTime\": \"0001-01-01T00:00:00Z\",\n      \"modificationTime\": \"0001-01-01T00:00:00Z\",\n      \"status\": {\n        \"addresses\": [\n          {\n            \"hostname\": \"string\",\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"origin\": \"string\"\n          },\n          {\n            \"hostname\": \"string\",\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"origin\": \"string\"\n          }\n        ],\n        \"hostnameGenerators\": [\n          {\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"conditions\": [\n              {\n                \"message\": \"string\",\n                \"reason\": \"N844J2w32pv\",\n                \"status\": \"True\",\n                \"type\": \"0\"\n              },\n              {\n                \"message\": \"string\",\n                \"reason\": \"M545PUyY\",\n                \"status\": \"False\",\n                \"type\": \"9\"\n              }\n            ]\n          },\n          {\n            \"hostnameGeneratorRef\": {\n              \"coreName\": \"string\"\n            },\n            \"conditions\": [\n              {\n                \"message\": \"string\",\n                \"reason\": \"u\",\n                \"status\": \"Unknown\",\n                \"type\": \"p6w9s15tb0.s.tw-4e238x.m.60yyqwa55jia.8/HVftJWk_Q\"\n              },\n              {\n                \"message\": \"string\",\n                \"reason\": \"c8B_n9\",\n                \"status\": \"True\",\n                \"type\": \"gam.r.gzq.bzpti.30n.k2sr77amf67.l0.1-f61j8yhfu1.z.h/6aU4hySggFkN\"\n              }\n            ]\n          }\n        ],\n        \"vip\": {\n          \"ip\": \"string\"\n        }\n      }\n    }\n  ],\n  \"total\": 4575.429320173163,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1d73d9e9-8d02-4b10-bbc5-1ea5f12dd74f",
+    "name": "Kuma Dataplane MeshExternalService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kuma API",
+      "type": "text/plain"
+    }
+  }
+}
