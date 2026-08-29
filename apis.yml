@@ -4,6 +4,19 @@ description: >-
   Kuma is a platform-agnostic open-source service mesh built on top of Envoy proxy. It provides universal connectivity,
   security, and observability for services and microservices running on any infrastructure including Kubernetes and VMs.
 type: Index
+deliveryModel:
+  model: self-hosted
+  license: Apache-2.0
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -723,6 +736,9 @@ apis:
   - type: JSONSchema
     url: json-schema/kuma-mesh-schema.json
 common:
+  - type: CapabilityMap
+    url: capabilities/kuma-capability-edges.yml
+    name: Kuma Business Capability Map
   - type: IssueTracker
     url: https://github.com/kumahq/kuma/issues
   - type: CodeOfConduct
