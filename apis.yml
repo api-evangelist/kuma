@@ -87,7 +87,7 @@ apis:
   humanURL: https://kuma.io/docs/latest/reference/http-api/
   baseURL: https://localhost:5681
   tags:
-  - Data Plane
+  - Dataplane
   tags_raw:
   - Dataplane
   properties:
@@ -287,7 +287,7 @@ apis:
   humanURL: https://kuma.io/docs/latest/reference/http-api/
   baseURL: https://localhost:5681
   tags:
-  - Mesh Gateway
+  - MeshGateway
   tags_raw:
   - MeshGateway
   properties:
