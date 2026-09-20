@@ -1,0 +1,54 @@
+slug: kuma
+provider: Kuma
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: MeshOpenTelemetryBackend
+  spec_file: kuma-meshopentelemetrybackend-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.75
+  evidence: putMeshOpenTelemetryBackend  Creates or Updates MeshOpenTelemetryBackend entity
+  reason: Configures the OpenTelemetry collector backend for traces/telemetry emitted by the mesh — logs,
+    metrics and traces of the running service.
+- tag: MeshMetric
+  spec_file: kuma-meshmetric-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.72
+  evidence: putMeshMetric  Creates or Updates MeshMetric entity
+  reason: Configures metrics scraping/exposure from mesh dataplanes — metrics telemetry for running services,
+    i.e. Observability Management. Not business KPIs or management reporting.
+- tag: Dataplane
+  spec_file: kuma-dataplane-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: '"Creates or Updates Dataplane entity" in /meshes/{mesh}/dataplanes/{name}; vendor is "an
+    open-source service mesh built on top of Envoy proxy"'
+  reason: Dataplane entities are the Envoy sidecar/proxy registrations that carry service-to-service network
+    traffic; managing them is compute/network infrastructure management, not a domain business capability.
+- tag: MeshAccessLog
+  spec_file: kuma-meshaccesslog-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: putMeshAccessLog  Creates or Updates MeshAccessLog entity — Kuma provides "universal connectivity,
+    security, and observability for services and microservices"
+  reason: The resource configures access logging emitted by mesh dataplanes, i.e. log telemetry that makes
+    the running service understandable in production — Observability Management. Not a business-domain
+    'access log' (audit of user access).
