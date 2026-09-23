@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Kuma Dataplane ZoneIngress API
+  title: Kuma Zone Ingress API
   description: Kuma API
   version: v1alpha1
   x-ref-schema-name: DataplaneOverview
@@ -47,7 +47,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/ZoneIngressList'
-      summary: Returns a list of ZoneIngress in the mesh.
+      summary: Returns a list of ZoneIngress in the mesh
       tags:
       - ZoneIngress
   /zoneingresses/{name}:
@@ -111,76 +111,6 @@ paths:
       - ZoneIngress
 components:
   schemas:
-    ZoneIngressItem:
-      properties:
-        availableServices:
-          description: 'AvailableService contains tags that represent unique subset of
-
-            endpoints'
-          items:
-            properties:
-              externalService:
-                description: instance of external service available from the zone
-                type: boolean
-              instances:
-                description: number of instances available for given tags
-                type: integer
-              mesh:
-                description: mesh of the instances available for given tags
-                type: string
-              tags:
-                additionalProperties:
-                  type: string
-                description: tags of the service
-                type: object
-            type: object
-          type: array
-        labels:
-          additionalProperties:
-            type: string
-          type: object
-        name:
-          type: string
-        networking:
-          description: 'Networking defines the address and port of the Ingress to listen on.
-
-            Additionally publicly advertised address and port could be specified.'
-          properties:
-            address:
-              description: Address on which inbound listener will be exposed
-              type: string
-            admin:
-              description: Admin contains configuration related to Envoy Admin API
-              properties:
-                port:
-                  description: Port on which Envoy Admin API server will be listening
-                  type: integer
-              type: object
-            advertisedAddress:
-              description: 'AdvertisedAddress defines IP or DNS name on which ZoneIngress is
-
-                accessible to other Kuma clusters.'
-              type: string
-            advertisedPort:
-              description: 'AdvertisedPort defines port on which ZoneIngress is accessible to other
-
-                Kuma clusters.'
-              type: integer
-            port:
-              description: Port of the inbound interface that will forward requests to the service.
-              type: integer
-          type: object
-        type:
-          type: string
-        zone:
-          description: 'Zone field contains Zone name where ingress is serving, field will be
-
-            automatically set by Global Kuma CP'
-          type: string
-      required:
-      - type
-      - name
-      type: object
     NotFoundError:
       allOf:
       - $ref: '#/components/schemas/Error'
@@ -312,6 +242,76 @@ components:
             '
           items:
             $ref: '#/components/schemas/InvalidParameters'
+    ZoneIngressItem:
+      properties:
+        availableServices:
+          description: 'AvailableService contains tags that represent unique subset of
+
+            endpoints'
+          items:
+            properties:
+              externalService:
+                description: instance of external service available from the zone
+                type: boolean
+              instances:
+                description: number of instances available for given tags
+                type: integer
+              mesh:
+                description: mesh of the instances available for given tags
+                type: string
+              tags:
+                additionalProperties:
+                  type: string
+                description: tags of the service
+                type: object
+            type: object
+          type: array
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+        name:
+          type: string
+        networking:
+          description: 'Networking defines the address and port of the Ingress to listen on.
+
+            Additionally publicly advertised address and port could be specified.'
+          properties:
+            address:
+              description: Address on which inbound listener will be exposed
+              type: string
+            admin:
+              description: Admin contains configuration related to Envoy Admin API
+              properties:
+                port:
+                  description: Port on which Envoy Admin API server will be listening
+                  type: integer
+              type: object
+            advertisedAddress:
+              description: 'AdvertisedAddress defines IP or DNS name on which ZoneIngress is
+
+                accessible to other Kuma clusters.'
+              type: string
+            advertisedPort:
+              description: 'AdvertisedPort defines port on which ZoneIngress is accessible to other
+
+                Kuma clusters.'
+              type: integer
+            port:
+              description: Port of the inbound interface that will forward requests to the service.
+              type: integer
+          type: object
+        type:
+          type: string
+        zone:
+          description: 'Zone field contains Zone name where ingress is serving, field will be
+
+            automatically set by Global Kuma CP'
+          type: string
+      required:
+      - type
+      - name
+      type: object
   responses:
     NotFound:
       description: Not Found
@@ -319,11 +319,22 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/NotFoundError'
-    ZoneIngressItem:
+    ZoneIngressCreateOrUpdateSuccessResponse:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ZoneIngressItem'
+            properties:
+              warnings:
+                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
+
+                  Warning messages describe a problem the client making the API request should correct or be aware of.
+
+                  '
+                items:
+                  type: string
+                readOnly: true
+                type: array
+            type: object
       description: Successful response
     ZoneIngressList:
       content:
@@ -342,27 +353,16 @@ components:
                 type: number
             type: object
       description: List
+    ZoneIngressItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ZoneIngressItem'
+      description: Successful response
     ZoneIngressDeleteSuccessResponse:
       content:
         application/json:
           schema:
-            type: object
-      description: Successful response
-    ZoneIngressCreateOrUpdateSuccessResponse:
-      content:
-        application/json:
-          schema:
-            properties:
-              warnings:
-                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
-
-                  Warning messages describe a problem the client making the API request should correct or be aware of.
-
-                  '
-                items:
-                  type: string
-                readOnly: true
-                type: array
             type: object
       description: Successful response
   securitySchemes:

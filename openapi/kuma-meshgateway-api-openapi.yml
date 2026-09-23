@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Kuma Dataplane MeshGateway API
+  title: Kuma Mesh Gateway API
   description: Kuma API
   version: v1alpha1
   x-ref-schema-name: DataplaneOverview
@@ -53,7 +53,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/MeshGatewayList'
-      summary: Returns a list of MeshGateway in the mesh.
+      summary: Returns a list of MeshGateway in the mesh
       tags:
       - MeshGateway
   /meshes/{mesh}/meshgateways/{name}:
@@ -135,14 +135,6 @@ paths:
       - MeshGateway
 components:
   schemas:
-    DataSource_File:
-      properties:
-        file:
-          description: 'Data source is a path to a file.
-
-            Deprecated, use other sources of a data.'
-          type: string
-      type: object
     NotFoundError:
       allOf:
       - $ref: '#/components/schemas/Error'
@@ -165,11 +157,67 @@ components:
           detail:
             type: string
             example: The requested resource was not found
+    DataSource_InlineString:
+      properties:
+        inlineString:
+          description: Data source is inline string
+          type: string
+      type: object
     DataSource_Inline:
       properties:
         inline:
           description: Data source is inline bytes.
           format: byte
+          type: string
+      type: object
+    InvalidParameters:
+      type: object
+      title: Invalid Parameters
+      required:
+      - field
+      - reason
+      - source
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI.
+
+            '
+        rule:
+          type: string
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
+
+            '
+        choices:
+          type: array
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+
+            '
+          items:
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
+    DataSource_File:
+      properties:
+        file:
+          description: 'Data source is a path to a file.
+
+            Deprecated, use other sources of a data.'
           type: string
       type: object
     MeshGatewayItem:
@@ -326,54 +374,6 @@ components:
       properties:
         secret:
           description: Data source is a secret with given Secret key.
-          type: string
-      type: object
-    InvalidParameters:
-      type: object
-      title: Invalid Parameters
-      required:
-      - field
-      - reason
-      - source
-      properties:
-        field:
-          type: string
-          description: The name of the field that caused the error.
-        reason:
-          type: string
-          description: 'A short, human-readable description of the problem.
-
-            _Should_ be provided as "Sentence case" for direct use in a UI.
-
-            '
-        rule:
-          type: string
-          description: 'May be provided as a hint to the user to help understand the type of failure.
-
-            Additional guidance may be provided in additional fields, i.e. `choices`.
-
-            '
-        choices:
-          type: array
-          description: 'Optional field to provide a list of valid choices for the field that caused the error.
-
-            '
-          items:
-            type: string
-        source:
-          type: string
-          description: 'The location of the field that caused the error.
-
-            '
-          enum:
-          - body
-          - query
-          - header
-          - path
-    DataSource_InlineString:
-      properties:
-        inlineString:
-          description: Data source is inline string
           type: string
       type: object
     Error:

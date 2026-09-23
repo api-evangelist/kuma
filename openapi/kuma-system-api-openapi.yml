@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Kuma Dataplane System API
+  title: Kuma System API
   description: Kuma API
   version: v1alpha1
   x-ref-schema-name: DataplaneOverview
@@ -41,49 +41,6 @@ paths:
           $ref: '#/components/responses/Internal'
 components:
   schemas:
-    Index:
-      type: object
-      title: Index
-      description: Some metadata about the service
-      required:
-      - hostname
-      - product
-      - version
-      - instanceId
-      - clusterId
-      - gui
-      properties:
-        hostname:
-          type: string
-        product:
-          type: string
-          description: The product line (Kuma for OSS, different for other distributions)
-        version:
-          type: string
-          description: The semantic version of the server running
-        instanceId:
-          type: string
-          description: A unique id to identify the instance requested
-        clusterId:
-          type: string
-          description: A unique id to identify the cluster being connected to
-        gui:
-          type: string
-          description: The path to the GUI
-        basedOnKuma:
-          type: string
-          description: In case of an alternative distribution of Kuma the Kuma version this release is based on
-    ResourceTypeDescriptionList:
-      type: object
-      title: ResourceTypeDescriptionList
-      description: A list of all resources install
-      required:
-      - resources
-      properties:
-        resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceTypeDescription'
     PolicyDescription:
       type: object
       required:
@@ -109,44 +66,6 @@ components:
         isFromAsRules:
           description: If set to `true`, performs a backward compatibility conversion from the deprecated 'from' array to the new 'rules' array. This ensures older policies remain functional under the updated schema.
           type: boolean
-    ResourceTypeDescription:
-      description: Description of a resource type, this is useful for dynamically generated clients and the gui
-      type: object
-      required:
-      - name
-      - scope
-      - readOnly
-      - path
-      - singularDisplayName
-      - pluralDisplayName
-      - includeInFederation
-      - shortName
-      properties:
-        name:
-          description: the name of the resource type
-          type: string
-        scope:
-          type: string
-          enum:
-          - Global
-          - Mesh
-        readOnly:
-          type: boolean
-        path:
-          description: the path to use for accessing this resource. If scope is `Global` then it will be `/<path>` otherwise it will be `/meshes/<path>`
-          type: string
-        singularDisplayName:
-          type: string
-        pluralDisplayName:
-          type: string
-        shortName:
-          description: the short name of the resource type used in KRIs and kubectl
-          type: string
-        includeInFederation:
-          description: description resources of this type should be included in federetion-with-policies export profile (especially useful for moving from non-federated to federated or migrating to a new global).
-          type: boolean
-        policy:
-          $ref: '#/components/schemas/PolicyDescription'
     InvalidParameters:
       type: object
       title: Invalid Parameters
@@ -189,6 +108,76 @@ components:
           - query
           - header
           - path
+    Index:
+      type: object
+      title: Index
+      description: Some metadata about the service
+      required:
+      - hostname
+      - product
+      - version
+      - instanceId
+      - clusterId
+      - gui
+      properties:
+        hostname:
+          type: string
+        product:
+          type: string
+          description: The product line (Kuma for OSS, different for other distributions)
+        version:
+          type: string
+          description: The semantic version of the server running
+        instanceId:
+          type: string
+          description: A unique id to identify the instance requested
+        clusterId:
+          type: string
+          description: A unique id to identify the cluster being connected to
+        gui:
+          type: string
+          description: The path to the GUI
+        basedOnKuma:
+          type: string
+          description: In case of an alternative distribution of Kuma the Kuma version this release is based on
+    ResourceTypeDescription:
+      description: Description of a resource type, this is useful for dynamically generated clients and the gui
+      type: object
+      required:
+      - name
+      - scope
+      - readOnly
+      - path
+      - singularDisplayName
+      - pluralDisplayName
+      - includeInFederation
+      - shortName
+      properties:
+        name:
+          description: the name of the resource type
+          type: string
+        scope:
+          type: string
+          enum:
+          - Global
+          - Mesh
+        readOnly:
+          type: boolean
+        path:
+          description: the path to use for accessing this resource. If scope is `Global` then it will be `/<path>` otherwise it will be `/meshes/<path>`
+          type: string
+        singularDisplayName:
+          type: string
+        pluralDisplayName:
+          type: string
+        shortName:
+          description: the short name of the resource type used in KRIs and kubectl
+          type: string
+        includeInFederation:
+          description: description resources of this type should be included in federetion-with-policies export profile (especially useful for moving from non-federated to federated or migrating to a new global).
+          type: boolean
+        policy:
+          $ref: '#/components/schemas/PolicyDescription'
     Error:
       type: object
       title: Error
@@ -256,21 +245,26 @@ components:
             '
           items:
             $ref: '#/components/schemas/InvalidParameters'
+    ResourceTypeDescriptionList:
+      type: object
+      title: ResourceTypeDescriptionList
+      description: A list of all resources install
+      required:
+      - resources
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceTypeDescription'
   responses:
-    Internal:
-      description: Internal Server Error
+    BadRequest:
+      description: Bad Request
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    ResourceTypeDescriptionListResponse:
-      description: A response containing a list of all resources installed in Kuma
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ResourceTypeDescriptionList'
-    BadRequest:
-      description: Bad Request
+    Internal:
+      description: Internal Server Error
       content:
         application/problem+json:
           schema:
@@ -281,6 +275,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Index'
+    ResourceTypeDescriptionListResponse:
+      description: A response containing a list of all resources installed in Kuma
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResourceTypeDescriptionList'
   securitySchemes:
     BasicAuth:
       type: http

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Kuma Dataplane GlobalInsight API
+  title: Kuma Global Insight API
   description: Kuma API
   version: v1alpha1
   x-ref-schema-name: DataplaneOverview
@@ -26,18 +26,43 @@ paths:
         '500':
           $ref: '#/components/responses/Internal'
 components:
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Internal:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    GlobalInsightResponse:
+      description: A response containing global insight.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GlobalInsightBase'
+          examples:
+            Single control plane response:
+              $ref: '#/components/examples/GlobalInsightExample'
   schemas:
-    MeshesStats:
-      type: object
-      title: Meshes Stats
-      description: Mesh statistics
-      required:
-      - total
-      properties:
-        total:
-          type: integer
-          description: Number of meshes
-          example: 3
+    FullStatus:
+      allOf:
+      - $ref: '#/components/schemas/BaseStatus'
+      - type: object
+        required:
+        - offline
+        - partiallyDegraded
+        properties:
+          offline:
+            type: integer
+            example: 15
+          partiallyDegraded:
+            type: integer
+            example: 5
     ServicesStats:
       type: object
       title: ServicesStats
@@ -70,86 +95,6 @@ components:
           description: Delegated Gateway services statistics
           allOf:
           - $ref: '#/components/schemas/FullStatus'
-    BaseStatus:
-      type: object
-      title: Status
-      required:
-      - online
-      - total
-      properties:
-        online:
-          type: integer
-          example: 10
-        total:
-          type: integer
-          example: 30
-    ZonesStats:
-      type: object
-      title: Zones Stats
-      description: Zone statistics
-      required:
-      - controlPlanes
-      - zoneEgresses
-      - zoneIngresses
-      properties:
-        controlPlanes:
-          description: Control Planes statistics
-          allOf:
-          - $ref: '#/components/schemas/BaseStatus'
-        zoneEgresses:
-          description: Zone Egresses statistics
-          allOf:
-          - $ref: '#/components/schemas/BaseStatus'
-        zoneIngresses:
-          description: Zone Ingresses statistics
-          allOf:
-          - $ref: '#/components/schemas/BaseStatus'
-    FullStatus:
-      allOf:
-      - $ref: '#/components/schemas/BaseStatus'
-      - type: object
-        required:
-        - offline
-        - partiallyDegraded
-        properties:
-          offline:
-            type: integer
-            example: 15
-          partiallyDegraded:
-            type: integer
-            example: 5
-    DataplanesStats:
-      type: object
-      title: Dataplanes Stats
-      description: Dataplanes statistics
-      required:
-      - standard
-      - gatewayBuiltin
-      - gatewayDelegated
-      properties:
-        standard:
-          description: Standard dataplane proxy statistics
-          allOf:
-          - $ref: '#/components/schemas/FullStatus'
-        gatewayBuiltin:
-          description: Builtin Gateway dataplane proxy statistics
-          allOf:
-          - $ref: '#/components/schemas/FullStatus'
-        gatewayDelegated:
-          description: Delegated Gateway dataplane proxy statistics
-          allOf:
-          - $ref: '#/components/schemas/FullStatus'
-    PoliciesStats:
-      type: object
-      title: Policies Stats
-      description: Policies statistics
-      required:
-      - total
-      properties:
-        total:
-          type: integer
-          description: Number of policies
-          example: 30
     InvalidParameters:
       type: object
       title: Invalid Parameters
@@ -192,6 +137,49 @@ components:
           - query
           - header
           - path
+    MeshesStats:
+      type: object
+      title: Meshes Stats
+      description: Mesh statistics
+      required:
+      - total
+      properties:
+        total:
+          type: integer
+          description: Number of meshes
+          example: 3
+    ZonesStats:
+      type: object
+      title: Zones Stats
+      description: Zone statistics
+      required:
+      - controlPlanes
+      - zoneEgresses
+      - zoneIngresses
+      properties:
+        controlPlanes:
+          description: Control Planes statistics
+          allOf:
+          - $ref: '#/components/schemas/BaseStatus'
+        zoneEgresses:
+          description: Zone Egresses statistics
+          allOf:
+          - $ref: '#/components/schemas/BaseStatus'
+        zoneIngresses:
+          description: Zone Ingresses statistics
+          allOf:
+          - $ref: '#/components/schemas/BaseStatus'
+    PoliciesStats:
+      type: object
+      title: Policies Stats
+      description: Policies statistics
+      required:
+      - total
+      properties:
+        total:
+          type: integer
+          description: Number of policies
+          example: 30
     Error:
       type: object
       title: Error
@@ -313,28 +301,40 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/ResourceStats'
           description: A map of resource names to their corresponding statistics
-  responses:
-    Internal:
-      description: Internal Server Error
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    GlobalInsightResponse:
-      description: A response containing global insight.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/GlobalInsightBase'
-          examples:
-            Single control plane response:
-              $ref: '#/components/examples/GlobalInsightExample'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    BaseStatus:
+      type: object
+      title: Status
+      required:
+      - online
+      - total
+      properties:
+        online:
+          type: integer
+          example: 10
+        total:
+          type: integer
+          example: 30
+    DataplanesStats:
+      type: object
+      title: Dataplanes Stats
+      description: Dataplanes statistics
+      required:
+      - standard
+      - gatewayBuiltin
+      - gatewayDelegated
+      properties:
+        standard:
+          description: Standard dataplane proxy statistics
+          allOf:
+          - $ref: '#/components/schemas/FullStatus'
+        gatewayBuiltin:
+          description: Builtin Gateway dataplane proxy statistics
+          allOf:
+          - $ref: '#/components/schemas/FullStatus'
+        gatewayDelegated:
+          description: Delegated Gateway dataplane proxy statistics
+          allOf:
+          - $ref: '#/components/schemas/FullStatus'
   examples:
     GlobalInsightExample:
       value:

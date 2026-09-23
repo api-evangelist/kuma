@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Kuma Dataplane MeshZoneAddress API
+  title: Kuma Mesh Zone Address API
   description: Kuma API
   version: v1alpha1
   x-ref-schema-name: DataplaneOverview
@@ -91,7 +91,7 @@ paths:
   /meshes/{mesh}/meshzoneaddresses:
     get:
       operationId: getMeshZoneAddressList
-      summary: Returns a list of MeshZoneAddress in the mesh.
+      summary: Returns a list of MeshZoneAddress in the mesh
       tags:
       - MeshZoneAddress
       parameters:
@@ -135,65 +135,6 @@ paths:
           $ref: '#/components/responses/MeshZoneAddressList'
 components:
   schemas:
-    MeshZoneAddressItem:
-      type: object
-      description: MeshZoneAddress holds the public address and port for a mesh-scoped zone ingress proxy.
-      required:
-      - type
-      - name
-      - spec
-      properties:
-        type:
-          description: the type of the resource
-          type: string
-          enum:
-          - MeshZoneAddress
-        mesh:
-          description: Mesh is the name of the Kuma mesh this resource belongs to. It may be omitted for cluster-scoped resources.
-          type: string
-          default: default
-        kri:
-          description: A unique identifier for this resource instance used by internal tooling and integrations. Typically derived from resource attributes and may be used for cross-references or indexing
-          type: string
-          readOnly: true
-          example: kri_mza_default_zone-east_kuma-demo_myresource1_
-        name:
-          description: Name of the Kuma resource
-          type: string
-        labels:
-          additionalProperties:
-            type: string
-          description: The labels to help identity resources
-          type: object
-        spec:
-          description: Spec is the specification of the Kuma MeshZoneAddress resource.
-          properties:
-            address:
-              description: Address is the publicly reachable address of the zone ingress.
-              minLength: 1
-              type: string
-            port:
-              description: Port is the publicly reachable port of the zone ingress.
-              format: int32
-              maximum: 65535
-              minimum: 1
-              type: integer
-          required:
-          - address
-          - port
-          type: object
-        creationTime:
-          readOnly: true
-          type: string
-          description: Time at which the resource was created
-          format: date-time
-          example: '0001-01-01T00:00:00Z'
-        modificationTime:
-          readOnly: true
-          type: string
-          description: Time at which the resource was updated
-          format: date-time
-          example: '0001-01-01T00:00:00Z'
     NotFoundError:
       allOf:
       - $ref: '#/components/schemas/Error'
@@ -258,6 +199,65 @@ components:
           - query
           - header
           - path
+    MeshZoneAddressItem:
+      type: object
+      description: MeshZoneAddress holds the public address and port for a mesh-scoped zone ingress proxy.
+      required:
+      - type
+      - name
+      - spec
+      properties:
+        type:
+          description: the type of the resource
+          type: string
+          enum:
+          - MeshZoneAddress
+        mesh:
+          description: Mesh is the name of the Kuma mesh this resource belongs to. It may be omitted for cluster-scoped resources.
+          type: string
+          default: default
+        kri:
+          description: A unique identifier for this resource instance used by internal tooling and integrations. Typically derived from resource attributes and may be used for cross-references or indexing
+          type: string
+          readOnly: true
+          example: kri_mza_default_zone-east_kuma-demo_myresource1_
+        name:
+          description: Name of the Kuma resource
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          description: The labels to help identity resources
+          type: object
+        spec:
+          description: Spec is the specification of the Kuma MeshZoneAddress resource.
+          properties:
+            address:
+              description: Address is the publicly reachable address of the zone ingress.
+              minLength: 1
+              type: string
+            port:
+              description: Port is the publicly reachable port of the zone ingress.
+              format: int32
+              maximum: 65535
+              minimum: 1
+              type: integer
+          required:
+          - address
+          - port
+          type: object
+        creationTime:
+          readOnly: true
+          type: string
+          description: Time at which the resource was created
+          format: date-time
+          example: '0001-01-01T00:00:00Z'
+        modificationTime:
+          readOnly: true
+          type: string
+          description: Time at which the resource was updated
+          format: date-time
+          example: '0001-01-01T00:00:00Z'
     Error:
       type: object
       title: Error
@@ -326,29 +326,6 @@ components:
           items:
             $ref: '#/components/schemas/InvalidParameters'
   responses:
-    MeshZoneAddressList:
-      description: List
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MeshZoneAddressItem'
-              total:
-                type: number
-                description: The total number of entities
-              next:
-                type: string
-                description: URL to the next page
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
     MeshZoneAddressCreateOrUpdateSuccessResponse:
       description: Successful response
       content:
@@ -366,18 +343,41 @@ components:
                   '
                 items:
                   type: string
-    MeshZoneAddressItem:
-      description: Successful response
+    NotFound:
+      description: Not Found
       content:
-        application/json:
+        application/problem+json:
           schema:
-            $ref: '#/components/schemas/MeshZoneAddressItem'
+            $ref: '#/components/schemas/NotFoundError'
     MeshZoneAddressDeleteSuccessResponse:
       description: Successful response
       content:
         application/json:
           schema:
             type: object
+    MeshZoneAddressItem:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MeshZoneAddressItem'
+    MeshZoneAddressList:
+      description: List
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeshZoneAddressItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
   securitySchemes:
     BasicAuth:
       type: http
