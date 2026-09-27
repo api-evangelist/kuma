@@ -135,41 +135,6 @@ paths:
       - MeshGateway
 components:
   schemas:
-    NotFoundError:
-      allOf:
-      - $ref: '#/components/schemas/Error'
-      - type: object
-        properties:
-          status:
-            type: integer
-            enum:
-            - 404
-            example: 404
-            description: 'The HTTP status code for NotFoundError MUST be 404.
-
-              '
-          title:
-            type: string
-            example: Not Found
-          type:
-            type: string
-            example: https://httpstatuses.com/404
-          detail:
-            type: string
-            example: The requested resource was not found
-    DataSource_InlineString:
-      properties:
-        inlineString:
-          description: Data source is inline string
-          type: string
-      type: object
-    DataSource_Inline:
-      properties:
-        inline:
-          description: Data source is inline bytes.
-          format: byte
-          type: string
-      type: object
     InvalidParameters:
       type: object
       title: Invalid Parameters
@@ -212,14 +177,6 @@ components:
           - query
           - header
           - path
-    DataSource_File:
-      properties:
-        file:
-          description: 'Data source is a path to a file.
-
-            Deprecated, use other sources of a data.'
-          type: string
-      type: object
     MeshGatewayItem:
       properties:
         conf:
@@ -370,6 +327,41 @@ components:
       - name
       - mesh
       type: object
+    DataSource_InlineString:
+      properties:
+        inlineString:
+          description: Data source is inline string
+          type: string
+      type: object
+    DataSource_Inline:
+      properties:
+        inline:
+          description: Data source is inline bytes.
+          format: byte
+          type: string
+      type: object
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
     DataSource_Secret:
       properties:
         secret:
@@ -443,36 +435,15 @@ components:
             '
           items:
             $ref: '#/components/schemas/InvalidParameters'
+    DataSource_File:
+      properties:
+        file:
+          description: 'Data source is a path to a file.
+
+            Deprecated, use other sources of a data.'
+          type: string
+      type: object
   responses:
-    MeshGatewayList:
-      content:
-        application/json:
-          schema:
-            properties:
-              items:
-                items:
-                  $ref: '#/components/schemas/MeshGatewayItem'
-                type: array
-              next:
-                description: URL to the next page
-                type: string
-              total:
-                description: The total number of entities
-                type: number
-            type: object
-      description: List
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
-    MeshGatewayItem:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MeshGatewayItem'
-      description: Successful response
     MeshGatewayDeleteSuccessResponse:
       content:
         application/json:
@@ -496,6 +467,35 @@ components:
                 type: array
             type: object
       description: Successful response
+    MeshGatewayList:
+      content:
+        application/json:
+          schema:
+            properties:
+              items:
+                items:
+                  $ref: '#/components/schemas/MeshGatewayItem'
+                type: array
+              next:
+                description: URL to the next page
+                type: string
+              total:
+                description: The total number of entities
+                type: number
+            type: object
+      description: List
+    MeshGatewayItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MeshGatewayItem'
+      description: Successful response
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
   securitySchemes:
     BasicAuth:
       type: http

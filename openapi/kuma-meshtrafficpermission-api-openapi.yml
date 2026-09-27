@@ -135,28 +135,6 @@ paths:
           $ref: '#/components/responses/MeshTrafficPermissionList'
 components:
   schemas:
-    NotFoundError:
-      allOf:
-      - $ref: '#/components/schemas/Error'
-      - type: object
-        properties:
-          status:
-            type: integer
-            enum:
-            - 404
-            example: 404
-            description: 'The HTTP status code for NotFoundError MUST be 404.
-
-              '
-          title:
-            type: string
-            example: Not Found
-          type:
-            type: string
-            example: https://httpstatuses.com/404
-          detail:
-            type: string
-            example: The requested resource was not found
     InvalidParameters:
       type: object
       title: Invalid Parameters
@@ -199,6 +177,28 @@ components:
           - query
           - header
           - path
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
     MeshTrafficPermissionItem:
       type: object
       description: MeshTrafficPermission controls which services are allowed to communicate with each other in the mesh. It provides fine-grained access control by allowing you to define allow/deny rules based on service identity, enabling zero-trust security and supporting shadow mode for testing permission changes before enforcement.
@@ -541,29 +541,12 @@ components:
           items:
             $ref: '#/components/schemas/InvalidParameters'
   responses:
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
-    MeshTrafficPermissionList:
-      description: List
+    MeshTrafficPermissionItem:
+      description: Successful response
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MeshTrafficPermissionItem'
-              total:
-                type: number
-                description: The total number of entities
-              next:
-                type: string
-                description: URL to the next page
+            $ref: '#/components/schemas/MeshTrafficPermissionItem'
     MeshTrafficPermissionCreateOrUpdateSuccessResponse:
       description: Successful response
       content:
@@ -581,18 +564,35 @@ components:
                   '
                 items:
                   type: string
-    MeshTrafficPermissionItem:
-      description: Successful response
+    MeshTrafficPermissionList:
+      description: List
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/MeshTrafficPermissionItem'
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeshTrafficPermissionItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
     MeshTrafficPermissionDeleteSuccessResponse:
       description: Successful response
       content:
         application/json:
           schema:
             type: object
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
   securitySchemes:
     BasicAuth:
       type: http

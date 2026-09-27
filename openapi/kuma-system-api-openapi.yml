@@ -41,31 +41,6 @@ paths:
           $ref: '#/components/responses/Internal'
 components:
   schemas:
-    PolicyDescription:
-      type: object
-      required:
-      - hasToTargetRef
-      - hasFromTargetRef
-      - hasRulesTargetRef
-      - isTargetRef
-      - isFromAsRules
-      description: information about a policy
-      properties:
-        isTargetRef:
-          description: whether this policy uses targetRef matching
-          type: boolean
-        hasToTargetRef:
-          description: indicates that this policy can be used as an outbound policy
-          type: boolean
-        hasFromTargetRef:
-          description: indicates that this policy can be used as an inbound policy
-          type: boolean
-        hasRulesTargetRef:
-          description: indicates that the policy has a rules targetRef field for matching
-          type: boolean
-        isFromAsRules:
-          description: If set to `true`, performs a backward compatibility conversion from the deprecated 'from' array to the new 'rules' array. This ensures older policies remain functional under the updated schema.
-          type: boolean
     InvalidParameters:
       type: object
       title: Invalid Parameters
@@ -108,38 +83,6 @@ components:
           - query
           - header
           - path
-    Index:
-      type: object
-      title: Index
-      description: Some metadata about the service
-      required:
-      - hostname
-      - product
-      - version
-      - instanceId
-      - clusterId
-      - gui
-      properties:
-        hostname:
-          type: string
-        product:
-          type: string
-          description: The product line (Kuma for OSS, different for other distributions)
-        version:
-          type: string
-          description: The semantic version of the server running
-        instanceId:
-          type: string
-          description: A unique id to identify the instance requested
-        clusterId:
-          type: string
-          description: A unique id to identify the cluster being connected to
-        gui:
-          type: string
-          description: The path to the GUI
-        basedOnKuma:
-          type: string
-          description: In case of an alternative distribution of Kuma the Kuma version this release is based on
     ResourceTypeDescription:
       description: Description of a resource type, this is useful for dynamically generated clients and the gui
       type: object
@@ -178,6 +121,74 @@ components:
           type: boolean
         policy:
           $ref: '#/components/schemas/PolicyDescription'
+    Index:
+      type: object
+      title: Index
+      description: Some metadata about the service
+      required:
+      - hostname
+      - product
+      - version
+      - instanceId
+      - clusterId
+      - gui
+      properties:
+        hostname:
+          type: string
+        product:
+          type: string
+          description: The product line (Kuma for OSS, different for other distributions)
+        version:
+          type: string
+          description: The semantic version of the server running
+        instanceId:
+          type: string
+          description: A unique id to identify the instance requested
+        clusterId:
+          type: string
+          description: A unique id to identify the cluster being connected to
+        gui:
+          type: string
+          description: The path to the GUI
+        basedOnKuma:
+          type: string
+          description: In case of an alternative distribution of Kuma the Kuma version this release is based on
+    PolicyDescription:
+      type: object
+      required:
+      - hasToTargetRef
+      - hasFromTargetRef
+      - hasRulesTargetRef
+      - isTargetRef
+      - isFromAsRules
+      description: information about a policy
+      properties:
+        isTargetRef:
+          description: whether this policy uses targetRef matching
+          type: boolean
+        hasToTargetRef:
+          description: indicates that this policy can be used as an outbound policy
+          type: boolean
+        hasFromTargetRef:
+          description: indicates that this policy can be used as an inbound policy
+          type: boolean
+        hasRulesTargetRef:
+          description: indicates that the policy has a rules targetRef field for matching
+          type: boolean
+        isFromAsRules:
+          description: If set to `true`, performs a backward compatibility conversion from the deprecated 'from' array to the new 'rules' array. This ensures older policies remain functional under the updated schema.
+          type: boolean
+    ResourceTypeDescriptionList:
+      type: object
+      title: ResourceTypeDescriptionList
+      description: A list of all resources install
+      required:
+      - resources
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceTypeDescription'
     Error:
       type: object
       title: Error
@@ -245,17 +256,6 @@ components:
             '
           items:
             $ref: '#/components/schemas/InvalidParameters'
-    ResourceTypeDescriptionList:
-      type: object
-      title: ResourceTypeDescriptionList
-      description: A list of all resources install
-      required:
-      - resources
-      properties:
-        resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceTypeDescription'
   responses:
     BadRequest:
       description: Bad Request
@@ -269,18 +269,18 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    IndexResponse:
-      description: A response for the index endpoint
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Index'
     ResourceTypeDescriptionListResponse:
       description: A response containing a list of all resources installed in Kuma
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResourceTypeDescriptionList'
+    IndexResponse:
+      description: A response for the index endpoint
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Index'
   securitySchemes:
     BasicAuth:
       type: http

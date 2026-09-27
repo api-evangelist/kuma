@@ -135,28 +135,6 @@ paths:
           $ref: '#/components/responses/MeshAccessLogList'
 components:
   schemas:
-    NotFoundError:
-      allOf:
-      - $ref: '#/components/schemas/Error'
-      - type: object
-        properties:
-          status:
-            type: integer
-            enum:
-            - 404
-            example: 404
-            description: 'The HTTP status code for NotFoundError MUST be 404.
-
-              '
-          title:
-            type: string
-            example: Not Found
-          type:
-            type: string
-            example: https://httpstatuses.com/404
-          detail:
-            type: string
-            example: The requested resource was not found
     InvalidParameters:
       type: object
       title: Invalid Parameters
@@ -199,6 +177,28 @@ components:
           - query
           - header
           - path
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
     MeshAccessLogItem:
       type: object
       description: MeshAccessLog configures access logging for traffic between services in the mesh. It allows you to capture and export request/response logs to various backends (file, TCP, or OpenTelemetry) for monitoring, debugging, and auditing purposes.
@@ -1132,35 +1132,12 @@ components:
           items:
             $ref: '#/components/schemas/InvalidParameters'
   responses:
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
     MeshAccessLogItem:
       description: Successful response
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/MeshAccessLogItem'
-    MeshAccessLogList:
-      description: List
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MeshAccessLogItem'
-              total:
-                type: number
-                description: The total number of entities
-              next:
-                type: string
-                description: URL to the next page
     MeshAccessLogDeleteSuccessResponse:
       description: Successful response
       content:
@@ -1184,6 +1161,29 @@ components:
                   '
                 items:
                   type: string
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+    MeshAccessLogList:
+      description: List
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeshAccessLogItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
   securitySchemes:
     BasicAuth:
       type: http

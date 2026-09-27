@@ -135,28 +135,6 @@ paths:
           $ref: '#/components/responses/MeshRateLimitList'
 components:
   schemas:
-    NotFoundError:
-      allOf:
-      - $ref: '#/components/schemas/Error'
-      - type: object
-        properties:
-          status:
-            type: integer
-            enum:
-            - 404
-            example: 404
-            description: 'The HTTP status code for NotFoundError MUST be 404.
-
-              '
-          title:
-            type: string
-            example: Not Found
-          type:
-            type: string
-            example: https://httpstatuses.com/404
-          detail:
-            type: string
-            example: The requested resource was not found
     InvalidParameters:
       type: object
       title: Invalid Parameters
@@ -199,73 +177,28 @@ components:
           - query
           - header
           - path
-    Error:
-      type: object
-      title: Error
-      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
 
-        '
-      x-examples:
-        Example 1:
-          status: 404
-          title: Not Found
-          type: https://kongapi.info/konnect/not-found
-          instance: portal:trace:2287285207635123011
-          detail: The requested document was not found
-      required:
-      - status
-      - title
-      - instance
-      - type
-      - detail
-      properties:
-        status:
-          type: integer
-          description: The HTTP status code.
-          example: 404
-        title:
-          type: string
-          description: 'A short, human-readable summary of the problem.
-
-            It **should not** change between occurrences of a problem, except for localization.
-
-            Should be provided as "Sentence case" for potential direct use in a UI
-
-            '
-          example: Not Found
-        type:
-          type: string
-          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
-
-            '
-          example: Not Found
-        instance:
-          type: string
-          example: portal:trace:2287285207635123011
-          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
-
-            '
-        detail:
-          type: string
-          example: The requested team was not found
-          description: 'A human readable explanation specific to this occurrence of the problem.
-
-            This field may contain request/entity data to help the user understand what went wrong.
-
-            Enclose variable values in square brackets.
-
-            _Should_ be provided as "Sentence case" for direct use in a UI
-
-            '
-        invalid_parameters:
-          type: array
-          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
-
-            Used to indicate which fields have invalid values when validated.
-
-            '
-          items:
-            $ref: '#/components/schemas/InvalidParameters'
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
     MeshRateLimitItem:
       type: object
       description: MeshRateLimit protects services from being overwhelmed by limiting the rate of incoming requests or connections. It supports local rate limiting for both HTTP (requests per interval) and TCP (connections per interval) traffic with customizable response codes and headers for rate-limited requests.
@@ -861,42 +794,80 @@ components:
           description: Time at which the resource was updated
           format: date-time
           example: '0001-01-01T00:00:00Z'
+    Error:
+      type: object
+      title: Error
+      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
+
+        '
+      x-examples:
+        Example 1:
+          status: 404
+          title: Not Found
+          type: https://kongapi.info/konnect/not-found
+          instance: portal:trace:2287285207635123011
+          detail: The requested document was not found
+      required:
+      - status
+      - title
+      - instance
+      - type
+      - detail
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+          example: 404
+        title:
+          type: string
+          description: 'A short, human-readable summary of the problem.
+
+            It **should not** change between occurrences of a problem, except for localization.
+
+            Should be provided as "Sentence case" for potential direct use in a UI
+
+            '
+          example: Not Found
+        type:
+          type: string
+          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
+
+            '
+          example: Not Found
+        instance:
+          type: string
+          example: portal:trace:2287285207635123011
+          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
+
+            '
+        detail:
+          type: string
+          example: The requested team was not found
+          description: 'A human readable explanation specific to this occurrence of the problem.
+
+            This field may contain request/entity data to help the user understand what went wrong.
+
+            Enclose variable values in square brackets.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI
+
+            '
+        invalid_parameters:
+          type: array
+          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
+
+            Used to indicate which fields have invalid values when validated.
+
+            '
+          items:
+            $ref: '#/components/schemas/InvalidParameters'
   responses:
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
     MeshRateLimitDeleteSuccessResponse:
       description: Successful response
       content:
         application/json:
           schema:
             type: object
-    MeshRateLimitItem:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MeshRateLimitItem'
-    MeshRateLimitList:
-      description: List
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MeshRateLimitItem'
-              total:
-                type: number
-                description: The total number of entities
-              next:
-                type: string
-                description: URL to the next page
     MeshRateLimitCreateOrUpdateSuccessResponse:
       description: Successful response
       content:
@@ -914,6 +885,35 @@ components:
                   '
                 items:
                   type: string
+    MeshRateLimitList:
+      description: List
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeshRateLimitItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
+    MeshRateLimitItem:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MeshRateLimitItem'
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
   securitySchemes:
     BasicAuth:
       type: http

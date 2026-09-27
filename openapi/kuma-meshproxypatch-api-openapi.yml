@@ -135,28 +135,6 @@ paths:
           $ref: '#/components/responses/MeshProxyPatchList'
 components:
   schemas:
-    NotFoundError:
-      allOf:
-      - $ref: '#/components/schemas/Error'
-      - type: object
-        properties:
-          status:
-            type: integer
-            enum:
-            - 404
-            example: 404
-            description: 'The HTTP status code for NotFoundError MUST be 404.
-
-              '
-          title:
-            type: string
-            example: Not Found
-          type:
-            type: string
-            example: https://httpstatuses.com/404
-          detail:
-            type: string
-            example: The requested resource was not found
     InvalidParameters:
       type: object
       title: Invalid Parameters
@@ -826,13 +804,35 @@ components:
             '
           items:
             $ref: '#/components/schemas/InvalidParameters'
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
   responses:
-    NotFound:
-      description: Not Found
+    MeshProxyPatchDeleteSuccessResponse:
+      description: Successful response
       content:
-        application/problem+json:
+        application/json:
           schema:
-            $ref: '#/components/schemas/NotFoundError'
+            type: object
     MeshProxyPatchCreateOrUpdateSuccessResponse:
       description: Successful response
       content:
@@ -850,12 +850,6 @@ components:
                   '
                 items:
                   type: string
-    MeshProxyPatchItem:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MeshProxyPatchItem'
     MeshProxyPatchList:
       description: List
       content:
@@ -873,12 +867,18 @@ components:
               next:
                 type: string
                 description: URL to the next page
-    MeshProxyPatchDeleteSuccessResponse:
+    MeshProxyPatchItem:
       description: Successful response
       content:
         application/json:
           schema:
-            type: object
+            $ref: '#/components/schemas/MeshProxyPatchItem'
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
   securitySchemes:
     BasicAuth:
       type: http
