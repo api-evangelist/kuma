@@ -193,6 +193,22 @@ paths:
           $ref: '#/components/responses/Internal'
 components:
   schemas:
+    ProxyRule:
+      description: a rule that affects the entire proxy
+      type: object
+      required:
+      - conf
+      - origin
+      properties:
+        conf:
+          description: The actual conf generated
+          type: object
+          additionalProperties: true
+          x-go-type: interface{}
+        origin:
+          type: array
+          items:
+            $ref: '#/components/schemas/Meta'
     InspectRules:
       type: object
       title: InspectRules
@@ -212,113 +228,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HttpMatch'
-    InspectHostnameZone:
-      type: object
-      title: InspectHostnameZone
-      description: A name of the zone in which the hostname is available
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          example: east
-    RuleMatcher:
-      type: object
-      required:
-      - key
-      - value
-      - not
-      description: A matcher to select which traffic this conf applies to
-      properties:
-        key:
-          type: string
-          description: the key to match against
-          example: kuma.io/service
-        value:
-          type: string
-          description: the value for the key to match against
-          example: my-cool-service
-        not:
-          type: boolean
-          description: whether we check on the absence of this key:value pair
-    Inbound:
-      type: object
-      required:
-      - tags
-      - port
-      properties:
-        name:
-          type: string
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-          x-go-type: map[string]string
-        port:
-          type: integer
-    FromRule:
-      type: object
-      required:
-      - rules
-      - inbound
-      properties:
-        inbound:
-          $ref: '#/components/schemas/Inbound'
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rule'
-    HttpMatch:
-      type: object
-      required:
-      - hash
-      - match
-      properties:
-        hash:
-          type: string
-        match:
-          type: object
-          x-go-type: interface{}
-    InspectDataplanesForPolicy:
-      type: object
-      title: InspectDataplanesForPolicy
-      description: A list of proxies
-      required:
-      - total
-      - items
-      properties:
-        total:
-          type: integer
-          example: 200
-        next:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Meta'
-    ResourceRule:
-      type: object
-      required:
-      - resourceMeta
-      - conf
-      - origin
-      properties:
-        resourceMeta:
-          $ref: '#/components/schemas/Meta'
-        resourceSectionName:
-          type: string
-        conf:
-          description: The actual conf generated
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-            x-go-type: interface{}
-        origin:
-          type: array
-          description: The list of policies that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
-          items:
-            $ref: '#/components/schemas/ResourceRuleOrigin'
     InspectRule:
       type: object
       required:
@@ -357,64 +266,192 @@ components:
           - Mesh is not Mtls enabled this policy will have no effect
           items:
             type: string
-    ProxyRule:
-      description: a rule that affects the entire proxy
+    ResourceRuleOrigin:
+      type: object
+      properties:
+        resourceMeta:
+          $ref: '#/components/schemas/Meta'
+        ruleIndex:
+          description: index of the to-item in the policy
+          type: integer
+    RuleMatcher:
+      type: object
+      required:
+      - key
+      - value
+      - not
+      description: A matcher to select which traffic this conf applies to
+      properties:
+        key:
+          type: string
+          description: the key to match against
+          example: kuma.io/service
+        value:
+          type: string
+          description: the value for the key to match against
+          example: my-cool-service
+        not:
+          type: boolean
+          description: whether we check on the absence of this key:value pair
+    InspectHostnameZone:
+      type: object
+      title: InspectHostnameZone
+      description: A name of the zone in which the hostname is available
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          example: east
+    ResourceRule:
+      type: object
+      required:
+      - resourceMeta
+      - conf
+      - origin
+      properties:
+        resourceMeta:
+          $ref: '#/components/schemas/Meta'
+        resourceSectionName:
+          type: string
+        conf:
+          description: The actual conf generated
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+            x-go-type: interface{}
+        origin:
+          type: array
+          description: The list of policies that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
+          items:
+            $ref: '#/components/schemas/ResourceRuleOrigin'
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
+    HttpMatch:
+      type: object
+      required:
+      - hash
+      - match
+      properties:
+        hash:
+          type: string
+        match:
+          type: object
+          x-go-type: interface{}
+    FromRule:
+      type: object
+      required:
+      - rules
+      - inbound
+      properties:
+        inbound:
+          $ref: '#/components/schemas/Inbound'
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+    InspectHostnames:
+      type: object
+      title: InspectHostnames
+      description: A list of hostnames
+      required:
+      - total
+      - items
+      properties:
+        total:
+          type: integer
+          example: 200
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/InspectHostname'
+    Inbound:
+      type: object
+      required:
+      - tags
+      - port
+      properties:
+        name:
+          type: string
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          x-go-type: map[string]string
+        port:
+          type: integer
+    InspectDataplanesForPolicy:
+      type: object
+      title: InspectDataplanesForPolicy
+      description: A list of proxies
+      required:
+      - total
+      - items
+      properties:
+        total:
+          type: integer
+          example: 200
+        next:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Meta'
+    InboundRule:
       type: object
       required:
       - conf
       - origin
       properties:
         conf:
-          description: The actual conf generated
-          type: object
-          additionalProperties: true
-          x-go-type: interface{}
+          description: The final computed configuration for the data plane proxy, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+            x-go-type: interface{}
         origin:
           type: array
+          description: The list of policies that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
           items:
-            $ref: '#/components/schemas/Meta'
-    InvalidParameters:
+            $ref: '#/components/schemas/ResourceRuleOrigin'
+    InspectHostname:
       type: object
-      title: Invalid Parameters
+      title: InspectHostname
+      description: An supported hostname along with the zones it exists in
       required:
-      - field
-      - reason
-      - source
+      - hostname
+      - zones
       properties:
-        field:
+        hostname:
           type: string
-          description: The name of the field that caused the error.
-        reason:
-          type: string
-          description: 'A short, human-readable description of the problem.
-
-            _Should_ be provided as "Sentence case" for direct use in a UI.
-
-            '
-        rule:
-          type: string
-          description: 'May be provided as a hint to the user to help understand the type of failure.
-
-            Additional guidance may be provided in additional fields, i.e. `choices`.
-
-            '
-        choices:
+          description: Generated hostname
+          example: redis.redis-system.svc.east.mesh.local
+        zones:
           type: array
-          description: 'Optional field to provide a list of valid choices for the field that caused the error.
-
-            '
           items:
-            type: string
-        source:
-          type: string
-          description: 'The location of the field that caused the error.
-
-            '
-          enum:
-          - body
-          - query
-          - header
-          - path
+            $ref: '#/components/schemas/InspectHostnameZone'
     Meta:
       type: object
       required:
@@ -459,84 +496,6 @@ components:
             - `kuma.io/display-name`: Display name for the resource. Immutable.
 
             '
-    InspectHostnames:
-      type: object
-      title: InspectHostnames
-      description: A list of hostnames
-      required:
-      - total
-      - items
-      properties:
-        total:
-          type: integer
-          example: 200
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/InspectHostname'
-    ResourceRuleOrigin:
-      type: object
-      properties:
-        resourceMeta:
-          $ref: '#/components/schemas/Meta'
-        ruleIndex:
-          description: index of the to-item in the policy
-          type: integer
-    InboundRulesEntry:
-      type: object
-      required:
-      - inbound
-      - rules
-      properties:
-        inbound:
-          $ref: '#/components/schemas/Inbound'
-        rules:
-          type: array
-          description: The 'rules' field is an array to allow for future expansion when 'matches' conditions are added. Currently, it contains a single item.
-          items:
-            $ref: '#/components/schemas/InboundRule'
-    Rule:
-      type: object
-      required:
-      - matchers
-      - conf
-      - origin
-      properties:
-        matchers:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleMatcher'
-        conf:
-          description: The actual conf generated
-          type: object
-          additionalProperties: true
-          x-go-type: interface{}
-        origin:
-          type: array
-          items:
-            $ref: '#/components/schemas/Meta'
-    NotFoundError:
-      allOf:
-      - $ref: '#/components/schemas/Error'
-      - type: object
-        properties:
-          status:
-            type: integer
-            enum:
-            - 404
-            example: 404
-            description: 'The HTTP status code for NotFoundError MUST be 404.
-
-              '
-          title:
-            type: string
-            example: Not Found
-          type:
-            type: string
-            example: https://httpstatuses.com/404
-          detail:
-            type: string
-            example: The requested resource was not found
     Error:
       type: object
       title: Error
@@ -604,83 +563,81 @@ components:
             '
           items:
             $ref: '#/components/schemas/InvalidParameters'
-    InspectHostname:
+    InboundRulesEntry:
       type: object
-      title: InspectHostname
-      description: An supported hostname along with the zones it exists in
       required:
-      - hostname
-      - zones
+      - inbound
+      - rules
       properties:
-        hostname:
-          type: string
-          description: Generated hostname
-          example: redis.redis-system.svc.east.mesh.local
-        zones:
+        inbound:
+          $ref: '#/components/schemas/Inbound'
+        rules:
           type: array
+          description: The 'rules' field is an array to allow for future expansion when 'matches' conditions are added. Currently, it contains a single item.
           items:
-            $ref: '#/components/schemas/InspectHostnameZone'
-    InboundRule:
+            $ref: '#/components/schemas/InboundRule'
+    Rule:
       type: object
       required:
+      - matchers
       - conf
       - origin
       properties:
-        conf:
-          description: The final computed configuration for the data plane proxy, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
+        matchers:
           type: array
           items:
-            type: object
-            additionalProperties: true
-            x-go-type: interface{}
+            $ref: '#/components/schemas/RuleMatcher'
+        conf:
+          description: The actual conf generated
+          type: object
+          additionalProperties: true
+          x-go-type: interface{}
         origin:
           type: array
-          description: The list of policies that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
           items:
-            $ref: '#/components/schemas/ResourceRuleOrigin'
-  responses:
-    BadRequest:
-      description: Bad Request
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
-    InspectHostnamesResponse:
-      description: A response containing hostnames that match a service.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InspectHostnames'
-          examples:
-            ResponseForHostnames:
-              $ref: '#/components/examples/InspectHostnamesExample'
-    InspectDataplanesForPolicyResponse:
-      description: A response containing dataplanes that match a policy.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InspectDataplanesForPolicy'
-          examples:
-            ResponseForDataplane:
-              $ref: '#/components/examples/InspectDataplanesForPolicyExample'
-    Internal:
-      description: Internal Server Error
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    InspectRulesResponse:
-      description: A response containing policies that match a resource
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InspectRules'
+            $ref: '#/components/schemas/Meta'
+    InvalidParameters:
+      type: object
+      title: Invalid Parameters
+      required:
+      - field
+      - reason
+      - source
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI.
+
+            '
+        rule:
+          type: string
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
+
+            '
+        choices:
+          type: array
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+
+            '
+          items:
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
   examples:
     InspectDataplanesForPolicyExample:
       value:
@@ -705,6 +662,49 @@ components:
           zones:
           - name: east
           - name: west
+  responses:
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+    Internal:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    InspectHostnamesResponse:
+      description: A response containing hostnames that match a service.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InspectHostnames'
+          examples:
+            ResponseForHostnames:
+              $ref: '#/components/examples/InspectHostnamesExample'
+    InspectRulesResponse:
+      description: A response containing policies that match a resource
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InspectRules'
+    InspectDataplanesForPolicyResponse:
+      description: A response containing dataplanes that match a policy.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InspectDataplanesForPolicy'
+          examples:
+            ResponseForDataplane:
+              $ref: '#/components/examples/InspectDataplanesForPolicyExample'
   securitySchemes:
     BasicAuth:
       type: http

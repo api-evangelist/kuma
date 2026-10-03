@@ -301,38 +301,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    RoutesList:
-      type: object
-      required:
-      - routes
-      properties:
-        routes:
-          type: array
-          description: Computed list of routes
-          items:
-            $ref: '#/components/schemas/RouteConf'
-    PolicyRule:
-      type: object
-      required:
-      - conf
-      properties:
-        conf:
-          description: The final computed configuration for the data plane proxy, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
-          type: object
-          additionalProperties: true
-          x-go-type: interface{}
-        kri:
-          type: string
-    InboundPoliciesList:
-      type: object
-      required:
-      - policies
-      properties:
-        policies:
-          type: array
-          description: The final computed configuration, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
-          items:
-            $ref: '#/components/schemas/InboundPolicyConf'
     JsonPatchItem:
       type: object
       required:
@@ -435,292 +403,6 @@ components:
               - type: integer
           type: object
       type: object
-    PolicyOrigin:
-      type: object
-      required:
-      - kri
-      description: The list of policies KRI that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
-      properties:
-        kri:
-          type: string
-    PoliciesList:
-      type: object
-      required:
-      - policies
-      properties:
-        policies:
-          type: array
-          description: The final computed configuration, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
-          items:
-            $ref: '#/components/schemas/PolicyConf'
-    PolicyConf:
-      type: object
-      required:
-      - kind
-      - conf
-      - origins
-      properties:
-        kind:
-          type: string
-        conf:
-          description: The final computed configuration for the data plane proxy, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
-          type: object
-          additionalProperties: true
-          x-go-type: interface{}
-        origins:
-          type: array
-          description: The list of policies KRI that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
-          items:
-            $ref: '#/components/schemas/PolicyOrigin'
-    DataplaneOverviewWithMeta:
-      allOf:
-      - $ref: '#/components/schemas/Meta'
-      - $ref: '#/components/schemas/DataplaneOverview'
-    DataplaneInbound:
-      type: object
-      required:
-      - kri
-      - port
-      - protocol
-      - proxyResourceName
-      properties:
-        kri:
-          type: string
-        port:
-          type: integer
-          x-go-type: int32
-        protocol:
-          type: string
-        proxyResourceName:
-          type: string
-    DataplaneOutbound:
-      type: object
-      required:
-      - kri
-      - port
-      - protocol
-      - proxyResourceName
-      properties:
-        kri:
-          type: string
-        port:
-          type: integer
-          x-go-type: int32
-        protocol:
-          type: string
-        proxyResourceName:
-          type: string
-    InvalidParameters:
-      type: object
-      title: Invalid Parameters
-      required:
-      - field
-      - reason
-      - source
-      properties:
-        field:
-          type: string
-          description: The name of the field that caused the error.
-        reason:
-          type: string
-          description: 'A short, human-readable description of the problem.
-
-            _Should_ be provided as "Sentence case" for direct use in a UI.
-
-            '
-        rule:
-          type: string
-          description: 'May be provided as a hint to the user to help understand the type of failure.
-
-            Additional guidance may be provided in additional fields, i.e. `choices`.
-
-            '
-        choices:
-          type: array
-          description: 'Optional field to provide a list of valid choices for the field that caused the error.
-
-            '
-          items:
-            type: string
-        source:
-          type: string
-          description: 'The location of the field that caused the error.
-
-            '
-          enum:
-          - body
-          - query
-          - header
-          - path
-    InboundPolicyConf:
-      type: object
-      required:
-      - kind
-      - rules
-      - origins
-      properties:
-        kind:
-          type: string
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyRule'
-        origins:
-          type: array
-          description: The list of policies KRI that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
-          items:
-            $ref: '#/components/schemas/PolicyOrigin'
-    RouteRules:
-      type: object
-      required:
-      - kri
-      - conf
-      - matches
-      properties:
-        kri:
-          type: string
-        matches:
-          type: array
-          description: List of matches for which this rule will apply
-          items:
-            type: object
-            additionalProperties: true
-            x-go-type: interface{}
-        conf:
-          description: The final computed configuration for the data plane proxy, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
-          type: object
-          additionalProperties: true
-          x-go-type: interface{}
-    Meta:
-      type: object
-      required:
-      - type
-      - mesh
-      - name
-      - labels
-      properties:
-        type:
-          type: string
-          example: Dataplane
-          description: the type of this resource
-        mesh:
-          type: string
-          example: default
-          description: the mesh this resource is part of
-        name:
-          type: string
-          example: my-resource
-          description: the name of the resource
-        kri:
-          type: string
-          readOnly: true
-          x-go-name: KRI
-          example: kri_mtp_default_zone-east_kuma-demo_mypolicy1_
-          description: Kuma Resource Identifier (KRI) of the given resource
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-          example:
-            k8s.kuma.io/namespace: kuma-system
-            kuma.io/display-name: mtp
-            kuma.io/mesh: default
-            kuma.io/origin: zone
-          description: 'Labels of the resource. Note: certain system labels are immutable after creation:
-
-            - `kuma.io/origin`: Resource origin (zone/global). Immutable.
-
-            - `kuma.io/zone`: Zone where resource originated. Immutable.
-
-            - `kuma.io/display-name`: Display name for the resource. Immutable.
-
-            '
-    Error:
-      type: object
-      title: Error
-      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
-
-        '
-      x-examples:
-        Example 1:
-          status: 404
-          title: Not Found
-          type: https://kongapi.info/konnect/not-found
-          instance: portal:trace:2287285207635123011
-          detail: The requested document was not found
-      required:
-      - status
-      - title
-      - instance
-      - type
-      - detail
-      properties:
-        status:
-          type: integer
-          description: The HTTP status code.
-          example: 404
-        title:
-          type: string
-          description: 'A short, human-readable summary of the problem.
-
-            It **should not** change between occurrences of a problem, except for localization.
-
-            Should be provided as "Sentence case" for potential direct use in a UI
-
-            '
-          example: Not Found
-        type:
-          type: string
-          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
-
-            '
-          example: Not Found
-        instance:
-          type: string
-          example: portal:trace:2287285207635123011
-          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
-
-            '
-        detail:
-          type: string
-          example: The requested team was not found
-          description: 'A human readable explanation specific to this occurrence of the problem.
-
-            This field may contain request/entity data to help the user understand what went wrong.
-
-            Enclose variable values in square brackets.
-
-            _Should_ be provided as "Sentence case" for direct use in a UI
-
-            '
-        invalid_parameters:
-          type: array
-          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
-
-            Used to indicate which fields have invalid values when validated.
-
-            '
-          items:
-            $ref: '#/components/schemas/InvalidParameters'
-    RouteConf:
-      type: object
-      required:
-      - kind
-      - rules
-      - origins
-      properties:
-        kind:
-          type: string
-        rules:
-          type: array
-          description: Computed list of routing rules
-          items:
-            $ref: '#/components/schemas/RouteRules'
-        origins:
-          type: array
-          description: The list of policies KRI that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
-          items:
-            $ref: '#/components/schemas/PolicyOrigin'
     DataplaneListener:
       type: object
       required:
@@ -741,6 +423,28 @@ components:
           x-go-type: int32
         proxyResourceName:
           type: string
+    DataplaneOverviewWithMeta:
+      allOf:
+      - $ref: '#/components/schemas/Meta'
+      - $ref: '#/components/schemas/DataplaneOverview'
+    InboundPolicyConf:
+      type: object
+      required:
+      - kind
+      - rules
+      - origins
+      properties:
+        kind:
+          type: string
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyRule'
+        origins:
+          type: array
+          description: The list of policies KRI that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
+          items:
+            $ref: '#/components/schemas/PolicyOrigin'
     DataplaneOverview:
       description: DataplaneOverview defines the projected state of a Dataplane.
       properties:
@@ -1502,6 +1206,70 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/JsonPatchItem'
+    PoliciesList:
+      type: object
+      required:
+      - policies
+      properties:
+        policies:
+          type: array
+          description: The final computed configuration, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
+          items:
+            $ref: '#/components/schemas/PolicyConf'
+    DataplaneInbound:
+      type: object
+      required:
+      - kri
+      - port
+      - protocol
+      - proxyResourceName
+      properties:
+        kri:
+          type: string
+        port:
+          type: integer
+          x-go-type: int32
+        protocol:
+          type: string
+        proxyResourceName:
+          type: string
+    InboundPoliciesList:
+      type: object
+      required:
+      - policies
+      properties:
+        policies:
+          type: array
+          description: The final computed configuration, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
+          items:
+            $ref: '#/components/schemas/InboundPolicyConf'
+    RoutesList:
+      type: object
+      required:
+      - routes
+      properties:
+        routes:
+          type: array
+          description: Computed list of routes
+          items:
+            $ref: '#/components/schemas/RouteConf'
+    DataplaneOutbound:
+      type: object
+      required:
+      - kri
+      - port
+      - protocol
+      - proxyResourceName
+      properties:
+        kri:
+          type: string
+        port:
+          type: integer
+          x-go-type: int32
+        protocol:
+          type: string
+        proxyResourceName:
+          type: string
     DataplaneNetworkingLayout:
       type: object
       title: DataplaneLayout
@@ -1540,37 +1308,239 @@ components:
         spiffeId:
           type: string
           description: SPIFFE ID of the dataplane's workload identity certificate
+    PolicyConf:
+      type: object
+      required:
+      - kind
+      - conf
+      - origins
+      properties:
+        kind:
+          type: string
+        conf:
+          description: The final computed configuration for the data plane proxy, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
+          type: object
+          additionalProperties: true
+          x-go-type: interface{}
+        origins:
+          type: array
+          description: The list of policies KRI that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
+          items:
+            $ref: '#/components/schemas/PolicyOrigin'
+    PolicyRule:
+      type: object
+      required:
+      - conf
+      properties:
+        conf:
+          description: The final computed configuration for the data plane proxy, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
+          type: object
+          additionalProperties: true
+          x-go-type: interface{}
+        kri:
+          type: string
+    Meta:
+      type: object
+      required:
+      - type
+      - mesh
+      - name
+      - labels
+      properties:
+        type:
+          type: string
+          example: Dataplane
+          description: the type of this resource
+        mesh:
+          type: string
+          example: default
+          description: the mesh this resource is part of
+        name:
+          type: string
+          example: my-resource
+          description: the name of the resource
+        kri:
+          type: string
+          readOnly: true
+          x-go-name: KRI
+          example: kri_mtp_default_zone-east_kuma-demo_mypolicy1_
+          description: Kuma Resource Identifier (KRI) of the given resource
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            k8s.kuma.io/namespace: kuma-system
+            kuma.io/display-name: mtp
+            kuma.io/mesh: default
+            kuma.io/origin: zone
+          description: 'Labels of the resource. Note: certain system labels are immutable after creation:
+
+            - `kuma.io/origin`: Resource origin (zone/global). Immutable.
+
+            - `kuma.io/zone`: Zone where resource originated. Immutable.
+
+            - `kuma.io/display-name`: Display name for the resource. Immutable.
+
+            '
+    Error:
+      type: object
+      title: Error
+      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
+
+        '
+      x-examples:
+        Example 1:
+          status: 404
+          title: Not Found
+          type: https://kongapi.info/konnect/not-found
+          instance: portal:trace:2287285207635123011
+          detail: The requested document was not found
+      required:
+      - status
+      - title
+      - instance
+      - type
+      - detail
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+          example: 404
+        title:
+          type: string
+          description: 'A short, human-readable summary of the problem.
+
+            It **should not** change between occurrences of a problem, except for localization.
+
+            Should be provided as "Sentence case" for potential direct use in a UI
+
+            '
+          example: Not Found
+        type:
+          type: string
+          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
+
+            '
+          example: Not Found
+        instance:
+          type: string
+          example: portal:trace:2287285207635123011
+          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
+
+            '
+        detail:
+          type: string
+          example: The requested team was not found
+          description: 'A human readable explanation specific to this occurrence of the problem.
+
+            This field may contain request/entity data to help the user understand what went wrong.
+
+            Enclose variable values in square brackets.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI
+
+            '
+        invalid_parameters:
+          type: array
+          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
+
+            Used to indicate which fields have invalid values when validated.
+
+            '
+          items:
+            $ref: '#/components/schemas/InvalidParameters'
+    RouteRules:
+      type: object
+      required:
+      - kri
+      - conf
+      - matches
+      properties:
+        kri:
+          type: string
+        matches:
+          type: array
+          description: List of matches for which this rule will apply
+          items:
+            type: object
+            additionalProperties: true
+            x-go-type: interface{}
+        conf:
+          description: The final computed configuration for the data plane proxy, derived by merging all policies whose 'targetRef' field matches the proxy. The merging process follows [RFC 7396 (JSON Merge Patch)](https://datatracker.ietf.org/doc/html/rfc7396), with the order of merging influenced by factors such as where the policy was applied (e.g., custom namespace, system, or global control plane), policy role, and targetRef specificity.
+          type: object
+          additionalProperties: true
+          x-go-type: interface{}
+    PolicyOrigin:
+      type: object
+      required:
+      - kri
+      description: The list of policies KRI that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
+      properties:
+        kri:
+          type: string
+    InvalidParameters:
+      type: object
+      title: Invalid Parameters
+      required:
+      - field
+      - reason
+      - source
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI.
+
+            '
+        rule:
+          type: string
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
+
+            '
+        choices:
+          type: array
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+
+            '
+          items:
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
+    RouteConf:
+      type: object
+      required:
+      - kind
+      - rules
+      - origins
+      properties:
+        kind:
+          type: string
+        rules:
+          type: array
+          description: Computed list of routing rules
+          items:
+            $ref: '#/components/schemas/RouteRules'
+        origins:
+          type: array
+          description: The list of policies KRI that contributed to the 'conf'. The order is important as it reflects in what order confs were merged to get the resulting 'conf'.
+          items:
+            $ref: '#/components/schemas/PolicyOrigin'
   responses:
-    OutboundPolicyConfResponse:
-      description: A response containing policies configuration for selected outbound
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/PoliciesList'
-    GetDataplaneXDSConfigResponse:
-      description: Successfully retrieved proxy XDS config.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/DataplaneXDSConfig'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ProxyPolicyConfResponse:
-      description: A response containing policies configuration for selected dataplane
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/PoliciesList'
-    InboundPolicyConfResponse:
-      description: A response containing policies configuration for selected inbound
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InboundPoliciesList'
     GetDataplaneOverviewResponse:
       description: A response containing the overview of a dataplane.
       content:
@@ -1583,24 +1553,54 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/RoutesList'
-    RoutePolicyConfResponse:
-      description: A response containing policies configuration for selected route
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/PoliciesList'
     Internal:
       description: Internal Server Error
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ProxyPolicyConfResponse:
+      description: A response containing policies configuration for selected dataplane
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PoliciesList'
     DataplaneNetworkingLayoutResponse:
       description: A response containing dataplane networking layout.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/DataplaneNetworkingLayout'
+    OutboundPolicyConfResponse:
+      description: A response containing policies configuration for selected outbound
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PoliciesList'
+    InboundPolicyConfResponse:
+      description: A response containing policies configuration for selected inbound
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InboundPoliciesList'
+    GetDataplaneXDSConfigResponse:
+      description: Successfully retrieved proxy XDS config.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataplaneXDSConfig'
+    RoutePolicyConfResponse:
+      description: A response containing policies configuration for selected route
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PoliciesList'
     GetDataplaneOverviewListResponse:
       description: A response containing the overview of a dataplane.
       content:

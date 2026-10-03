@@ -111,106 +111,6 @@ paths:
       - ZoneEgress
 components:
   schemas:
-    InvalidParameters:
-      type: object
-      title: Invalid Parameters
-      required:
-      - field
-      - reason
-      - source
-      properties:
-        field:
-          type: string
-          description: The name of the field that caused the error.
-        reason:
-          type: string
-          description: 'A short, human-readable description of the problem.
-
-            _Should_ be provided as "Sentence case" for direct use in a UI.
-
-            '
-        rule:
-          type: string
-          description: 'May be provided as a hint to the user to help understand the type of failure.
-
-            Additional guidance may be provided in additional fields, i.e. `choices`.
-
-            '
-        choices:
-          type: array
-          description: 'Optional field to provide a list of valid choices for the field that caused the error.
-
-            '
-          items:
-            type: string
-        source:
-          type: string
-          description: 'The location of the field that caused the error.
-
-            '
-          enum:
-          - body
-          - query
-          - header
-          - path
-    NotFoundError:
-      allOf:
-      - $ref: '#/components/schemas/Error'
-      - type: object
-        properties:
-          status:
-            type: integer
-            enum:
-            - 404
-            example: 404
-            description: 'The HTTP status code for NotFoundError MUST be 404.
-
-              '
-          title:
-            type: string
-            example: Not Found
-          type:
-            type: string
-            example: https://httpstatuses.com/404
-          detail:
-            type: string
-            example: The requested resource was not found
-    ZoneEgressItem:
-      properties:
-        labels:
-          additionalProperties:
-            type: string
-          type: object
-        name:
-          type: string
-        networking:
-          description: Networking defines the address and port of the Egress to listen on.
-          properties:
-            address:
-              description: Address on which inbound listener will be exposed
-              type: string
-            admin:
-              description: Admin contains configuration related to Envoy Admin API
-              properties:
-                port:
-                  description: Port on which Envoy Admin API server will be listening
-                  type: integer
-              type: object
-            port:
-              description: Port of the inbound interface that will forward requests to the service.
-              type: integer
-          type: object
-        type:
-          type: string
-        zone:
-          description: 'Zone field contains Zone name where egress is serving, field will be
-
-            automatically set by Global Kuma CP'
-          type: string
-      required:
-      - type
-      - name
-      type: object
     Error:
       type: object
       title: Error
@@ -278,7 +178,113 @@ components:
             '
           items:
             $ref: '#/components/schemas/InvalidParameters'
+    InvalidParameters:
+      type: object
+      title: Invalid Parameters
+      required:
+      - field
+      - reason
+      - source
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI.
+
+            '
+        rule:
+          type: string
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
+
+            '
+        choices:
+          type: array
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+
+            '
+          items:
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
+    ZoneEgressItem:
+      properties:
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+        name:
+          type: string
+        networking:
+          description: Networking defines the address and port of the Egress to listen on.
+          properties:
+            address:
+              description: Address on which inbound listener will be exposed
+              type: string
+            admin:
+              description: Admin contains configuration related to Envoy Admin API
+              properties:
+                port:
+                  description: Port on which Envoy Admin API server will be listening
+                  type: integer
+              type: object
+            port:
+              description: Port of the inbound interface that will forward requests to the service.
+              type: integer
+          type: object
+        type:
+          type: string
+        zone:
+          description: 'Zone field contains Zone name where egress is serving, field will be
+
+            automatically set by Global Kuma CP'
+          type: string
+      required:
+      - type
+      - name
+      type: object
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
   responses:
+    ZoneEgressItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ZoneEgressItem'
+      description: Successful response
     ZoneEgressCreateOrUpdateSuccessResponse:
       content:
         application/json:
@@ -296,24 +302,6 @@ components:
                 type: array
             type: object
       description: Successful response
-    ZoneEgressItem:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ZoneEgressItem'
-      description: Successful response
-    ZoneEgressDeleteSuccessResponse:
-      content:
-        application/json:
-          schema:
-            type: object
-      description: Successful response
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
     ZoneEgressList:
       content:
         application/json:
@@ -331,6 +319,18 @@ components:
                 type: number
             type: object
       description: List
+    ZoneEgressDeleteSuccessResponse:
+      content:
+        application/json:
+          schema:
+            type: object
+      description: Successful response
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
   securitySchemes:
     BasicAuth:
       type: http

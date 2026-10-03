@@ -134,49 +134,127 @@ paths:
         '200':
           $ref: '#/components/responses/MeshProxyPatchList'
 components:
+  responses:
+    MeshProxyPatchCreateOrUpdateSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              warnings:
+                type: array
+                readOnly: true
+                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
+
+                  Warning messages describe a problem the client making the API request should correct or be aware of.
+
+                  '
+                items:
+                  type: string
+    MeshProxyPatchList:
+      description: List
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeshProxyPatchItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
+    MeshProxyPatchDeleteSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+    MeshProxyPatchItem:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MeshProxyPatchItem'
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
   schemas:
-    InvalidParameters:
+    Error:
       type: object
-      title: Invalid Parameters
+      title: Error
+      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
+
+        '
+      x-examples:
+        Example 1:
+          status: 404
+          title: Not Found
+          type: https://kongapi.info/konnect/not-found
+          instance: portal:trace:2287285207635123011
+          detail: The requested document was not found
       required:
-      - field
-      - reason
-      - source
+      - status
+      - title
+      - instance
+      - type
+      - detail
       properties:
-        field:
+        status:
+          type: integer
+          description: The HTTP status code.
+          example: 404
+        title:
           type: string
-          description: The name of the field that caused the error.
-        reason:
-          type: string
-          description: 'A short, human-readable description of the problem.
+          description: 'A short, human-readable summary of the problem.
 
-            _Should_ be provided as "Sentence case" for direct use in a UI.
+            It **should not** change between occurrences of a problem, except for localization.
+
+            Should be provided as "Sentence case" for potential direct use in a UI
 
             '
-        rule:
+          example: Not Found
+        type:
           type: string
-          description: 'May be provided as a hint to the user to help understand the type of failure.
-
-            Additional guidance may be provided in additional fields, i.e. `choices`.
+          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
 
             '
-        choices:
+          example: Not Found
+        instance:
+          type: string
+          example: portal:trace:2287285207635123011
+          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
+
+            '
+        detail:
+          type: string
+          example: The requested team was not found
+          description: 'A human readable explanation specific to this occurrence of the problem.
+
+            This field may contain request/entity data to help the user understand what went wrong.
+
+            Enclose variable values in square brackets.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI
+
+            '
+        invalid_parameters:
           type: array
-          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
+
+            Used to indicate which fields have invalid values when validated.
 
             '
           items:
-            type: string
-        source:
-          type: string
-          description: 'The location of the field that caused the error.
-
-            '
-          enum:
-          - body
-          - query
-          - header
-          - path
+            $ref: '#/components/schemas/InvalidParameters'
     MeshProxyPatchItem:
       type: object
       description: MeshProxyPatch provides advanced customization of the Envoy proxy configuration generated by Kuma. It allows you to add, remove, or modify Envoy resources (clusters, listeners, filters, virtual hosts) using YAML patches or JSON patches for fine-grained control beyond standard policies.
@@ -737,73 +815,48 @@ components:
           description: Time at which the resource was updated
           format: date-time
           example: '0001-01-01T00:00:00Z'
-    Error:
+    InvalidParameters:
       type: object
-      title: Error
-      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
-
-        '
-      x-examples:
-        Example 1:
-          status: 404
-          title: Not Found
-          type: https://kongapi.info/konnect/not-found
-          instance: portal:trace:2287285207635123011
-          detail: The requested document was not found
+      title: Invalid Parameters
       required:
-      - status
-      - title
-      - instance
-      - type
-      - detail
+      - field
+      - reason
+      - source
       properties:
-        status:
-          type: integer
-          description: The HTTP status code.
-          example: 404
-        title:
+        field:
           type: string
-          description: 'A short, human-readable summary of the problem.
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
 
-            It **should not** change between occurrences of a problem, except for localization.
-
-            Should be provided as "Sentence case" for potential direct use in a UI
+            _Should_ be provided as "Sentence case" for direct use in a UI.
 
             '
-          example: Not Found
-        type:
+        rule:
           type: string
-          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
 
             '
-          example: Not Found
-        instance:
-          type: string
-          example: portal:trace:2287285207635123011
-          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
-
-            '
-        detail:
-          type: string
-          example: The requested team was not found
-          description: 'A human readable explanation specific to this occurrence of the problem.
-
-            This field may contain request/entity data to help the user understand what went wrong.
-
-            Enclose variable values in square brackets.
-
-            _Should_ be provided as "Sentence case" for direct use in a UI
-
-            '
-        invalid_parameters:
+        choices:
           type: array
-          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
-
-            Used to indicate which fields have invalid values when validated.
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
 
             '
           items:
-            $ref: '#/components/schemas/InvalidParameters'
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
     NotFoundError:
       allOf:
       - $ref: '#/components/schemas/Error'
@@ -826,59 +879,6 @@ components:
           detail:
             type: string
             example: The requested resource was not found
-  responses:
-    MeshProxyPatchDeleteSuccessResponse:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            type: object
-    MeshProxyPatchCreateOrUpdateSuccessResponse:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              warnings:
-                type: array
-                readOnly: true
-                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
-
-                  Warning messages describe a problem the client making the API request should correct or be aware of.
-
-                  '
-                items:
-                  type: string
-    MeshProxyPatchList:
-      description: List
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MeshProxyPatchItem'
-              total:
-                type: number
-                description: The total number of entities
-              next:
-                type: string
-                description: URL to the next page
-    MeshProxyPatchItem:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MeshProxyPatchItem'
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
   securitySchemes:
     BasicAuth:
       type: http

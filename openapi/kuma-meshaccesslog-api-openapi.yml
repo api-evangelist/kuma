@@ -134,7 +134,127 @@ paths:
         '200':
           $ref: '#/components/responses/MeshAccessLogList'
 components:
+  responses:
+    MeshAccessLogCreateOrUpdateSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              warnings:
+                type: array
+                readOnly: true
+                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
+
+                  Warning messages describe a problem the client making the API request should correct or be aware of.
+
+                  '
+                items:
+                  type: string
+    MeshAccessLogList:
+      description: List
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeshAccessLogItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
+    MeshAccessLogDeleteSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+    MeshAccessLogItem:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MeshAccessLogItem'
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
   schemas:
+    Error:
+      type: object
+      title: Error
+      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
+
+        '
+      x-examples:
+        Example 1:
+          status: 404
+          title: Not Found
+          type: https://kongapi.info/konnect/not-found
+          instance: portal:trace:2287285207635123011
+          detail: The requested document was not found
+      required:
+      - status
+      - title
+      - instance
+      - type
+      - detail
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+          example: 404
+        title:
+          type: string
+          description: 'A short, human-readable summary of the problem.
+
+            It **should not** change between occurrences of a problem, except for localization.
+
+            Should be provided as "Sentence case" for potential direct use in a UI
+
+            '
+          example: Not Found
+        type:
+          type: string
+          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
+
+            '
+          example: Not Found
+        instance:
+          type: string
+          example: portal:trace:2287285207635123011
+          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
+
+            '
+        detail:
+          type: string
+          example: The requested team was not found
+          description: 'A human readable explanation specific to this occurrence of the problem.
+
+            This field may contain request/entity data to help the user understand what went wrong.
+
+            Enclose variable values in square brackets.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI
+
+            '
+        invalid_parameters:
+          type: array
+          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
+
+            Used to indicate which fields have invalid values when validated.
+
+            '
+          items:
+            $ref: '#/components/schemas/InvalidParameters'
     InvalidParameters:
       type: object
       title: Invalid Parameters
@@ -1064,126 +1184,6 @@ components:
               type: array
           type: object
           readOnly: true
-    Error:
-      type: object
-      title: Error
-      description: 'Standard error. Follows the [AIP #193 - Errors](https://kong-aip.netlify.app/aip/193/) specification.
-
-        '
-      x-examples:
-        Example 1:
-          status: 404
-          title: Not Found
-          type: https://kongapi.info/konnect/not-found
-          instance: portal:trace:2287285207635123011
-          detail: The requested document was not found
-      required:
-      - status
-      - title
-      - instance
-      - type
-      - detail
-      properties:
-        status:
-          type: integer
-          description: The HTTP status code.
-          example: 404
-        title:
-          type: string
-          description: 'A short, human-readable summary of the problem.
-
-            It **should not** change between occurrences of a problem, except for localization.
-
-            Should be provided as "Sentence case" for potential direct use in a UI
-
-            '
-          example: Not Found
-        type:
-          type: string
-          description: 'A unique identifier for this error. When dereferenced it must provide human-readable documentation for the problem.
-
-            '
-          example: Not Found
-        instance:
-          type: string
-          example: portal:trace:2287285207635123011
-          description: 'Used to return the correlation ID back to the user, in the format `<app>:trace:<correlation_id>`.
-
-            '
-        detail:
-          type: string
-          example: The requested team was not found
-          description: 'A human readable explanation specific to this occurrence of the problem.
-
-            This field may contain request/entity data to help the user understand what went wrong.
-
-            Enclose variable values in square brackets.
-
-            _Should_ be provided as "Sentence case" for direct use in a UI
-
-            '
-        invalid_parameters:
-          type: array
-          description: 'All 400 errors **MUST** return an `invalid_parameters` key in the response.
-
-            Used to indicate which fields have invalid values when validated.
-
-            '
-          items:
-            $ref: '#/components/schemas/InvalidParameters'
-  responses:
-    MeshAccessLogItem:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MeshAccessLogItem'
-    MeshAccessLogDeleteSuccessResponse:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            type: object
-    MeshAccessLogCreateOrUpdateSuccessResponse:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              warnings:
-                type: array
-                readOnly: true
-                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
-
-                  Warning messages describe a problem the client making the API request should correct or be aware of.
-
-                  '
-                items:
-                  type: string
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
-    MeshAccessLogList:
-      description: List
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MeshAccessLogItem'
-              total:
-                type: number
-                description: The total number of entities
-              next:
-                type: string
-                description: URL to the next page
   securitySchemes:
     BasicAuth:
       type: http

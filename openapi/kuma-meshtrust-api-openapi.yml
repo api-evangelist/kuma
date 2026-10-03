@@ -134,49 +134,60 @@ paths:
         '200':
           $ref: '#/components/responses/MeshTrustList'
 components:
+  responses:
+    MeshTrustList:
+      description: List
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeshTrustItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
+    MeshTrustCreateOrUpdateSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              warnings:
+                type: array
+                readOnly: true
+                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
+
+                  Warning messages describe a problem the client making the API request should correct or be aware of.
+
+                  '
+                items:
+                  type: string
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+    MeshTrustDeleteSuccessResponse:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: object
+    MeshTrustItem:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MeshTrustItem'
   schemas:
-    InvalidParameters:
-      type: object
-      title: Invalid Parameters
-      required:
-      - field
-      - reason
-      - source
-      properties:
-        field:
-          type: string
-          description: The name of the field that caused the error.
-        reason:
-          type: string
-          description: 'A short, human-readable description of the problem.
-
-            _Should_ be provided as "Sentence case" for direct use in a UI.
-
-            '
-        rule:
-          type: string
-          description: 'May be provided as a hint to the user to help understand the type of failure.
-
-            Additional guidance may be provided in additional fields, i.e. `choices`.
-
-            '
-        choices:
-          type: array
-          description: 'Optional field to provide a list of valid choices for the field that caused the error.
-
-            '
-          items:
-            type: string
-        source:
-          type: string
-          description: 'The location of the field that caused the error.
-
-            '
-          enum:
-          - body
-          - query
-          - header
-          - path
     MeshTrustItem:
       type: object
       description: MeshTrust defines trusted Certificate Authority (CA) bundles for a trust domain in the mesh. It establishes trust relationships for service-to-service mTLS authentication by specifying which CA certificates are trusted to verify service identities, supporting PEM-encoded CA bundles and enabling secure cross-service communication within the trust domain.
@@ -344,6 +355,48 @@ components:
             '
           items:
             $ref: '#/components/schemas/InvalidParameters'
+    InvalidParameters:
+      type: object
+      title: Invalid Parameters
+      required:
+      - field
+      - reason
+      - source
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI.
+
+            '
+        rule:
+          type: string
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
+
+            '
+        choices:
+          type: array
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+
+            '
+          items:
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
     NotFoundError:
       allOf:
       - $ref: '#/components/schemas/Error'
@@ -366,59 +419,6 @@ components:
           detail:
             type: string
             example: The requested resource was not found
-  responses:
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
-    MeshTrustDeleteSuccessResponse:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            type: object
-    MeshTrustList:
-      description: List
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MeshTrustItem'
-              total:
-                type: number
-                description: The total number of entities
-              next:
-                type: string
-                description: URL to the next page
-    MeshTrustItem:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MeshTrustItem'
-    MeshTrustCreateOrUpdateSuccessResponse:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              warnings:
-                type: array
-                readOnly: true
-                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
-
-                  Warning messages describe a problem the client making the API request should correct or be aware of.
-
-                  '
-                items:
-                  type: string
   securitySchemes:
     BasicAuth:
       type: http
