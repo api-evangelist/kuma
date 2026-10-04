@@ -110,228 +110,35 @@ paths:
       tags:
       - Mesh
 components:
-  responses:
-    MeshList:
-      content:
-        application/json:
-          schema:
-            properties:
-              items:
-                items:
-                  $ref: '#/components/schemas/MeshItem'
-                type: array
-              next:
-                description: URL to the next page
-                type: string
-              total:
-                description: The total number of entities
-                type: number
-            type: object
-      description: List
-    MeshItem:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MeshItem'
-      description: Successful response
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
-    MeshCreateOrUpdateSuccessResponse:
-      content:
-        application/json:
-          schema:
-            properties:
-              warnings:
-                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
-
-                  Warning messages describe a problem the client making the API request should correct or be aware of.
-
-                  '
-                items:
-                  type: string
-                readOnly: true
-                type: array
-            type: object
-      description: Successful response
-    MeshDeleteSuccessResponse:
-      content:
-        application/json:
-          schema:
-            type: object
-      description: Successful response
   schemas:
-    DataSource_Secret:
+    DataSource_Inline:
       properties:
-        secret:
-          description: Data source is a secret with given Secret key.
+        inline:
+          description: Data source is inline bytes.
+          format: byte
           type: string
       type: object
-    DataSource_InlineString:
+    ZipkinTracingBackendConfig:
       properties:
-        inlineString:
-          description: Data source is inline string
+        apiVersion:
+          description: 'Version of the API. values: httpJson, httpJsonV1, httpProto. Default:
+
+            httpJson see
+
+            https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/trace/v3/trace.proto#envoy-v3-api-enum-config-trace-v3-zipkinconfig-collectorendpointversion'
           type: string
-      type: object
-    PrometheusMetricsBackendConfig:
-      description: PrometheusMetricsBackendConfig defines configuration of Prometheus backend
-      properties:
-        aggregate:
-          description: 'Map with the configuration of applications which metrics are going to be
+        sharedSpanContext:
+          description: 'Determines whether client and server spans will share the same span
 
-            scrapped by kuma-dp.'
-          items:
-            description: PrometheusAggregateMetricsConfig defines endpoints that should be scrapped by kuma-dp for prometheus metrics.
-            properties:
-              address:
-                description: Address on which a service expose HTTP endpoint with Prometheus metrics.
-                type: string
-              enabled:
-                description: 'If false then the application won''t be scrapped. If nil, then it is treated
+            context. Default: true.
 
-                  as true and kuma-dp scrapes metrics from the service.'
-                type: boolean
-              name:
-                description: Name which identify given configuration.
-                type: string
-              path:
-                description: Path on which a service expose HTTP endpoint with Prometheus metrics.
-                type: string
-              port:
-                description: Port on which a service expose HTTP endpoint with Prometheus metrics.
-                type: integer
-            type: object
-          type: array
-        envoy:
-          description: Configuration of Envoy's metrics.
-          properties:
-            filterRegex:
-              description: 'FilterRegex value that is going to be passed to Envoy for filtering
-
-                Envoy metrics.'
-              type: string
-            usedOnly:
-              description: 'If true then return metrics that Envoy has updated (counters incremented
-
-                at least once, gauges changed at least once, and histograms added to at
-
-                least once). If nil, then it is treated as false.'
-              type: boolean
-          type: object
-        path:
-          description: 'Path on which a dataplane should expose HTTP endpoint with Prometheus
-
-            metrics.'
-          type: string
-        port:
-          description: 'Port on which a dataplane should expose HTTP endpoint with Prometheus
-
-            metrics.'
-          type: integer
-        skipMTLS:
-          description: 'If true then endpoints for scraping metrics won''t require mTLS even if mTLS
-
-            is enabled in Mesh. If nil, then it is treated as false.'
+            https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/trace/v3/zipkin.proto#config-trace-v3-zipkinconfig'
           type: boolean
-        tags:
-          additionalProperties:
-            type: string
-          description: 'Tags associated with an application this dataplane is deployed next to,
-
-            e.g. service=web, version=1.0.
-
-            `service` tag is mandatory.'
-          type: object
-        tls:
-          description: Configuration of TLS for prometheus listener.
-          properties:
-            mode:
-              description: 'mode defines how configured is the TLS for Prometheus.
-
-                Supported values, delegated, disabled, activeMTLSBackend. Default to
-
-                `activeMTLSBackend`.'
-              oneOf:
-              - type: string
-              - type: integer
-          type: object
-      type: object
-    DatadogTracingBackendConfig:
-      properties:
-        address:
-          description: Address of datadog collector.
-          type: string
-        port:
-          description: Port of datadog collector
-          type: integer
-        splitService:
-          description: 'Determines if datadog service name should be split based on traffic
-
-            direction and destination. For example, with `splitService: true` and a
-
-            `backend` service that communicates with a couple of databases, you would
-
-            get service names like `backend_INBOUND`, `backend_OUTBOUND_db1`, and
-
-            `backend_OUTBOUND_db2` in Datadog. Default: false'
+        traceId128bit:
+          description: 'Generate 128bit traces. Default: false'
           type: boolean
-      type: object
-    BuiltinCertificateAuthorityConfig:
-      properties:
-        caCert:
-          properties:
-            expiration:
-              type: string
-            rsaBits:
-              format: uint32
-              type: integer
-          type: object
-      type: object
-    NotFoundError:
-      allOf:
-      - $ref: '#/components/schemas/Error'
-      - type: object
-        properties:
-          status:
-            type: integer
-            enum:
-            - 404
-            example: 404
-            description: 'The HTTP status code for NotFoundError MUST be 404.
-
-              '
-          title:
-            type: string
-            example: Not Found
-          type:
-            type: string
-            example: https://httpstatuses.com/404
-          detail:
-            type: string
-            example: The requested resource was not found
-    TcpLoggingBackendConfig:
-      description: TcpLoggingBackendConfig defines configuration for TCP based access logs
-      properties:
-        address:
-          description: Address to TCP service that will receive logs
-          type: string
-      type: object
-    DataSource_File:
-      properties:
-        file:
-          description: 'Data source is a path to a file.
-
-            Deprecated, use other sources of a data.'
-          type: string
-      type: object
-    FileLoggingBackendConfig:
-      description: FileLoggingBackendConfig defines configuration for file based access logs
-      properties:
-        path:
-          description: Path to a file that logs will be written to
+        url:
+          description: Address of Zipkin collector.
           type: string
       type: object
     MeshItem:
@@ -614,6 +421,28 @@ components:
       - type
       - name
       type: object
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
+            type: string
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
     ProvidedCertificateAuthorityConfig:
       properties:
         cert:
@@ -628,6 +457,196 @@ components:
           - $ref: '#/components/schemas/DataSource_Inline'
           - $ref: '#/components/schemas/DataSource_InlineString'
           - $ref: '#/components/schemas/DataSource_Secret'
+      type: object
+    BuiltinCertificateAuthorityConfig:
+      properties:
+        caCert:
+          properties:
+            expiration:
+              type: string
+            rsaBits:
+              format: uint32
+              type: integer
+          type: object
+      type: object
+    DatadogTracingBackendConfig:
+      properties:
+        address:
+          description: Address of datadog collector.
+          type: string
+        port:
+          description: Port of datadog collector
+          type: integer
+        splitService:
+          description: 'Determines if datadog service name should be split based on traffic
+
+            direction and destination. For example, with `splitService: true` and a
+
+            `backend` service that communicates with a couple of databases, you would
+
+            get service names like `backend_INBOUND`, `backend_OUTBOUND_db1`, and
+
+            `backend_OUTBOUND_db2` in Datadog. Default: false'
+          type: boolean
+      type: object
+    InvalidParameters:
+      type: object
+      title: Invalid Parameters
+      required:
+      - field
+      - reason
+      - source
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the error.
+        reason:
+          type: string
+          description: 'A short, human-readable description of the problem.
+
+            _Should_ be provided as "Sentence case" for direct use in a UI.
+
+            '
+        rule:
+          type: string
+          description: 'May be provided as a hint to the user to help understand the type of failure.
+
+            Additional guidance may be provided in additional fields, i.e. `choices`.
+
+            '
+        choices:
+          type: array
+          description: 'Optional field to provide a list of valid choices for the field that caused the error.
+
+            '
+          items:
+            type: string
+        source:
+          type: string
+          description: 'The location of the field that caused the error.
+
+            '
+          enum:
+          - body
+          - query
+          - header
+          - path
+    DataSource_InlineString:
+      properties:
+        inlineString:
+          description: Data source is inline string
+          type: string
+      type: object
+    TcpLoggingBackendConfig:
+      description: TcpLoggingBackendConfig defines configuration for TCP based access logs
+      properties:
+        address:
+          description: Address to TCP service that will receive logs
+          type: string
+      type: object
+    DataSource_Secret:
+      properties:
+        secret:
+          description: Data source is a secret with given Secret key.
+          type: string
+      type: object
+    DataSource_File:
+      properties:
+        file:
+          description: 'Data source is a path to a file.
+
+            Deprecated, use other sources of a data.'
+          type: string
+      type: object
+    PrometheusMetricsBackendConfig:
+      description: PrometheusMetricsBackendConfig defines configuration of Prometheus backend
+      properties:
+        aggregate:
+          description: 'Map with the configuration of applications which metrics are going to be
+
+            scrapped by kuma-dp.'
+          items:
+            description: PrometheusAggregateMetricsConfig defines endpoints that should be scrapped by kuma-dp for prometheus metrics.
+            properties:
+              address:
+                description: Address on which a service expose HTTP endpoint with Prometheus metrics.
+                type: string
+              enabled:
+                description: 'If false then the application won''t be scrapped. If nil, then it is treated
+
+                  as true and kuma-dp scrapes metrics from the service.'
+                type: boolean
+              name:
+                description: Name which identify given configuration.
+                type: string
+              path:
+                description: Path on which a service expose HTTP endpoint with Prometheus metrics.
+                type: string
+              port:
+                description: Port on which a service expose HTTP endpoint with Prometheus metrics.
+                type: integer
+            type: object
+          type: array
+        envoy:
+          description: Configuration of Envoy's metrics.
+          properties:
+            filterRegex:
+              description: 'FilterRegex value that is going to be passed to Envoy for filtering
+
+                Envoy metrics.'
+              type: string
+            usedOnly:
+              description: 'If true then return metrics that Envoy has updated (counters incremented
+
+                at least once, gauges changed at least once, and histograms added to at
+
+                least once). If nil, then it is treated as false.'
+              type: boolean
+          type: object
+        path:
+          description: 'Path on which a dataplane should expose HTTP endpoint with Prometheus
+
+            metrics.'
+          type: string
+        port:
+          description: 'Port on which a dataplane should expose HTTP endpoint with Prometheus
+
+            metrics.'
+          type: integer
+        skipMTLS:
+          description: 'If true then endpoints for scraping metrics won''t require mTLS even if mTLS
+
+            is enabled in Mesh. If nil, then it is treated as false.'
+          type: boolean
+        tags:
+          additionalProperties:
+            type: string
+          description: 'Tags associated with an application this dataplane is deployed next to,
+
+            e.g. service=web, version=1.0.
+
+            `service` tag is mandatory.'
+          type: object
+        tls:
+          description: Configuration of TLS for prometheus listener.
+          properties:
+            mode:
+              description: 'mode defines how configured is the TLS for Prometheus.
+
+                Supported values, delegated, disabled, activeMTLSBackend. Default to
+
+                `activeMTLSBackend`.'
+              oneOf:
+              - type: string
+              - type: integer
+          type: object
+      type: object
+    FileLoggingBackendConfig:
+      description: FileLoggingBackendConfig defines configuration for file based access logs
+      properties:
+        path:
+          description: Path to a file that logs will be written to
+          type: string
       type: object
     Error:
       type: object
@@ -696,78 +715,59 @@ components:
             '
           items:
             $ref: '#/components/schemas/InvalidParameters'
-    InvalidParameters:
-      type: object
-      title: Invalid Parameters
-      required:
-      - field
-      - reason
-      - source
-      properties:
-        field:
-          type: string
-          description: The name of the field that caused the error.
-        reason:
-          type: string
-          description: 'A short, human-readable description of the problem.
+  responses:
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+    MeshDeleteSuccessResponse:
+      content:
+        application/json:
+          schema:
+            type: object
+      description: Successful response
+    MeshList:
+      content:
+        application/json:
+          schema:
+            properties:
+              items:
+                items:
+                  $ref: '#/components/schemas/MeshItem'
+                type: array
+              next:
+                description: URL to the next page
+                type: string
+              total:
+                description: The total number of entities
+                type: number
+            type: object
+      description: List
+    MeshCreateOrUpdateSuccessResponse:
+      content:
+        application/json:
+          schema:
+            properties:
+              warnings:
+                description: 'warnings is a list of warning messages to return to the requesting Kuma API clients.
 
-            _Should_ be provided as "Sentence case" for direct use in a UI.
+                  Warning messages describe a problem the client making the API request should correct or be aware of.
 
-            '
-        rule:
-          type: string
-          description: 'May be provided as a hint to the user to help understand the type of failure.
-
-            Additional guidance may be provided in additional fields, i.e. `choices`.
-
-            '
-        choices:
-          type: array
-          description: 'Optional field to provide a list of valid choices for the field that caused the error.
-
-            '
-          items:
-            type: string
-        source:
-          type: string
-          description: 'The location of the field that caused the error.
-
-            '
-          enum:
-          - body
-          - query
-          - header
-          - path
-    ZipkinTracingBackendConfig:
-      properties:
-        apiVersion:
-          description: 'Version of the API. values: httpJson, httpJsonV1, httpProto. Default:
-
-            httpJson see
-
-            https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/trace/v3/trace.proto#envoy-v3-api-enum-config-trace-v3-zipkinconfig-collectorendpointversion'
-          type: string
-        sharedSpanContext:
-          description: 'Determines whether client and server spans will share the same span
-
-            context. Default: true.
-
-            https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/trace/v3/zipkin.proto#config-trace-v3-zipkinconfig'
-          type: boolean
-        traceId128bit:
-          description: 'Generate 128bit traces. Default: false'
-          type: boolean
-        url:
-          description: Address of Zipkin collector.
-          type: string
-      type: object
-    DataSource_Inline:
-      properties:
-        inline:
-          description: Data source is inline bytes.
-          format: byte
-          type: string
-      type: object
+                  '
+                items:
+                  type: string
+                readOnly: true
+                type: array
+            type: object
+      description: Successful response
+    MeshItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MeshItem'
+      description: Successful response
   securitySchemes:
     BasicAuth:
       type: http

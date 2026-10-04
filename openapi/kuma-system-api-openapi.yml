@@ -40,32 +40,32 @@ paths:
         '500':
           $ref: '#/components/responses/Internal'
 components:
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    IndexResponse:
+      description: A response for the index endpoint
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Index'
+    Internal:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ResourceTypeDescriptionListResponse:
+      description: A response containing a list of all resources installed in Kuma
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResourceTypeDescriptionList'
   schemas:
-    PolicyDescription:
-      type: object
-      required:
-      - hasToTargetRef
-      - hasFromTargetRef
-      - hasRulesTargetRef
-      - isTargetRef
-      - isFromAsRules
-      description: information about a policy
-      properties:
-        isTargetRef:
-          description: whether this policy uses targetRef matching
-          type: boolean
-        hasToTargetRef:
-          description: indicates that this policy can be used as an outbound policy
-          type: boolean
-        hasFromTargetRef:
-          description: indicates that this policy can be used as an inbound policy
-          type: boolean
-        hasRulesTargetRef:
-          description: indicates that the policy has a rules targetRef field for matching
-          type: boolean
-        isFromAsRules:
-          description: If set to `true`, performs a backward compatibility conversion from the deprecated 'from' array to the new 'rules' array. This ensures older policies remain functional under the updated schema.
-          type: boolean
     ResourceTypeDescription:
       description: Description of a resource type, this is useful for dynamically generated clients and the gui
       type: object
@@ -104,6 +104,31 @@ components:
           type: boolean
         policy:
           $ref: '#/components/schemas/PolicyDescription'
+    PolicyDescription:
+      type: object
+      required:
+      - hasToTargetRef
+      - hasFromTargetRef
+      - hasRulesTargetRef
+      - isTargetRef
+      - isFromAsRules
+      description: information about a policy
+      properties:
+        isTargetRef:
+          description: whether this policy uses targetRef matching
+          type: boolean
+        hasToTargetRef:
+          description: indicates that this policy can be used as an outbound policy
+          type: boolean
+        hasFromTargetRef:
+          description: indicates that this policy can be used as an inbound policy
+          type: boolean
+        hasRulesTargetRef:
+          description: indicates that the policy has a rules targetRef field for matching
+          type: boolean
+        isFromAsRules:
+          description: If set to `true`, performs a backward compatibility conversion from the deprecated 'from' array to the new 'rules' array. This ensures older policies remain functional under the updated schema.
+          type: boolean
     Error:
       type: object
       title: Error
@@ -213,17 +238,6 @@ components:
           - query
           - header
           - path
-    ResourceTypeDescriptionList:
-      type: object
-      title: ResourceTypeDescriptionList
-      description: A list of all resources install
-      required:
-      - resources
-      properties:
-        resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceTypeDescription'
     Index:
       type: object
       title: Index
@@ -256,31 +270,17 @@ components:
         basedOnKuma:
           type: string
           description: In case of an alternative distribution of Kuma the Kuma version this release is based on
-  responses:
-    Internal:
-      description: Internal Server Error
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ResourceTypeDescriptionListResponse:
-      description: A response containing a list of all resources installed in Kuma
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ResourceTypeDescriptionList'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    IndexResponse:
-      description: A response for the index endpoint
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Index'
+    ResourceTypeDescriptionList:
+      type: object
+      title: ResourceTypeDescriptionList
+      description: A list of all resources install
+      required:
+      - resources
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceTypeDescription'
   securitySchemes:
     BasicAuth:
       type: http

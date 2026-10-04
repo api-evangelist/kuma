@@ -38,6 +38,30 @@ components:
           type: integer
           description: Number of meshes
           example: 3
+    BaseStatus:
+      type: object
+      title: Status
+      required:
+      - online
+      - total
+      properties:
+        online:
+          type: integer
+          example: 10
+        total:
+          type: integer
+          example: 30
+    ResourceStats:
+      type: object
+      title: Resource Stats
+      description: Resource statistics
+      required:
+      - total
+      properties:
+        total:
+          type: integer
+          description: Number of resources
+          example: 30
     ZonesStats:
       type: object
       title: Zones Stats
@@ -59,113 +83,20 @@ components:
           description: Zone Ingresses statistics
           allOf:
           - $ref: '#/components/schemas/BaseStatus'
-    ResourceStats:
-      type: object
-      title: Resource Stats
-      description: Resource statistics
-      required:
-      - total
-      properties:
-        total:
-          type: integer
-          description: Number of resources
-          example: 30
-    GlobalInsightBase:
-      type: object
-      title: GlobalInsightBase
-      description: Global Insight contains statistics for all main resources
-      required:
-      - createdAt
-      - services
-      - zones
-      - dataplanes
-      - policies
-      - meshes
-      - resources
-      properties:
-        createdAt:
-          type: string
-          description: Time of Global Insight creation
-          format: date-time
-          example: '2023-01-11T02:30:42.227Z'
-        services:
-          description: Mesh services statistics
-          allOf:
-          - $ref: '#/components/schemas/ServicesStats'
-        zones:
-          description: Zones statistics
-          allOf:
-          - $ref: '#/components/schemas/ZonesStats'
-        dataplanes:
-          description: Dataplane proxy statistics
-          allOf:
-          - $ref: '#/components/schemas/DataplanesStats'
-        policies:
-          description: Policies statistics
-          allOf:
-          - $ref: '#/components/schemas/PoliciesStats'
-        meshes:
-          description: Mesh statistics
-          allOf:
-          - $ref: '#/components/schemas/MeshesStats'
-        resources:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ResourceStats'
-          description: A map of resource names to their corresponding statistics
-    DataplanesStats:
-      type: object
-      title: Dataplanes Stats
-      description: Dataplanes statistics
-      required:
-      - standard
-      - gatewayBuiltin
-      - gatewayDelegated
-      properties:
-        standard:
-          description: Standard dataplane proxy statistics
-          allOf:
-          - $ref: '#/components/schemas/FullStatus'
-        gatewayBuiltin:
-          description: Builtin Gateway dataplane proxy statistics
-          allOf:
-          - $ref: '#/components/schemas/FullStatus'
-        gatewayDelegated:
-          description: Delegated Gateway dataplane proxy statistics
-          allOf:
-          - $ref: '#/components/schemas/FullStatus'
-    ServicesStats:
-      type: object
-      title: ServicesStats
-      description: Services statistics
-      required:
-      - total
-      - internal
-      - external
-      - gatewayBuiltin
-      - gatewayDelegated
-      properties:
-        internal:
-          description: Internal services statistics
-          allOf:
-          - $ref: '#/components/schemas/FullStatus'
-        external:
-          type: object
-          description: External services statistics
-          required:
-          - total
-          properties:
-            total:
-              type: integer
-              example: 5
-        gatewayBuiltin:
-          description: Builtin Gateway services statistics
-          allOf:
-          - $ref: '#/components/schemas/FullStatus'
-        gatewayDelegated:
-          description: Delegated Gateway services statistics
-          allOf:
-          - $ref: '#/components/schemas/FullStatus'
+    FullStatus:
+      allOf:
+      - $ref: '#/components/schemas/BaseStatus'
+      - type: object
+        required:
+        - offline
+        - partiallyDegraded
+        properties:
+          offline:
+            type: integer
+            example: 15
+          partiallyDegraded:
+            type: integer
+            example: 5
     Error:
       type: object
       title: Error
@@ -275,20 +206,81 @@ components:
           - query
           - header
           - path
-    FullStatus:
-      allOf:
-      - $ref: '#/components/schemas/BaseStatus'
-      - type: object
-        required:
-        - offline
-        - partiallyDegraded
-        properties:
-          offline:
-            type: integer
-            example: 15
-          partiallyDegraded:
-            type: integer
-            example: 5
+    ServicesStats:
+      type: object
+      title: ServicesStats
+      description: Services statistics
+      required:
+      - total
+      - internal
+      - external
+      - gatewayBuiltin
+      - gatewayDelegated
+      properties:
+        internal:
+          description: Internal services statistics
+          allOf:
+          - $ref: '#/components/schemas/FullStatus'
+        external:
+          type: object
+          description: External services statistics
+          required:
+          - total
+          properties:
+            total:
+              type: integer
+              example: 5
+        gatewayBuiltin:
+          description: Builtin Gateway services statistics
+          allOf:
+          - $ref: '#/components/schemas/FullStatus'
+        gatewayDelegated:
+          description: Delegated Gateway services statistics
+          allOf:
+          - $ref: '#/components/schemas/FullStatus'
+    GlobalInsightBase:
+      type: object
+      title: GlobalInsightBase
+      description: Global Insight contains statistics for all main resources
+      required:
+      - createdAt
+      - services
+      - zones
+      - dataplanes
+      - policies
+      - meshes
+      - resources
+      properties:
+        createdAt:
+          type: string
+          description: Time of Global Insight creation
+          format: date-time
+          example: '2023-01-11T02:30:42.227Z'
+        services:
+          description: Mesh services statistics
+          allOf:
+          - $ref: '#/components/schemas/ServicesStats'
+        zones:
+          description: Zones statistics
+          allOf:
+          - $ref: '#/components/schemas/ZonesStats'
+        dataplanes:
+          description: Dataplane proxy statistics
+          allOf:
+          - $ref: '#/components/schemas/DataplanesStats'
+        policies:
+          description: Policies statistics
+          allOf:
+          - $ref: '#/components/schemas/PoliciesStats'
+        meshes:
+          description: Mesh statistics
+          allOf:
+          - $ref: '#/components/schemas/MeshesStats'
+        resources:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ResourceStats'
+          description: A map of resource names to their corresponding statistics
     PoliciesStats:
       type: object
       title: Policies Stats
@@ -300,28 +292,36 @@ components:
           type: integer
           description: Number of policies
           example: 30
-    BaseStatus:
+    DataplanesStats:
       type: object
-      title: Status
+      title: Dataplanes Stats
+      description: Dataplanes statistics
       required:
-      - online
-      - total
+      - standard
+      - gatewayBuiltin
+      - gatewayDelegated
       properties:
-        online:
-          type: integer
-          example: 10
-        total:
-          type: integer
-          example: 30
+        standard:
+          description: Standard dataplane proxy statistics
+          allOf:
+          - $ref: '#/components/schemas/FullStatus'
+        gatewayBuiltin:
+          description: Builtin Gateway dataplane proxy statistics
+          allOf:
+          - $ref: '#/components/schemas/FullStatus'
+        gatewayDelegated:
+          description: Delegated Gateway dataplane proxy statistics
+          allOf:
+          - $ref: '#/components/schemas/FullStatus'
   responses:
-    Internal:
-      description: Internal Server Error
+    BadRequest:
+      description: Bad Request
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Bad Request
+    Internal:
+      description: Internal Server Error
       content:
         application/problem+json:
           schema:

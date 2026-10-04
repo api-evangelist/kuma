@@ -135,23 +135,6 @@ paths:
           $ref: '#/components/responses/MeshTrustList'
 components:
   responses:
-    MeshTrustList:
-      description: List
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MeshTrustItem'
-              total:
-                type: number
-                description: The total number of entities
-              next:
-                type: string
-                description: URL to the next page
     MeshTrustCreateOrUpdateSuccessResponse:
       description: Successful response
       content:
@@ -169,18 +152,35 @@ components:
                   '
                 items:
                   type: string
-    NotFound:
-      description: Not Found
+    MeshTrustList:
+      description: List
       content:
-        application/problem+json:
+        application/json:
           schema:
-            $ref: '#/components/schemas/NotFoundError'
+            type: object
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeshTrustItem'
+              total:
+                type: number
+                description: The total number of entities
+              next:
+                type: string
+                description: URL to the next page
     MeshTrustDeleteSuccessResponse:
       description: Successful response
       content:
         application/json:
           schema:
             type: object
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
     MeshTrustItem:
       description: Successful response
       content:
@@ -188,106 +188,28 @@ components:
           schema:
             $ref: '#/components/schemas/MeshTrustItem'
   schemas:
-    MeshTrustItem:
-      type: object
-      description: MeshTrust defines trusted Certificate Authority (CA) bundles for a trust domain in the mesh. It establishes trust relationships for service-to-service mTLS authentication by specifying which CA certificates are trusted to verify service identities, supporting PEM-encoded CA bundles and enabling secure cross-service communication within the trust domain.
-      required:
-      - type
-      - name
-      - spec
-      properties:
-        type:
-          description: the type of the resource
-          type: string
-          enum:
-          - MeshTrust
-        mesh:
-          description: Mesh is the name of the Kuma mesh this resource belongs to. It may be omitted for cluster-scoped resources.
-          type: string
-          default: default
-        kri:
-          description: A unique identifier for this resource instance used by internal tooling and integrations. Typically derived from resource attributes and may be used for cross-references or indexing
-          type: string
-          readOnly: true
-          example: kri_mtrust_default_zone-east_kuma-system_myresource1_
-        name:
-          description: Name of the Kuma resource
-          type: string
-        labels:
-          additionalProperties:
+    NotFoundError:
+      allOf:
+      - $ref: '#/components/schemas/Error'
+      - type: object
+        properties:
+          status:
+            type: integer
+            enum:
+            - 404
+            example: 404
+            description: 'The HTTP status code for NotFoundError MUST be 404.
+
+              '
+          title:
             type: string
-          description: The labels to help identity resources
-          type: object
-        spec:
-          description: Spec is the specification of the Kuma MeshTrust resource.
-          properties:
-            caBundles:
-              description: 'CABundles contains a list of CA bundles supported by this TrustDomain.
-
-                At least one CA bundle must be specified.'
-              items:
-                properties:
-                  pem:
-                    description: Pem contains the PEM-encoded CA bundle if the Type is set to a PEM-based format.
-                    properties:
-                      value:
-                        description: Value holds the PEM-encoded CA bundle as a string.
-                        type: string
-                    required:
-                    - value
-                    type: object
-                  type:
-                    description: Type specifies the format or source type of the CA bundle.
-                    enum:
-                    - Pem
-                    type: string
-                required:
-                - type
-                type: object
-              minItems: 1
-              type: array
-            origin:
-              description: 'Origin specifies whether the resource was created from a MeshIdentity.
-
-
-                Deprecated: use Status.Origin instead'
-              properties:
-                kri:
-                  description: Resource identifier
-                  type: string
-              type: object
-            trustDomain:
-              description: TrustDomain is the trust domain associated with this resource.
-              maxLength: 253
-              type: string
-          required:
-          - caBundles
-          - trustDomain
-          type: object
-        creationTime:
-          readOnly: true
-          type: string
-          description: Time at which the resource was created
-          format: date-time
-          example: '0001-01-01T00:00:00Z'
-        modificationTime:
-          readOnly: true
-          type: string
-          description: Time at which the resource was updated
-          format: date-time
-          example: '0001-01-01T00:00:00Z'
-        status:
-          description: Status is the current status of the Kuma MeshTrust resource.
-          properties:
-            origin:
-              description: Origin specifies whether the resource was created from a MeshIdentity.
-              properties:
-                kri:
-                  description: Resource identifier
-                  type: string
-              type: object
-          type: object
-          readOnly: true
+            example: Not Found
+          type:
+            type: string
+            example: https://httpstatuses.com/404
+          detail:
+            type: string
+            example: The requested resource was not found
     Error:
       type: object
       title: Error
@@ -397,28 +319,106 @@ components:
           - query
           - header
           - path
-    NotFoundError:
-      allOf:
-      - $ref: '#/components/schemas/Error'
-      - type: object
-        properties:
-          status:
-            type: integer
-            enum:
-            - 404
-            example: 404
-            description: 'The HTTP status code for NotFoundError MUST be 404.
+    MeshTrustItem:
+      type: object
+      description: MeshTrust defines trusted Certificate Authority (CA) bundles for a trust domain in the mesh. It establishes trust relationships for service-to-service mTLS authentication by specifying which CA certificates are trusted to verify service identities, supporting PEM-encoded CA bundles and enabling secure cross-service communication within the trust domain.
+      required:
+      - type
+      - name
+      - spec
+      properties:
+        type:
+          description: the type of the resource
+          type: string
+          enum:
+          - MeshTrust
+        mesh:
+          description: Mesh is the name of the Kuma mesh this resource belongs to. It may be omitted for cluster-scoped resources.
+          type: string
+          default: default
+        kri:
+          description: A unique identifier for this resource instance used by internal tooling and integrations. Typically derived from resource attributes and may be used for cross-references or indexing
+          type: string
+          readOnly: true
+          example: kri_mtrust_default_zone-east_kuma-system_myresource1_
+        name:
+          description: Name of the Kuma resource
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          description: The labels to help identity resources
+          type: object
+        spec:
+          description: Spec is the specification of the Kuma MeshTrust resource.
+          properties:
+            caBundles:
+              description: 'CABundles contains a list of CA bundles supported by this TrustDomain.
 
-              '
-          title:
-            type: string
-            example: Not Found
-          type:
-            type: string
-            example: https://httpstatuses.com/404
-          detail:
-            type: string
-            example: The requested resource was not found
+                At least one CA bundle must be specified.'
+              items:
+                properties:
+                  pem:
+                    description: Pem contains the PEM-encoded CA bundle if the Type is set to a PEM-based format.
+                    properties:
+                      value:
+                        description: Value holds the PEM-encoded CA bundle as a string.
+                        type: string
+                    required:
+                    - value
+                    type: object
+                  type:
+                    description: Type specifies the format or source type of the CA bundle.
+                    enum:
+                    - Pem
+                    type: string
+                required:
+                - type
+                type: object
+              minItems: 1
+              type: array
+            origin:
+              description: 'Origin specifies whether the resource was created from a MeshIdentity.
+
+
+                Deprecated: use Status.Origin instead'
+              properties:
+                kri:
+                  description: Resource identifier
+                  type: string
+              type: object
+            trustDomain:
+              description: TrustDomain is the trust domain associated with this resource.
+              maxLength: 253
+              type: string
+          required:
+          - caBundles
+          - trustDomain
+          type: object
+        creationTime:
+          readOnly: true
+          type: string
+          description: Time at which the resource was created
+          format: date-time
+          example: '0001-01-01T00:00:00Z'
+        modificationTime:
+          readOnly: true
+          type: string
+          description: Time at which the resource was updated
+          format: date-time
+          example: '0001-01-01T00:00:00Z'
+        status:
+          description: Status is the current status of the Kuma MeshTrust resource.
+          properties:
+            origin:
+              description: Origin specifies whether the resource was created from a MeshIdentity.
+              properties:
+                kri:
+                  description: Resource identifier
+                  type: string
+              type: object
+          type: object
+          readOnly: true
   securitySchemes:
     BasicAuth:
       type: http
