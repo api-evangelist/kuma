@@ -71,3 +71,29 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units:
+  - negotiated
+  - none
+  plans:
+  - name: Kuma (Open Source)
+    access: freemium
+    model: free
+    model_how: derived
+    units:
+    - none
+    periods:
+    - per-use
+  - name: Kong Mesh (Enterprise distribution of Kuma)
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
