@@ -308,12 +308,6 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/NotFoundError'
-    ZoneEgressDeleteSuccessResponse:
-      content:
-        application/json:
-          schema:
-            type: object
-      description: Successful response
     ZoneEgressCreateOrUpdateSuccessResponse:
       content:
         application/json:
@@ -329,6 +323,12 @@ components:
                   type: string
                 readOnly: true
                 type: array
+            type: object
+      description: Successful response
+    ZoneEgressDeleteSuccessResponse:
+      content:
+        application/json:
+          schema:
             type: object
       description: Successful response
   securitySchemes:
