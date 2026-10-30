@@ -1,4 +1,4 @@
-# Kuma (kuma)
+# Kuma
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,110 +66,201 @@
 
 Kuma is a platform-agnostic open-source service mesh built on top of Envoy proxy. It provides universal connectivity, security, and observability for services and microservices running on any infrastructure including Kubernetes and VMs.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/kuma/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/kuma/refs/heads/main/apis.yml)
+**Areas:** Envoy · Kubernetes · Microservices · Security · Service Mesh
 
-## Scope
+## Kuma on APIs.io
 
-- **Type:** Index
+Everything profiled for Kuma is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kuma/](https://apis.io/providers/kuma/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (38)
 
-- Envoy
-- Kubernetes
-- Microservices
-- Security
-- Service Mesh
+- [Kuma Kubernetes Policy API](https://apis.io/apis/kuma/kuma-kubernetes-policy-api/) — Kuma extends the Kubernetes API server with Custom Resource Definitions (CRDs) for defining and managing service mesh policies. These resources include…
+- [Kuma Multizone API](https://apis.io/apis/kuma/kuma-multizone-api/) — Kuma's Multizone deployment API enables managing service meshes across multiple Kubernetes clusters and Universal zones from a single global control plane.…
+- [Kuma Dataplane API](https://apis.io/apis/kuma/kuma-dataplane-api/) — The Dataplane API from Kuma — 2 operation(s) for dataplane.
+- [Kuma GlobalInsight API](https://apis.io/apis/kuma/kuma-globalinsight-api/) — The GlobalInsight API from Kuma — 1 operation(s) for globalinsight.
+- [Kuma HostnameGenerator API](https://apis.io/apis/kuma/kuma-hostnamegenerator-api/) — The HostnameGenerator API from Kuma — 2 operation(s) for hostnamegenerator.
+- [Kuma Inspect API](https://apis.io/apis/kuma/kuma-inspect-api/) — The Inspect API from Kuma — 4 operation(s) for inspect.
+- [Kuma KRI API](https://apis.io/apis/kuma/kuma-kri-api/) — The KRI API from Kuma — 1 operation(s) for kri.
+- [Kuma Mesh API](https://apis.io/apis/kuma/kuma-mesh-api/) — The Mesh API from Kuma — 2 operation(s) for mesh.
+- [Kuma MeshAccessLog API](https://apis.io/apis/kuma/kuma-meshaccesslog-api/) — The MeshAccessLog API from Kuma — 2 operation(s) for meshaccesslog.
+- [Kuma MeshCircuitBreaker API](https://apis.io/apis/kuma/kuma-meshcircuitbreaker-api/) — The MeshCircuitBreaker API from Kuma — 2 operation(s) for meshcircuitbreaker.
+- [Kuma Meshes API](https://apis.io/apis/kuma/kuma-meshes-api/) — The Meshes API from Kuma — 9 operation(s) for meshes.
+- [Kuma MeshExternalService API](https://apis.io/apis/kuma/kuma-meshexternalservice-api/) — The MeshExternalService API from Kuma — 2 operation(s) for meshexternalservice.
+- [Kuma MeshFaultInjection API](https://apis.io/apis/kuma/kuma-meshfaultinjection-api/) — The MeshFaultInjection API from Kuma — 2 operation(s) for meshfaultinjection.
+- [Kuma MeshGateway API](https://apis.io/apis/kuma/kuma-meshgateway-api/) — The MeshGateway API from Kuma — 2 operation(s) for meshgateway.
+- [Kuma MeshHealthCheck API](https://apis.io/apis/kuma/kuma-meshhealthcheck-api/) — The MeshHealthCheck API from Kuma — 2 operation(s) for meshhealthcheck.
+- [Kuma MeshHTTPRoute API](https://apis.io/apis/kuma/kuma-meshhttproute-api/) — The MeshHTTPRoute API from Kuma — 2 operation(s) for meshhttproute.
+- [Kuma MeshIdentity API](https://apis.io/apis/kuma/kuma-meshidentity-api/) — The MeshIdentity API from Kuma — 2 operation(s) for meshidentity.
+- [Kuma MeshLoadBalancingStrategy API](https://apis.io/apis/kuma/kuma-meshloadbalancingstrategy-api/) — The MeshLoadBalancingStrategy API from Kuma — 2 operation(s) for meshloadbalancingstrategy.
+- [Kuma MeshMetric API](https://apis.io/apis/kuma/kuma-meshmetric-api/) — The MeshMetric API from Kuma — 2 operation(s) for meshmetric.
+- [Kuma MeshMultiZoneService API](https://apis.io/apis/kuma/kuma-meshmultizoneservice-api/) — The MeshMultiZoneService API from Kuma — 2 operation(s) for meshmultizoneservice.
+- [Kuma MeshOpenTelemetryBackend API](https://apis.io/apis/kuma/kuma-meshopentelemetrybackend-api/) — The MeshOpenTelemetryBackend API from Kuma — 2 operation(s) for meshopentelemetrybackend.
+- [Kuma MeshPassthrough API](https://apis.io/apis/kuma/kuma-meshpassthrough-api/) — The MeshPassthrough API from Kuma — 2 operation(s) for meshpassthrough.
+- [Kuma MeshProxyPatch API](https://apis.io/apis/kuma/kuma-meshproxypatch-api/) — The MeshProxyPatch API from Kuma — 2 operation(s) for meshproxypatch.
+- [Kuma MeshRateLimit API](https://apis.io/apis/kuma/kuma-meshratelimit-api/) — The MeshRateLimit API from Kuma — 2 operation(s) for meshratelimit.
+- [Kuma MeshRetry API](https://apis.io/apis/kuma/kuma-meshretry-api/) — The MeshRetry API from Kuma — 2 operation(s) for meshretry.
+- [Kuma MeshService API](https://apis.io/apis/kuma/kuma-meshservice-api/) — The MeshService API from Kuma — 2 operation(s) for meshservice.
+- [Kuma MeshTCPRoute API](https://apis.io/apis/kuma/kuma-meshtcproute-api/) — The MeshTCPRoute API from Kuma — 2 operation(s) for meshtcproute.
+- [Kuma MeshTimeout API](https://apis.io/apis/kuma/kuma-meshtimeout-api/) — The MeshTimeout API from Kuma — 2 operation(s) for meshtimeout.
+- [Kuma MeshTLS API](https://apis.io/apis/kuma/kuma-meshtls-api/) — The MeshTLS API from Kuma — 2 operation(s) for meshtls.
+- [Kuma MeshTrace API](https://apis.io/apis/kuma/kuma-meshtrace-api/) — The MeshTrace API from Kuma — 2 operation(s) for meshtrace.
+- [Kuma MeshTrafficPermission API](https://apis.io/apis/kuma/kuma-meshtrafficpermission-api/) — The MeshTrafficPermission API from Kuma — 2 operation(s) for meshtrafficpermission.
+- [Kuma MeshTrust API](https://apis.io/apis/kuma/kuma-meshtrust-api/) — The MeshTrust API from Kuma — 2 operation(s) for meshtrust.
+- [Kuma MeshZoneAddress API](https://apis.io/apis/kuma/kuma-meshzoneaddress-api/) — The MeshZoneAddress API from Kuma — 2 operation(s) for meshzoneaddress.
+- [Kuma Secret API](https://apis.io/apis/kuma/kuma-secret-api/) — The Secret API from Kuma — 2 operation(s) for secret.
+- [Kuma System API](https://apis.io/apis/kuma/kuma-system-api/) — The System API from Kuma — 2 operation(s) for system.
+- [Kuma Workload API](https://apis.io/apis/kuma/kuma-workload-api/) — The Workload API from Kuma — 2 operation(s) for workload.
+- [Kuma ZoneEgress API](https://apis.io/apis/kuma/kuma-zoneegress-api/) — The ZoneEgress API from Kuma — 2 operation(s) for zoneegress.
+- [Kuma ZoneIngress API](https://apis.io/apis/kuma/kuma-zoneingress-api/) — The ZoneIngress API from Kuma — 2 operation(s) for zoneingress.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Kuma API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Kuma's control plane REST API for managing service mesh policies, dataplanes, zones, and configurations. It provides endpoints for inspecting and managing all mesh resources including traffic policies, service discovery, and health checks across Universal and Kubernetes deployments.
+- [Kuma Agentic Access](https://apis.io/agentic-access/kuma/kuma-agentic-access/)
 
-- **Human URL:** [https://kuma.io/docs/latest/reference/http-api/](https://kuma.io/docs/latest/reference/http-api/)
-- **Base URL:** `https://localhost:5681`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Control Plane
-- Management
-- REST API
-- Service Mesh
+- [Kuma Mesh Resource Schema](https://apis.io/schemas/kuma/kuma-mesh/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://kuma.io/docs/latest/reference/http-api/)
-- [Getting Started](https://kuma.io/docs/latest/installation/)
-- [Reference](https://kuma.io/docs/latest/reference/http-api/)
-- [OpenAPI](openapi/kuma-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/kuma-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/kuma-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/kuma-mesh-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Linked-data contexts for the provider's vocabulary.
 
-### Kuma Kubernetes Policy API
+- [Kuma Context](https://apis.io/jsonld/kuma/kuma-context/)
 
-Kuma extends the Kubernetes API server with Custom Resource Definitions (CRDs) for defining and managing service mesh policies. These resources include MeshTrafficPermission, MeshRetry, MeshTimeout, MeshCircuitBreaker, MeshHealthCheck, MeshFaultInjection, and MeshRateLimit, enabling fine-grained traffic management, security, and resilience policies for meshed workloads.
+#### Collections (37)
 
-- **Human URL:** [https://kuma.io/docs/latest/policies/](https://kuma.io/docs/latest/policies/)
+Postman and Open Collection request collections.
 
-#### Tags
+- [Kuma API](https://apis.io/collections/kuma/open-kuma-api/)
+- [Kuma Dataplane API](https://apis.io/collections/kuma/open-kuma-dataplane-api/)
+- [Kuma Dataplane GlobalInsight API](https://apis.io/collections/kuma/open-kuma-globalinsight-api/)
+- [Kuma Dataplane HostnameGenerator API](https://apis.io/collections/kuma/open-kuma-hostnamegenerator-api/)
+- [Kuma Dataplane Inspect API](https://apis.io/collections/kuma/open-kuma-inspect-api/)
+- [Kuma Dataplane KRI API](https://apis.io/collections/kuma/open-kuma-kri-api/)
+- [Kuma Dataplane Mesh API](https://apis.io/collections/kuma/open-kuma-mesh-api/)
+- [Kuma Dataplane MeshAccessLog API](https://apis.io/collections/kuma/open-kuma-meshaccesslog-api/)
+- [Kuma Dataplane MeshCircuitBreaker API](https://apis.io/collections/kuma/open-kuma-meshcircuitbreaker-api/)
+- [Kuma Dataplane Meshes API](https://apis.io/collections/kuma/open-kuma-meshes-api/)
+- [Kuma Dataplane MeshExternalService API](https://apis.io/collections/kuma/open-kuma-meshexternalservice-api/)
+- [Kuma Dataplane MeshFaultInjection API](https://apis.io/collections/kuma/open-kuma-meshfaultinjection-api/)
+- [Kuma Dataplane MeshGateway API](https://apis.io/collections/kuma/open-kuma-meshgateway-api/)
+- [Kuma Dataplane MeshHealthCheck API](https://apis.io/collections/kuma/open-kuma-meshhealthcheck-api/)
+- [Kuma Dataplane MeshHTTPRoute API](https://apis.io/collections/kuma/open-kuma-meshhttproute-api/)
+- [Kuma Dataplane MeshIdentity API](https://apis.io/collections/kuma/open-kuma-meshidentity-api/)
+- [Kuma Dataplane MeshLoadBalancingStrategy API](https://apis.io/collections/kuma/open-kuma-meshloadbalancingstrategy-api/)
+- [Kuma Dataplane MeshMetric API](https://apis.io/collections/kuma/open-kuma-meshmetric-api/)
+- [Kuma Dataplane MeshMultiZoneService API](https://apis.io/collections/kuma/open-kuma-meshmultizoneservice-api/)
+- [Kuma Dataplane MeshOpenTelemetryBackend API](https://apis.io/collections/kuma/open-kuma-meshopentelemetrybackend-api/)
+- [Kuma Dataplane MeshPassthrough API](https://apis.io/collections/kuma/open-kuma-meshpassthrough-api/)
+- [Kuma Dataplane MeshProxyPatch API](https://apis.io/collections/kuma/open-kuma-meshproxypatch-api/)
+- [Kuma Dataplane MeshRateLimit API](https://apis.io/collections/kuma/open-kuma-meshratelimit-api/)
+- [Kuma Dataplane MeshRetry API](https://apis.io/collections/kuma/open-kuma-meshretry-api/)
+- [Kuma Dataplane MeshService API](https://apis.io/collections/kuma/open-kuma-meshservice-api/)
+- …and 12 more published on APIs.io
 
-- CRD
-- Kubernetes
-- Policy
-- Traffic Management
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://kuma.io/docs/latest/policies/)
-- [Reference](https://kuma.io/docs/latest/reference/kubernetes-annotations/)
-- [Postman Collection](collections/kuma-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/kuma-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Kuma — jsonschema rules](https://apis.io/rules/kuma/kuma-jsonschema-spectral-rules/)
 
-### Kuma Multizone API
+#### Security (2)
 
-Kuma's Multizone deployment API enables managing service meshes across multiple Kubernetes clusters and Universal zones from a single global control plane. It provides resources for zone management, cross-zone traffic routing, and zone egress and ingress configuration.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://kuma.io/docs/latest/production/deployment/multi-zone/](https://kuma.io/docs/latest/production/deployment/multi-zone/)
+- [Kuma Authentication](https://apis.io/security/kuma/kuma-authentication/)
+- [Kuma Domain Security](https://apis.io/security/kuma/kuma-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Control Plane
-- Federation
-- Multi-Cluster
-- Multizone
+Published plans, tiers and prices.
 
-#### Properties
+- [Kuma Plans Pricing](https://apis.io/plans/kuma/kuma-plans-pricing/)
 
-- [Documentation](https://kuma.io/docs/latest/production/deployment/multi-zone/)
-- [Reference](https://kuma.io/docs/latest/reference/http-api/)
-- [Postman Collection](collections/kuma-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/kuma-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-## Common Properties
+Published request limits.
+
+- [Kuma Rate Limits](https://apis.io/rate-limits/kuma/kuma-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Kuma Finops](https://apis.io/finops/kuma/kuma-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://kuma.io/)
 - [Documentation](https://kuma.io/docs/)
-- [Getting Started](https://kuma.io/docs/latest/installation/)
-- [GitHub Organization](https://github.com/kumahq)
-- [GitHub Repository](https://github.com/kumahq/kuma)
-- [Community](https://kuma.io/community/)
-- [Blog](https://kuma.io/blog/)
-- [Slack](https://kuma-mesh.slack.com/)
-- [Changelog](https://github.com/kumahq/kuma/releases)
+- [Getting started](https://kuma.io/docs/latest/installation/)
 - [Support](https://kuma.io/community/)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/kuma)
+- [Changelog](https://github.com/kumahq/kuma/releases)
+- [Blog](https://kuma.io/blog/)
 - [Security](https://github.com/kumahq/kuma/blob/master/SECURITY.md)
-- [YouTube](https://www.youtube.com/@KumaMesh)
-- [JSON Schema](json-schema/kuma-mesh-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/kuma-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [GitHub](https://github.com/kumahq)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 40.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 50.7 |
+| Contract governance | 9.8 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 47.6 |
+| Access clarity | 5.3 |
+
+**Agent readiness 24.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kuma/](https://apis.io/providers/kuma/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kuma: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kuma/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
